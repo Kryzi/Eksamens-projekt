@@ -5,6 +5,8 @@ extends Node2D
 @export var enemy_1: PackedScene
 @export var enemy_2: PackedScene
 @export var enemy_3: PackedScene
+@export var stone_obstacle: PackedScene
+@export var wood_obstacle: PackedScene
 
 @onready var map_controller = get_node("/root/Main/MapController")
 @onready var background = map_controller.get_node("Background")
@@ -15,9 +17,11 @@ extends Node2D
 @onready var layout2_bridge = background.get_node("Layout2Bridge")
 
 @onready var boundary = layout1.get_node("EnemyArea1/SpawnPolygon1")
+@onready var obstacle_collision_shape = layout1.get_node("ObstacleArea/CollisionShape2D")
 
+@onready var obstacle_scene_array: Array[PackedScene] = [stone_obstacle, wood_obstacle]
 var spawnArea: Rect2  # Define a Rect2 for spawn area
-
+var obstacleArea: Rect2
 var rewardValue: int = 0
 #var mapValue: String = ""
 
@@ -26,10 +30,31 @@ var teleporter2 = 0
 var variationID = 0
 
 func _ready() -> void:
-	create_spawner(boundary)
-	
+	create_spawn_area(boundary)
+	create_obstacle_area(obstacle_collision_shape)
 
-func create_spawner(new_boundary):
+#func update_navigation_obstacles():
+	#var navigation_region = $NavigationRegion2D
+	#if navigation_region is NavigationRegion2D:
+		#var nav_polygon = navigation_region.navigation_polygon
+		#for static_body in get_tree().get_nodes_in_group("obstacle"):
+			#if static_body is StaticBody2D:
+				#var collision_shape := static_body.get_child("CollisionShape2D") as CollisionShape2D
+				#if collision_shape.shape is RectangleShape2D:
+					#var rect = collision_shape.size  # Assuming RectangleShape2D
+					#var global_position = static_body.global_position
+					#nav_polygon.add_collision_polygon(Rect2(global_position - rect / 2, rect))
+
+
+func create_obstacle_area(new_obstacle_collision_shape: CollisionShape2D) -> void:
+	obstacleArea = get_obstacle_area(new_obstacle_collision_shape)
+	
+	var amount = randi_range(1, 10)
+	for i in amount:
+		#print(i)
+		random_obstacle_generation()
+		
+func create_spawn_area(new_boundary):
 	spawnArea = get_spawn_area(new_boundary)  # Calculate the spawn area bounding box
 	
 	#print("Spawner ready:", self.name, "from", get_parent())
@@ -38,6 +63,17 @@ func create_spawner(new_boundary):
 		#print(i)
 		random_spawn()
 
+func get_obstacle_area(collision_shape_for_obstacle_area: CollisionShape2D) -> Rect2:
+	var shape = collision_shape_for_obstacle_area.shape
+	if shape is RectangleShape2D:
+		var size = (shape as RectangleShape2D).size  # Width and height of the rectangle
+		var top_left = collision_shape_for_obstacle_area.to_global(-size / 2)
+		var bottom_right = collision_shape_for_obstacle_area.to_global(size / 2)
+		
+		return Rect2(top_left, bottom_right - top_left)  # Create Rect2 from top-left and size
+	
+	return Rect2()  # Return an empty Rect2 if shape type is unsupported
+		
 func get_spawn_area(boundary_for_spawn_area: CollisionPolygon2D) -> Rect2:
 	var min_x = INF
 	var min_y = INF
@@ -52,6 +88,16 @@ func get_spawn_area(boundary_for_spawn_area: CollisionPolygon2D) -> Rect2:
 		max_y = max(max_y, global_point.y)
 
 	return Rect2(Vector2(min_x, min_y), Vector2(max_x - min_x, max_y - min_y))
+
+func random_obstacle_generation() -> void:
+	var rand_x = randf_range(obstacleArea.position.x, obstacleArea.end.x)
+	var rand_y = randf_range(obstacleArea.position.y, obstacleArea.end.y)
+	var pos = Vector2(rand_x, rand_y)
+	var obstacle_scene = obstacle_scene_array.pick_random()
+	var obstacle_instance = obstacle_scene.instantiate()
+	
+	obstacle_instance.position = pos
+	call_deferred("add_child", obstacle_instance)
 
 func random_spawn():
 	var x = randf_range(spawnArea.position.x, spawnArea.end.x)

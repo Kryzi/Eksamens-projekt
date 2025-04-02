@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1lx361saaoff"]
+
+[ext_resource type="Texture2D" uid="uid://cb6gpvsw0gl6u" path="res://sprites/andet/forhindringer/sten.png" id="1_c4mgk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h0geb"]
+radius = 30.0
+
+[node name="StoneObstacle" type="StaticBody2D" groups=["obstacle"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h0geb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-57, -72)
+scale = Vector2(3, 3)
+texture = ExtResource("1_c4mgk")
+centered = false
