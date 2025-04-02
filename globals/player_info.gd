@@ -28,6 +28,10 @@ var ammo_data: Dictionary = {
 		ammo_changed.emit(ammo_data)  # Automatically emit signal when changed
 var is_interacting_with_UI: bool = false
 
+# Max våben og våben kost
+var weaponLimit = 5
+var weaponLimitCost = 10
+
 # Til mapcontroller og spawner
 var areaID = 0
 var bossTimer = 0

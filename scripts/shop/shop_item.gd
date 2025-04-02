@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 func _on_purchase_button_pressed() -> void:
-	if (PlayerInfo.current_coins >= weapon_resource.cost and PlayerWeapons.get_child_count() < 10):
+	if (PlayerInfo.current_coins >= weapon_resource.cost and PlayerWeapons.get_child_count() < PlayerInfo.weaponLimit):
 		PlayerInfo.current_coins -= weapon_resource.cost
 		%PurchaseButton.disabled = true
 		var weapon_instance = weapon_resource.scene.instantiate()
