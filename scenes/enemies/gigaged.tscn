@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://c0gwl5rrefms3"]
+[gd_scene load_steps=57 format=3 uid="uid://c0gwl5rrefms3"]
 
 [ext_resource type="Script" path="res://scripts/enemies/boss/gigaged.gd" id="1_xvsls"]
 [ext_resource type="PackedScene" uid="uid://323cq8waejjw" path="res://scenes/bullets/gigaged_bullet.tscn" id="2_0neel"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b04a7qtw1y33o" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_idle-2-6.png" id="3_le2fm"]
 [ext_resource type="Texture2D" uid="uid://2045p7sh5r4j" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_idle-3-5_walk-3.png" id="4_yt77j"]
 [ext_resource type="Texture2D" uid="uid://bt44avgilu56" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_idle-4_tramp-angreb-3.png" id="5_4vf8r"]
+[ext_resource type="PackedScene" uid="uid://ccogpqp72dena" path="res://scenes/collectables/coin.tscn" id="5_brgbh"]
 [ext_resource type="Texture2D" uid="uid://bdq245bht1rha" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_idle-1_walk-1-3.png" id="6_ujo5a"]
 [ext_resource type="Texture2D" uid="uid://br3okd2b72kl3" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_idle-2.png" id="7_lmbb2"]
 [ext_resource type="Texture2D" uid="uid://ck04o3s4u2bxa" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_idle-3_tramp-angreb-3.png" id="8_3wr26"]
@@ -383,6 +384,7 @@ script = ExtResource("1_xvsls")
 bullet_scene = ExtResource("2_0neel")
 gigaged_lorteprojektil_texture = ExtResource("3_2k3s3")
 gigaged_jord_projektil_texture = ExtResource("3_gnejf")
+coin_scene = ExtResource("5_brgbh")
 
 [node name="Krop" type="AnimatedSprite2D" parent="."]
 scale = Vector2(8, 8)

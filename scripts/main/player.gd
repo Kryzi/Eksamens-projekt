@@ -68,4 +68,4 @@ func hit_damage(damage):
 
 func die():
 	var highScore = PlayerInfo.current_coins
-	PlayerInfo.player_died.emit(highScore)
+	PlayerInfo.player_won.emit(highScore)
