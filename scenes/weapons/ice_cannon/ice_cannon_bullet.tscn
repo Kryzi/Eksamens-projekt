@@ -8,7 +8,7 @@ size = Vector2(80, 37)
 
 [node name="IsKanonBullet" type="Area2D" groups=["projectile"]]
 script = ExtResource("1_wawsl")
-BulletSpeed = 500
+BulletSpeed = 1000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(32, 0)
