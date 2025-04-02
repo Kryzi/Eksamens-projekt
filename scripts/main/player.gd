@@ -1,3 +1,4 @@
+
 extends CharacterBody2D
 
 @export var maxHealth: int = 20
@@ -5,6 +6,7 @@ var currentHealth: int
 var speed: int = 25000 # speed in pixels/sec
 var player_state: String = "Idle"
 var last_direction: Vector2 = Vector2.DOWN  # Standardretning
+var recoil_velocity: Vector2 
 
 func _ready():
 	currentHealth = maxHealth
@@ -23,10 +25,16 @@ func _physics_process(delta):
 	else:
 		player_state = "Walking"
 		last_direction = direction.normalized()  # Husk sidste retning
-
-	velocity = direction * speed * delta
+	
+	var input_velocity = direction * speed * delta
 	move_and_slide()
-
+	
+	var recoil_decay: float = 0.9
+	velocity = input_velocity + recoil_velocity
+	recoil_velocity *= recoil_decay
+	
+	print(velocity)
+	
 	play_anim(direction)
 	
 

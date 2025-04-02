@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c8qnpo7dkw86m"]
 
-[ext_resource type="Script" path="res://scripts/weapons/basic_shooting.gd" id="1_3kubv"]
+[ext_resource type="Script" path="res://scripts/weapons/special_weapons/ice_cannon.gd" id="1_82qe8"]
 [ext_resource type="Texture2D" uid="uid://ddgkpjrm1vhhi" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_angreb-1.png" id="2_0y64m"]
 [ext_resource type="PackedScene" uid="uid://cyouknex6divm" path="res://scenes/weapons/ice_cannon/ice_cannon_bullet.tscn" id="2_jkk2c"]
 [ext_resource type="Texture2D" uid="uid://jdo6ctwiuypf" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_angreb-2.png" id="3_lq7ul"]
@@ -41,12 +41,12 @@ animations = [{
 }]
 
 [node name="IsKanon" type="Node2D"]
-script = ExtResource("1_3kubv")
+script = ExtResource("1_82qe8")
 Bullet = ExtResource("2_jkk2c")
-damage = 15
+damage = 20
 magSize = 1
 maxAmmo = 5
-reloadTime = 3.5
+reloadTime = 2.5
 metadata/IconId = "IsKanon"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

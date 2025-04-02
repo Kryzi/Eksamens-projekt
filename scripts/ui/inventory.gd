@@ -13,6 +13,7 @@ var ammoOutHighlight: Color = Color.RED
 
 func _ready() -> void:
 	checkForNewWeapons()
+	HighlightWeapon()
 
 func _process(_delta: float) -> void:
 	pass
