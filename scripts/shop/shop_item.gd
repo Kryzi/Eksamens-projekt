@@ -7,6 +7,7 @@ func _ready() -> void:
 	%PurchaseButton.set_text(weapon_resource.weapon_name + ": " + str(weapon_resource.cost) + " coins")
 
 
+
 func _on_purchase_button_pressed() -> void:
 	if (PlayerInfo.current_coins >= weapon_resource.cost and PlayerWeapons.get_child_count() < PlayerInfo.weaponLimit):
 		PlayerInfo.current_coins -= weapon_resource.cost

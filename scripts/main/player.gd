@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var maxHealth: int = 20
 var currentHealth: int
-var speed: int = 25000 # speed in pixels/sec
+var speed: int = 50000 # speed in pixels/sec
 var player_state: String = "Idle"
 var last_direction: Vector2 = Vector2.DOWN  # Standardretning
 var recoil_velocity: Vector2 
