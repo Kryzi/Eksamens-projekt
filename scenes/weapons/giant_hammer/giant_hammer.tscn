@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dg6msycllecxg"]
+[gd_scene load_steps=13 format=3 uid="uid://dg6msycllecxg"]
 
 [ext_resource type="Script" path="res://scripts/weapons/special_weapons/giant_hammer.gd" id="1_qhuif"]
 [ext_resource type="Texture2D" uid="uid://b1apw7pcej0vu" path="res://sprites/vaaben/melee/hammer/hammer_angreb-1.png" id="2_d3yac"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c4xblt2vgbfys" path="res://sprites/vaaben/melee/hammer/hammer_windup-1.png" id="7_tltw6"]
 [ext_resource type="Texture2D" uid="uid://su4w3mbkbo40" path="res://sprites/vaaben/melee/hammer/hammer_windup-2.png" id="8_es5b4"]
 [ext_resource type="Texture2D" uid="uid://d2qgyl2oijvas" path="res://sprites/vaaben/melee/hammer/hammer_windup-3.png" id="9_hjbkd"]
+[ext_resource type="AudioStream" uid="uid://b0vs4itbp5sps" path="res://sounds/hammer sound.mp3" id="10_sa5ot"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hpdg7"]
 animations = [{
@@ -74,5 +75,8 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0.5, -0.125)
 shape = SubResource("RectangleShape2D_axbx5")
+
+[node name="HammerSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_sa5ot")
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
