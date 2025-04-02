@@ -34,11 +34,11 @@ var shake_strength: float = 0.0
 
 
 func _ready() -> void:
-	%GameOverPanel.hide()
+	%EndScreenPanel.hide()
 	PlayerInfo.coin_count_changed.connect(updateCoins)
 	PlayerInfo.health_changed.connect(updateHealthBar)
 	PlayerInfo.ammo_changed.connect(updateAmmo)
-	PlayerInfo.player_reached_end_screen.connect(showEndScreen)
+	PlayerInfo.win_screen_reached.connect(showEndScreen)
 	
 	updateCoins(PlayerInfo.current_coins)
 	updateHealthBar(PlayerInfo.health_data)
@@ -69,7 +69,7 @@ func showEndScreen(is_player_a_winner: bool, new_high_score: int):
 	var end_screen_text = "You win" if is_player_a_winner else "Game over"
 	%EndScreenTextLabel.set_text(end_screen_text)
 	%HighScoreLabel.set_text("High Score: " + str(new_high_score))
-	%GameOverPanel.show()
+	%EndScreenPanel.show()
 	get_tree().paused = true
 	
 
