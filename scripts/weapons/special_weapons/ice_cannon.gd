@@ -22,6 +22,7 @@ var reserveAmmo: int # Den mængde skud man har, i alt
 var reloading = false
 @export var recoil_force = 1200.0  # Højere værdi for en mærkbar effekt
 
+@onready var CanonSound = $CanonSound
 
 var ranged = true
 
@@ -104,6 +105,7 @@ func shoot():
 	currentAmmo -= 1
 	
 	$AnimatedSprite2D.play("Attack")
+	CanonSound.play()
 	PlayerInfo.ammo_data = {
 		"current_ammo": currentAmmo,
 		"mag_size": magSize,

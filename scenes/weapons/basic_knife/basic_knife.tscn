@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf082ldlxis2j"]
+[gd_scene load_steps=10 format=3 uid="uid://bf082ldlxis2j"]
 
 [ext_resource type="Texture2D" uid="uid://ib3suh03eebi" path="res://sprites/vaaben/melee/kniv/kniv_angeb-1.png" id="1_kflbs"]
 [ext_resource type="Script" path="res://scripts/weapons/basic_melee_weapon.gd" id="1_qxdci"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bda2w1dqn1ty3" path="res://sprites/vaaben/melee/kniv/kniv_angeb-3.png" id="3_yfkcc"]
 [ext_resource type="Texture2D" uid="uid://bansey017tn4c" path="res://sprites/vaaben/melee/kniv/kniv_angeb-4.png" id="4_51vj0"]
 [ext_resource type="Texture2D" uid="uid://cq483p68yt4ko" path="res://sprites/vaaben/melee/kniv/kniv_idle.png" id="5_vaqcu"]
+[ext_resource type="AudioStream" uid="uid://cddmp6rp12yri" path="res://sounds/knife sound.mp3" id="7_yyg57"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nllp1"]
 animations = [{
@@ -59,5 +60,8 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(5.66667, 1.00001)
 shape = SubResource("RectangleShape2D_axbx5")
+
+[node name="KnifeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_yyg57")
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

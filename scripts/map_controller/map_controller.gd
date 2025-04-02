@@ -135,7 +135,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 			layout1.visible = true
 			
 			var boundary1 = layout1.get_node("EnemyArea1/SpawnPolygon1")
-			spawner.create_spawner(boundary1)
+			spawner.create_spawn_area(boundary1)
 		
 		if PlayerInfo.areaID == 2:
 			body.global_position = layout2.get_node("Spawnpoint").global_position
@@ -145,7 +145,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 			layout2.visible = true
 			
 			var boundary2 = layout2.get_node("EnemyArea2/SpawnPolygon2")
-			spawner.create_spawner(boundary2)
+			spawner.create_spawn_area(boundary2)
 		
 		if PlayerInfo.areaID == 3:
 			pass

@@ -13,4 +13,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") or body.is_in_group("Skjold"):
 		body.hit_damage(damage)
 		queue_free()
-	
+	elif body.is_in_group("obstacle"):
+		queue_free()

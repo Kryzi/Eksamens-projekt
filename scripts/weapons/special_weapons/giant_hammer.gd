@@ -7,6 +7,7 @@ extends Node2D
 ## Distancen våbenet har til splleren
 @export var rotation_radius: float = 50.0
 
+@onready var HammerSound = $HammerSound
 
 var currentAmmo = 999
 var magSize = 999
@@ -36,6 +37,7 @@ func _process(_delta: float) -> void:
 		await $AnimatedSprite2D.animation_finished
 		
 		$AnimatedSprite2D.play("Attack")
+		HammerSound.play()
 		$Hurtbox.monitoring = true
 		
 		

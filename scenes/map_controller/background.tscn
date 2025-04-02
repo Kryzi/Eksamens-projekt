@@ -19,24 +19,6 @@ visible = false
 
 [node name="Layout1BridgeShop" parent="." instance=ExtResource("6_mdgv1")]
 visible = false
-basic_bow_scene = null
-basic_bow_texture = null
-basic_bow_cost = 0
-basic_knife_scene = null
-basic_knife_texture = null
-basic_knife_cost = 0
-boomerang_scene = null
-boomerang_texture = null
-boomerang_cost = 0
-water_staff_scene = null
-water_staff_texture = null
-water_staff_cost = 0
-giant_hammer_scene = null
-giant_hammer_texture = null
-giant_hammer_cost = 0
-shield_scene = null
-shield_texture = null
-shield_cost = 0
 
 [node name="Layout2" parent="." instance=ExtResource("4_77msy")]
 visible = false

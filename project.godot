@@ -25,6 +25,7 @@ player=""
 enemy=""
 Skjold=""
 projectile=""
+obstacle=""
 
 [input]
 

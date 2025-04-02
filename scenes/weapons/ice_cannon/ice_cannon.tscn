@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8qnpo7dkw86m"]
+[gd_scene load_steps=11 format=3 uid="uid://c8qnpo7dkw86m"]
 
 [ext_resource type="Script" path="res://scripts/weapons/special_weapons/ice_cannon.gd" id="1_82qe8"]
 [ext_resource type="Texture2D" uid="uid://ddgkpjrm1vhhi" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_angreb-1.png" id="2_0y64m"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cj8r58l6jli0f" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_angreb-4.png" id="5_nt0ob"]
 [ext_resource type="Texture2D" uid="uid://cc8tey4uqa3dq" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_angreb-5.png" id="6_iqd20"]
 [ext_resource type="Texture2D" uid="uid://bim84cp6kchdj" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_idle.png" id="9_2o0qf"]
+[ext_resource type="AudioStream" uid="uid://bx382ox5kh3hp" path="res://sounds/canon sound.mp3" id="9_7bffl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f2a2s"]
 animations = [{
@@ -58,3 +59,7 @@ frame_progress = 1.0
 flip_h = true
 
 [node name="ShootingPoint" type="Marker2D" parent="."]
+
+[node name="CanonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_7bffl")
+volume_db = -11.243
