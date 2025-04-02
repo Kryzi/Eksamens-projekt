@@ -29,15 +29,24 @@ func _physics_process(delta):
 	if particleOffset < 51:
 		particleOffset += 1
 	
-	$FireParticle.rotation = direction.angle() #+ PI
+	rotation = direction.angle() + PI
+	
 	$FireParticle.global_position = global_position - (direction * particleOffset)  # Flyt partiklen bagud
-	$FireParticle.scale_amount_min += 0.01
-	$FireParticle.scale_amount_max += 0.01
+	
+	
+	
+	if BulletSpeed == 375:
+		$FireParticle.texture = load("res://sprites/vaaben/partikler/ild/ild_partikel-2.png")
 	
 	if BulletSpeed > 125:
 		BulletSpeed -= 1
-	
-	
+	if BulletSpeed == 125:
+		$FireParticle.initial_velocity_min = 40
+		$FireParticle.initial_velocity_max = 75
+		BulletSpeed = 124
+	else:
+		$FireParticle.scale_amount_min += 0.01
+		$FireParticle.scale_amount_max += 0.01
 	
 
 func _on_body_entered(body: Node2D) -> void:
