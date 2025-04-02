@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0v146npydiyy"]
+
+[ext_resource type="Script" path="res://scripts/weapons/special_weapons/boomerang.gd" id="1_1tt54"]
+[ext_resource type="PackedScene" uid="uid://cmfr0ks7vpuhe" path="res://scenes/weapons/boomerang/boomerang_projectile.tscn" id="2_42sl5"]
+[ext_resource type="Texture2D" uid="uid://bxjs6sgdq41bj" path="res://sprites/vaaben/ranged/bommerang/bommerag_angreb-3.png" id="3_gkl4r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1cgnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gkl4r")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Boomerang (weapon)" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_1tt54")
+Boomerang = ExtResource("2_42sl5")
+metadata/IconId = "Boomerang"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1cgnq")
+animation = &"Idle"
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+position = Vector2(6, -1)

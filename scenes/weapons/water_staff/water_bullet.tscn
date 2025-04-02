@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgku6x7r8v7vs"]
+
+[ext_resource type="Script" path="res://scripts/weapons/special_weapons/water_bullet.gd" id="1_g5h0x"]
+[ext_resource type="PackedScene" uid="uid://dlvrpk0a81rxl" path="res://scenes/weapons/water_staff/water_particle.tscn" id="2_8ddvj"]
+[ext_resource type="Texture2D" uid="uid://cynaaqmxjp7v" path="res://sprites/vaaben/ranged/vand_stav/projektil_vand-stav.png" id="2_tav5m"]
+[ext_resource type="Texture2D" uid="uid://devqtim1hpddo" path="res://sprites/vaaben/partikler/vand/vand_partikel-1.png" id="3_83hcl"]
+[ext_resource type="Texture2D" uid="uid://bj7cmr2w35o1n" path="res://sprites/vaaben/partikler/vand/vand_partikel-2.png" id="4_vg28x"]
+[ext_resource type="Texture2D" uid="uid://dc3ymntdcvt0" path="res://sprites/vaaben/partikler/vand/vand_partikel-3.png" id="5_adfgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4nmw"]
+size = Vector2(5, 3)
+
+[node name="WaterBullet" type="Area2D" groups=["projectile"]]
+scale = Vector2(3, 3)
+script = ExtResource("1_g5h0x")
+BulletSpeed = 600
+zigzag_amplitude = 10.0
+waterParticle = ExtResource("2_8ddvj")
+vand_partikel_1_texture = ExtResource("3_83hcl")
+vand_partikel_2_texture = ExtResource("4_vg28x")
+vand_partikel_3_texture = ExtResource("5_adfgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, 0.5)
+texture = ExtResource("2_tav5m")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_s4nmw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

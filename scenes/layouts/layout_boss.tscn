@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc1aysvavymnc"]
+
+[ext_resource type="Texture2D" uid="uid://bcigv1awsp7b5" path="res://sprites/omraader/omraade1/o1-boss/o1-boss_fuld.png" id="1_hju2k"]
+
+[node name="LayoutBoss" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Boundary" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundary"]
+position = Vector2(540, 2256)
+build_mode = 1
+polygon = PackedVector2Array(118, -1423, 2011, -1480, 1993, -361, 1807, -294, 182, -247)
+disabled = true
+
+[node name="BossSpawnpoint" type="Marker2D" parent="."]
+position = Vector2(2209, 1361)
+
+[node name="Spawnpoint" type="Marker2D" parent="."]
+position = Vector2(810, 1256)
+
+[node name="O1-bossFuld" type="Sprite2D" parent="."]
+position = Vector2(1592.36, 1514.13)
+scale = Vector2(13.2898, 13.2898)
+texture = ExtResource("1_hju2k")

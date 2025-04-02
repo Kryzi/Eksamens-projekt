@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgrrba5xjnrnt"]
+
+[ext_resource type="Texture2D" uid="uid://c4lbw0ps8gyvg" path="res://sprites/vaaben/ranged/bue/bue_idle.png" id="1_8boi0"]
+[ext_resource type="Script" path="res://scripts/shop/shop_item.gd" id="1_du4mt"]
+
+[node name="ShopItemPanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 220)
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+script = ExtResource("1_du4mt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PurchaseButton" type="Button" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Basic bow: 2 coins"
+
+[node name="ShopItemPanel" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="ShopItemTextureRect" type="TextureRect" parent="MarginContainer/ShopItemPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_8boi0")
+expand_mode = 2
+stretch_mode = 4
+
+[connection signal="mouse_entered" from="MarginContainer/PurchaseButton" to="." method="_on_purchase_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/PurchaseButton" to="." method="_on_purchase_button_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/PurchaseButton" to="." method="_on_purchase_button_pressed"]

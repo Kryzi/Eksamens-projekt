@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8qnpo7dkw86m"]
+
+[ext_resource type="Script" path="res://scripts/weapons/basic_shooting.gd" id="1_3kubv"]
+[ext_resource type="Texture2D" uid="uid://ddgkpjrm1vhhi" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_angreb-1.png" id="2_0y64m"]
+[ext_resource type="PackedScene" uid="uid://cyouknex6divm" path="res://scenes/weapons/ice_cannon/ice_cannon_bullet.tscn" id="2_jkk2c"]
+[ext_resource type="Texture2D" uid="uid://jdo6ctwiuypf" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_angreb-2.png" id="3_lq7ul"]
+[ext_resource type="Texture2D" uid="uid://c6o7ngfx3ya84" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_angreb-3.png" id="4_qsqe8"]
+[ext_resource type="Texture2D" uid="uid://cj8r58l6jli0f" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_angreb-4.png" id="5_nt0ob"]
+[ext_resource type="Texture2D" uid="uid://cc8tey4uqa3dq" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_angreb-5.png" id="6_iqd20"]
+[ext_resource type="Texture2D" uid="uid://bim84cp6kchdj" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_idle.png" id="9_2o0qf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f2a2s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0y64m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lq7ul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qsqe8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nt0ob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iqd20")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_2o0qf")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="IsKanon" type="Node2D"]
+script = ExtResource("1_3kubv")
+Bullet = ExtResource("2_jkk2c")
+damage = 15
+magSize = 1
+maxAmmo = 5
+reloadTime = 3.5
+metadata/IconId = "IsKanon"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_f2a2s")
+animation = &"Attack"
+frame = 4
+frame_progress = 1.0
+flip_h = true
+
+[node name="ShootingPoint" type="Marker2D" parent="."]

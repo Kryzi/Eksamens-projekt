@@ -1,0 +1,152 @@
+[gd_scene load_steps=26 format=3 uid="uid://uopmy20bfd5u"]
+
+[ext_resource type="Script" path="res://scripts/shop/layout_1_bridge_shop.gd" id="1_u4soe"]
+[ext_resource type="PackedScene" uid="uid://wdl2k0o6ywsg" path="res://scenes/weapons/basic_bow/basic_bow.tscn" id="2_jm5b7"]
+[ext_resource type="PackedScene" uid="uid://cgrrba5xjnrnt" path="res://scenes/layouts/shop/shop_item.tscn" id="2_w6jpp"]
+[ext_resource type="PackedScene" uid="uid://bf082ldlxis2j" path="res://scenes/weapons/basic_knife/basic_knife.tscn" id="3_3n603"]
+[ext_resource type="Texture2D" uid="uid://bj73ujpjgcl1f" path="res://sprites/omraader/omraade1/o1-1/o1-1_jord.png" id="3_47ykq"]
+[ext_resource type="Texture2D" uid="uid://c4lbw0ps8gyvg" path="res://sprites/vaaben/ranged/bue/bue_idle.png" id="3_c6u3c"]
+[ext_resource type="Texture2D" uid="uid://brmltw14xbo8k" path="res://sprites/omraader/omraade1/o1-1/o1-1_klippe.png" id="4_gy8jp"]
+[ext_resource type="PackedScene" uid="uid://d0v146npydiyy" path="res://scenes/weapons/boomerang/boomerang_weapon.tscn" id="4_ocq2q"]
+[ext_resource type="Texture2D" uid="uid://cq483p68yt4ko" path="res://sprites/vaaben/melee/kniv/kniv_idle.png" id="5_22u78"]
+[ext_resource type="Texture2D" uid="uid://d2edlf0emj66y" path="res://sprites/omraader/omraade1/o1-1/o1-1_taage-1.png" id="5_idw70"]
+[ext_resource type="Texture2D" uid="uid://c6oupynhymm3q" path="res://sprites/omraader/omraade1/o1-1/o1-1_taage-2.png" id="6_gxmq8"]
+[ext_resource type="Texture2D" uid="uid://dm2aj2nj5j6ua" path="res://sprites/vaaben/ranged/bommerang/bommerag_idle_angreb-1.png" id="7_hrufs"]
+[ext_resource type="Texture2D" uid="uid://dtwbw1u4eptvv" path="res://sprites/omraader/omraade1/bro/bro_op-ende.png" id="7_q0lb1"]
+[ext_resource type="PackedScene" uid="uid://ca64n4anj8bud" path="res://scenes/weapons/water_staff/water_staff.tscn" id="8_rmi15"]
+[ext_resource type="Texture2D" uid="uid://dycs6u1lit6rn" path="res://sprites/vaaben/ranged/vand_stav/vand-stav_idle.png" id="9_k04xp"]
+[ext_resource type="PackedScene" uid="uid://dg6msycllecxg" path="res://scenes/weapons/giant_hammer/giant_hammer.tscn" id="10_ag2d0"]
+[ext_resource type="Texture2D" uid="uid://j6xrn85xo2qb" path="res://sprites/vaaben/melee/hammer/hammer_idle.png" id="11_fygf1"]
+[ext_resource type="PackedScene" uid="uid://ddfq48ogx6vhq" path="res://scenes/weapons/shield/shield.tscn" id="12_773oc"]
+[ext_resource type="Texture2D" uid="uid://t70iiylxcj63" path="res://sprites/vaaben/melee/skjold/skjold_idle.png" id="13_kgiep"]
+[ext_resource type="Script" path="res://scripts/shop/shop_item_resource.gd" id="15_6p3av"]
+[ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="19_puqjo"]
+
+[sub_resource type="Resource" id="Resource_shqo3"]
+script = ExtResource("15_6p3av")
+weapon_name = "Basic bow"
+cost = 10
+shop_texture = ExtResource("3_c6u3c")
+scene = ExtResource("2_jm5b7")
+
+[sub_resource type="Resource" id="Resource_5o5c1"]
+script = ExtResource("15_6p3av")
+weapon_name = "Basic knife"
+cost = 10
+shop_texture = ExtResource("5_22u78")
+scene = ExtResource("3_3n603")
+
+[sub_resource type="Resource" id="Resource_fd2le"]
+script = ExtResource("15_6p3av")
+weapon_name = "Water staff"
+cost = 25
+shop_texture = ExtResource("9_k04xp")
+scene = ExtResource("8_rmi15")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_161u1"]
+size = Vector2(120, 120)
+
+[node name="Layout1BridgeShop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_u4soe")
+basic_bow_scene = ExtResource("2_jm5b7")
+basic_bow_texture = ExtResource("3_c6u3c")
+basic_bow_cost = 10
+basic_knife_scene = ExtResource("3_3n603")
+basic_knife_texture = ExtResource("5_22u78")
+basic_knife_cost = 10
+boomerang_scene = ExtResource("4_ocq2q")
+boomerang_texture = ExtResource("7_hrufs")
+boomerang_cost = 20
+water_staff_scene = ExtResource("8_rmi15")
+water_staff_texture = ExtResource("9_k04xp")
+water_staff_cost = 25
+giant_hammer_scene = ExtResource("10_ag2d0")
+giant_hammer_texture = ExtResource("11_fygf1")
+giant_hammer_cost = 35
+shield_scene = ExtResource("12_773oc")
+shield_texture = ExtResource("13_kgiep")
+shield_cost = 5
+shop_item_slot_scene = ExtResource("2_w6jpp")
+shop_item_resource_array = Array[ExtResource("15_6p3av")]([SubResource("Resource_shqo3"), SubResource("Resource_5o5c1"), SubResource("Resource_fd2le")])
+
+[node name="Jord" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 210.0
+scale = Vector2(12, 12)
+texture = ExtResource("3_47ykq")
+
+[node name="Klippe" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 210.0
+scale = Vector2(12, 12)
+texture = ExtResource("4_gy8jp")
+
+[node name="TaageSolidFarve" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 210.0
+scale = Vector2(12, 12)
+texture = ExtResource("6_gxmq8")
+
+[node name="TaageGennemsigtig" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.516)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 210.0
+scale = Vector2(12, 12)
+texture = ExtResource("5_idw70")
+
+[node name="BroNed-ende" type="Sprite2D" parent="."]
+position = Vector2(1104, 2268)
+scale = Vector2(12, 12)
+texture = ExtResource("19_puqjo")
+centered = false
+
+[node name="BroOp-ende" type="Sprite2D" parent="."]
+position = Vector2(936, -456)
+scale = Vector2(12, 12)
+texture = ExtResource("7_q0lb1")
+centered = false
+
+[node name="Boundary1BridgeShop" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundary1BridgeShop"]
+position = Vector2(540, 2256)
+build_mode = 1
+polygon = PackedVector2Array(60, -48, 72, -156, 48, -228, 72, -300, 24, -372, 72, -456, 48, -564, 84, -636, 48, -696, 84, -792, 24, -948, 72, -1056, 36, -1128, 84, -1272, 12, -1392, 96, -1620, 48, -1716, 60, -1788, 36, -1884, 84, -1992, 72, -2064, 168, -2124, 252, -2088, 468, -2136, 612, -2076, 647.934, -2086.78, 648, -2688, 768, -2688, 767.868, -2102.22, 864, -2076, 960, -2112, 1092, -2064, 1212, -2112, 1320, -2052, 1380, -1944, 1332, -1812, 1368, -1680, 1308, -1536, 1368, -1476, 1344, -1380, 1356, -1272, 1344, -1116, 1332, -1032, 1344, -936, 1320, -888, 1380, -792, 1368, -708, 1308, -648, 1332, -564, 1308, -504, 1356, -372, 1368, -156, 1368, -60, 1308, 36, 1200, 60, 1092, -24, 972, 24, 864, 36, 816, 0, 672, 48, 528, -12, 384, 36, 252, -12, 132, 24)
+disabled = true
+
+[node name="TeleporterArea1" type="Area2D" parent="."]
+position = Vector2(312, 0)
+
+[node name="Teleporter1" type="CollisionShape2D" parent="TeleporterArea1"]
+position = Vector2(936, -453)
+shape = SubResource("RectangleShape2D_161u1")
+disabled = true
+
+[node name="ShopItemsContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 1500)
+layout_mode = 0
+offset_left = 1344.0
+offset_top = 492.0
+offset_right = 1694.0
+offset_bottom = 1992.0
+theme_override_constants/separation = 20
+
+[node name="Spawnpoint" type="Marker2D" parent="."]
+position = Vector2(1416, 2232)
+
+[node name="rewardLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1140.0
+offset_top = 168.0
+offset_right = 1378.0
+offset_bottom = 313.0
+theme_override_font_sizes/font_size = 100
+text = "Filler"

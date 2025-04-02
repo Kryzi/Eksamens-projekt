@@ -1,0 +1,405 @@
+[gd_scene load_steps=56 format=3 uid="uid://c0gwl5rrefms3"]
+
+[ext_resource type="Script" path="res://scripts/enemies/boss/gigaged.gd" id="1_xvsls"]
+[ext_resource type="PackedScene" uid="uid://323cq8waejjw" path="res://scenes/bullets/gigaged_bullet.tscn" id="2_0neel"]
+[ext_resource type="Texture2D" uid="uid://bapnqypuvyqlh" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_idle-1_walk-1.png" id="2_b860s"]
+[ext_resource type="Texture2D" uid="uid://b6yihtjrxxeyj" path="res://sprites/boss/gigaged/projektiler/gigaged_lort-projektil.png" id="3_2k3s3"]
+[ext_resource type="Texture2D" uid="uid://bjr3betuymhfe" path="res://sprites/boss/gigaged/projektiler/gigaged_jord-projektil.png" id="3_gnejf"]
+[ext_resource type="Texture2D" uid="uid://b04a7qtw1y33o" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_idle-2-6.png" id="3_le2fm"]
+[ext_resource type="Texture2D" uid="uid://2045p7sh5r4j" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_idle-3-5_walk-3.png" id="4_yt77j"]
+[ext_resource type="Texture2D" uid="uid://bt44avgilu56" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_idle-4_tramp-angreb-3.png" id="5_4vf8r"]
+[ext_resource type="Texture2D" uid="uid://bdq245bht1rha" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_idle-1_walk-1-3.png" id="6_ujo5a"]
+[ext_resource type="Texture2D" uid="uid://br3okd2b72kl3" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_idle-2.png" id="7_lmbb2"]
+[ext_resource type="Texture2D" uid="uid://ck04o3s4u2bxa" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_idle-3_tramp-angreb-3.png" id="8_3wr26"]
+[ext_resource type="Texture2D" uid="uid://bjtmapq3yx7g3" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_idle-4.png" id="9_a3eug"]
+[ext_resource type="Texture2D" uid="uid://c0qivyuoa6e28" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_krop_idle-1_walk-1.png" id="10_10rbb"]
+[ext_resource type="Texture2D" uid="uid://2an5pv1c5np2" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_krop_idle-2-6.png" id="11_u5qob"]
+[ext_resource type="Texture2D" uid="uid://mgkntvdamt3a" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_krop_idle-3-5_walk-3.png" id="12_xt0af"]
+[ext_resource type="Texture2D" uid="uid://coxokd367ohbc" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_krop_idle-4_tramp-angreb-3.png" id="13_x3nw4"]
+[ext_resource type="Texture2D" uid="uid://7j1nou47xlak" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_krop_skide-angeb-1-3.png" id="14_cv7wl"]
+[ext_resource type="Texture2D" uid="uid://f8pf6j5vgfek" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_krop_skide-angeb-2.png" id="15_266gj"]
+[ext_resource type="Texture2D" uid="uid://6lpt4yu4628n" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_skide-angreb-1-3.png" id="16_lkyx7"]
+[ext_resource type="Texture2D" uid="uid://d1tvfqp5sofjb" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_skide-angreb-2.png" id="17_vk7qb"]
+[ext_resource type="Texture2D" uid="uid://bjaooicx0cmtb" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_skide-angeb-1-3.png" id="18_ar0yw"]
+[ext_resource type="Texture2D" uid="uid://brx162x2255bq" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_skide-angeb-2.png" id="19_shxae"]
+[ext_resource type="Texture2D" uid="uid://cgeodufgwef1o" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_tramp-angreb-1.png" id="20_d58m2"]
+[ext_resource type="Texture2D" uid="uid://btsp1n5uuu870" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_tramp-angreb-2.png" id="21_4ttij"]
+[ext_resource type="Texture2D" uid="uid://uam15vmtdkig" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_tramp-angreb-1.png" id="22_uuwrk"]
+[ext_resource type="Texture2D" uid="uid://dcmb27hb1edh7" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_tramp-angreb-2.png" id="23_66jun"]
+[ext_resource type="Texture2D" uid="uid://c1a2uid7xxtvi" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_krop_tramp-angeb-1.png" id="24_42owd"]
+[ext_resource type="Texture2D" uid="uid://bts38v6vponyt" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_krop_tramp-angeb-2.png" id="25_iud32"]
+[ext_resource type="Texture2D" uid="uid://d1a4xklqkmxdl" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_walk-2.png" id="26_d1lfx"]
+[ext_resource type="Texture2D" uid="uid://cu48f786txpxo" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_krop_walk-4.png" id="27_0p868"]
+[ext_resource type="Texture2D" uid="uid://b3m1q5j3mtkww" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_walk-2.png" id="28_esn5k"]
+[ext_resource type="Texture2D" uid="uid://8r3vtcvt5a23" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_krop_walk-4.png" id="29_vcw41"]
+[ext_resource type="Texture2D" uid="uid://4vxhf3bjpsab" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_krop_walk-2.png" id="30_q4k2f"]
+[ext_resource type="Texture2D" uid="uid://daukdcry5nhve" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_krop_walk-4.png" id="31_xwpng"]
+[ext_resource type="Texture2D" uid="uid://b080d18p43q1c" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_normal-hoved-venstre_angreb.png" id="32_bs1eo"]
+[ext_resource type="Texture2D" uid="uid://d5ub7amg72sy" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_normal-hoved-ned_angreb.png" id="33_fpi0o"]
+[ext_resource type="Texture2D" uid="uid://csbiayqhtfh13" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_normal-hoved-hojre_angreb.png" id="34_btsdt"]
+[ext_resource type="Texture2D" uid="uid://bsepjhonbrh5f" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_normal-hoved-venste_angreb.png" id="35_ajy6m"]
+[ext_resource type="Texture2D" uid="uid://drgkhcai5h6je" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_normal-hoved-ned_angreb.png" id="36_ndyt0"]
+[ext_resource type="Texture2D" uid="uid://dtwg8xob1e6xj" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_normal-hoved-hojre_angreb.png" id="37_m2a4f"]
+[ext_resource type="Texture2D" uid="uid://diikp8kwai4s1" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_normal-hoved-venstre_angreb.png" id="38_w7n5m"]
+[ext_resource type="Texture2D" uid="uid://4oostjevgxd0" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_normal-hoved-ned_angreb.png" id="39_xpev6"]
+[ext_resource type="Texture2D" uid="uid://dr1i8qyevk61k" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_normal-hoved-hojre_angreb.png" id="40_5iliu"]
+[ext_resource type="Texture2D" uid="uid://dfhf5vacvi4oo" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_normal-hoved-hojre_idle.png" id="41_gq4op"]
+[ext_resource type="Texture2D" uid="uid://my503qui6kup" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_normal-hoved-ned_idle.png" id="42_4p8vm"]
+[ext_resource type="Texture2D" uid="uid://h1alexy4rocb" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_normal-hoved-venstre_idle.png" id="43_2vr3h"]
+[ext_resource type="Texture2D" uid="uid://bo26icopg6dc5" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_tramp1-hoved-hojre_idle.png" id="44_uxx5i"]
+[ext_resource type="Texture2D" uid="uid://b210xr18iqvjb" path="res://sprites/boss/gigaged/krop_hojre/gigaged-hojre_tramp2-hoved-hojre_idle.png" id="45_fvdnr"]
+[ext_resource type="Texture2D" uid="uid://cj7wr2qrajq36" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_tramp1-hoved-ned_idle.png" id="46_b64qi"]
+[ext_resource type="Texture2D" uid="uid://dd0rxquvyr1nm" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_tramp2-hoved-ned_idle.png" id="47_rii7m"]
+[ext_resource type="Texture2D" uid="uid://bblomwqexowxm" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_tramp1-hoved-venstre_idle.png" id="48_wqdjk"]
+[ext_resource type="Texture2D" uid="uid://cib0s5hemvk4m" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_tramp2-hoved-venstre_idle.png" id="49_e0y1w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xp16w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b860s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_le2fm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yt77j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4vf8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yt77j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_le2fm")
+}],
+"loop": true,
+"name": &"Idle hojre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ujo5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lmbb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3wr26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a3eug")
+}],
+"loop": true,
+"name": &"Idle ned",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_10rbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u5qob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xt0af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_x3nw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xt0af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u5qob")
+}],
+"loop": true,
+"name": &"Idle venstre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_cv7wl")
+}, {
+"duration": 3.0,
+"texture": ExtResource("15_266gj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_cv7wl")
+}],
+"loop": true,
+"name": &"Skide Angreb hojre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_lkyx7")
+}, {
+"duration": 3.0,
+"texture": ExtResource("17_vk7qb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_lkyx7")
+}],
+"loop": true,
+"name": &"Skide Angreb ned",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_ar0yw")
+}, {
+"duration": 3.0,
+"texture": ExtResource("19_shxae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ar0yw")
+}],
+"loop": true,
+"name": &"Skide Angreb venstre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_d58m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_4ttij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4vf8r")
+}],
+"loop": false,
+"name": &"Trampe Angreb hojre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_uuwrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_66jun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3wr26")
+}],
+"loop": false,
+"name": &"Trampe Angreb ned",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_42owd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_iud32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_x3nw4")
+}],
+"loop": false,
+"name": &"Trampe Angreb venstre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b860s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_d1lfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yt77j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_0p868")
+}],
+"loop": true,
+"name": &"Walk hojre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ujo5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_esn5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ujo5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_vcw41")
+}],
+"loop": true,
+"name": &"Walk ned",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_10rbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_q4k2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xt0af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_xwpng")
+}],
+"loop": true,
+"name": &"Walk venstre",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3x08y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_bs1eo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_fpi0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_btsdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_fpi0o")
+}],
+"loop": true,
+"name": &"Angreb hojre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_ajy6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ndyt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_m2a4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ndyt0")
+}],
+"loop": true,
+"name": &"Angreb ned",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_w7n5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_xpev6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_5iliu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_xpev6")
+}],
+"loop": true,
+"name": &"Angreb venstre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_gq4op")
+}],
+"loop": true,
+"name": &"Idle hojre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("42_4p8vm")
+}],
+"loop": true,
+"name": &"Idle ned",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_2vr3h")
+}],
+"loop": true,
+"name": &"Idle venstre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_uxx5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_fvdnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_gq4op")
+}],
+"loop": false,
+"name": &"Trampe Angreb hojre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("46_b64qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_rii7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_4p8vm")
+}],
+"loop": false,
+"name": &"Trampe Angreb ned",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("48_wqdjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_e0y1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_2vr3h")
+}],
+"loop": false,
+"name": &"Trampe Angreb venstre",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2baon"]
+size = Vector2(75.3333, 128.667)
+
+[node name="Gigaged" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(3, 3)
+script = ExtResource("1_xvsls")
+bullet_scene = ExtResource("2_0neel")
+gigaged_lorteprojektil_texture = ExtResource("3_2k3s3")
+gigaged_jord_projektil_texture = ExtResource("3_gnejf")
+
+[node name="Krop" type="AnimatedSprite2D" parent="."]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_xp16w")
+animation = &"Idle ned"
+
+[node name="Hoved" type="AnimatedSprite2D" parent="."]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_3x08y")
+animation = &"Idle ned"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.33333, -3)
+shape = SubResource("RectangleShape2D_2baon")
+
+[node name="trampPos" type="Marker2D" parent="."]
+position = Vector2(55.6667, 44.3333)
+
+[node name="skidePos" type="Marker2D" parent="."]
+position = Vector2(-43.3333, -37.6667)

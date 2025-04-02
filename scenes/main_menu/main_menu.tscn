@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba5ouyia8c8k0"]
+
+[ext_resource type="Script" path="res://scripts/main/main_menu/main_menu.gd" id="1_abvb2"]
+[ext_resource type="Texture2D" uid="uid://bsaan551blxta" path="res://sprites/main_menu/daddad.png" id="2_gf530"]
+[ext_resource type="PackedScene" uid="uid://cogx1vos6b53b" path="res://scenes/main/main.tscn" id="2_kpe1m"]
+[ext_resource type="Texture2D" uid="uid://dtnsffhrgrfa3" path="res://sprites/main_menu/jaja.png" id="3_wbf82"]
+
+[node name="Main Menu" type="Node"]
+script = ExtResource("1_abvb2")
+main_scene = ExtResource("2_kpe1m")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_gf530")
+metadata/_edit_use_anchors_ = true
+
+[node name="Logo" type="TextureRect" parent="."]
+offset_left = -30.0
+offset_top = 216.0
+offset_right = 1170.0
+offset_bottom = 1416.0
+texture = ExtResource("3_wbf82")
+
+[node name="Start" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -38.5
+offset_right = 55.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+
+[node name="Exit" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -156.0
+offset_right = 59.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"
+
+[node name="Settings" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = 80.0
+offset_right = 57.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SETTINGS"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

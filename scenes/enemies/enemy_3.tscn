@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://bi02i7b2eqyu0"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy_3.gd" id="1_fiq3m"]
+[ext_resource type="PackedScene" uid="uid://ccogpqp72dena" path="res://scenes/collectables/coin.tscn" id="2_ld88o"]
+[ext_resource type="PackedScene" uid="uid://dm5pnrut86llc" path="res://scenes/bullets/enemy_3_bullet.tscn" id="2_pje1t"]
+[ext_resource type="Texture2D" uid="uid://bmapmtkovn5k0" path="res://sprites/fjender/stationer_enemy/stationer-enemy_angreb.png" id="3_11uw3"]
+[ext_resource type="Texture2D" uid="uid://cmughue6eto7f" path="res://sprites/fjender/stationer_enemy/stationer-enemy_charge.png" id="4_kvnvh"]
+[ext_resource type="Texture2D" uid="uid://b5vnakcdvqydt" path="res://sprites/fjender/stationer_enemy/stationer-enemy_idle-1-3.png" id="5_yvlo7"]
+[ext_resource type="Texture2D" uid="uid://dvnlxk4drosc1" path="res://sprites/fjender/stationer_enemy/stationer-enemy_idle-2.png" id="6_vdthq"]
+[ext_resource type="Texture2D" uid="uid://bh0ojhexlww7f" path="res://sprites/fjender/stationer_enemy/stationer-enemy_idle-4.png" id="7_gaunt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0q4py"]
+size = Vector2(112, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6wddt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_11uw3")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kvnvh")
+}],
+"loop": false,
+"name": &"Charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yvlo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vdthq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yvlo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gaunt")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4nd4c"]
+radius = 580.003
+
+[node name="Enemy3" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_fiq3m")
+bullet_scene = ExtResource("2_pje1t")
+coin_scene = ExtResource("2_ld88o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 29)
+shape = SubResource("RectangleShape2D_0q4py")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_6wddt")
+animation = &"Charge"
+
+[node name="attack_Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+
+[node name="View" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="View"]
+shape = SubResource("CircleShape2D_4nd4c")
+
+[connection signal="timeout" from="attack_Timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="View" to="." method="_on_view_body_entered"]
+[connection signal="body_exited" from="View" to="." method="_on_view_body_exited"]

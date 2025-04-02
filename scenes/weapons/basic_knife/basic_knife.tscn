@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://bf082ldlxis2j"]
+
+[ext_resource type="Texture2D" uid="uid://ib3suh03eebi" path="res://sprites/vaaben/melee/kniv/kniv_angeb-1.png" id="1_kflbs"]
+[ext_resource type="Script" path="res://scripts/weapons/basic_melee_weapon.gd" id="1_qxdci"]
+[ext_resource type="Texture2D" uid="uid://c1jitbb1y8kt5" path="res://sprites/vaaben/melee/kniv/kniv_angeb-2.png" id="2_k1f53"]
+[ext_resource type="Texture2D" uid="uid://bda2w1dqn1ty3" path="res://sprites/vaaben/melee/kniv/kniv_angeb-3.png" id="3_yfkcc"]
+[ext_resource type="Texture2D" uid="uid://bansey017tn4c" path="res://sprites/vaaben/melee/kniv/kniv_angeb-4.png" id="4_51vj0"]
+[ext_resource type="Texture2D" uid="uid://cq483p68yt4ko" path="res://sprites/vaaben/melee/kniv/kniv_idle.png" id="5_vaqcu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nllp1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kflbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k1f53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yfkcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_51vj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vaqcu")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_vaqcu")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axbx5"]
+size = Vector2(58, 71.3333)
+
+[node name="BasicKnife" type="Node2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_qxdci")
+damage = 3
+metadata/IconId = "BasicKnife"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_nllp1")
+animation = &"Attack"
+flip_h = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(5.66667, 1.00001)
+shape = SubResource("RectangleShape2D_axbx5")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://dg6msycllecxg"]
+
+[ext_resource type="Script" path="res://scripts/weapons/special_weapons/giant_hammer.gd" id="1_qhuif"]
+[ext_resource type="Texture2D" uid="uid://b1apw7pcej0vu" path="res://sprites/vaaben/melee/hammer/hammer_angreb-1.png" id="2_d3yac"]
+[ext_resource type="Texture2D" uid="uid://cxxn7jtou45t5" path="res://sprites/vaaben/melee/hammer/hammer_angreb-2.png" id="3_u834w"]
+[ext_resource type="Texture2D" uid="uid://d3r30suek471" path="res://sprites/vaaben/melee/hammer/hammer_impact-1.png" id="4_eyird"]
+[ext_resource type="Texture2D" uid="uid://cejtwgyavpqsq" path="res://sprites/vaaben/melee/hammer/hammer_impact-2.png" id="5_k5gq8"]
+[ext_resource type="Texture2D" uid="uid://j6xrn85xo2qb" path="res://sprites/vaaben/melee/hammer/hammer_idle.png" id="6_bwfuk"]
+[ext_resource type="Texture2D" uid="uid://c4xblt2vgbfys" path="res://sprites/vaaben/melee/hammer/hammer_windup-1.png" id="7_tltw6"]
+[ext_resource type="Texture2D" uid="uid://su4w3mbkbo40" path="res://sprites/vaaben/melee/hammer/hammer_windup-2.png" id="8_es5b4"]
+[ext_resource type="Texture2D" uid="uid://d2qgyl2oijvas" path="res://sprites/vaaben/melee/hammer/hammer_windup-3.png" id="9_hjbkd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hpdg7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d3yac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u834w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eyird")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k5gq8")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_bwfuk")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_tltw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_es5b4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hjbkd")
+}],
+"loop": false,
+"name": &"Windup",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axbx5"]
+size = Vector2(16.5, 16.25)
+
+[node name="KæmpeHammer" type="Node2D"]
+scale = Vector2(5.5, 5.5)
+script = ExtResource("1_qhuif")
+damage = 10
+rotation_radius = 65.0
+metadata/IconId = "KæmpeHammer"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.734375, 0.828125)
+sprite_frames = SubResource("SpriteFrames_hpdg7")
+animation = &"Attack"
+flip_h = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0.5, -0.125)
+shape = SubResource("RectangleShape2D_axbx5")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

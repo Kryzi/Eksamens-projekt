@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://323cq8waejjw"]
+
+[ext_resource type="Script" path="res://scripts/enemies/gigaged_bullet.gd" id="1_t62ir"]
+[ext_resource type="Texture2D" uid="uid://bjr3betuymhfe" path="res://sprites/boss/gigaged/projektiler/gigaged_jord-projektil.png" id="2_2aq4x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_15xm1"]
+radius = 37.0
+
+[node name="GigaGedBullet" type="Area2D" groups=["projectile"]]
+script = ExtResource("1_t62ir")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(7, 5)
+texture = ExtResource("2_2aq4x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_15xm1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(2.7, 2.9)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

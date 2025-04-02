@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://556qme2y04kq"]
+
+[ext_resource type="Script" path="res://scripts/weapons/special_weapons/fire_staff.gd" id="1_30dn8"]
+[ext_resource type="PackedScene" uid="uid://c3irloshh5nk5" path="res://scenes/weapons/fire_staff/fire_bullet.tscn" id="2_w3dbl"]
+[ext_resource type="Texture2D" uid="uid://b0651bu1si7ru" path="res://sprites/vaaben/ranged/ild_stav/ild-stav_angreb-1.png" id="3_3bmd2"]
+[ext_resource type="Texture2D" uid="uid://cxj62v8a1pu5v" path="res://sprites/vaaben/ranged/ild_stav/ild-stav_angreb-2.png" id="4_ag6yh"]
+[ext_resource type="Texture2D" uid="uid://c5gcafi7anm2o" path="res://sprites/vaaben/ranged/ild_stav/ild-stav_angreb-3.png" id="5_hh17w"]
+[ext_resource type="Texture2D" uid="uid://bdg2ds0brm88q" path="res://sprites/vaaben/ranged/ild_stav/ild-stav_idle.png" id="6_olftb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xni1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3bmd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ag6yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hh17w")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_olftb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="FireStaff" type="Node2D"]
+script = ExtResource("1_30dn8")
+Bullet = ExtResource("2_w3dbl")
+autofire = true
+magSize = 1
+maxAmmo = 10
+reloadTime = 1.5
+metadata/IconId = "FireStaff"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5xni1")
+animation = &"Attack"
+frame_progress = 0.578217
+flip_h = true
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+position = Vector2(10, -1)

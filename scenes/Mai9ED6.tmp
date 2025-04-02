@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cogx1vos6b53b"]
+
+[ext_resource type="PackedScene" uid="uid://bdfqswkfuluut" path="res://Scenes/Player.tscn" id="1_yge8e"]
+[ext_resource type="PackedScene" uid="uid://d35ou4sso0u36" path="res://Scenes/HUD.tscn" id="2_cce44"]
+[ext_resource type="PackedScene" uid="uid://cjg7rlfjs5hdb" path="res://Scenes/MapController.tscn" id="3_y38tl"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jufnr"]
+vertices = PackedVector2Array(2723.64, 1358.94, -2780.24, 1331.04, -2843.73, -1137.1, 2634.35, -1193.89)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2734, 1369, -2790, 1341, -2854, -1147, 2644, -1204)])
+
+[node name="Main" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_jufnr")
+
+[node name="Player" parent="." instance=ExtResource("1_yge8e")]
+
+[node name="HUD" parent="." instance=ExtResource("2_cce44")]
+
+[node name="MapController" parent="." instance=ExtResource("3_y38tl")]

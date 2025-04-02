@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://wdl2k0o6ywsg"]
+
+[ext_resource type="Script" path="res://Scripts/Weapons/BasicShooting.gd" id="1_qqo8k"]
+[ext_resource type="PackedScene" uid="uid://cramhe6rm2cu1" path="res://Scenes/Weapons/Basic Bow/BasicArrowProjectile.tscn" id="2_bgxbw"]
+[ext_resource type="Texture2D" uid="uid://c04byybdxjnv" path="res://Sprites/vaaben/Ranged/Bue/bue_charge.png" id="3_jx80k"]
+[ext_resource type="Texture2D" uid="uid://nr8nxd4bstae" path="res://Sprites/vaaben/Ranged/Bue/bue_angreb-1.png" id="4_mebgq"]
+[ext_resource type="Texture2D" uid="uid://cfhstnhkb15u7" path="res://Sprites/vaaben/Ranged/Bue/bue_angreb-2.png" id="5_ogjmg"]
+[ext_resource type="Texture2D" uid="uid://c4lbw0ps8gyvg" path="res://Sprites/vaaben/Ranged/Bue/bue_idle.png" id="6_8xdi6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0mlnr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jx80k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mebgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ogjmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8xdi6")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8xdi6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="BasicBow" type="Node2D"]
+script = ExtResource("1_qqo8k")
+Bullet = ExtResource("2_bgxbw")
+reloadTime = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_0mlnr")
+animation = &"Attack"
+flip_h = true
+
+[node name="ShootingPoint" type="Marker2D" parent="."]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx6rcc5s5ibld"]
+
+[ext_resource type="Texture2D" uid="uid://bcigv1awsp7b5" path="res://sprites/omraader/omraade1/o1-boss/o1-boss_fuld.png" id="1_bthyw"]
+[ext_resource type="PackedScene" uid="uid://c0gwl5rrefms3" path="res://scenes/enemies/gigaged.tscn" id="2_w6d3p"]
+
+[node name="BossBane" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 230.0
+offset_bottom = 220.0
+scale = Vector2(20, 20)
+texture = ExtResource("1_bthyw")
+
+[node name="Gigaged" parent="." instance=ExtResource("2_w6d3p")]
+position = Vector2(2253, 1463)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(1017, 1143, 3637, 1103, 3692, 2806, 1057, 2867)

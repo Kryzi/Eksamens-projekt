@@ -1,0 +1,103 @@
+[gd_scene load_steps=14 format=3 uid="uid://du87ulgmewj2t"]
+
+[ext_resource type="Texture2D" uid="uid://b3qw5fkcbud64" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_angreb-1.png" id="1_831k2"]
+[ext_resource type="Script" path="res://scripts/enemies/enemy_2.gd" id="1_h35g5"]
+[ext_resource type="PackedScene" uid="uid://b33uobs8gcofl" path="res://scenes/bullets/enemy_2_bullet.tscn" id="2_n6wqq"]
+[ext_resource type="Texture2D" uid="uid://cxs8a2nwrhtki" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_angreb-2.png" id="2_poe5k"]
+[ext_resource type="Texture2D" uid="uid://btfig5rc2aw3o" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_charge-1.png" id="3_c6gvr"]
+[ext_resource type="PackedScene" uid="uid://ccogpqp72dena" path="res://scenes/collectables/coin.tscn" id="3_ektiq"]
+[ext_resource type="Texture2D" uid="uid://lecqaohbaodf" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_charge-2.png" id="4_gwox8"]
+[ext_resource type="Texture2D" uid="uid://deqxwwye30do5" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_charge-3.png" id="5_hr8bc"]
+[ext_resource type="Texture2D" uid="uid://ciyd3flus8pp7" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_charge-4.png" id="6_be48d"]
+[ext_resource type="Texture2D" uid="uid://cp1dskvx85vnj" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_idle_walk.png" id="7_w0k0f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_acmvy"]
+radius = 60.0
+height = 164.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_210dh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_831k2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_poe5k")
+}],
+"loop": false,
+"name": &"Angreb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_c6gvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gwox8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hr8bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_be48d")
+}],
+"loop": false,
+"name": &"Charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_w0k0f")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_w0k0f")
+}],
+"loop": false,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jkvd7"]
+radius = 421.001
+
+[node name="Enemy2" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_h35g5")
+alpha = 0.03
+bullet_scene = ExtResource("2_n6wqq")
+coin_scene = ExtResource("3_ektiq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("CapsuleShape2D_acmvy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_210dh")
+animation = &"Walk"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="move_Timer" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[node name="attack_Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+
+[node name="View" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="View"]
+shape = SubResource("CircleShape2D_jkvd7")
+
+[connection signal="timeout" from="move_Timer" to="." method="_on_move_timer_timeout"]
+[connection signal="body_entered" from="View" to="." method="_on_view_body_entered"]
+[connection signal="body_exited" from="View" to="." method="_on_view_body_exited"]

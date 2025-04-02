@@ -1,0 +1,196 @@
+[gd_scene load_steps=31 format=3 uid="uid://cradrmw10obwa"]
+
+[ext_resource type="Script" path="res://scripts/main/player.gd" id="1_ddb0a"]
+[ext_resource type="Texture2D" uid="uid://bmjvtt528ekn5" path="res://sprites/spiller/spiller-hojre_idle-1_walk-2-4.png" id="2_brr8l"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_logic.gd" id="3_fteec"]
+[ext_resource type="Texture2D" uid="uid://tt4i8wc881x1" path="res://sprites/spiller/spiller-hojre_idle-2.png" id="3_x4n30"]
+[ext_resource type="PackedScene" uid="uid://wdl2k0o6ywsg" path="res://scenes/weapons/basic_bow/basic_bow.tscn" id="4_p5qdd"]
+[ext_resource type="Texture2D" uid="uid://dkqib334ssd6a" path="res://sprites/spiller/spiller-ned_idle-1_walk-2-4.png" id="4_srysq"]
+[ext_resource type="Texture2D" uid="uid://cmpp717jal153" path="res://sprites/spiller/spiller-ned_idle-2.png" id="5_sdg1d"]
+[ext_resource type="Texture2D" uid="uid://l418rogg6gpp" path="res://sprites/spiller/spiller-op_idle-1_walk-2-4.png" id="6_acsuq"]
+[ext_resource type="Texture2D" uid="uid://ca5uk4w1rawkq" path="res://sprites/spiller/spiller-op_idle-2.png" id="7_52081"]
+[ext_resource type="Texture2D" uid="uid://dndw5sh0irxvj" path="res://sprites/spiller/spiller-venstre_idle-1_walk-2-4.png" id="8_qimvs"]
+[ext_resource type="Texture2D" uid="uid://8aqhhochmthc" path="res://sprites/spiller/spiller-venstre_idle-2.png" id="9_p6wlf"]
+[ext_resource type="Texture2D" uid="uid://3e1cqq4ho8tx" path="res://sprites/spiller/spiller-hojre_walk-1.png" id="10_xb7lk"]
+[ext_resource type="Texture2D" uid="uid://bucih770bvcfv" path="res://sprites/spiller/spiller-hojre_walk-3.png" id="11_8msav"]
+[ext_resource type="Texture2D" uid="uid://cg3modmexj45q" path="res://sprites/spiller/spiller-ned_walk-1.png" id="12_4bg4f"]
+[ext_resource type="Texture2D" uid="uid://cnfxhlfdmmqum" path="res://sprites/spiller/spiller-ned_walk-3.png" id="13_761e8"]
+[ext_resource type="Texture2D" uid="uid://cd5bj6ktntjtn" path="res://sprites/spiller/spiller-op_walk-1.png" id="14_fjnru"]
+[ext_resource type="Texture2D" uid="uid://d2opfme7dyfeg" path="res://sprites/spiller/spiller-op_walk-3.png" id="15_3m5r3"]
+[ext_resource type="Texture2D" uid="uid://bapq1gfqn4obu" path="res://sprites/spiller/spiller-venstre_walk-1.png" id="16_xwamc"]
+[ext_resource type="Texture2D" uid="uid://bc4h84ngtv55m" path="res://sprites/spiller/spiller-venstre_walk-3.png" id="17_dhuxc"]
+[ext_resource type="PackedScene" uid="uid://bf082ldlxis2j" path="res://scenes/weapons/basic_knife/basic_knife.tscn" id="20_y8slu"]
+[ext_resource type="PackedScene" uid="uid://ca64n4anj8bud" path="res://scenes/weapons/water_staff/water_staff.tscn" id="21_ufdrw"]
+[ext_resource type="Script" path="res://scripts/ui/camera_2d.gd" id="21_xaw4o"]
+[ext_resource type="PackedScene" uid="uid://dg6msycllecxg" path="res://scenes/weapons/giant_hammer/giant_hammer.tscn" id="22_tdwqi"]
+[ext_resource type="PackedScene" uid="uid://d0v146npydiyy" path="res://scenes/weapons/boomerang/boomerang_weapon.tscn" id="23_unme0"]
+[ext_resource type="PackedScene" uid="uid://ddfq48ogx6vhq" path="res://scenes/weapons/shield/shield.tscn" id="24_52xt8"]
+[ext_resource type="PackedScene" uid="uid://556qme2y04kq" path="res://scenes/weapons/fire_staff/fire_staff.tscn" id="25_7lfdu"]
+[ext_resource type="PackedScene" uid="uid://c8qnpo7dkw86m" path="res://scenes/weapons/ice_cannon/ice_cannon.tscn" id="26_klgc6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a5exy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_brr8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x4n30")
+}],
+"loop": true,
+"name": &"Idle højre",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_srysq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sdg1d")
+}],
+"loop": true,
+"name": &"Idle ned",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_acsuq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_52081")
+}],
+"loop": true,
+"name": &"Idle op",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_qimvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p6wlf")
+}],
+"loop": true,
+"name": &"Idle venstre",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_xb7lk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_brr8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8msav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_brr8l")
+}],
+"loop": true,
+"name": &"Walk højre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_4bg4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_srysq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_761e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_srysq")
+}],
+"loop": true,
+"name": &"Walk ned",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_fjnru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_acsuq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3m5r3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_acsuq")
+}],
+"loop": true,
+"name": &"Walk op",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_xwamc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qimvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_dhuxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qimvs")
+}],
+"loop": true,
+"name": &"Walk venstre",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc407"]
+size = Vector2(65, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75p33"]
+size = Vector2(68, 92)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_ddb0a")
+maxHealth = 12
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5.5, 5.5)
+sprite_frames = SubResource("SpriteFrames_a5exy")
+animation = &"Idle ned"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 5.5)
+shape = SubResource("RectangleShape2D_yc407")
+
+[node name="Weapon" type="Node2D" parent="."]
+position = Vector2(40, 0)
+script = ExtResource("3_fteec")
+
+[node name="BasicBow" parent="Weapon" instance=ExtResource("4_p5qdd")]
+
+[node name="BasicKnife" parent="Weapon" instance=ExtResource("20_y8slu")]
+FPS_SpeedScale = 2.5
+
+[node name="Water Staff" parent="Weapon" instance=ExtResource("21_ufdrw")]
+
+[node name="KæmpeHammer" parent="Weapon" instance=ExtResource("22_tdwqi")]
+
+[node name="Boomerang (weapon)" parent="Weapon" instance=ExtResource("23_unme0")]
+
+[node name="Skjold" parent="Weapon" instance=ExtResource("24_52xt8")]
+position = Vector2(149, -50)
+
+[node name="FireStaff" parent="Weapon" instance=ExtResource("25_7lfdu")]
+
+[node name="IsKanon" parent="Weapon" instance=ExtResource("26_klgc6")]
+
+[node name="Damage" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Damage"]
+position = Vector2(-1, 3)
+shape = SubResource("RectangleShape2D_75p33")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.2, 1.2)
+script = ExtResource("21_xaw4o")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmfr0ks7vpuhe"]
+
+[ext_resource type="Script" path="res://scripts/weapons/special_weapons/boomerang_projectile.gd" id="1_0mtok"]
+[ext_resource type="Texture2D" uid="uid://bxjs6sgdq41bj" path="res://sprites/vaaben/ranged/bommerang/bommerag_angreb-3.png" id="2_37tbc"]
+[ext_resource type="Texture2D" uid="uid://dclels77r0k13" path="res://sprites/vaaben/ranged/bommerang/bommerag_angreb-4.png" id="3_0og72"]
+[ext_resource type="Texture2D" uid="uid://dm2aj2nj5j6ua" path="res://sprites/vaaben/ranged/bommerang/bommerag_idle_angreb-1.png" id="4_7qe8y"]
+[ext_resource type="Texture2D" uid="uid://c2jwyr81dbakd" path="res://sprites/vaaben/ranged/bommerang/bommerag_angreb-2.png" id="5_cw5v0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f23jd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_37tbc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0og72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7qe8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cw5v0")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4nmw"]
+size = Vector2(5, 6.3)
+
+[node name="Boomerang (projectile)" type="Area2D" groups=["projectile"]]
+scale = Vector2(5, 5)
+script = ExtResource("1_0mtok")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f23jd")
+animation = &"Idle"
+frame = 3
+frame_progress = 0.633233
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -1.1)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_s4nmw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

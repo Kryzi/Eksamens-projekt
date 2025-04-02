@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b33uobs8gcofl"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy_2_bullet.gd" id="1_qco4v"]
+[ext_resource type="Texture2D" uid="uid://yscrljlqg38h" path="res://sprites/fjender/projektiler/ice-projektil.png" id="2_54jbe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5bkp8"]
+radius = 23.0868
+
+[node name="Enemy2Bullet" type="Area2D" groups=["projectile"]]
+collision_mask = 3
+script = ExtResource("1_qco4v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5bkp8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(7, 5)
+texture = ExtResource("2_54jbe")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(29, 24.5)
+scale = Vector2(3.1, 2.45)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

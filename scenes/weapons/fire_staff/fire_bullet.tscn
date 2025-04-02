@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3irloshh5nk5"]
+
+[ext_resource type="Script" path="res://scripts/weapons/special_weapons/fire_bullet.gd" id="1_yo2h1"]
+[ext_resource type="Texture2D" uid="uid://cqipx6e4xks0j" path="res://sprites/vaaben/ranged/ild_stav/projektil_ild-stav-1.png" id="2_wigcj"]
+[ext_resource type="Texture2D" uid="uid://bjkxkt5gmsfvq" path="res://sprites/vaaben/ranged/ild_stav/projektil_ild-stav-2.png" id="3_jx6mh"]
+[ext_resource type="Texture2D" uid="uid://oyaihxht7801" path="res://sprites/vaaben/ranged/ild_stav/projektil_ild-stav-3.png" id="4_u4act"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vbjqx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wigcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jx6mh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u4act")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0aqc"]
+
+[node name="Fire_bullet" type="Area2D" groups=["projectile"]]
+script = ExtResource("1_yo2h1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vbjqx")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.757377
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e0aqc")
+
+[node name="DamageMultiplerTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DamageMultiplerTimer" to="." method="_on_damage_multipler_timer_timeout"]

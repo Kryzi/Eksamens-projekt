@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://dptyp60c52b5q"]
+
+[ext_resource type="PackedScene" uid="uid://cf1rcti08o3tm" path="res://scenes/layouts/layout_1.tscn" id="2_40igd"]
+[ext_resource type="PackedScene" uid="uid://fcangmshdjld" path="res://scenes/layouts/layout_1_bridge.tscn" id="3_2gcii"]
+[ext_resource type="PackedScene" uid="uid://f0ljs1wuf7qp" path="res://scenes/layouts/layout_2.tscn" id="4_77msy"]
+[ext_resource type="PackedScene" uid="uid://4mgsge3k32ot" path="res://scenes/layouts/layout_2_bridge.tscn" id="5_j0jc1"]
+[ext_resource type="PackedScene" uid="uid://uopmy20bfd5u" path="res://scenes/layouts/shop/layout_1_bridge_shop.tscn" id="6_mdgv1"]
+[ext_resource type="PackedScene" uid="uid://cc1aysvavymnc" path="res://scenes/layouts/layout_boss.tscn" id="6_qvwny"]
+
+[node name="Background" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Layout1" parent="." instance=ExtResource("2_40igd")]
+layout_mode = 1
+
+[node name="Layout1Bridge" parent="." instance=ExtResource("3_2gcii")]
+visible = false
+
+[node name="Layout1BridgeShop" parent="." instance=ExtResource("6_mdgv1")]
+visible = false
+
+[node name="Layout2" parent="." instance=ExtResource("4_77msy")]
+visible = false
+
+[node name="Layout2Bridge" parent="." instance=ExtResource("5_j0jc1")]
+visible = false
+
+[node name="LayoutBoss" parent="." instance=ExtResource("6_qvwny")]
+visible = false
