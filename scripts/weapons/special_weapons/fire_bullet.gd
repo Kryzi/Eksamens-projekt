@@ -8,8 +8,10 @@ var direction: Vector2
 
 func _ready() -> void:
 	direction = (targetPos - global_position).normalized()
+	$FireParticle.emitting = true
 
 func _physics_process(delta):
+	
 	# Opdater målpositionen dynamisk
 	targetPos = get_global_mouse_position()
 	
@@ -17,12 +19,25 @@ func _physics_process(delta):
 	var new_direction = (targetPos - global_position).normalized()
 	direction = direction.lerp(new_direction, turnSpeed * delta).normalized()
 	
+	
+	
 	# Bevæger sig i den nye retning
 	position += direction * BulletSpeed * delta
 	
 	scale += Vector2(0.01, 0.01)
+	var particleOffset = 20
+	if particleOffset < 51:
+		particleOffset += 1
+	
+	$FireParticle.rotation = direction.angle() #+ PI
+	$FireParticle.global_position = global_position - (direction * particleOffset)  # Flyt partiklen bagud
+	$FireParticle.scale_amount_min += 0.01
+	$FireParticle.scale_amount_max += 0.01
+	
 	if BulletSpeed > 125:
 		BulletSpeed -= 1
+	
+	
 	
 
 func _on_body_entered(body: Node2D) -> void:
