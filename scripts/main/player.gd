@@ -33,8 +33,6 @@ func _physics_process(delta):
 	velocity = input_velocity + recoil_velocity
 	recoil_velocity *= recoil_decay
 	
-	print(velocity)
-	
 	play_anim(direction)
 	
 
