@@ -6,7 +6,7 @@ extends Node2D
 @export var FPS_SpeedScale: float = 1 
 ## Distancen våbenet har til splleren
 @export var rotation_radius: float = 50.0
-
+@onready var KnifeSound = $KnifeSound
 
 var currentAmmo = 999
 var magSize = 999
@@ -30,8 +30,9 @@ func _process(_delta: float) -> void:
 	
 	
 	
-	if Input.is_action_just_pressed("Shoot"):
+	if Input.is_action_just_pressed("Shoot") and attacking == false:
 		$AnimatedSprite2D.play("Attack")
+		KnifeSound.play()
 		$Hurtbox.monitoring = true
 		attacking = true
 		

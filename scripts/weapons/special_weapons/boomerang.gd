@@ -16,6 +16,7 @@ var ranged = true
 
 # Reference to the boomerang sprite (assuming it's a child of the player)
 @onready var boomerangSprite = $AnimatedSprite2D
+@onready var BoomerangSound = $BoomerangSound
 
 func _ready() -> void:
 	currentAmmo = magSize
@@ -57,6 +58,7 @@ func reload():
 func throw_boomerang():
 	currentAmmo -= 1
 	
+	BoomerangSound.play()
 	PlayerInfo.ammo_data = {
 		"current_ammo": currentAmmo,
 		"mag_size": magSize,
@@ -78,6 +80,7 @@ func throw_boomerang():
 func makeVisible():
 	boomerangSprite.visible = true
 	reloading = false
+	BoomerangSound.stop()
 	
 	
 	PlayerInfo.ammo_data = {

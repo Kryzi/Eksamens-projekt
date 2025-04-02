@@ -9,7 +9,7 @@ var CanShoot: bool = true
 @export var autofire: bool = false
 ## Mængden af damage hvert skud gør
 @export var damage: int = 5
-
+@export var WeaponSound: AudioStreamPlayer
 
 var currentAmmo: int # Mængden af skud man har lige nu i våbenet
 ## Mængden af skud man kan have per reload
@@ -101,6 +101,7 @@ func reload():
 func shoot():
 	currentAmmo -= 1
 	
+	WeaponSound.play()
 	$AnimatedSprite2D.play("Attack")
 	PlayerInfo.ammo_data = {
 		"current_ammo": currentAmmo,
