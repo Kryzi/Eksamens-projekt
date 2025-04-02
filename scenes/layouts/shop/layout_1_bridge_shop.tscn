@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://uopmy20bfd5u"]
+[gd_scene load_steps=35 format=3 uid="uid://uopmy20bfd5u"]
 
 [ext_resource type="Script" path="res://scripts/shop/layout_1_bridge_shop.gd" id="1_u4soe"]
 [ext_resource type="PackedScene" uid="uid://wdl2k0o6ywsg" path="res://scenes/weapons/basic_bow/basic_bow.tscn" id="2_jm5b7"]
@@ -20,6 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://ddfq48ogx6vhq" path="res://scenes/weapons/shield/shield.tscn" id="12_773oc"]
 [ext_resource type="Texture2D" uid="uid://t70iiylxcj63" path="res://sprites/vaaben/melee/skjold/skjold_idle.png" id="13_kgiep"]
 [ext_resource type="Script" path="res://scripts/shop/shop_item_resource.gd" id="15_6p3av"]
+[ext_resource type="PackedScene" uid="uid://c8qnpo7dkw86m" path="res://scenes/weapons/ice_cannon/ice_cannon.tscn" id="16_axvr7"]
+[ext_resource type="Texture2D" uid="uid://bim84cp6kchdj" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_idle.png" id="17_m08wa"]
+[ext_resource type="PackedScene" uid="uid://556qme2y04kq" path="res://scenes/weapons/fire_staff/fire_staff.tscn" id="18_batoi"]
+[ext_resource type="Texture2D" uid="uid://bdg2ds0brm88q" path="res://sprites/vaaben/ranged/ild_stav/ild-stav_idle.png" id="19_dip50"]
 [ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="19_puqjo"]
 
 [sub_resource type="Resource" id="Resource_shqo3"]
@@ -43,6 +47,41 @@ cost = 25
 shop_texture = ExtResource("9_k04xp")
 scene = ExtResource("8_rmi15")
 
+[sub_resource type="Resource" id="Resource_ylcik"]
+script = ExtResource("15_6p3av")
+weapon_name = "Giant hammer"
+cost = 35
+shop_texture = ExtResource("11_fygf1")
+scene = ExtResource("10_ag2d0")
+
+[sub_resource type="Resource" id="Resource_ivt41"]
+script = ExtResource("15_6p3av")
+weapon_name = "Boomerang"
+cost = 15
+shop_texture = ExtResource("7_hrufs")
+scene = ExtResource("4_ocq2q")
+
+[sub_resource type="Resource" id="Resource_q78ws"]
+script = ExtResource("15_6p3av")
+weapon_name = "Shield"
+cost = 5
+shop_texture = ExtResource("13_kgiep")
+scene = ExtResource("12_773oc")
+
+[sub_resource type="Resource" id="Resource_d4pq8"]
+script = ExtResource("15_6p3av")
+weapon_name = "Ice cannon"
+cost = 20
+shop_texture = ExtResource("17_m08wa")
+scene = ExtResource("16_axvr7")
+
+[sub_resource type="Resource" id="Resource_83u4y"]
+script = ExtResource("15_6p3av")
+weapon_name = "Fire staff"
+cost = 10
+shop_texture = ExtResource("19_dip50")
+scene = ExtResource("18_batoi")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_161u1"]
 size = Vector2(120, 120)
 
@@ -50,26 +89,8 @@ size = Vector2(120, 120)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_u4soe")
-basic_bow_scene = ExtResource("2_jm5b7")
-basic_bow_texture = ExtResource("3_c6u3c")
-basic_bow_cost = 10
-basic_knife_scene = ExtResource("3_3n603")
-basic_knife_texture = ExtResource("5_22u78")
-basic_knife_cost = 10
-boomerang_scene = ExtResource("4_ocq2q")
-boomerang_texture = ExtResource("7_hrufs")
-boomerang_cost = 20
-water_staff_scene = ExtResource("8_rmi15")
-water_staff_texture = ExtResource("9_k04xp")
-water_staff_cost = 25
-giant_hammer_scene = ExtResource("10_ag2d0")
-giant_hammer_texture = ExtResource("11_fygf1")
-giant_hammer_cost = 35
-shield_scene = ExtResource("12_773oc")
-shield_texture = ExtResource("13_kgiep")
-shield_cost = 5
 shop_item_slot_scene = ExtResource("2_w6jpp")
-shop_item_resource_array = Array[ExtResource("15_6p3av")]([SubResource("Resource_shqo3"), SubResource("Resource_5o5c1"), SubResource("Resource_fd2le")])
+shop_item_resource_array = Array[ExtResource("15_6p3av")]([SubResource("Resource_shqo3"), SubResource("Resource_5o5c1"), SubResource("Resource_fd2le"), SubResource("Resource_ylcik"), SubResource("Resource_ivt41"), SubResource("Resource_q78ws"), SubResource("Resource_d4pq8"), SubResource("Resource_83u4y")])
 
 [node name="Jord" type="TextureRect" parent="."]
 layout_mode = 0
@@ -150,3 +171,17 @@ offset_right = 1378.0
 offset_bottom = 313.0
 theme_override_font_sizes/font_size = 100
 text = "Filler"
+
+[node name="limitPurchase" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 701.0
+offset_top = 730.0
+offset_right = 996.0
+offset_bottom = 901.0
+theme_override_font_sizes/font_size = 22
+text = "Filler"
+
+[connection signal="mouse_entered" from="limitPurchase" to="." method="_on_limit_purchase_mouse_entered"]
+[connection signal="mouse_exited" from="limitPurchase" to="." method="_on_limit_purchase_mouse_exited"]
+[connection signal="pressed" from="limitPurchase" to="." method="_on_limit_purchase_pressed"]

@@ -37,7 +37,9 @@ var shield_name: String = "Shield"
 
 func _ready() -> void:
 	RefillShopItems()
+	%limitPurchase.set_text("Increase max weapons : " + str(PlayerInfo.weaponLimitCost) + " coins")
 
+@onready var Inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
 
 func _on_button_pressed() -> void:
 	var highScore = PlayerInfo.current_coins
@@ -52,3 +54,23 @@ func RefillShopItems() -> void:
 		var shop_item_resource_instance = shop_item_resource_array.pick_random()
 		shop_item_slot_instance.weapon_resource = shop_item_resource_instance
 		%ShopItemsContainer.call_deferred("add_child", shop_item_slot_instance)
+
+
+func _on_limit_purchase_pressed() -> void:
+	if (PlayerInfo.current_coins >= PlayerInfo.weaponLimitCost and PlayerInfo.weaponLimit < 10):
+		PlayerInfo.current_coins -= PlayerInfo.weaponLimitCost
+		PlayerInfo.weaponLimit += 1
+		PlayerInfo.weaponLimitCost += 5
+		%limitPurchase.set_text("Increase max weapons : " + str(PlayerInfo.weaponLimitCost) + " coins")
+		
+		# Henter fra "Inventory" og gør det valgte slot synligt
+		var slot_name = "Slot" + str(PlayerInfo.weaponLimit)
+		var slot_node = Inventory.get_node_or_null(slot_name)
+		slot_node.visible = true
+
+	
+func _on_limit_purchase_mouse_entered() -> void:
+	PlayerInfo.is_interacting_with_UI = true
+
+func _on_limit_purchase_mouse_exited() -> void:
+	PlayerInfo.is_interacting_with_UI = false

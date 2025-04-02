@@ -14,6 +14,7 @@ var attacking = false
 @export var trampDonwTime = 1.0
 @export var  gigaged_lorteprojektil_texture: Texture2D
 @export var gigaged_jord_projektil_texture: Texture2D
+@export var coin_scene: PackedScene
 
 func _ready() -> void:
 	set_new_target()
@@ -91,8 +92,16 @@ func hit_damage(damage):
 		die()
 
 func die():
+	dropCoin()
+	var high_score = PlayerInfo.current_coins
+	PlayerInfo.win_screen_reached.emit(true, high_score)
 	queue_free()
 
+func dropCoin() -> void:
+	var coin_instance = coin_scene.instantiate()
+	coin_instance.global_position = global_position
+	get_tree().get_root().call_deferred("add_child", coin_instance)
+	
 func skideAngreb():
 	attacking = true
 	

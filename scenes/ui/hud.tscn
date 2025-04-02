@@ -129,22 +129,27 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="Slot6" type="Panel" parent="Control/MarginContainer/Inventory"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="Slot7" type="Panel" parent="Control/MarginContainer/Inventory"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="Slot8" type="Panel" parent="Control/MarginContainer/Inventory"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="Slot9" type="Panel" parent="Control/MarginContainer/Inventory"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="Slot10" type="Panel" parent="Control/MarginContainer/Inventory"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
@@ -216,7 +221,7 @@ offset_right = 45.0
 offset_bottom = 45.0
 texture = ExtResource("10_4dxx1")
 
-[node name="GameOverPanel" type="Panel" parent="Control"]
+[node name="EndScreenPanel" type="Panel" parent="Control"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 1
@@ -232,7 +237,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/GameOverPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/EndScreenPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -244,35 +249,36 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="GameOverContainer" type="VBoxContainer" parent="Control/GameOverPanel/MarginContainer"]
+[node name="EndScreenContainer" type="VBoxContainer" parent="Control/EndScreenPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="GameOverTextLabel" type="Label" parent="Control/GameOverPanel/MarginContainer/GameOverContainer"]
+[node name="EndScreenTextLabel" type="Label" parent="Control/EndScreenPanel/MarginContainer/EndScreenContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Game Over"
 
-[node name="HighScoreLabel" type="Label" parent="Control/GameOverPanel/MarginContainer/GameOverContainer"]
+[node name="HighScoreLabel" type="Label" parent="Control/EndScreenPanel/MarginContainer/EndScreenContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "High Score
 "
 
-[node name="QuitButton" type="Button" parent="Control/GameOverPanel/MarginContainer/GameOverContainer"]
-process_mode = 3
-custom_minimum_size = Vector2(90, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Exit"
-
-[node name="RetryButton" type="Button" parent="Control/GameOverPanel/MarginContainer/GameOverContainer"]
+[node name="RetryButton" type="Button" parent="Control/EndScreenPanel/MarginContainer/EndScreenContainer"]
 process_mode = 3
 custom_minimum_size = Vector2(90, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Retry"
 
-[connection signal="pressed" from="Control/GameOverPanel/MarginContainer/GameOverContainer/QuitButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/GameOverPanel/MarginContainer/GameOverContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[node name="QuitButton" type="Button" parent="Control/EndScreenPanel/MarginContainer/EndScreenContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Exit"
+
+[connection signal="pressed" from="Control/EndScreenPanel/MarginContainer/EndScreenContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Control/EndScreenPanel/MarginContainer/EndScreenContainer/QuitButton" to="." method="_on_button_pressed"]

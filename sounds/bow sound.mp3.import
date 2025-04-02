@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ptfy2pi086ts"
+path="res://.godot/imported/bow sound.mp3-8f3162fd59a634a25f802fe2cc371e70.mp3str"
+
+[deps]
+
+source_file="res://sounds/bow sound.mp3"
+dest_files=["res://.godot/imported/bow sound.mp3-8f3162fd59a634a25f802fe2cc371e70.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

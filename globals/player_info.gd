@@ -3,7 +3,7 @@ extends Node
 signal health_changed(new_health_data: Dictionary)
 signal ammo_changed(new_ammo_data: Dictionary)
 signal coin_count_changed(new_coins: int)
-signal player_died(coins_high_score: int)
+signal win_screen_reached(is_player_victorious: bool,coins_high_score: int)
 
 var current_coins: int = 0:
 	set(value):
@@ -27,6 +27,10 @@ var ammo_data: Dictionary = {
 		ammo_data.merge(value, true)
 		ammo_changed.emit(ammo_data)  # Automatically emit signal when changed
 var is_interacting_with_UI: bool = false
+
+# Max våben og våben kost
+var weaponLimit = 5
+var weaponLimitCost = 10
 
 # Til mapcontroller og spawner
 var areaID = 0
