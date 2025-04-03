@@ -6,9 +6,6 @@
 export.cfg
 export_presets.cfg
 
-# Custom export folder
-.export/
-
 # Imported translations (automatically generated from CSV files)
 *.translation
 
