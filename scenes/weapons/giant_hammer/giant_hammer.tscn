@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c4xblt2vgbfys" path="res://sprites/vaaben/melee/hammer/hammer_windup-1.png" id="7_tltw6"]
 [ext_resource type="Texture2D" uid="uid://su4w3mbkbo40" path="res://sprites/vaaben/melee/hammer/hammer_windup-2.png" id="8_es5b4"]
 [ext_resource type="Texture2D" uid="uid://d2qgyl2oijvas" path="res://sprites/vaaben/melee/hammer/hammer_windup-3.png" id="9_hjbkd"]
-[ext_resource type="AudioStream" uid="uid://b0vs4itbp5sps" path="res://sounds/hammer sound.mp3" id="10_sa5ot"]
+[ext_resource type="AudioStream" uid="uid://b0vs4itbp5sps" path="res://sounds/hammer_sound.mp3" id="10_sa5ot"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hpdg7"]
 animations = [{

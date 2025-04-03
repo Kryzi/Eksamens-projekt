@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cj8r58l6jli0f" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_angreb-4.png" id="5_nt0ob"]
 [ext_resource type="Texture2D" uid="uid://cc8tey4uqa3dq" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_angreb-5.png" id="6_iqd20"]
 [ext_resource type="Texture2D" uid="uid://bim84cp6kchdj" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_idle.png" id="9_2o0qf"]
-[ext_resource type="AudioStream" uid="uid://bx382ox5kh3hp" path="res://sounds/canon sound.mp3" id="9_7bffl"]
+[ext_resource type="AudioStream" uid="uid://bx382ox5kh3hp" path="res://sounds/canon_sound.mp3" id="9_7bffl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f2a2s"]
 animations = [{

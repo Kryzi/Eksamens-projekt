@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cq483p68yt4ko" path="res://sprites/vaaben/melee/kniv/kniv_idle.png" id="4_efelt"]
 [ext_resource type="Texture2D" uid="uid://dycs6u1lit6rn" path="res://sprites/vaaben/ranged/vand_stav/vand-stav_idle.png" id="5_mv4lq"]
 [ext_resource type="Texture2D" uid="uid://j6xrn85xo2qb" path="res://sprites/vaaben/melee/hammer/hammer_idle.png" id="6_uk06u"]
-[ext_resource type="Texture2D" uid="uid://dm2aj2nj5j6ua" path="res://sprites/vaaben/ranged/bommerang/bommerag_idle_angreb-1.png" id="7_pe4v2"]
+[ext_resource type="Texture2D" uid="uid://dm2aj2nj5j6ua" path="res://sprites/vaaben/ranged/boomerang/bommerang_idle_angreb-1.png" id="7_pe4v2"]
 [ext_resource type="Texture2D" uid="uid://t70iiylxcj63" path="res://sprites/vaaben/melee/skjold/skjold_idle.png" id="8_lqf4w"]
 [ext_resource type="Texture2D" uid="uid://bdg2ds0brm88q" path="res://sprites/vaaben/ranged/ild_stav/ild-stav_idle.png" id="9_hfavo"]
 [ext_resource type="Texture2D" uid="uid://bim84cp6kchdj" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_idle.png" id="10_4dxx1"]

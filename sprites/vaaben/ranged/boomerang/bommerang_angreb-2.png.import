@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2jwyr81dbakd"
-path="res://.godot/imported/bommerag_angreb-2.png-1db9b9526783876209827d71ea9d90fc.ctex"
+path="res://.godot/imported/bommerang_angreb-2.png-a38b3bb8e4de0fa09fc099d4635ef9d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/vaaben/ranged/bommerang/bommerag_angreb-2.png"
-dest_files=["res://.godot/imported/bommerag_angreb-2.png-1db9b9526783876209827d71ea9d90fc.ctex"]
+source_file="res://sprites/vaaben/ranged/boomerang/bommerang_angreb-2.png"
+dest_files=["res://.godot/imported/bommerang_angreb-2.png-a38b3bb8e4de0fa09fc099d4635ef9d2.ctex"]
 
 [params]
 
