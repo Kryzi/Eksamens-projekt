@@ -14,6 +14,10 @@ var reloading = false
 var active_bullet: Node2D = null  # Holder styr på om et skud er aktivt
 var ranged = true
 
+@onready var ExplosionSound = $ExplosionSound
+
+
+
 func _ready() -> void:
 	currentAmmo = magSize
 	reserveAmmo = maxAmmo
@@ -77,3 +81,6 @@ func reload():
 			"reserve_ammo": reserveAmmo
 		}
 		reloading = false
+
+func Sound():
+	ExplosionSound.play()

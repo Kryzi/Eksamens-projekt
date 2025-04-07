@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://556qme2y04kq"]
+[gd_scene load_steps=9 format=3 uid="uid://556qme2y04kq"]
 
 [ext_resource type="Script" path="res://scripts/weapons/special_weapons/fire_staff.gd" id="1_30dn8"]
 [ext_resource type="PackedScene" uid="uid://c3irloshh5nk5" path="res://scenes/weapons/fire_staff/fire_bullet.tscn" id="2_w3dbl"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxj62v8a1pu5v" path="res://sprites/vaaben/ranged/ild_stav/ild-stav_angreb-2.png" id="4_ag6yh"]
 [ext_resource type="Texture2D" uid="uid://c5gcafi7anm2o" path="res://sprites/vaaben/ranged/ild_stav/ild-stav_angreb-3.png" id="5_hh17w"]
 [ext_resource type="Texture2D" uid="uid://bdg2ds0brm88q" path="res://sprites/vaaben/ranged/ild_stav/ild-stav_idle.png" id="6_olftb"]
+[ext_resource type="AudioStream" uid="uid://do56etlyr7nnn" path="res://sounds/ExplosionSound.mp3" id="7_viygi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5xni1"]
 animations = [{
@@ -50,3 +51,6 @@ flip_h = true
 
 [node name="ShootingPoint" type="Marker2D" parent="."]
 position = Vector2(10, -1)
+
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_viygi")
