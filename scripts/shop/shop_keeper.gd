@@ -19,9 +19,25 @@ func _on_refill_ammo_pressed() -> void:
 		"reserve_ammo": weapon.weapons[weapon.currentWeapon].reserveAmmo
 		}
 		
+		$RichTextLabel.text = "Jo tak, min fine ven!"
+		textfelt()
+		
 	else:
-		print("Du har max skud eller et melee våben")
+		if weapon.weapons[weapon.currentWeapon].ranged == false:
+			$RichTextLabel.text = "Du har et melee våben, klovn!"
+			textfelt()
+			
+		elif weapon.weapons[weapon.currentWeapon].reserveAmmo == weapon.weapons[weapon.currentWeapon].maxAmmo:
+			$RichTextLabel.text = "Du kan ikke have flere skud, din ostehaps"
+			textfelt()
+		
 	
+
+func textfelt():
+	$RichTextLabel.visible = true
+	await get_tree().create_timer(2.5).timeout
+	$RichTextLabel.visible = false
+
 
 func _on_refill_ammo_mouse_entered() -> void:
 	PlayerInfo.is_interacting_with_UI = true
