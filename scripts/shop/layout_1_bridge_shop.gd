@@ -74,3 +74,21 @@ func _on_limit_purchase_mouse_entered() -> void:
 
 func _on_limit_purchase_mouse_exited() -> void:
 	PlayerInfo.is_interacting_with_UI = false
+
+@onready var map_controller = get_node("/root/Main/MapController")
+@onready var spawner = map_controller.get_node("Spawner")
+var itemCost = 40
+@export var item: PackedScene
+func _on_item_purchase_pressed() -> void:
+	if (PlayerInfo.current_coins >= itemCost):
+		PlayerInfo.current_coins -= itemCost
+		'%limitPurchase.set_text("Get Random Item : " + str(itemCost) + " coins")'
+		spawner.getItem()
+
+
+	
+func _on_item_purchase_mouse_entered() -> void:
+	PlayerInfo.is_interacting_with_UI = true
+
+func _on_item_purchase_mouse_exited() -> void:
+	PlayerInfo.is_interacting_with_UI = false

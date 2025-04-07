@@ -216,9 +216,20 @@ offset_bottom = 25.0
 theme_override_font_sizes/normal_font_size = 22
 text = "Goddag, vil du have nogle skud!"
 
+[node name="ItemPurchase" type="Button" parent="."]
+layout_mode = 0
+offset_left = 697.0
+offset_top = 1117.0
+offset_right = 922.0
+offset_bottom = 1267.0
+text = "Get Random Item: 40 coins"
+
 [connection signal="mouse_entered" from="limitPurchase" to="." method="_on_limit_purchase_mouse_entered"]
 [connection signal="mouse_exited" from="limitPurchase" to="." method="_on_limit_purchase_mouse_exited"]
 [connection signal="pressed" from="limitPurchase" to="." method="_on_limit_purchase_pressed"]
 [connection signal="mouse_entered" from="ShopKeeper/RefillAmmo" to="ShopKeeper" method="_on_refill_ammo_mouse_entered"]
 [connection signal="mouse_exited" from="ShopKeeper/RefillAmmo" to="ShopKeeper" method="_on_refill_ammo_mouse_exited"]
 [connection signal="pressed" from="ShopKeeper/RefillAmmo" to="ShopKeeper" method="_on_refill_ammo_pressed"]
+[connection signal="mouse_entered" from="ItemPurchase" to="." method="_on_item_purchase_mouse_entered"]
+[connection signal="mouse_exited" from="ItemPurchase" to="." method="_on_item_purchase_mouse_exited"]
+[connection signal="pressed" from="ItemPurchase" to="." method="_on_item_purchase_pressed"]
