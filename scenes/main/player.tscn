@@ -180,10 +180,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yc407"]
-size = Vector2(65, 95)
+size = Vector2(58, 91)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75p33"]
-size = Vector2(68, 92)
+size = Vector2(70, 96)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ddb0a")
@@ -196,7 +196,7 @@ sprite_frames = SubResource("SpriteFrames_a5exy")
 animation = &"Dash venstre"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 5.5)
+position = Vector2(-1, 3.5)
 shape = SubResource("RectangleShape2D_yc407")
 
 [node name="Weapon" type="Node2D" parent="."]
@@ -237,5 +237,6 @@ one_shot = true
 [node name="CanDashTime" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]
 [connection signal="timeout" from="Dashing" to="." method="_on_dashing_timeout"]
 [connection signal="timeout" from="CanDashTime" to="." method="_on_can_dash_time_timeout"]

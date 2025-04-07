@@ -105,3 +105,9 @@ func _on_dashing_timeout() -> void:
 
 func _on_can_dash_time_timeout() -> void:
 	canDash = true
+
+
+func _on_damage_body_entered(body: Node2D) -> void:
+	if body.name == "Gigaged":
+		recoil_velocity = (global_position - body.global_position).normalized() * 2000
+		hit_damage(1)
