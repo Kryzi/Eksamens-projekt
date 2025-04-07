@@ -5,7 +5,7 @@ var Damage: int = 1
 var targetPos: Vector2
 var direction: Vector2
 
-@export var IceParticle: PackedScene
+@export var Particle: PackedScene
 
 
 func _ready() -> void:
@@ -26,7 +26,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 
 func emitParticle():
-	var particle = IceParticle.instantiate()
+	var particle = Particle.instantiate()
 	
 	get_tree().get_root().call_deferred("add_child", particle)
 	particle.global_position = global_position

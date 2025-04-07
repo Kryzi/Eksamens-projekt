@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cramhe6rm2cu1"]
+[gd_scene load_steps=5 format=3 uid="uid://cramhe6rm2cu1"]
 
 [ext_resource type="Script" path="res://scripts/weapons/basic_projectile.gd" id="1_gn7b4"]
+[ext_resource type="PackedScene" uid="uid://cj0f648go87mm" path="res://scenes/weapons/basic_bow/arrow_particle.tscn" id="2_l3p58"]
 [ext_resource type="Texture2D" uid="uid://brmu8nrshp73j" path="res://sprites/vaaben/ranged/bue/pil_bue.png" id="2_yuy7m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw6fo"]
@@ -8,6 +9,7 @@ size = Vector2(14, 4)
 
 [node name="BasicArrowProjectile" type="Area2D" groups=["projectile"]]
 script = ExtResource("1_gn7b4")
+Particle = ExtResource("2_l3p58")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
