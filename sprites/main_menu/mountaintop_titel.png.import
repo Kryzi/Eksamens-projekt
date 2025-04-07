@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blcvt03gpnxr5"
-path="res://.godot/imported/o1-3_taage.png-a81350bbfc392665d4426ba1d8dcf539.ctex"
+uid="uid://gaccdbguqo75"
+path="res://.godot/imported/mountaintop_titel.png-7d8620dee85a70db4838f760edcb10cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/omraader/omraade1/o1-3/o1-3_taage.png"
-dest_files=["res://.godot/imported/o1-3_taage.png-a81350bbfc392665d4426ba1d8dcf539.ctex"]
+source_file="res://sprites/main_menu/mountaintop_titel.png"
+dest_files=["res://.godot/imported/mountaintop_titel.png-7d8620dee85a70db4838f760edcb10cf.ctex"]
 
 [params]
 

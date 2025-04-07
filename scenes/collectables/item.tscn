@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b32tym1a5eeh7"]
+[gd_scene load_steps=7 format=3 uid="uid://b32tym1a5eeh7"]
 
 [ext_resource type="Script" path="res://scripts/collectables/item.gd" id="1_wh5dn"]
 [ext_resource type="Texture2D" uid="uid://dh3w4hanvbu7g" path="res://sprites/item/basic/damage-op.png" id="2_3j1xg"]
 [ext_resource type="Texture2D" uid="uid://cxlftvk4q3mda" path="res://sprites/item/basic/health-op.png" id="3_jff0x"]
+[ext_resource type="Texture2D" uid="uid://chsedq62qflha" path="res://sprites/item/basic/speed-op.png" id="4_1q7f7"]
 [ext_resource type="AudioStream" uid="uid://cin6dwth18eit" path="res://sounds/ItemSound.mp3" id="4_csapi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8g547"]
@@ -30,7 +31,7 @@ texture = ExtResource("3_jff0x")
 [node name="Item3" type="Sprite2D" parent="ItemArea"]
 position = Vector2(11, 8)
 scale = Vector2(21, 16)
-texture = ExtResource("3_jff0x")
+texture = ExtResource("4_1q7f7")
 
 [node name="ItemSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_csapi")

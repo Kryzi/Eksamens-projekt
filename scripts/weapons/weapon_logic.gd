@@ -124,7 +124,7 @@ func applyDamageUp(damageUpgrade: int):
 			pass
 		else:
 			var original_damage = weapons[i].damage
-			var bonus = original_damage * 0.1
+			var bonus = original_damage * 0.25
 			if bonus < 1:
 				bonus = 1
 			weapons[i].damage += bonus
