@@ -41,6 +41,9 @@ func _physics_process(delta):
 		dashing = true
 		canDash = false
 		
+		player_state = "Dashing"
+		play_anim(direction)
+		
 		dash_velocity = last_direction.normalized() * dashForce
 		
 		$Dashing.start(dashTime)
@@ -52,11 +55,12 @@ func _physics_process(delta):
 	else:
 		velocity = input_velocity + recoil_velocity
 		recoil_velocity *= recoil_decay
+		play_anim(direction)
 	
 	
 	
 	move_and_slide()
-	play_anim(direction)
+	
 	
 
 func play_anim(dir):
@@ -66,6 +70,8 @@ func play_anim(dir):
 	elif player_state == "Walking":
 		#print("Walking animation:", Aimdirection(dir))  # Debugging
 		$AnimatedSprite2D.play("Walk " + Aimdirection(dir))
+	elif player_state == "Dashing":
+		$AnimatedSprite2D.play("Dash " + Aimdirection(dir))
 
 func Aimdirection(dir: Vector2) -> String:
 	if dir.y > 0:

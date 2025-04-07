@@ -1,12 +1,16 @@
-[gd_scene load_steps=31 format=3 uid="uid://cradrmw10obwa"]
+[gd_scene load_steps=35 format=3 uid="uid://cradrmw10obwa"]
 
 [ext_resource type="Script" path="res://scripts/main/player.gd" id="1_ddb0a"]
 [ext_resource type="Texture2D" uid="uid://bmjvtt528ekn5" path="res://sprites/spiller/spiller-hojre_idle-1_walk-2-4.png" id="2_brr8l"]
+[ext_resource type="Texture2D" uid="uid://bl2f6xsq8dpfs" path="res://sprites/spiller/spiller-hojre_dash.png" id="2_lpqre"]
+[ext_resource type="Texture2D" uid="uid://dtni2qmqx3j2c" path="res://sprites/spiller/spiller-ned_dash.png" id="3_3eli8"]
 [ext_resource type="Script" path="res://scripts/weapons/weapon_logic.gd" id="3_fteec"]
 [ext_resource type="Texture2D" uid="uid://tt4i8wc881x1" path="res://sprites/spiller/spiller-hojre_idle-2.png" id="3_x4n30"]
 [ext_resource type="PackedScene" uid="uid://wdl2k0o6ywsg" path="res://scenes/weapons/basic_bow/basic_bow.tscn" id="4_p5qdd"]
+[ext_resource type="Texture2D" uid="uid://pfsy6sdd4xv3" path="res://sprites/spiller/spiller-op_dash.png" id="4_pchua"]
 [ext_resource type="Texture2D" uid="uid://dkqib334ssd6a" path="res://sprites/spiller/spiller-ned_idle-1_walk-2-4.png" id="4_srysq"]
 [ext_resource type="Texture2D" uid="uid://cmpp717jal153" path="res://sprites/spiller/spiller-ned_idle-2.png" id="5_sdg1d"]
+[ext_resource type="Texture2D" uid="uid://k4hr44yv2vnn" path="res://sprites/spiller/spiller-venstre_dash.png" id="5_xsyyv"]
 [ext_resource type="Texture2D" uid="uid://l418rogg6gpp" path="res://sprites/spiller/spiller-op_idle-1_walk-2-4.png" id="6_acsuq"]
 [ext_resource type="Texture2D" uid="uid://ca5uk4w1rawkq" path="res://sprites/spiller/spiller-op_idle-2.png" id="7_52081"]
 [ext_resource type="Texture2D" uid="uid://dndw5sh0irxvj" path="res://sprites/spiller/spiller-venstre_idle-1_walk-2-4.png" id="8_qimvs"]
@@ -30,6 +34,38 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a5exy"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lpqre")
+}],
+"loop": true,
+"name": &"Dash højre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3eli8")
+}],
+"loop": true,
+"name": &"Dash ned",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pchua")
+}],
+"loop": true,
+"name": &"Dash op",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xsyyv")
+}],
+"loop": true,
+"name": &"Dash venstre",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_brr8l")
@@ -157,7 +193,7 @@ maxHealth = 12
 texture_filter = 1
 scale = Vector2(5.5, 5.5)
 sprite_frames = SubResource("SpriteFrames_a5exy")
-animation = &"Idle ned"
+animation = &"Dash venstre"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 5.5)
