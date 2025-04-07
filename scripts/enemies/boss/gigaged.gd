@@ -8,7 +8,7 @@ var is_thinking: bool = false  # Forhindrer gentagne bevægelseskald
 var attacking = false
 
 @export var thinkTime = 1.0 
-@export var health = 150
+@export var health = 200
 @export var bullet_scene: PackedScene
 @export_range(0, 2 * PI) var alpha: float = 0.0
 @export var trampDonwTime = 1.0
