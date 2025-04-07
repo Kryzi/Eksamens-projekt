@@ -5,6 +5,7 @@ func _ready() -> void:
 
 @onready var weapon = get_node("/root/Main/Player/Weapon")
 @onready var num = 1
+@onready var ItemSound = $ItemSound
 
 @export var itemValue: PackedScene
 var itemID = 0
@@ -30,7 +31,7 @@ func itemGenerator():
 
 
 func _on_item_area_body_entered(_body: Node2D) -> void:
-	
+	ItemSound.play()
 	match itemID:
 		1:
 			weapon.applyUpgrades( num, num)
