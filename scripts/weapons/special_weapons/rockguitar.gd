@@ -22,7 +22,7 @@ var reserveAmmo: int # Den mængde skud man har, i alt
 var reloading = false
 
 @export var num_bullets: int = 4
-
+@export var shot_delay: float = 0.1
 var ranged = true
 
 
@@ -55,9 +55,6 @@ func _process(_delta: float) -> void:
 			CanShoot = false
 			
 			shoot()
-			
-			await get_tree().create_timer(Firerate).timeout
-			CanShoot = true
 	
 	if currentAmmo <= 0 and Input.is_action_pressed("Shoot") or Input.is_action_just_pressed("Reload") and reserveAmmo > 0 and reloading == false:
 		reload()
@@ -108,12 +105,18 @@ func shoot():
 			"reserve_ammo": reserveAmmo
 		}
 		
+		var offset = Vector2(randf_range(-100, 100), randf_range(-100, 100))
+		
 		var bullet = Bullet.instantiate()
 		bullet.global_position = $ShootingPoint.global_position
 		bullet.rotation = rotation
-		bullet.targetPos = get_global_mouse_position() 
+		bullet.targetPos = get_global_mouse_position()  + offset
 		bullet.Damage = damage
 		get_tree().get_root().call_deferred("add_child", bullet)
+		
+		
+		
+		await get_tree().create_timer(shot_delay).timeout  # Vent lidt mellem skud
 	
-	
-	
+	await get_tree().create_timer(Firerate).timeout
+	CanShoot = true
