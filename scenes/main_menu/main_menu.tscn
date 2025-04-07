@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba5ouyia8c8k0"]
+[gd_scene load_steps=6 format=3 uid="uid://ba5ouyia8c8k0"]
 
 [ext_resource type="Script" path="res://scripts/main/main_menu/main_menu.gd" id="1_abvb2"]
 [ext_resource type="Texture2D" uid="uid://bsaan551blxta" path="res://sprites/main_menu/daddad.png" id="2_gf530"]
 [ext_resource type="PackedScene" uid="uid://cogx1vos6b53b" path="res://scenes/main/main.tscn" id="2_kpe1m"]
 [ext_resource type="Texture2D" uid="uid://dtnsffhrgrfa3" path="res://sprites/main_menu/jaja.png" id="3_wbf82"]
+[ext_resource type="AudioStream" uid="uid://dnsulxlnyiv1h" path="res://sounds/MenuMusik.mp3" id="5_vtj60"]
 
 [node name="Main Menu" type="Node"]
 script = ExtResource("1_abvb2")
@@ -63,6 +64,10 @@ offset_bottom = 157.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "SETTINGS"
+
+[node name="MenuMusik" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vtj60")
+autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
