@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bda2w1dqn1ty3" path="res://sprites/vaaben/melee/kniv/kniv_angeb-3.png" id="3_yfkcc"]
 [ext_resource type="Texture2D" uid="uid://bansey017tn4c" path="res://sprites/vaaben/melee/kniv/kniv_angeb-4.png" id="4_51vj0"]
 [ext_resource type="Texture2D" uid="uid://cq483p68yt4ko" path="res://sprites/vaaben/melee/kniv/kniv_idle.png" id="5_vaqcu"]
-[ext_resource type="AudioStream" uid="uid://cddmp6rp12yri" path="res://sounds/knife sound.mp3" id="7_yyg57"]
+[ext_resource type="AudioStream" uid="uid://cddmp6rp12yri" path="res://sounds/knife_sound.mp3" id="7_yyg57"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nllp1"]
 animations = [{

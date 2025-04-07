@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/weapons/special_weapons/boomerang.gd" id="1_1tt54"]
 [ext_resource type="PackedScene" uid="uid://cmfr0ks7vpuhe" path="res://scenes/weapons/boomerang/boomerang_projectile.tscn" id="2_42sl5"]
-[ext_resource type="Texture2D" uid="uid://bxjs6sgdq41bj" path="res://sprites/vaaben/ranged/bommerang/bommerag_angreb-3.png" id="3_gkl4r"]
-[ext_resource type="AudioStream" uid="uid://dc4simgbjvbo0" path="res://sounds/boomerang sound.mp3" id="4_ov62h"]
+[ext_resource type="Texture2D" uid="uid://bxjs6sgdq41bj" path="res://sprites/vaaben/ranged/boomerang/bommerang_angreb-3.png" id="3_gkl4r"]
+[ext_resource type="AudioStream" uid="uid://dc4simgbjvbo0" path="res://sounds/boomerang_sound.mp3" id="4_ov62h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1cgnq"]
 animations = [{

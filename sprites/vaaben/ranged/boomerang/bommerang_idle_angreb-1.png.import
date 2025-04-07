@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm2aj2nj5j6ua"
-path="res://.godot/imported/bommerag_idle_angreb-1.png-730aa8ea6c9930aa011787a84e7d80c0.ctex"
+path="res://.godot/imported/bommerang_idle_angreb-1.png-f74a62b7a7dbc4967df84d21f47bbad0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/vaaben/ranged/bommerang/bommerag_idle_angreb-1.png"
-dest_files=["res://.godot/imported/bommerag_idle_angreb-1.png-730aa8ea6c9930aa011787a84e7d80c0.ctex"]
+source_file="res://sprites/vaaben/ranged/boomerang/bommerang_idle_angreb-1.png"
+dest_files=["res://.godot/imported/bommerang_idle_angreb-1.png-f74a62b7a7dbc4967df84d21f47bbad0.ctex"]
 
 [params]
 

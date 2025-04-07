@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://nr8nxd4bstae" path="res://sprites/vaaben/ranged/bue/bue_angreb-1.png" id="4_mebgq"]
 [ext_resource type="Texture2D" uid="uid://cfhstnhkb15u7" path="res://sprites/vaaben/ranged/bue/bue_angreb-2.png" id="5_ogjmg"]
 [ext_resource type="Texture2D" uid="uid://c4lbw0ps8gyvg" path="res://sprites/vaaben/ranged/bue/bue_idle.png" id="6_8xdi6"]
-[ext_resource type="AudioStream" uid="uid://ptfy2pi086ts" path="res://sounds/bow sound.mp3" id="7_obsl7"]
+[ext_resource type="AudioStream" uid="uid://ptfy2pi086ts" path="res://sounds/bow_sound.mp3" id="7_obsl7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0mlnr"]
 animations = [{

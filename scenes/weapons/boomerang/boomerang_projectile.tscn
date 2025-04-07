@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cmfr0ks7vpuhe"]
 
 [ext_resource type="Script" path="res://scripts/weapons/special_weapons/boomerang_projectile.gd" id="1_0mtok"]
-[ext_resource type="Texture2D" uid="uid://bxjs6sgdq41bj" path="res://sprites/vaaben/ranged/bommerang/bommerag_angreb-3.png" id="2_37tbc"]
-[ext_resource type="Texture2D" uid="uid://dclels77r0k13" path="res://sprites/vaaben/ranged/bommerang/bommerag_angreb-4.png" id="3_0og72"]
-[ext_resource type="Texture2D" uid="uid://dm2aj2nj5j6ua" path="res://sprites/vaaben/ranged/bommerang/bommerag_idle_angreb-1.png" id="4_7qe8y"]
-[ext_resource type="Texture2D" uid="uid://c2jwyr81dbakd" path="res://sprites/vaaben/ranged/bommerang/bommerag_angreb-2.png" id="5_cw5v0"]
+[ext_resource type="Texture2D" uid="uid://bxjs6sgdq41bj" path="res://sprites/vaaben/ranged/boomerang/bommerang_angreb-3.png" id="2_37tbc"]
+[ext_resource type="Texture2D" uid="uid://dclels77r0k13" path="res://sprites/vaaben/ranged/boomerang/bommerang_angreb-4.png" id="3_0og72"]
+[ext_resource type="Texture2D" uid="uid://dm2aj2nj5j6ua" path="res://sprites/vaaben/ranged/boomerang/bommerang_idle_angreb-1.png" id="4_7qe8y"]
+[ext_resource type="Texture2D" uid="uid://c2jwyr81dbakd" path="res://sprites/vaaben/ranged/boomerang/bommerang_angreb-2.png" id="5_cw5v0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f23jd"]
 animations = [{

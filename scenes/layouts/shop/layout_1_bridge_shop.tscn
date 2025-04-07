@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cq483p68yt4ko" path="res://sprites/vaaben/melee/kniv/kniv_idle.png" id="5_22u78"]
 [ext_resource type="Texture2D" uid="uid://d2edlf0emj66y" path="res://sprites/omraader/omraade1/o1-1/o1-1_taage-1.png" id="5_idw70"]
 [ext_resource type="Texture2D" uid="uid://c6oupynhymm3q" path="res://sprites/omraader/omraade1/o1-1/o1-1_taage-2.png" id="6_gxmq8"]
-[ext_resource type="Texture2D" uid="uid://dm2aj2nj5j6ua" path="res://sprites/vaaben/ranged/bommerang/bommerag_idle_angreb-1.png" id="7_hrufs"]
+[ext_resource type="Texture2D" uid="uid://dm2aj2nj5j6ua" path="res://sprites/vaaben/ranged/boomerang/bommerang_idle_angreb-1.png" id="7_hrufs"]
 [ext_resource type="Texture2D" uid="uid://dtwbw1u4eptvv" path="res://sprites/omraader/omraade1/bro/bro_op-ende.png" id="7_q0lb1"]
 [ext_resource type="PackedScene" uid="uid://ca64n4anj8bud" path="res://scenes/weapons/water_staff/water_staff.tscn" id="8_rmi15"]
 [ext_resource type="Texture2D" uid="uid://dycs6u1lit6rn" path="res://sprites/vaaben/ranged/vand_stav/vand-stav_idle.png" id="9_k04xp"]

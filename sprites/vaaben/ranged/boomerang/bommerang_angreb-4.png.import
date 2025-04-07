@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://cdjce1h1dlvfp"
-=======
-uid="uid://cc1xauro1svus"
->>>>>>> 85e12fd70a2beb64aabbf542c02d68f7a64455d7
-path="res://.godot/imported/gigaged-ned_tramp2-hoved-hojre_angreb.png-828850b17811f4a7e3737f23b3e2f18b.ctex"
+uid="uid://dclels77r0k13"
+path="res://.godot/imported/bommerang_angreb-4.png-eba6b5ca87c1aa37dc86dc04db6decbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/boss/gigaged/krop_ned/gigaged-ned_tramp2-hoved-hojre_angreb.png"
-dest_files=["res://.godot/imported/gigaged-ned_tramp2-hoved-hojre_angreb.png-828850b17811f4a7e3737f23b3e2f18b.ctex"]
+source_file="res://sprites/vaaben/ranged/boomerang/bommerang_angreb-4.png"
+dest_files=["res://.godot/imported/bommerang_angreb-4.png-eba6b5ca87c1aa37dc86dc04db6decbe.ctex"]
 
 [params]
 
