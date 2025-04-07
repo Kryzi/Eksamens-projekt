@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyouknex6divm"]
+[gd_scene load_steps=5 format=3 uid="uid://cyouknex6divm"]
 
 [ext_resource type="Script" path="res://scripts/weapons/basic_projectile.gd" id="1_wawsl"]
 [ext_resource type="Texture2D" uid="uid://t8d7cdi2xopq" path="res://sprites/vaaben/ranged/is_kannon/projektil_is-kannon.png" id="1_xyou4"]
+[ext_resource type="PackedScene" uid="uid://vseo6uqg1jg1" path="res://scenes/weapons/ice_cannon/ice_particle.tscn" id="2_ux0wp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgwqi"]
 size = Vector2(80, 37)
@@ -9,6 +10,7 @@ size = Vector2(80, 37)
 [node name="IsKanonBullet" type="Area2D" groups=["projectile"]]
 script = ExtResource("1_wawsl")
 BulletSpeed = 1000
+Particle = ExtResource("2_ux0wp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(32, 0)
