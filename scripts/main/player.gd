@@ -15,6 +15,8 @@ var dash_velocity
 var dashCD = 1.0
 var canDash = true
 
+@onready var HitSound = $HitSound
+
 func _ready():
 	currentHealth = maxHealth
 	PlayerInfo.health_data = {
@@ -91,6 +93,7 @@ func hit_damage(damage):
 	var new_health_data = {"current_health": PlayerInfo.health_data["current_health"] - damage}
 	PlayerInfo.health_data = new_health_data
 	get_node("/root/Main/HUD").apply_noise_shake()
+	HitSound.play()
 	
 	if new_health_data["current_health"] <= 0:
 		die()

@@ -63,5 +63,6 @@ shape = SubResource("RectangleShape2D_axbx5")
 
 [node name="KnifeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_yyg57")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
