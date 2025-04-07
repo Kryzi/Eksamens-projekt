@@ -3,10 +3,6 @@
 [ext_resource type="Script" path="res://scripts/weapons/basic_shooting.gd" id="1_cajgo"]
 [ext_resource type="PackedScene" uid="uid://cgku6x7r8v7vs" path="res://scenes/weapons/water_staff/water_bullet.tscn" id="2_xfe3t"]
 [ext_resource type="Texture2D" uid="uid://bf5te7fcqeasu" path="res://sprites/vaaben/ranged/vand_stav/vand-stav_angreb-1.png" id="3_7siue"]
-<<<<<<< Updated upstream
-[ext_resource type="AudioStream" uid="uid://dtid4klm2w4n6" path="res://sounds/water_sound.mp3" id="3_jfj88"]
-=======
->>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://ce7t1a3oclifd" path="res://sprites/vaaben/ranged/vand_stav/vand-stav_angreb-2.png" id="4_tihwu"]
 [ext_resource type="Texture2D" uid="uid://dyfv6ahqxsbne" path="res://sprites/vaaben/ranged/vand_stav/vand-stav_angreb-3.png" id="5_wl8bb"]
 [ext_resource type="Texture2D" uid="uid://l8ussisimke5" path="res://sprites/vaaben/ranged/vand_stav/vand-stav_angreb-4.png" id="6_0xb0f"]
