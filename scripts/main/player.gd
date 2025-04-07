@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var maxHealth: int = 20
 var currentHealth: int
-var speed: int = 50000 # speed in pixels/sec
+var speed: int = 25000 # speed in pixels/sec
 var player_state: String = "Idle"
 var last_direction: Vector2 = Vector2.DOWN  # Standardretning
 var recoil_velocity: Vector2 
@@ -10,7 +10,7 @@ var recoil_velocity: Vector2
 # Dash
 var dashTime = 0.2
 var dashing = false
-var dashForce = 1800
+var dashForce = 1200
 var dash_velocity
 var dashCD = 1.0
 var canDash = true
@@ -41,6 +41,9 @@ func _physics_process(delta):
 		dashing = true
 		canDash = false
 		
+		player_state = "Dashing"
+		play_anim(direction)
+		
 		dash_velocity = last_direction.normalized() * dashForce
 		
 		$Dashing.start(dashTime)
@@ -52,11 +55,12 @@ func _physics_process(delta):
 	else:
 		velocity = input_velocity + recoil_velocity
 		recoil_velocity *= recoil_decay
+		play_anim(direction)
 	
 	
 	
 	move_and_slide()
-	play_anim(direction)
+	
 	
 
 func play_anim(dir):
@@ -66,6 +70,8 @@ func play_anim(dir):
 	elif player_state == "Walking":
 		#print("Walking animation:", Aimdirection(dir))  # Debugging
 		$AnimatedSprite2D.play("Walk " + Aimdirection(dir))
+	elif player_state == "Dashing":
+		$AnimatedSprite2D.play("Dash " + Aimdirection(dir))
 
 func Aimdirection(dir: Vector2) -> String:
 	if dir.y > 0:
@@ -99,3 +105,9 @@ func _on_dashing_timeout() -> void:
 
 func _on_can_dash_time_timeout() -> void:
 	canDash = true
+
+
+func _on_damage_body_entered(body: Node2D) -> void:
+	if body.name == "Gigaged":
+		recoil_velocity = (global_position - body.global_position).normalized() * 2000
+		hit_damage(1)

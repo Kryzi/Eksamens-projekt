@@ -126,7 +126,7 @@ func rewardSet(value):
 		PlayerInfo.mapValue = "Item" 
 	if (rewardValue == 3):
 		PlayerInfo.mapValue = "Shop"
-	if (PlayerInfo.bossTimer == 4):
+	if (PlayerInfo.bossTimer == 9):
 		PlayerInfo.mapValue = "Boss"
 
 @export var item: PackedScene

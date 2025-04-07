@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dh3w4hanvbu7g" path="res://sprites/item/basic/damage-op.png" id="2_3j1xg"]
 [ext_resource type="Texture2D" uid="uid://cxlftvk4q3mda" path="res://sprites/item/basic/health-op.png" id="3_jff0x"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dffaa"]
-radius = 25.1794
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g547"]
+size = Vector2(310, 225)
 
 [node name="Item" type="Node2D"]
 script = ExtResource("1_wh5dn")
@@ -13,13 +13,16 @@ script = ExtResource("1_wh5dn")
 [node name="ItemArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemArea"]
-shape = SubResource("CircleShape2D_dffaa")
+position = Vector2(-1, 18.5)
+shape = SubResource("RectangleShape2D_8g547")
 
 [node name="Item1" type="Sprite2D" parent="ItemArea"]
+position = Vector2(11, 8)
 scale = Vector2(21, 16)
 texture = ExtResource("2_3j1xg")
 
 [node name="Item2" type="Sprite2D" parent="ItemArea"]
+position = Vector2(11, 8)
 scale = Vector2(21, 16)
 texture = ExtResource("3_jff0x")
 

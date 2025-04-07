@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed = 10000
-var health = 2
+var health = 18
 var Enemy_state: String = "Walking"
 var last_direction: Vector2 = Vector2.DOWN
 var player_in_attack_range = false  # Holder styr på, om spilleren er tæt nok på til angreb

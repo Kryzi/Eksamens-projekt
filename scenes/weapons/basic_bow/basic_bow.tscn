@@ -42,6 +42,7 @@ script = ExtResource("1_qqo8k")
 Bullet = ExtResource("2_bgxbw")
 WeaponSound = NodePath("BowSound")
 magSize = 1
+maxAmmo = 24
 reloadTime = 1.0
 metadata/IconId = "BasicBow"
 

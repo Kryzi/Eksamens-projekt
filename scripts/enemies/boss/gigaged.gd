@@ -8,7 +8,7 @@ var is_thinking: bool = false  # Forhindrer gentagne bevægelseskald
 var attacking = false
 
 @export var thinkTime = 1.0 
-@export var health = 150
+@export var health = 200
 @export var bullet_scene: PackedScene
 @export_range(0, 2 * PI) var alpha: float = 0.0
 @export var trampDonwTime = 1.0
@@ -37,7 +37,7 @@ func _physics_process(_delta):
 	$Krop.play("Walk " + retning)
 	$Hoved.play("Idle " + retning)
 	
-	print("Global pos:", global_position, "Target pos:", target_position, "Distance:", global_position.distance_to(target_position))
+	#print("Global pos:", global_position, "Target pos:", target_position, "Distance:", global_position.distance_to(target_position)) #debug
 	
 	# Hvis fjenden er tæt på målet, gå i "thinking mode"
 	if global_position.distance_to(target_position) < 10 and is_thinking == false and attacking == false:
