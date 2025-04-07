@@ -217,10 +217,10 @@ func checkDeath():
 			layout2.get_node("Boundary2/CollisionPolygon2D").disabled = true
 			layout2_bridge.visible = true
 			
-			#layout1_bridge.get_node("Variation1_2/BoundaryBridge2_3/CollisionPolygon2D").disabled = false
-			#layout1_bridge.get_node("Variation1_2/TeleporterArea1_2/Teleporter1_2").disabled = false
-			
 			layout2_bridge.get_node("Variation2_1/TeleporterArea2/Teleporter2").disabled = false
+			layout2_bridge.get_node("Variation2_2").visible = false
+			layout2_bridge.get_node("Variation2_3").visible = false
+			
 			
 			rewardSet(randi_range(1, 3))
 			layout2_bridge.get_node("Variation2_1/rewardLabel2").text = PlayerInfo.mapValue
@@ -230,10 +230,24 @@ func checkDeath():
 				layout2_bridge.get_node("Variation2_1/Boundary2Bridge/CollisionPolygon2D").disabled = false
 				layout2_bridge.get_node("Variation2_2").visible = false
 			
-			if (variationID == 2):
+			if (variationID >= 2):
+				layout2_bridge.get_node("Variation2_2").visible = true
+				
 				layout2_bridge.get_node("Variation2_2/BoundaryBridge2_2/CollisionPolygon2D").disabled = false
 				layout2_bridge.get_node("Variation2_2/TeleporterArea2_2/Teleporter2_2").disabled = false
 				rewardSet(randi_range(1, 3))
 				layout2_bridge.get_node("Variation2_2/rewardLabel2_2").text = PlayerInfo.mapValue
 				teleporter2 = rewardValue
+				
+				if (variationID == 3):
+					layout2_bridge.get_node("Variation2_3").visible = true
+					
+					layout2_bridge.get_node("Variation2_2/BoundaryBridge2_2/CollisionPolygon2D").disabled = true
+					
+					layout2_bridge.get_node("Variation2_3/BoundaryBridge2_3/CollisionPolygon2D").disabled = false
+					layout2_bridge.get_node("Variation2_3/TeleporterArea2_3/Teleporter2_3").disabled = false
+					
+					rewardSet(randi_range(1, 3))
+					layout2_bridge.get_node("Variation2_3/rewardLabel2_3").text = PlayerInfo.mapValue
+					teleporter3 = rewardValue
 			
