@@ -45,11 +45,3 @@ func _on_refill_ammo_mouse_entered() -> void:
 
 func _on_refill_ammo_mouse_exited() -> void:
 	PlayerInfo.is_interacting_with_UI = false
-
-
-func _on_sælg_våben_pressed() -> void:
-	
-	print(weapon.weapons[weapon.currentWeapon].instance.name)
-	
-	
-	
