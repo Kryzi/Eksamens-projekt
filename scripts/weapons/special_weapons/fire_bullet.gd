@@ -5,6 +5,8 @@ extends Area2D
 var Damage: int = 1 
 var targetPos: Vector2
 var direction: Vector2
+var screen_shake = 0.0
+
 
 func _ready() -> void:
 	direction = (targetPos - global_position).normalized()
@@ -33,8 +35,6 @@ func _physics_process(delta):
 	
 	$FireParticle.global_position = global_position - (direction * particleOffset)  # Flyt partiklen bagud
 	
-	
-	
 	if BulletSpeed == 375:
 		$FireParticle.texture = load("res://sprites/vaaben/partikler/ild/ild_partikel-2.png")
 	
@@ -48,12 +48,24 @@ func _physics_process(delta):
 		$FireParticle.scale_amount_min += 0.01
 		$FireParticle.scale_amount_max += 0.01
 	
+	if BulletSpeed == 124:
+		screen_shake += 0.05
+		print(screen_shake)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		body.hit_damage(Damage)
+		
+		get_node("/root/Main/HUD").NOISE_SHAKE_STRENGTH = screen_shake
+		get_node("/root/Main/HUD").apply_noise_shake()
+		get_node("/root/Main/HUD").NOISE_SHAKE_STRENGTH = 15.0
+		
 		queue_free()
 	elif not body.is_in_group("player"):
+		get_node("/root/Main/HUD").NOISE_SHAKE_STRENGTH = screen_shake
+		get_node("/root/Main/HUD").apply_noise_shake()
+		get_node("/root/Main/HUD").NOISE_SHAKE_STRENGTH = 15.0
+		
 		queue_free()
 
 
