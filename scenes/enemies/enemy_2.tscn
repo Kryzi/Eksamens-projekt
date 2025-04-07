@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://du87ulgmewj2t"]
+[gd_scene load_steps=15 format=3 uid="uid://du87ulgmewj2t"]
 
 [ext_resource type="Texture2D" uid="uid://b3qw5fkcbud64" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_angreb-1.png" id="1_831k2"]
 [ext_resource type="Script" path="res://scripts/enemies/enemy_2.gd" id="1_h35g5"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://deqxwwye30do5" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_charge-3.png" id="5_hr8bc"]
 [ext_resource type="Texture2D" uid="uid://ciyd3flus8pp7" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_charge-4.png" id="6_be48d"]
 [ext_resource type="Texture2D" uid="uid://cp1dskvx85vnj" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_idle_walk.png" id="7_w0k0f"]
+[ext_resource type="AudioStream" uid="uid://cucfblr21yfkr" path="res://sounds/Enemy2Sound.mp3" id="11_gfmy7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_acmvy"]
 radius = 60.0
@@ -97,6 +98,10 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="View"]
 shape = SubResource("CircleShape2D_jkvd7")
+
+[node name="Enemy2Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_gfmy7")
+pitch_scale = 0.85
 
 [connection signal="timeout" from="move_Timer" to="." method="_on_move_timer_timeout"]
 [connection signal="body_entered" from="View" to="." method="_on_view_body_entered"]
