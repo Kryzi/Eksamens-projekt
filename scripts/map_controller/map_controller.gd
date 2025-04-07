@@ -8,6 +8,9 @@ func _ready() -> void:
 	$Background/Layout1Bridge/Variation1_2/TeleporterArea1_2.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_2")
 	)
+	$Background/Layout1Bridge/Variation1_3/TeleporterArea1_3.body_entered.connect(
+	func(body): _on_teleport_area_entered(body, "Teleporter_3")
+	)
 	
 	$Background/Layout2Bridge/Variation2_1/TeleporterArea2.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_1")
@@ -84,6 +87,9 @@ func _on_teleport_area_entered(body, teleporter_name):
 			rewardValue = spawner.teleporter2
 			stageReward = rewardValue
 			#print("used2")
+		elif (teleporter_name == "Teleporter_3"):
+			rewardValue = spawner.teleporter3
+			stageReward = rewardValue
 		if (teleporter_name == "Teleporter_shop"):
 			#print(rewardValue)
 			stageReward = rewardValue
