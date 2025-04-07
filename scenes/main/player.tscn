@@ -200,7 +200,6 @@ position = Vector2(40, 0)
 script = ExtResource("3_fteec")
 
 [node name="BasicBow" parent="Weapon" instance=ExtResource("4_p5qdd")]
-maxAmmo = 12
 
 [node name="BasicKnife" parent="Weapon" instance=ExtResource("20_y8slu")]
 FPS_SpeedScale = 2.5

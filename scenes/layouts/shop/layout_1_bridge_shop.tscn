@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://uopmy20bfd5u"]
+[gd_scene load_steps=38 format=3 uid="uid://uopmy20bfd5u"]
 
 [ext_resource type="Script" path="res://scripts/shop/layout_1_bridge_shop.gd" id="1_u4soe"]
 [ext_resource type="PackedScene" uid="uid://wdl2k0o6ywsg" path="res://scenes/weapons/basic_bow/basic_bow.tscn" id="2_jm5b7"]
@@ -25,7 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://556qme2y04kq" path="res://scenes/weapons/fire_staff/fire_staff.tscn" id="18_batoi"]
 [ext_resource type="Texture2D" uid="uid://bdg2ds0brm88q" path="res://sprites/vaaben/ranged/ild_stav/ild-stav_idle.png" id="19_dip50"]
 [ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="19_puqjo"]
-[ext_resource type="Texture2D" uid="uid://d6d3sonbjqjh" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="20_8wijq"]
+[ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="20_8wijq"]
+[ext_resource type="Script" path="res://scripts/shop/shop_keeper.gd" id="27_d84on"]
+[ext_resource type="Texture2D" uid="uid://cxdktks84mnsy" path="res://icon.svg" id="28_fypwu"]
 
 [sub_resource type="Resource" id="Resource_shqo3"]
 script = ExtResource("15_6p3av")
@@ -94,6 +96,7 @@ shop_item_slot_scene = ExtResource("2_w6jpp")
 shop_item_resource_array = Array[ExtResource("15_6p3av")]([SubResource("Resource_shqo3"), SubResource("Resource_5o5c1"), SubResource("Resource_fd2le"), SubResource("Resource_ylcik"), SubResource("Resource_ivt41"), SubResource("Resource_q78ws"), SubResource("Resource_d4pq8"), SubResource("Resource_83u4y")])
 
 [node name="TaageBagrund" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = -10174.0
 offset_top = -4968.0
 offset_right = 13664.0
@@ -190,6 +193,33 @@ offset_bottom = 901.0
 theme_override_font_sizes/font_size = 22
 text = "Filler"
 
+[node name="ShopKeeper" type="Node2D" parent="."]
+position = Vector2(959, 495)
+script = ExtResource("27_d84on")
+
+[node name="Sprite2D" type="Sprite2D" parent="ShopKeeper"]
+texture = ExtResource("28_fypwu")
+
+[node name="RefillAmmo" type="Button" parent="ShopKeeper"]
+offset_left = -257.0
+offset_top = 38.0
+offset_right = -19.0
+offset_bottom = 125.0
+theme_override_font_sizes/font_size = 22
+text = "Refill Ammo: 10 Coins"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ShopKeeper"]
+visible = false
+offset_left = 70.0
+offset_top = -32.0
+offset_right = 209.0
+offset_bottom = 31.0
+theme_override_font_sizes/normal_font_size = 22
+text = "Spasser"
+
 [connection signal="mouse_entered" from="limitPurchase" to="." method="_on_limit_purchase_mouse_entered"]
 [connection signal="mouse_exited" from="limitPurchase" to="." method="_on_limit_purchase_mouse_exited"]
 [connection signal="pressed" from="limitPurchase" to="." method="_on_limit_purchase_pressed"]
+[connection signal="mouse_entered" from="ShopKeeper/RefillAmmo" to="ShopKeeper" method="_on_refill_ammo_mouse_entered"]
+[connection signal="mouse_exited" from="ShopKeeper/RefillAmmo" to="ShopKeeper" method="_on_refill_ammo_mouse_exited"]
+[connection signal="pressed" from="ShopKeeper/RefillAmmo" to="ShopKeeper" method="_on_refill_ammo_pressed"]
