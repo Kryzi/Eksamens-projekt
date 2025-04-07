@@ -16,6 +16,9 @@ extends Node2D
 @onready var layout2 = background.get_node("Layout2")
 @onready var layout2_bridge = background.get_node("Layout2Bridge")
 
+@onready var layout1_bridge_shop = background.get_node("Layout1BridgeShop")
+@onready var layoutBoss = background.get_node("LayoutBoss")
+
 @onready var boundary = layout1.get_node("EnemyArea1/SpawnPolygon1")
 @onready var obstacle_collision_shape = layout1.get_node("ObstacleArea/CollisionShape2D")
 
@@ -31,7 +34,9 @@ var variationID = 0
 
 func _ready() -> void:
 	create_spawn_area(boundary)
-	create_obstacle_area(obstacle_collision_shape)
+	'print(layout1_bridge_shop.visible )
+	if (layoutBoss.visible == false and layout1_bridge_shop.visible == false):
+		create_obstacle_area(obstacle_collision_shape)'
 
 #func update_navigation_obstacles():
 	#var navigation_region = $NavigationRegion2D

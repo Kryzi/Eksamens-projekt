@@ -85,7 +85,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 			stageReward = rewardValue
 			#print("used2")
 		if (teleporter_name == "Teleporter_shop"):
-			print(rewardValue)
+			#print(rewardValue)
 			stageReward = rewardValue
 			#print("used3")
 		
