@@ -120,7 +120,7 @@ func applyUpgrades(damageUpgrade: int, FirerateUpgrade: float):
 
 func applyDamageUp(damageUpgrade: int):
 	for i in weapons.size():
-		if weapons[i].name == "Skjold":
+		if weapons[i].is_in_group("Skjold"):
 			pass
 		else:
 			weapons[i].damage += damageUpgrade
@@ -136,7 +136,7 @@ func applyFirerateRangedUp(FirerateRangedUpgrade: float):
 func applyFirerateMeleeUp(FirerateMeleeUpgrade: float):
 	for i in weapons.size():
 		if weapons[i].ranged == false:
-			if weapons[i].name == "Skjold":
+			if weapons[i].is_in_group("Skjold"):
 				pass
 			else:
 				weapons[i].FPS_SpeedScale *= FirerateMeleeUpgrade
