@@ -66,10 +66,10 @@ func think_and_decide():
 
 func set_new_target():
 	# Vælg en tilfældig global position
-	var min_x = 1000#950
-	var max_x = 1000#2260
-	var min_y = 550#1050
-	var max_y = 550#1800
+	var min_x = 950
+	var max_x = 2260
+	var min_y = 1050
+	var max_y = 1800
 	
 	target_position = Vector2(randi_range(min_x, max_x), randi_range(min_y, max_y))
 	#print("Ny target position:", target_position) #debug

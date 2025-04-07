@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cc1aysvavymnc"]
 
 [ext_resource type="Texture2D" uid="uid://bcigv1awsp7b5" path="res://sprites/omraader/omraade1/o1-boss/o1-boss_fuld.png" id="1_hju2k"]
-[ext_resource type="Texture2D" uid="uid://d6d3sonbjqjh" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_s6yxi"]
+[ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_s6yxi"]
 
 [node name="LayoutBoss" type="Control"]
 layout_mode = 3
@@ -10,6 +10,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TaageBagrund" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = -10174.0
 offset_top = -4968.0
 offset_right = 13664.0

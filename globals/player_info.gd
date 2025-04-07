@@ -5,7 +5,7 @@ signal ammo_changed(new_ammo_data: Dictionary)
 signal coin_count_changed(new_coins: int)
 signal win_screen_reached(is_player_victorious: bool,coins_high_score: int)
 
-var current_coins: int = 15:
+var current_coins: int = 100:
 	set(value):
 		current_coins = value
 		coin_count_changed.emit(current_coins)

@@ -116,3 +116,10 @@ func _on_damage_body_entered(body: Node2D) -> void:
 		GedSlapSound.play()
 		recoil_velocity = (global_position - body.global_position).normalized() * 2000
 		hit_damage(1)
+
+
+func speedUpgrade():
+	speed = speed * 1.2
+	dashForce = dashForce * 1.2
+	
+	
