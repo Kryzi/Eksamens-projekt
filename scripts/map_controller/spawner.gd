@@ -30,6 +30,7 @@ var rewardValue: int = 0
 
 var teleporter1 = 0
 var teleporter2 = 0
+var teleporter3 = 0
 var variationID = 0
 
 func _ready() -> void:
@@ -167,7 +168,7 @@ func checkDeath():
 		var Reward = map_controller.stageReward
 		stageReward(Reward)
 		
-		variationID = randi_range(2, 2)
+		variationID = randi_range(1, 3)
 		
 		if layout1.visible == true:
 			layout1.visible = false
@@ -175,7 +176,8 @@ func checkDeath():
 			layout1_bridge.visible = true
 			
 			layout1_bridge.get_node("Variation1_1/TeleporterArea1/Teleporter1").disabled = false
-			
+			layout1_bridge.get_node("Variation1_2").visible = false
+			layout1_bridge.get_node("Variation1_3").visible = false
 			
 			#var rewardLabel = layout1_bridge.get_node("rewardLabel")
 			rewardSet(randi_range(1, 3))
@@ -184,15 +186,30 @@ func checkDeath():
 			
 			if (variationID == 1):
 				layout1_bridge.get_node("Variation1_1/Boundary1Bridge/CollisionPolygon2D").disabled = false
-				layout1_bridge.get_node("Variation1_2").visible = false
 			
-			if (variationID == 2):
+			if (variationID >= 2):
+				layout1_bridge.get_node("Variation1_2").visible = true
+				
 				layout1_bridge.get_node("Variation1_2/Boundary1_2Bridge/CollisionPolygon2D").disabled = false
 				layout1_bridge.get_node("Variation1_2/TeleporterArea1_2/Teleporter1_2").disabled = false
 				
 				rewardSet(randi_range(1, 3))
 				layout1_bridge.get_node("Variation1_2/rewardLabel1_2").text = PlayerInfo.mapValue
 				teleporter2 = rewardValue
+				
+				if (variationID == 3):
+					layout1_bridge.get_node("Variation1_3").visible = true
+					
+					layout1_bridge.get_node("Variation1_2/Boundary1_2Bridge/CollisionPolygon2D").disabled = true
+					
+					layout1_bridge.get_node("Variation1_3/Boundary1_3Bridge/CollisionPolygon2D").disabled = false
+					layout1_bridge.get_node("Variation1_3/TeleporterArea1_3/Teleporter1_3").disabled = false
+					
+					rewardSet(randi_range(1, 3))
+					layout1_bridge.get_node("Variation1_3/rewardLabel1_3").text = PlayerInfo.mapValue
+					teleporter3 = rewardValue
+				
+			
 			
 		
 		if layout2.visible == true:

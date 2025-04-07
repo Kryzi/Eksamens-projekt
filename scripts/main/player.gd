@@ -15,6 +15,9 @@ var dash_velocity
 var dashCD = 1.0
 var canDash = true
 
+@onready var HitSound = $HitSound
+@onready var GedSlapSoundHitSound = $GedSlapSoundHitSound
+
 func _ready():
 	currentHealth = maxHealth
 	PlayerInfo.health_data = {
@@ -91,6 +94,7 @@ func hit_damage(damage):
 	var new_health_data = {"current_health": PlayerInfo.health_data["current_health"] - damage}
 	PlayerInfo.health_data = new_health_data
 	get_node("/root/Main/HUD").apply_noise_shake()
+	HitSound.play()
 	
 	if new_health_data["current_health"] <= 0:
 		die()
@@ -109,5 +113,6 @@ func _on_can_dash_time_timeout() -> void:
 
 func _on_damage_body_entered(body: Node2D) -> void:
 	if body.name == "Gigaged":
+		GedSlapSoundHitSound.play()
 		recoil_velocity = (global_position - body.global_position).normalized() * 2000
 		hit_damage(1)
