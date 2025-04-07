@@ -100,7 +100,7 @@ func weaponSwapped(i):
 	
 	var inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
 	inventory.checkForNewWeapons()
-	print("checkForNewWeapons Called in weaponSwapped")
+	#print("checkForNewWeapons Called in weaponSwapped")
 	inventory.HighlightWeapon()
 	
 	if weapons[currentWeapon].is_in_group("Skjold"):

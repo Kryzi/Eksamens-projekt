@@ -46,8 +46,8 @@ func chech_slot_n(slot: Node, n: int):
 func checkForNewWeapons():
 	getSlots()
 	getWeapons()
-	debugPrintWeapons()
-	print("checkForNewWeapons Executed")
+	#debugPrintWeapons()
+	#print("checkForNewWeapons Executed")
 	for i in range(slots.size()):
 		slots[i].modulate = standartColor
 		slots[i].self_modulate = standartColor
