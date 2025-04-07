@@ -30,6 +30,13 @@ func _process(_delta: float) -> void:
 			canSwap = false
 		else:
 			canSwap = true
+		
+		
+		
+	
+	if Input.is_action_just_pressed("x"):
+		deleteWeapon()
+		
 	
 	if weapons[currentWeapon].ranged == true:
 		# skifter våbens position mellem venstre og højre 
@@ -53,6 +60,13 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("0") and weapons.size() == 10 and canSwap == true:
 		weaponSwapped(9)
 
+func deleteWeapon():
+	print("x")
+	disableWeapons()
+	weapons.remove_at(currentWeapon)
+	weaponSwapped(currentWeapon)
+	await get_tree().create_timer(2.0).timeout
+
 func getWeapons():
 	weapons = get_children()
 
@@ -69,8 +83,15 @@ func enableWeapon():
 	weapons[currentWeapon].set_process(true)
 	weapons[currentWeapon].visible = true
 
+@onready var Inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
 func weaponSwapped(i):
 	disableWeapons()
+	
+	# Testing af at fjerne våben
+	#weapons.remove_at(currentWeapon)
+	
+	#Inventory.deleteTextures(currentWeapon)
+	
 	currentWeapon = i
 	enableWeapon()
 	
