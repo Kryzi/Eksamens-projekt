@@ -82,7 +82,6 @@ var itemCost = 40
 func _on_item_purchase_pressed() -> void:
 	if (PlayerInfo.current_coins >= itemCost):
 		PlayerInfo.current_coins -= itemCost
-		'%limitPurchase.set_text("Get Random Item : " + str(itemCost) + " coins")'
 		spawner.getItem()
 
 
