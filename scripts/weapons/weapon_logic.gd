@@ -33,10 +33,7 @@ func _process(_delta: float) -> void:
 		
 		
 		
-	print(weapons.size())
 	if Input.is_action_just_pressed("x") and weapons.size() - 1 > currentWeapon:
-		print(weapons.size())
-		print(currentWeapon)
 		deleteWeapon()
 		
 	
