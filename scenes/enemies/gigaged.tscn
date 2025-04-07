@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://c0gwl5rrefms3"]
+[gd_scene load_steps=59 format=3 uid="uid://c0gwl5rrefms3"]
 
 [ext_resource type="Script" path="res://scripts/enemies/boss/gigaged.gd" id="1_xvsls"]
 [ext_resource type="PackedScene" uid="uid://323cq8waejjw" path="res://scenes/bullets/gigaged_bullet.tscn" id="2_0neel"]
@@ -53,6 +53,8 @@
 [ext_resource type="Texture2D" uid="uid://dd0rxquvyr1nm" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_tramp2-hoved-ned_idle.png" id="47_rii7m"]
 [ext_resource type="Texture2D" uid="uid://bblomwqexowxm" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_tramp1-hoved-venstre_idle.png" id="48_wqdjk"]
 [ext_resource type="Texture2D" uid="uid://cib0s5hemvk4m" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_tramp2-hoved-venstre_idle.png" id="49_e0y1w"]
+[ext_resource type="AudioStream" uid="uid://bdqdtaxjlqcch" path="res://sounds/GedeStompSound.mp3" id="54_a58hd"]
+[ext_resource type="AudioStream" uid="uid://ciyjmxbmsbe2b" path="res://sounds/GedeFartSound.mp3" id="55_uuvj5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xp16w"]
 animations = [{
@@ -405,3 +407,9 @@ position = Vector2(55.6667, 44.3333)
 
 [node name="skidePos" type="Marker2D" parent="."]
 position = Vector2(-43.3333, -37.6667)
+
+[node name="GedeStompSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("54_a58hd")
+
+[node name="GedeFartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("55_uuvj5")

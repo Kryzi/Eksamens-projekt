@@ -16,6 +16,9 @@ var attacking = false
 @export var gigaged_jord_projektil_texture: Texture2D
 @export var coin_scene: PackedScene
 
+@onready var GedeStompSound = $GedeStompSound
+@onready var GedeFartSound = $GedeFartSound
+
 func _ready() -> void:
 	set_new_target()
 
@@ -63,10 +66,10 @@ func think_and_decide():
 
 func set_new_target():
 	# Vælg en tilfældig global position
-	var min_x = 950
-	var max_x = 2260
-	var min_y = 1050
-	var max_y = 1800
+	var min_x = 1000#950
+	var max_x = 1000#2260
+	var min_y = 550#1050
+	var max_y = 550#1800
 	
 	target_position = Vector2(randi_range(min_x, max_x), randi_range(min_y, max_y))
 	#print("Ny target position:", target_position) #debug
@@ -107,6 +110,7 @@ func skideAngreb():
 	
 	var playerpos = get_node("/root/Main/Player").global_position
 	update_retning(playerpos)
+	GedeFartSound.play()
 	
 	# Affyr flere kugler i hurtig rækkefølge
 	var num_shots = randi_range(15, 30)  # Antal skud
@@ -179,10 +183,13 @@ func trampAngreb(angle):
 		get_node("/root/Main/HUD").NOISE_SHAKE_STRENGTH = 15.0
 		
 		if num == 0:
+			GedeStompSound.play()
 			num_bullets = 10
 		elif num == 1:
+			GedeStompSound.play()
 			num_bullets = 16
 		elif num == 2:
+			GedeStompSound.play()
 			num_bullets = 24
 		
 		for i in range(num_bullets):

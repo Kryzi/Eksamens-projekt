@@ -49,8 +49,6 @@ offset_right = 55.0
 offset_bottom = -61.5
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 text = "EXIT"
 
 [node name="Settings" type="Button" parent="."]
