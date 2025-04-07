@@ -24,19 +24,12 @@ var reloading = false
 
 @onready var CanonSound = $CanonSound
 
+
 var ranged = true
 
 func _ready() -> void:
 	currentAmmo = magSize
 	reserveAmmo = maxAmmo
-	
-	# When using global variables, the HUD is automatically signaled and
-	# the text is updated
-	#PlayerInfo.ammo_data = {
-		#"current_ammo": currentAmmo,
-		#"mag_size": magSize,
-		#"reserve_ammo": reserveAmmo
-	#}
 	
 	$AnimatedSprite2D.play("Idle")
 
