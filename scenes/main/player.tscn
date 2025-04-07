@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cradrmw10obwa"]
+[gd_scene load_steps=32 format=3 uid="uid://cradrmw10obwa"]
 
 [ext_resource type="Script" path="res://scripts/main/player.gd" id="1_ddb0a"]
 [ext_resource type="Texture2D" uid="uid://bmjvtt528ekn5" path="res://sprites/spiller/spiller-hojre_idle-1_walk-2-4.png" id="2_brr8l"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bapq1gfqn4obu" path="res://sprites/spiller/spiller-venstre_walk-1.png" id="16_xwamc"]
 [ext_resource type="Texture2D" uid="uid://bc4h84ngtv55m" path="res://sprites/spiller/spiller-venstre_walk-3.png" id="17_dhuxc"]
 [ext_resource type="PackedScene" uid="uid://bf082ldlxis2j" path="res://scenes/weapons/basic_knife/basic_knife.tscn" id="20_y8slu"]
+[ext_resource type="PackedScene" uid="uid://ca64n4anj8bud" path="res://scenes/weapons/water_staff/water_staff.tscn" id="21_ufdrw"]
 [ext_resource type="Script" path="res://scripts/ui/camera_2d.gd" id="21_xaw4o"]
 [ext_resource type="AudioStream" uid="uid://bpicuej6pb1f2" path="res://sounds/GedSlapSound.mp3" id="27_1juf4"]
 [ext_resource type="AudioStream" uid="uid://bdr76qsc0x73l" path="res://sounds/HitSound.mp3" id="28_dg55l"]
@@ -203,6 +204,8 @@ script = ExtResource("3_fteec")
 
 [node name="BasicKnife" parent="Weapon" instance=ExtResource("20_y8slu")]
 FPS_SpeedScale = 2.5
+
+[node name="Water Staff" parent="Weapon" instance=ExtResource("21_ufdrw")]
 
 [node name="Damage" type="Area2D" parent="."]
 
