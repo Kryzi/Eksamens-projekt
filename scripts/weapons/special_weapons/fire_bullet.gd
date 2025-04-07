@@ -7,10 +7,13 @@ var targetPos: Vector2
 var direction: Vector2
 var screen_shake = 0.0
 
+@onready var FireSound = $FireSound
+
 
 func _ready() -> void:
 	direction = (targetPos - global_position).normalized()
 	$FireParticle.emitting = true
+	FireSound.play()
 
 func _physics_process(delta):
 	
@@ -30,6 +33,7 @@ func _physics_process(delta):
 	var particleOffset = 20
 	if particleOffset < 51:
 		particleOffset += 1
+	
 	
 	rotation = direction.angle() + PI
 	
@@ -53,9 +57,12 @@ func _physics_process(delta):
 		print(screen_shake)
 
 func _on_body_entered(body: Node2D) -> void:
+	
+	
 	if body.is_in_group("enemy"):
 		body.hit_damage(Damage)
-		
+		FireSound.stop()
+		get_node("/root/Main/Player/Weapon/FireStaff").Sound()
 		get_node("/root/Main/HUD").NOISE_SHAKE_STRENGTH = screen_shake
 		get_node("/root/Main/HUD").apply_noise_shake()
 		get_node("/root/Main/HUD").NOISE_SHAKE_STRENGTH = 15.0
@@ -65,7 +72,8 @@ func _on_body_entered(body: Node2D) -> void:
 		get_node("/root/Main/HUD").NOISE_SHAKE_STRENGTH = screen_shake
 		get_node("/root/Main/HUD").apply_noise_shake()
 		get_node("/root/Main/HUD").NOISE_SHAKE_STRENGTH = 15.0
-		
+		FireSound.stop()
+		get_node("/root/Main/Player/Weapon/FireStaff").Sound()
 		queue_free()
 
 
