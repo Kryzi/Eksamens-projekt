@@ -33,8 +33,10 @@ func _process(_delta: float) -> void:
 		
 		
 		
-	
-	if Input.is_action_just_pressed("x"):
+	print(weapons.size())
+	if Input.is_action_just_pressed("x") and weapons.size() - 1 > currentWeapon:
+		print(weapons.size())
+		print(currentWeapon)
 		deleteWeapon()
 		
 	
@@ -65,7 +67,7 @@ func deleteWeapon():
 	disableWeapons()
 	weapons.remove_at(currentWeapon)
 	weaponSwapped(currentWeapon)
-	await get_tree().create_timer(2.0).timeout
+
 
 func getWeapons():
 	weapons = get_children()
