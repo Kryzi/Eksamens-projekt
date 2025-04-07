@@ -18,6 +18,9 @@ func _ready() -> void:
 	$Background/Layout2Bridge/Variation2_2/TeleporterArea2_2.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_2")
 	)
+	$Background/Layout2Bridge/Variation2_3/TeleporterArea2_3.body_entered.connect(
+	func(body): _on_teleport_area_entered(body, "Teleporter_3")
+	)
 	
 	$Background/Layout1BridgeShop/TeleporterArea1.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_shop")
@@ -63,6 +66,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 		# Disable stage collision
 		layout1_bridge.get_node("Variation1_1/Boundary1Bridge/CollisionPolygon2D").call_deferred("set_disabled", true) 
 		layout1_bridge.get_node("Variation1_2/Boundary1_2Bridge/CollisionPolygon2D").call_deferred("set_disabled", true) 
+		layout1_bridge.get_node("Variation1_3/Boundary1_3Bridge/CollisionPolygon2D").call_deferred("set_disabled", true) 
 		layout2_bridge.get_node("Variation2_1/Boundary2Bridge/CollisionPolygon2D").call_deferred("set_disabled", true)
 		layout2_bridge.get_node("Variation2_2/BoundaryBridge2_2/CollisionPolygon2D").call_deferred("set_disabled", true)
 		layout1_bridge_shop.get_node("Boundary1BridgeShop/CollisionPolygon2D").call_deferred("set_disabled", true)

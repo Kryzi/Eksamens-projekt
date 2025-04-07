@@ -217,6 +217,9 @@ func checkDeath():
 			layout2.get_node("Boundary2/CollisionPolygon2D").disabled = true
 			layout2_bridge.visible = true
 			
+			#layout1_bridge.get_node("Variation1_2/BoundaryBridge2_3/CollisionPolygon2D").disabled = false
+			#layout1_bridge.get_node("Variation1_2/TeleporterArea1_2/Teleporter1_2").disabled = false
+			
 			layout2_bridge.get_node("Variation2_1/TeleporterArea2/Teleporter2").disabled = false
 			
 			rewardSet(randi_range(1, 3))
