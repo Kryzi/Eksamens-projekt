@@ -16,7 +16,7 @@ var dashCD = 1.0
 var canDash = true
 
 @onready var HitSound = $HitSound
-@onready var GedSlapSoundHitSound = $GedSlapSoundHitSound
+@onready var GedSlapSound = $GedSlapSound
 
 func _ready():
 	currentHealth = maxHealth
@@ -113,6 +113,6 @@ func _on_can_dash_time_timeout() -> void:
 
 func _on_damage_body_entered(body: Node2D) -> void:
 	if body.name == "Gigaged":
-		GedSlapSoundHitSound.play()
+		GedSlapSound.play()
 		recoil_velocity = (global_position - body.global_position).normalized() * 2000
 		hit_damage(1)
