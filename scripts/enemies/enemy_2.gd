@@ -13,6 +13,7 @@ var last_shot_time = 0.0  # Tidspunktet for sidste skud
 @onready var controller = get_node("/root/Main/MapController/Spawner")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var attack_area = $View  # Area2D der registrerer, om spilleren er i skud-rækkevidde
+
 @export_range(0, 2 * PI) var alpha: float = 0.0
 
 @export var bullet_scene: PackedScene
@@ -25,8 +26,10 @@ func get_vector(angle):
 func shoot(angle):
 	if player_in_attack_range:
 		animated_sprite.play("Charge")
+		
 		await animated_sprite.animation_finished
 		animated_sprite.play("Angreb")
+		
 		
 		# Skyd flere kugler i en cirkelform
 		var num_bullets = 16  # Antal kugler, der skal skyde

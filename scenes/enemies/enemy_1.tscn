@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://mwv5bu536rgt"]
+[gd_scene load_steps=20 format=3 uid="uid://mwv5bu536rgt"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy_1.gd" id="1_b1vgo"]
 [ext_resource type="PackedScene" uid="uid://bf26j1fyr3fs1" path="res://scenes/bullets/enemy_1_bullet.tscn" id="2_emeki"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cghew41e5b2yi" path="res://sprites/fjender/base_enemy/base-enemy-op_walk-1.png" id="10_6yo7y"]
 [ext_resource type="Texture2D" uid="uid://c0rfdw546d0c8" path="res://sprites/fjender/base_enemy/base-enemy-venstre_walk-1.png" id="11_mpgea"]
 [ext_resource type="Texture2D" uid="uid://do1ycxqqsvea8" path="res://sprites/fjender/base_enemy/base-enemy-venstre_angreb.png" id="11_qgj0y"]
+[ext_resource type="AudioStream" uid="uid://c4wowkb15wcng" path="res://sounds/Enemy1Sound.mp3" id="16_vjwes"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0dx8f"]
 radius = 60.0
@@ -175,6 +176,9 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="View"]
 shape = SubResource("CircleShape2D_4nd4c")
+
+[node name="Enemy1Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_vjwes")
 
 [connection signal="timeout" from="move_Timer" to="." method="_on_move_timer_timeout"]
 [connection signal="timeout" from="attack_Timer" to="." method="_on_attack_timer_timeout"]

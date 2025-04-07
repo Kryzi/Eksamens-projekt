@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi02i7b2eqyu0"]
+[gd_scene load_steps=13 format=3 uid="uid://bi02i7b2eqyu0"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy_3.gd" id="1_fiq3m"]
 [ext_resource type="PackedScene" uid="uid://ccogpqp72dena" path="res://scenes/collectables/coin.tscn" id="2_ld88o"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b5vnakcdvqydt" path="res://sprites/fjender/stationer_enemy/stationer-enemy_idle-1-3.png" id="5_yvlo7"]
 [ext_resource type="Texture2D" uid="uid://dvnlxk4drosc1" path="res://sprites/fjender/stationer_enemy/stationer-enemy_idle-2.png" id="6_vdthq"]
 [ext_resource type="Texture2D" uid="uid://bh0ojhexlww7f" path="res://sprites/fjender/stationer_enemy/stationer-enemy_idle-4.png" id="7_gaunt"]
+[ext_resource type="AudioStream" uid="uid://dm6qpl1uqdosn" path="res://sounds/Enemy3Sound.mp3" id="9_7rw2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0q4py"]
 size = Vector2(112, 78)
@@ -76,6 +77,9 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="View"]
 shape = SubResource("CircleShape2D_4nd4c")
+
+[node name="Enemy3Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_7rw2h")
 
 [connection signal="timeout" from="attack_Timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="View" to="." method="_on_view_body_entered"]

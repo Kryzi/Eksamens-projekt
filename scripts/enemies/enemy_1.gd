@@ -11,6 +11,7 @@ var player_in_attack_range = false  # Holder styr på, om spilleren er tæt nok 
 @onready var controller = get_node("/root/Main/MapController/Spawner")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var attack_area = $View  # Area2D der registrerer, om spilleren er i skud-rækkevidde
+@onready var ShootSound = $Enemy1Sound
 
 @export var bullet_scene: PackedScene
 @export var coin_scene: PackedScene
@@ -70,6 +71,7 @@ func hit_damage(damage):
 
 func shoot():
 	if player_in_attack_range:
+		ShootSound.play()
 		animated_sprite.play("Angreb " + Aimdirection(last_direction))
 		var bullet_instance = bullet_scene.instantiate()
 		bullet_instance.global_position = $ShootingPoint.global_position
