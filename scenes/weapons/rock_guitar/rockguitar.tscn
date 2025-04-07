@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://oruuej8gtlva"]
+
+[ext_resource type="Texture2D" uid="uid://c04byybdxjnv" path="res://sprites/vaaben/ranged/bue/bue_charge.png" id="1_0si1l"]
+[ext_resource type="Script" path="res://scripts/weapons/special_weapons/rockguitar.gd" id="1_81che"]
+[ext_resource type="Texture2D" uid="uid://nr8nxd4bstae" path="res://sprites/vaaben/ranged/bue/bue_angreb-1.png" id="2_k7cjh"]
+[ext_resource type="Texture2D" uid="uid://cfhstnhkb15u7" path="res://sprites/vaaben/ranged/bue/bue_angreb-2.png" id="3_rll1l"]
+[ext_resource type="Texture2D" uid="uid://c4lbw0ps8gyvg" path="res://sprites/vaaben/ranged/bue/bue_idle.png" id="4_sdvjr"]
+[ext_resource type="AudioStream" uid="uid://ptfy2pi086ts" path="res://sounds/bow_sound.mp3" id="5_r3xxl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0mlnr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0si1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k7cjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rll1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sdvjr")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sdvjr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="rockguitar" type="Node2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_81che")
+metadata/IconId = "BasicBow"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.104167, 0.260417)
+sprite_frames = SubResource("SpriteFrames_0mlnr")
+animation = &"Attack"
+flip_h = true
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+
+[node name="BowSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_r3xxl")
+volume_db = 8.0

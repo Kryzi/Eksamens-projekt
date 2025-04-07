@@ -21,11 +21,17 @@ var reserveAmmo: int # Den mængde skud man har, i alt
 @export var reloadTime: float 
 var reloading = false
 
+@export var num_bullets: int = 4
+
 var ranged = true
+
+
 
 func _ready() -> void:
 	currentAmmo = magSize
 	reserveAmmo = maxAmmo
+	
+	
 	
 	$AnimatedSprite2D.play("Idle")
 
@@ -91,21 +97,23 @@ func reload():
 		reloading = false
 
 func shoot():
-	currentAmmo -= 1
+	for i in range(num_bullets):
+		currentAmmo -= 1
+		
+		WeaponSound.play()
+		$AnimatedSprite2D.play("Attack")
+		PlayerInfo.ammo_data = {
+			"current_ammo": currentAmmo,
+			"mag_size": magSize,
+			"reserve_ammo": reserveAmmo
+		}
+		
+		var bullet = Bullet.instantiate()
+		bullet.global_position = $ShootingPoint.global_position
+		bullet.rotation = rotation
+		bullet.targetPos = get_global_mouse_position() 
+		bullet.Damage = damage
+		get_tree().get_root().call_deferred("add_child", bullet)
 	
-	WeaponSound.play()
-	$AnimatedSprite2D.play("Attack")
-	PlayerInfo.ammo_data = {
-		"current_ammo": currentAmmo,
-		"mag_size": magSize,
-		"reserve_ammo": reserveAmmo
-	}
-	
-	var bullet = Bullet.instantiate()
-	bullet.global_position = $ShootingPoint.global_position
-	bullet.rotation = rotation
-	bullet.targetPos = get_global_mouse_position() 
-	bullet.Damage = damage
-	get_tree().get_root().call_deferred("add_child", bullet)
 	
 	

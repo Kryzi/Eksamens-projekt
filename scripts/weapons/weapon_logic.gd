@@ -154,6 +154,7 @@ func applyHealthUpgrade(extra_health: int, heal: bool = true):
 		"max_health": PlayerInfo.health_data["max_health"] + extra_health,
 		"current_health": PlayerInfo.health_data["max_health"] + extra_health if heal == true else PlayerInfo.health_data["current_health"] + extra_health
 	}
+	extra_health = extra_health * 1.2
 
 
 func applyUpgradeNewWeapon(i: int): # kald denne når nyt våben tilføjes
