@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf1rcti08o3tm"]
+[gd_scene load_steps=8 format=3 uid="uid://cf1rcti08o3tm"]
 
+[ext_resource type="Texture2D" uid="uid://d6d3sonbjqjh" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_buhlv"]
 [ext_resource type="Texture2D" uid="uid://bj73ujpjgcl1f" path="res://sprites/omraader/omraade1/o1-1/o1-1_jord.png" id="1_fofcb"]
 [ext_resource type="Texture2D" uid="uid://brmltw14xbo8k" path="res://sprites/omraader/omraade1/o1-1/o1-1_klippe.png" id="2_7ld26"]
 [ext_resource type="Texture2D" uid="uid://d2edlf0emj66y" path="res://sprites/omraader/omraade1/o1-1/o1-1_taage-1.png" id="3_8ao87"]
@@ -13,20 +14,20 @@ size = Vector2(792, 386)
 layout_mode = 3
 anchors_preset = 0
 
+[node name="TaageBagrund" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -10174.0
+offset_top = -4968.0
+offset_right = 13664.0
+offset_bottom = 7081.0
+texture = ExtResource("1_buhlv")
+
 [node name="Klippe" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 210.0
 scale = Vector2(12, 12)
 texture = ExtResource("2_7ld26")
-metadata/_edit_lock_ = true
-
-[node name="Jord" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 210.0
-scale = Vector2(12, 12)
-texture = ExtResource("1_fofcb")
 metadata/_edit_lock_ = true
 
 [node name="TaageSolidFarve" type="TextureRect" parent="."]
@@ -44,6 +45,14 @@ offset_right = 200.0
 offset_bottom = 210.0
 scale = Vector2(12, 12)
 texture = ExtResource("3_8ao87")
+metadata/_edit_lock_ = true
+
+[node name="Jord" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 210.0
+scale = Vector2(12, 12)
+texture = ExtResource("1_fofcb")
 metadata/_edit_lock_ = true
 
 [node name="BroNed-ende" type="Sprite2D" parent="."]
