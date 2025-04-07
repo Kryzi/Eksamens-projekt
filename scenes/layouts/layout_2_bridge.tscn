@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://4mgsge3k32ot"]
 
 [ext_resource type="Texture2D" uid="uid://dhiokohd6am5e" path="res://sprites/omraader/omraade1/o1-2/o1-2_jord.png" id="1_opp0n"]
-[ext_resource type="Texture2D" uid="uid://d6d3sonbjqjh" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_wc8bi"]
+[ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_wc8bi"]
 [ext_resource type="Texture2D" uid="uid://w14i0jb4sbe6" path="res://sprites/omraader/omraade1/o1-2/o1-2_klippe.png" id="2_jjql2"]
 [ext_resource type="Texture2D" uid="uid://d1xd62utjhe84" path="res://sprites/omraader/omraade1/o1-2/o1-2_taage-1.png" id="3_pc5ai"]
 [ext_resource type="Texture2D" uid="uid://ioe45mnmfnse" path="res://sprites/omraader/omraade1/o1-2/o1-2_taage-2.png" id="4_a87ag"]
@@ -17,6 +17,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="TaageBagrund" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = -10174.0
 offset_top = -4968.0
 offset_right = 13664.0
