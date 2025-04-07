@@ -158,5 +158,13 @@ func _on_teleport_area_entered(body, teleporter_name):
 			var boundary2 = layout2.get_node("EnemyArea2/SpawnPolygon2")
 			spawner.create_spawn_area(boundary2)
 		
+		
 		if PlayerInfo.areaID == 3:
 			pass
+		
+		if (stageReward == 4 or stageReward == 5):
+			spawner.random_spawn()
+			spawner.random_spawn()
+			spawner.random_spawn()
+		
+		

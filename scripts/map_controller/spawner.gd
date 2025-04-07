@@ -120,11 +120,16 @@ func random_spawn():
 
 func rewardSet(value):
 	#rewardValue = randi_range(1, 3)
+	var eliteChance = randi_range(3, 3)
+	
 	rewardValue = value
 	if (rewardValue == 1):
 		PlayerInfo.mapValue = "Coins"
 	if (rewardValue == 2):
 		PlayerInfo.mapValue = "Item" 
+	if (eliteChance == 3 and rewardValue == 1 or rewardValue == 2):
+		PlayerInfo.mapValue = ("Elite " + PlayerInfo.mapValue)
+		rewardValue += 3
 	if (rewardValue == 3):
 		PlayerInfo.mapValue = "Shop"
 	if (PlayerInfo.bossTimer == 9):
@@ -137,28 +142,35 @@ func stageReward(Reward):
 	if Reward == 1:
 		PlayerInfo.current_coins += 20
 	if Reward == 2:
-		#var boundary = get_node("/root/Main/MapController/Background/Layout1/EnemyArea1/SpawnPolygon1")
-		#Find areaID
-		match PlayerInfo.areaID:
-			1:
-				boundary = get_node("/root/Main/MapController/Background/Layout1/EnemyArea1/SpawnPolygon1")
-			2:
-				boundary = get_node("/root/Main/MapController/Background/Layout2/EnemyArea2/SpawnPolygon2")
-		#Skab tilfældigt item
-		var itemInstance = item.instantiate()  # Instantiate the PackedScene
-		itemInstance.itemGenerator()  # Now you can call itemGenerator() on the instance
-		# teleportere tilfældigt item til midten af boundry
-		#var polygon = boundary.polygon 
-		spawnArea = get_spawn_area(boundary)
-		var x = (spawnArea.position.x + spawnArea.end.x)/2
-		var y = (spawnArea.position.y + spawnArea.end.y)/2
-		var pos = Vector2(x, y)
-		itemInstance.position = pos
-		call_deferred("add_child", itemInstance)
-		
+		getItem()
 	if Reward == 3:
 		pass #Værdien bliver brugt i map_controller
-		
+	if Reward == 4:
+		PlayerInfo.current_coins += 40
+	if Reward == 5:
+		getItem()
+		getItem()
+
+func getItem():
+	#var boundary = get_node("/root/Main/MapController/Background/Layout1/EnemyArea1/SpawnPolygon1")
+	#Find areaID
+	match PlayerInfo.areaID:
+		1:
+			boundary = get_node("/root/Main/MapController/Background/Layout1/EnemyArea1/SpawnPolygon1")
+		2:
+			boundary = get_node("/root/Main/MapController/Background/Layout2/EnemyArea2/SpawnPolygon2")
+	#Skab tilfældigt item
+	var itemInstance = item.instantiate()  # Instantiate the PackedScene
+	itemInstance.itemGenerator()  # Now you can call itemGenerator() on the instance
+	# teleportere tilfældigt item til midten af boundry
+	#var polygon = boundary.polygon 
+	spawnArea = get_spawn_area(boundary)
+	var x = (spawnArea.position.x + spawnArea.end.x)/2
+	var y = (spawnArea.position.y + spawnArea.end.y)/2
+	var pos = Vector2(x, y)
+	itemInstance.position = pos
+	call_deferred("add_child", itemInstance)
+
 	
 
 func checkDeath():
