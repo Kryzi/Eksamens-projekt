@@ -123,8 +123,14 @@ func applyDamageUp(damageUpgrade: int):
 		if weapons[i].is_in_group("Skjold"):
 			pass
 		else:
-			weapons[i].damage += damageUpgrade
-			totalDamageUpgrades += damageUpgrade
+			var original_damage = weapons[i].damage
+			var bonus = original_damage * 0.1
+			if bonus < 1:
+				bonus = 1
+			weapons[i].damage += bonus
+			totalDamageUpgrades += bonus
+			'weapons[i].damage += damageUpgrade
+			totalDamageUpgrades += damageUpgrade'
 
 func applyFirerateRangedUp(FirerateRangedUpgrade: float):
 	for i in weapons.size():

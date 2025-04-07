@@ -12,6 +12,7 @@ func _on_refill_ammo_pressed() -> void:
 	if PlayerInfo.current_coins >= refillPrice and weapon.weapons[weapon.currentWeapon].ranged == true and weapon.weapons[weapon.currentWeapon].reserveAmmo != weapon.weapons[weapon.currentWeapon].maxAmmo:
 		PlayerInfo.current_coins -= refillPrice
 		weapon.weapons[weapon.currentWeapon].reserveAmmo = weapon.weapons[weapon.currentWeapon].maxAmmo
+		weapon.weapons[weapon.currentWeapon].reloading = false
 		
 		PlayerInfo.ammo_data = {
 		"current_ammo": weapon.weapons[weapon.currentWeapon].currentAmmo,
