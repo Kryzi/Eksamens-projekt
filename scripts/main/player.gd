@@ -1,4 +1,3 @@
-
 extends CharacterBody2D
 
 @export var maxHealth: int = 20
@@ -9,9 +8,12 @@ var last_direction: Vector2 = Vector2.DOWN  # Standardretning
 var recoil_velocity: Vector2 
 
 # Dash
-var dashCD = 1.0 
+var dashTime = 0.2
 var dashing = false
-var dashForce = 1000
+var dashForce = 1800
+var dash_velocity
+var dashCD = 1.0
+var canDash = true
 
 func _ready():
 	currentHealth = maxHealth
@@ -34,18 +36,24 @@ func _physics_process(delta):
 	var input_velocity = direction * speed * delta
 	
 	var recoil_decay: float = 0.9
-	print(direction)
 	
-	if Input.is_action_just_pressed("Dash") and dashing == false and direction != Vector2(0,0):
+	if Input.is_action_just_pressed("Dash") and dashing == false and direction != Vector2(0,0) and canDash == true:
 		dashing = true
-		recoil_velocity = last_direction * dashForce
+		canDash = false
 		
-		await get_tree().create_timer(dashCD).timeout
-		dashing = false
+		dash_velocity = last_direction.normalized() * dashForce
+		
+		$Dashing.start(dashTime)
+		$CanDashTime.start(dashCD)
+	
+	if dashing == true:
+		velocity = dash_velocity
+		dash_velocity *= 0.95
+	else:
+		velocity = input_velocity + recoil_velocity
+		recoil_velocity *= recoil_decay
 	
 	
-	velocity = input_velocity + recoil_velocity
-	recoil_velocity *= recoil_decay
 	
 	move_and_slide()
 	play_anim(direction)
@@ -84,3 +92,10 @@ func hit_damage(damage):
 func die():
 	var highScore = PlayerInfo.current_coins
 	PlayerInfo.win_screen_reached.emit(false, highScore)
+
+func _on_dashing_timeout() -> void:
+	dashing = false
+
+
+func _on_can_dash_time_timeout() -> void:
+	canDash = true

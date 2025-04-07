@@ -182,8 +182,6 @@ FPS_SpeedScale = 2.5
 position = Vector2(149, -50)
 
 [node name="FireStaff" parent="Weapon" instance=ExtResource("25_7lfdu")]
-Firerate = 0.0
-damage = 5
 
 [node name="IsKanon" parent="Weapon" instance=ExtResource("26_klgc6")]
 
@@ -196,3 +194,12 @@ shape = SubResource("RectangleShape2D_75p33")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.2, 1.2)
 script = ExtResource("21_xaw4o")
+
+[node name="Dashing" type="Timer" parent="."]
+one_shot = true
+
+[node name="CanDashTime" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Dashing" to="." method="_on_dashing_timeout"]
+[connection signal="timeout" from="CanDashTime" to="." method="_on_can_dash_time_timeout"]
