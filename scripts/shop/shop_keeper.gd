@@ -48,8 +48,8 @@ func _on_refill_ammo_mouse_exited() -> void:
 
 
 func _on_sælg_våben_pressed() -> void:
-	pass
-	#print(weapon.weapons[weapon.currentWeapon].instance.name)
+	
+	print(weapon.weapons[weapon.currentWeapon].instance.name)
 	
 	
 	
