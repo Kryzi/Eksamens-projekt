@@ -62,7 +62,7 @@ monitoring = false
 position = Vector2(5.66667, 1.00001)
 shape = SubResource("RectangleShape2D_axbx5")
 
-[node name="LeSound" type="AudioStreamPlayer" parent="."]
+[node name="Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_prici")
 volume_db = -10.0
 
