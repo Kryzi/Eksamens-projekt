@@ -46,6 +46,7 @@ size = Vector2(58, 71.3333)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_qxdci")
 damage = 3
+FPS_SpeedScale = 2.5
 metadata/IconId = "BasicKnife"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
