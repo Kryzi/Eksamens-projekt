@@ -127,7 +127,7 @@ func rewardSet(value):
 		PlayerInfo.mapValue = "Coins"
 	if (rewardValue == 2):
 		PlayerInfo.mapValue = "Item" 
-	if (eliteChance == 3 and rewardValue == 1 or rewardValue == 2):
+	if (eliteChance == 3 and (rewardValue == 1 or rewardValue == 2)):
 		PlayerInfo.mapValue = ("Elite " + PlayerInfo.mapValue)
 		rewardValue += 3
 	if (rewardValue == 3):
