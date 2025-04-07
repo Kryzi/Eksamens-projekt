@@ -193,7 +193,7 @@ func checkDeath():
 			layout1_bridge.get_node("Variation1_3").visible = false
 			
 			#var rewardLabel = layout1_bridge.get_node("rewardLabel")
-			rewardSet(randi_range(1, 3))
+			rewardSet(randi_range(1, 2))
 			layout1_bridge.get_node("Variation1_1/rewardLabel").text = PlayerInfo.mapValue
 			teleporter1 = rewardValue
 			
