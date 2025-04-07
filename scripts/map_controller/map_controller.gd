@@ -18,9 +18,9 @@ func _ready() -> void:
 	$Background/Layout2Bridge/Variation2_2/TeleporterArea2_2.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_2")
 	)
-	$Background/Layout2Bridge/Variation2_3/TeleporterArea2_3.body_entered.connect(
+	'$Background/Layout2Bridge/Variation2_3/TeleporterArea2_3.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_3")
-	)
+	)'
 	
 	$Background/Layout1BridgeShop/TeleporterArea1.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_shop")
