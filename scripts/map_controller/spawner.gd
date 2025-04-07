@@ -120,7 +120,7 @@ func random_spawn():
 
 func rewardSet(value):
 	#rewardValue = randi_range(1, 3)
-	var eliteChance = randi_range(3, 3)
+	var eliteChance = randi_range(1, 3)
 	
 	rewardValue = value
 	if (rewardValue == 1):
