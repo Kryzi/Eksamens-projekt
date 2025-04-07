@@ -60,7 +60,6 @@ func _process(_delta: float) -> void:
 		weaponSwapped(9)
 
 func deleteWeapon():
-	print("x")
 	disableWeapons()
 	weapons.remove_at(currentWeapon)
 	weaponSwapped(currentWeapon)
