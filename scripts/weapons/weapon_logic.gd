@@ -61,8 +61,13 @@ func _process(_delta: float) -> void:
 
 func deleteWeapon():
 	disableWeapons()
+	weapons[currentWeapon].queue_free()
 	weapons.remove_at(currentWeapon)
 	weaponSwapped(currentWeapon)
+	#var inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
+	#inventory.checkForNewWeapons()
+	#print("checkForNewWeapons Called in deleteWeapon")
+	#inventory.HighlightWeapon()
 
 
 func getWeapons():
@@ -95,6 +100,7 @@ func weaponSwapped(i):
 	
 	var inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
 	inventory.checkForNewWeapons()
+	#print("checkForNewWeapons Called in weaponSwapped")
 	inventory.HighlightWeapon()
 	
 	if weapons[currentWeapon].is_in_group("Skjold"):
