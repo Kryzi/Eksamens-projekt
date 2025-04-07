@@ -8,6 +8,11 @@ var player_state: String = "Idle"
 var last_direction: Vector2 = Vector2.DOWN  # Standardretning
 var recoil_velocity: Vector2 
 
+# Dash
+var dashCD = 1.0 
+var dashing = false
+var dashForce = 1000
+
 func _ready():
 	currentHealth = maxHealth
 	PlayerInfo.health_data = {
@@ -27,12 +32,22 @@ func _physics_process(delta):
 		last_direction = direction.normalized()  # Husk sidste retning
 	
 	var input_velocity = direction * speed * delta
-	move_and_slide()
 	
 	var recoil_decay: float = 0.9
+	print(direction)
+	
+	if Input.is_action_just_pressed("Dash") and dashing == false and direction != Vector2(0,0):
+		dashing = true
+		recoil_velocity = last_direction * dashForce
+		
+		await get_tree().create_timer(dashCD).timeout
+		dashing = false
+	
+	
 	velocity = input_velocity + recoil_velocity
 	recoil_velocity *= recoil_decay
 	
+	move_and_slide()
 	play_anim(direction)
 	
 
