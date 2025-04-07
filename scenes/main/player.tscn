@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cradrmw10obwa"]
+[gd_scene load_steps=31 format=3 uid="uid://cradrmw10obwa"]
 
 [ext_resource type="Script" path="res://scripts/main/player.gd" id="1_ddb0a"]
 [ext_resource type="Texture2D" uid="uid://bmjvtt528ekn5" path="res://sprites/spiller/spiller-hojre_idle-1_walk-2-4.png" id="2_brr8l"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bc4h84ngtv55m" path="res://sprites/spiller/spiller-venstre_walk-3.png" id="17_dhuxc"]
 [ext_resource type="PackedScene" uid="uid://bf082ldlxis2j" path="res://scenes/weapons/basic_knife/basic_knife.tscn" id="20_y8slu"]
 [ext_resource type="Script" path="res://scripts/ui/camera_2d.gd" id="21_xaw4o"]
+[ext_resource type="AudioStream" uid="uid://bpicuej6pb1f2" path="res://sounds/GedSlapSound.mp3" id="27_1juf4"]
 [ext_resource type="AudioStream" uid="uid://bdr76qsc0x73l" path="res://sounds/HitSound.mp3" id="28_dg55l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a5exy"]
@@ -223,6 +224,9 @@ one_shot = true
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("28_dg55l")
 pitch_scale = 2.0
+
+[node name="GedSlapSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_1juf4")
 
 [connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]
 [connection signal="timeout" from="Dashing" to="." method="_on_dashing_timeout"]

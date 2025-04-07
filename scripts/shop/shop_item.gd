@@ -18,6 +18,10 @@ func _on_purchase_button_pressed() -> void:
 		PlayerWeapons.getWeapons()
 		PlayerWeapons.disableWeapons()
 		PlayerWeapons.enableWeapon()
+		
+		var inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
+		inventory.checkForNewWeapons()
+		inventory.HighlightWeapon()
 
 func _on_purchase_button_mouse_entered() -> void:
 	PlayerInfo.is_interacting_with_UI = true
