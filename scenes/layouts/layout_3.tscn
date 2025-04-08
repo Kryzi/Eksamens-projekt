@@ -42,3 +42,9 @@ polygon = PackedVector2Array(99, -1746.74, 917, -1769.4, 925, -420.432, 141, -39
 
 [node name="Spawnpoint" type="Marker2D" parent="."]
 position = Vector2(1097, 1934)
+
+[node name="ObstacleArea3" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObstacleArea3"]
+position = Vector2(968, 1329)
+polygon = PackedVector2Array(117, -149, 692, 389, 803, 621, 784, 640, 326, 705, 326, 507, 9, 449, 26, 308)

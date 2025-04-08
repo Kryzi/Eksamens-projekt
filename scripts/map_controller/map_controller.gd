@@ -2,6 +2,8 @@ extends Node2D
 
 func _ready() -> void:
 	
+	delete_all_things()
+	
 	$Background/Layout1Bridge/Variation1_1/TeleporterArea1.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_1")
 	)
@@ -58,6 +60,8 @@ func delete_all_things():
 		item.queue_free()
 	for projectile in get_tree().get_nodes_in_group("projectile"):
 		projectile.queue_free()
+	for obstacle in get_tree().get_nodes_in_group("obstacle"):
+		obstacle.queue_free()
 
 #Boss
 @export var GigaGed: PackedScene
@@ -171,6 +175,8 @@ func _on_teleport_area_entered(body, teleporter_name):
 			
 			var boundary1 = layout1.get_node("EnemyArea1/SpawnPolygon1")
 			spawner.create_spawn_area(boundary1)
+			var obstacleBoundary1 = layout1.get_node("ObstacleArea1/CollisionPolygon2D")
+			spawner.call_deferred("generate_obstacles",obstacleBoundary1)
 		
 		if PlayerInfo.areaID == 2:
 			body.global_position = layout2.get_node("Spawnpoint").global_position
@@ -181,6 +187,8 @@ func _on_teleport_area_entered(body, teleporter_name):
 			
 			var boundary2 = layout2.get_node("EnemyArea2/SpawnPolygon2")
 			spawner.create_spawn_area(boundary2)
+			var obstacleBoundary2 = layout2.get_node("ObstacleArea2/CollisionPolygon2D")
+			spawner.call_deferred("generate_obstacles",obstacleBoundary2)
 		
 		if PlayerInfo.areaID == 3:
 			body.global_position = layout3.get_node("Spawnpoint").global_position
@@ -191,6 +199,8 @@ func _on_teleport_area_entered(body, teleporter_name):
 			
 			var boundary3 = layout3.get_node("EnemyArea3/SpawnPolygon3")
 			spawner.create_spawn_area(boundary3)
+			var obstacleBoundary3 = layout3.get_node("ObstacleArea3/CollisionPolygon2D")
+			spawner.call_deferred("generate_obstacles",obstacleBoundary3)
 		
 		if (stageReward == 4 or stageReward == 5):
 			spawner.random_spawn()
