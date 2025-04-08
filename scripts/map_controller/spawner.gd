@@ -166,7 +166,7 @@ func elite_spawn(i):
 		var enemy_instance = selected_enemy.instantiate()
 		# Modstander 3 spawner tættere til spilleren
 		if(selected_enemy == enemy_3):
-			enemy_instance.position = Vector2(x, y * 1.5)
+			enemy_instance.position = Vector2(x, y * 1)
 		else:
 			enemy_instance.position = pos
 		call_deferred("add_child", enemy_instance)
