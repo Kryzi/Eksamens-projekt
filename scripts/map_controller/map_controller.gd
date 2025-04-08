@@ -22,6 +22,16 @@ func _ready() -> void:
 	func(body): _on_teleport_area_entered(body, "Teleporter_3")
 	)
 	
+	$Background/Layout3Bridge/Variation3_1/TeleporterArea3_1.body_entered.connect(
+	func(body): _on_teleport_area_entered(body, "Teleporter_1")
+	)
+	$Background/Layout3Bridge/Variation3_2/TeleporterArea3_2.body_entered.connect(
+	func(body): _on_teleport_area_entered(body, "Teleporter_2")
+	)
+	$Background/Layout3Bridge/Variation3_3/TeleporterArea3_3.body_entered.connect(
+	func(body): _on_teleport_area_entered(body, "Teleporter_3")
+	)
+	
 	$Background/Layout1BridgeShop/TeleporterArea1.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_shop")
 	)
@@ -35,6 +45,9 @@ func _ready() -> void:
 @onready var layout1_bridge_shop = background.get_node("Layout1BridgeShop")
 @onready var layout2 = background.get_node("Layout2")
 @onready var layout2_bridge = background.get_node("Layout2Bridge")
+@onready var layout3 = background.get_node("Layout3")
+@onready var layout3_bridge = background.get_node("Layout3Bridge")
+
 @onready var layoutBoss = background.get_node("LayoutBoss")
 #@onready var rewardValue = get_node("/root/Main/MapController/Spawner").teleporter1
 
@@ -56,7 +69,7 @@ var rewardValue = 0
 func _on_teleport_area_entered(body, teleporter_name):
 	if body.is_in_group("player"):
 		delete_all_things()
-		PlayerInfo.areaID = randi_range(1, 2)
+		PlayerInfo.areaID = randi_range(1, 3)
 		PlayerInfo.bossTimer += 1
 		
 		layout1_bridge.visible = false
@@ -158,9 +171,15 @@ func _on_teleport_area_entered(body, teleporter_name):
 			var boundary2 = layout2.get_node("EnemyArea2/SpawnPolygon2")
 			spawner.create_spawn_area(boundary2)
 		
-		
 		if PlayerInfo.areaID == 3:
-			pass
+			body.global_position = layout3.get_node("Spawnpoint").global_position
+			
+			var layout3_collision = layout3.get_node("Boundary2/CollisionPolygon2D")
+			layout3_collision.call_deferred("set_disabled", false)
+			layout3.visible = true
+			
+			var boundary3 = layout3.get_node("EnemyArea3/SpawnPolygon3")
+			spawner.create_spawn_area(boundary3)
 		
 		if (stageReward == 4 or stageReward == 5):
 			spawner.random_spawn()
