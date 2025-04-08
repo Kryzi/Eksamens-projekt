@@ -45,4 +45,4 @@ func _on_settings_pressed() -> void:
 	#Click.play()
 	#if Click.playing:
 	#	await Click.finished
-	get_tree().change_scene_to_file("res://settings.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu/settings.tscn")

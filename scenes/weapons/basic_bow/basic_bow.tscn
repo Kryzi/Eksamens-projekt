@@ -57,3 +57,4 @@ flip_h = true
 [node name="BowSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_obsl7")
 volume_db = 4.0
+bus = &"Sfx"

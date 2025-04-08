@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cradrmw10obwa"]
+[gd_scene load_steps=39 format=3 uid="uid://cradrmw10obwa"]
 
 [ext_resource type="Script" path="res://scripts/main/player.gd" id="1_ddb0a"]
 [ext_resource type="Texture2D" uid="uid://bmjvtt528ekn5" path="res://sprites/spiller/spiller-hojre_idle-1_walk-2-4.png" id="2_brr8l"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://d33m2ojb6s3r5" path="res://scenes/weapons/le/le.tscn" id="26_5rb1q"]
 [ext_resource type="PackedScene" uid="uid://c8qnpo7dkw86m" path="res://scenes/weapons/ice_cannon/ice_cannon.tscn" id="26_klgc6"]
 [ext_resource type="AudioStream" uid="uid://bpicuej6pb1f2" path="res://sounds/GedSlapSound.mp3" id="27_1juf4"]
+[ext_resource type="PackedScene" uid="uid://cramhe6rm2cu1" path="res://scenes/weapons/basic_bow/basic_arrow_projectile.tscn" id="27_dect3"]
 [ext_resource type="AudioStream" uid="uid://bdr76qsc0x73l" path="res://sounds/HitSound.mp3" id="28_dg55l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a5exy"]
@@ -221,13 +222,14 @@ script = ExtResource("3_fteec")
 [node name="BasicKnife" parent="Weapon" instance=ExtResource("20_y8slu")]
 
 [node name="rockguitar" parent="Weapon" instance=ExtResource("26_3td7x")]
-metadata/IconId = "RockGuitar"
+Bullet = ExtResource("27_dect3")
 
 [node name="Le" parent="Weapon" instance=ExtResource("26_5rb1q")]
 
 [node name="IsKanon" parent="Weapon" instance=ExtResource("26_klgc6")]
 
 [node name="Water Staff" parent="Weapon" instance=ExtResource("21_ufdrw")]
+maxAmmo = 300
 
 [node name="Boomerang (weapon)" parent="Weapon" instance=ExtResource("23_unme0")]
 
@@ -253,10 +255,12 @@ one_shot = true
 stream = ExtResource("28_dg55l")
 volume_db = -5.0
 pitch_scale = 2.0
+bus = &"Sfx"
 
 [node name="GedSlapSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("27_1juf4")
 volume_db = -3.0
+bus = &"Sfx"
 
 [connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]
 [connection signal="timeout" from="Dashing" to="." method="_on_dashing_timeout"]

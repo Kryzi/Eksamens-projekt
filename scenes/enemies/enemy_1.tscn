@@ -167,6 +167,7 @@ wait_time = 0.7
 autostart = true
 
 [node name="attack_Timer" type="Timer" parent="."]
+wait_time = 1.75
 autostart = true
 
 [node name="ShootingPoint" type="Marker2D" parent="."]
@@ -180,6 +181,7 @@ shape = SubResource("CircleShape2D_4nd4c")
 [node name="Enemy1Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_vjwes")
 volume_db = -5.0
+bus = &"Sfx"
 
 [connection signal="timeout" from="move_Timer" to="." method="_on_move_timer_timeout"]
 [connection signal="timeout" from="attack_Timer" to="." method="_on_attack_timer_timeout"]
