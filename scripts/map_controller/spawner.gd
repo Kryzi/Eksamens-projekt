@@ -95,14 +95,19 @@ func is_obstacle_position_valid(new_pos: Vector2) -> bool:
 #endregion Obstacle generation
 
 #region Enemy spawning
+var amount = 0
 func create_spawn_area(new_boundary):
 	spawnArea = get_area_from_boundary(new_boundary)  # Calculate the spawn area bounding box
 	
 	#print("Spawner ready:", self.name, "from", get_parent())
-	var amount = randi_range(1, 4)
+	if (PlayerInfo.bossTimer <= 5):
+		amount = randi_range(2, 3)
+	if (PlayerInfo.bossTimer > 5):
+		amount = randi_range(4, 5)
+	
 	for i in amount:
 		#print(i)
-		random_spawn()
+		random_spawn(i)
 		
 func get_area_from_boundary(boundary_for_spawn_area: CollisionPolygon2D) -> Rect2:
 	var min_x = INF
@@ -119,18 +124,52 @@ func get_area_from_boundary(boundary_for_spawn_area: CollisionPolygon2D) -> Rect
 
 	return Rect2(Vector2(min_x, min_y), Vector2(max_x - min_x, max_y - min_y))
 
-func random_spawn():
+func random_spawn(i):
 	var x = randf_range(spawnArea.position.x, spawnArea.end.x)
 	var y = randf_range(spawnArea.position.y, spawnArea.end.y)
 	var pos = Vector2(x, y)
-	
-	# Vælg en tilfældig fjende at spawne
-	var enemy_scenes = [enemy_1, enemy_2, enemy_3]
-	var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
-	
-	var enemy_instance = selected_enemy.instantiate()
-	enemy_instance.position = pos
-	call_deferred("add_child", enemy_instance)
+	#Første modstander er altid basis
+	if (i == 0):
+		var enemy_instance = enemy_1.instantiate()
+		enemy_instance.position = pos
+		call_deferred("add_child", enemy_instance)
+		#print("used")
+	else:
+		# Vælg en tilfældig fjende at spawne
+		var enemy_scenes = [enemy_1, enemy_2, enemy_3]
+		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
+		
+		var enemy_instance = selected_enemy.instantiate()
+		# Modstander 3 spawner tættere til spilleren
+		if(selected_enemy == enemy_3):
+			enemy_instance.position = Vector2(x, y * 1.5)
+		else:
+			enemy_instance.position = pos
+		call_deferred("add_child", enemy_instance)
+		#print("used2")
+
+func elite_spawn(i):
+	var x = randf_range(spawnArea.position.x, spawnArea.end.x)
+	var y = randf_range(spawnArea.position.y, spawnArea.end.y)
+	var pos = Vector2(x, y)
+	#Første modstander er altid basis
+	if (i == 0):
+		var enemy_instance = enemy_1.instantiate()
+		enemy_instance.position = pos
+		call_deferred("add_child", enemy_instance)
+		#print("used")
+	else:
+		# Vælg en tilfældig fjende at spawne
+		var enemy_scenes = [enemy_1, enemy_2, enemy_3]
+		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
+		
+		var enemy_instance = selected_enemy.instantiate()
+		# Modstander 3 spawner tættere til spilleren
+		if(selected_enemy == enemy_3):
+			enemy_instance.position = Vector2(x, y * 1.5)
+		else:
+			enemy_instance.position = pos
+		call_deferred("add_child", enemy_instance)
 #endregion Enemy Spawning
 
 func rewardSet(value):

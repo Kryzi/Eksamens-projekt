@@ -70,7 +70,7 @@ collision_mask = 0
 [node name="SpawnPolygon2" type="CollisionPolygon2D" parent="EnemyArea2"]
 position = Vector2(1548, 1248)
 build_mode = 1
-polygon = PackedVector2Array(-1044, 876, -1044, -960, -297, -960, -300, 876)
+polygon = PackedVector2Array(-1044, 204, -1044, -960, -297, -960, -311, 159)
 
 [node name="Spawnpoint" type="Marker2D" parent="."]
 position = Vector2(1968, 2172)
