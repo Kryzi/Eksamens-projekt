@@ -32,9 +32,13 @@ func itemGenerator():
 		#4:
 			#itemValue = preload("res://Scenes/Items/Item4.tscn")
 
-
+var picked_up = false
 func _on_item_area_body_entered(_body: Node2D) -> void:
+	if (picked_up == true):
+		return
 	if _body.is_in_group("player"):
+		picked_up = true
+		$ItemArea/CollisionShape2D.disabled = true
 		match itemID:
 			1:
 				weapon.applyUpgrades( num, num)
