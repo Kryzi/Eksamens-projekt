@@ -69,7 +69,7 @@ var rewardValue = 0
 func _on_teleport_area_entered(body, teleporter_name):
 	if body.is_in_group("player"):
 		delete_all_things()
-		PlayerInfo.areaID = randi_range(3, 3)
+		PlayerInfo.areaID = randi_range(1, 3)
 		PlayerInfo.bossTimer += 1
 		
 		layout1_bridge.visible = false
