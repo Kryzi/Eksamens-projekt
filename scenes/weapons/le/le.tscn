@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://2o3w6vhjfyqy" path="res://sprites/vaaben/melee/le/le_angreb-3.png" id="4_3fpv2"]
 [ext_resource type="Texture2D" uid="uid://dn0elg2sgvpmi" path="res://sprites/vaaben/melee/le/le_angreb-4.png" id="5_hftke"]
 [ext_resource type="Texture2D" uid="uid://cekecpre8slfg" path="res://sprites/vaaben/melee/le/le_angreb-5.png" id="6_x4gr5"]
-[ext_resource type="AudioStream" uid="uid://cddmp6rp12yri" path="res://sounds/knife_sound.mp3" id="7_prici"]
 [ext_resource type="Texture2D" uid="uid://c0otpwecdnmnw" path="res://sprites/vaaben/melee/le/le_winddown-1.png" id="8_ss6yq"]
 [ext_resource type="Texture2D" uid="uid://cyyfe6j1t8uxo" path="res://sprites/vaaben/melee/le/le_winddown-2.png" id="9_5exsi"]
 [ext_resource type="Texture2D" uid="uid://bcvh8wsv6w6q4" path="res://sprites/vaaben/melee/le/le_winddown-3.png" id="10_bepe0"]
 [ext_resource type="Texture2D" uid="uid://bon7riyta8fnx" path="res://sprites/vaaben/melee/le/le_windup.png" id="11_u8bkh"]
+[ext_resource type="AudioStream" uid="uid://cjt48dv3x0hgd" path="res://sounds/LeSounds.mp3" id="12_vmgek"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nllp1"]
 animations = [{
@@ -94,7 +94,7 @@ position = Vector2(5.66667, 12.6667)
 shape = SubResource("RectangleShape2D_axbx5")
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_prici")
+stream = ExtResource("12_vmgek")
 volume_db = -10.0
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

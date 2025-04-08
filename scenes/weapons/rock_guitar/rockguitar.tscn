@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://ds6u0si4rn8iw" path="res://scenes/weapons/rock_guitar/rock_guitar_projectile.tscn" id="2_6tjmc"]
 [ext_resource type="Texture2D" uid="uid://x2hjcybr05yb" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_angreb-1.png" id="3_jw2yb"]
 [ext_resource type="Texture2D" uid="uid://byqm8ge3k23d0" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_angreb-2.png" id="4_jvup8"]
-[ext_resource type="AudioStream" uid="uid://ptfy2pi086ts" path="res://sounds/bow_sound.mp3" id="5_r3xxl"]
 [ext_resource type="Texture2D" uid="uid://djg44dbqe5xcl" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_angreb-3.png" id="5_xx18l"]
 [ext_resource type="Texture2D" uid="uid://bral208pordv6" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_angreb-4.png" id="6_btmvs"]
 [ext_resource type="Texture2D" uid="uid://dkvlsoqapoya4" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_idle.png" id="7_4s4g5"]
+[ext_resource type="AudioStream" uid="uid://bmw504ob3jlbs" path="res://sounds/Rockguitar skud.wav" id="8_ofih8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5fotg"]
 animations = [{
@@ -63,5 +63,5 @@ flip_h = true
 position = Vector2(41.3333, -2.66667)
 
 [node name="GuitarSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_r3xxl")
-volume_db = 8.0
+stream = ExtResource("8_ofih8")
+volume_db = -20.0

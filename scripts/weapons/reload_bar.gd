@@ -23,6 +23,10 @@ func _process(delta: float) -> void:
 	var current_weapon = weapon.weapons[weapon.currentWeapon]
 	if current_weapon.ranged == true:
 		if current_weapon.reloading == true and current_weapon.name != "Boomerang (weapon)":
+			
+			if current_weapon.reserveAmmo == 0 and current_weapon.currentAmmo == 0:
+				return
+			
 			visible = true
 			
 			reload_timer += delta
