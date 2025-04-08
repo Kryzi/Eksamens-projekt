@@ -174,7 +174,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 		if PlayerInfo.areaID == 3:
 			body.global_position = layout3.get_node("Spawnpoint").global_position
 			
-			var layout3_collision = layout3.get_node("Boundary2/CollisionPolygon2D")
+			var layout3_collision = layout3.get_node("Boundary3/CollisionPolygon3D")
 			layout3_collision.call_deferred("set_disabled", false)
 			layout3.visible = true
 			
