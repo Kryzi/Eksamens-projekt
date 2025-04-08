@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://vliwu7hcfve1"]
+
+[ext_resource type="Script" path="res://scripts/main/main_menu/audiosetting.gd" id="1_58d8f"]
+[ext_resource type="AudioStream" uid="uid://dnsulxlnyiv1h" path="res://sounds/MenuMusik.mp3" id="2_olyfw"]
+[ext_resource type="AudioStream" uid="uid://mrjeiat1o3oh" path="res://sounds/switch_on.ogg" id="3_mioq3"]
+
+[node name="audiosetting" type="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_58d8f")
+
+[node name="Audio" type="Label" parent="."]
+layout_mode = 2
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="Master" type="Label" parent="."]
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="."]
+layout_mode = 2
+min_value = -45.0
+max_value = 1.0
+value = 1.0
+
+[node name="Music" type="Label" parent="."]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="."]
+layout_mode = 2
+min_value = -45.0
+max_value = 1.0
+value = 1.0
+
+[node name="Sfx" type="Label" parent="."]
+layout_mode = 2
+text = "Sfx"
+
+[node name="SfxSlider" type="HSlider" parent="."]
+layout_mode = 2
+min_value = -45.0
+max_value = 1.0
+value = 1.0
+
+[node name="SfxButton" type="Button" parent="."]
+layout_mode = 2
+text = "Test Sfx"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 2
+text = "Back"
+
+[node name="MenuMusik" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_olyfw")
+autoplay = true
+bus = &"Music"
+
+[node name="SwitchOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mioq3")
+bus = &"Sfx"
+
+[connection signal="value_changed" from="MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="SfxButton" to="." method="_on_sfx_button_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
