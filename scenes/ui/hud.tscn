@@ -224,6 +224,7 @@ offset_bottom = 45.0
 texture = ExtResource("10_4dxx1")
 
 [node name="LeIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 45.0
@@ -231,6 +232,7 @@ offset_bottom = 45.0
 texture = ExtResource("11_pyufq")
 
 [node name="RockGuitarIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 45.0
