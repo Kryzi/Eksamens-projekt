@@ -258,6 +258,7 @@ animation = &"Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShopKeeper/StaticBody2D"]
 position = Vector2(-34, -43)
 shape = SubResource("RectangleShape2D_5s52p")
+disabled = true
 
 [node name="RefillAmmo" type="Button" parent="ShopKeeper"]
 offset_left = -257.0
