@@ -118,6 +118,17 @@ func shoot():
 		
 		
 		var bullet = Bullet.instantiate()
+		if i == 0:
+			bullet.get_child(0).texture = load("res://sprites/vaaben/ranged/rockguitar/node-2_rockguitar.png")
+		elif i == 1:
+			bullet.get_child(0).texture = load("res://sprites/vaaben/ranged/rockguitar/node-1_rockguitar.png")
+		elif i == 2:
+			bullet.get_child(0).texture = load("res://sprites/vaaben/ranged/rockguitar/node-3_rockguitar.png")
+		elif i == 3:
+			bullet.get_child(0).texture = load("res://sprites/vaaben/ranged/rockguitar/node-1_rockguitar.png")
+		
+		
+		
 		bullet.global_position = $ShootingPoint.global_position
 		bullet.rotation = rotation
 		bullet.targetPos = mouse_pos  + offset

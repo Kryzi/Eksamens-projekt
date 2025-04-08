@@ -220,9 +220,10 @@ script = ExtResource("3_fteec")
 
 [node name="BasicKnife" parent="Weapon" instance=ExtResource("20_y8slu")]
 
-[node name="Le" parent="Weapon" instance=ExtResource("26_5rb1q")]
-
 [node name="rockguitar" parent="Weapon" instance=ExtResource("26_3td7x")]
+metadata/IconId = "RockGuitar"
+
+[node name="Le" parent="Weapon" instance=ExtResource("26_5rb1q")]
 
 [node name="IsKanon" parent="Weapon" instance=ExtResource("26_klgc6")]
 
