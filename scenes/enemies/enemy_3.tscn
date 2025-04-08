@@ -50,7 +50,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4nd4c"]
-radius = 580.003
+radius = 911.002
 
 [node name="Enemy3" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_fiq3m")

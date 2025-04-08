@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1ti0ps86yt0p"]
+[gd_scene load_steps=15 format=3 uid="uid://d1ti0ps86yt0p"]
 
 [ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_3jcof"]
 [ext_resource type="Script" path="res://scripts/ui/inventory.gd" id="2_blooa"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://t70iiylxcj63" path="res://sprites/vaaben/melee/skjold/skjold_idle.png" id="8_lqf4w"]
 [ext_resource type="Texture2D" uid="uid://bdg2ds0brm88q" path="res://sprites/vaaben/ranged/ild_stav/ild-stav_idle.png" id="9_hfavo"]
 [ext_resource type="Texture2D" uid="uid://bim84cp6kchdj" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_idle.png" id="10_4dxx1"]
+[ext_resource type="Texture2D" uid="uid://eoaedts82ej4" path="res://sprites/vaaben/melee/le/le_idle.png" id="11_pyufq"]
+[ext_resource type="Texture2D" uid="uid://dkvlsoqapoya4" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_idle.png" id="12_7wxm8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlwpy"]
 bg_color = Color(0.816006, 0.491452, 0.548551, 1)
@@ -220,6 +222,20 @@ offset_top = 5.0
 offset_right = 45.0
 offset_bottom = 45.0
 texture = ExtResource("10_4dxx1")
+
+[node name="LeIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("11_pyufq")
+
+[node name="RockGuitarIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("12_7wxm8")
 
 [node name="EndScreenPanel" type="Panel" parent="Control"]
 unique_name_in_owner = true

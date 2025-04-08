@@ -2,6 +2,8 @@ extends Node2D
 
 func _ready() -> void:
 	
+	delete_all_things()
+	
 	$Background/Layout1Bridge/Variation1_1/TeleporterArea1.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_1")
 	)
@@ -58,6 +60,8 @@ func delete_all_things():
 		item.queue_free()
 	for projectile in get_tree().get_nodes_in_group("projectile"):
 		projectile.queue_free()
+	for obstacle in get_tree().get_nodes_in_group("obstacle"):
+		obstacle.queue_free()
 
 #Boss
 @export var GigaGed: PackedScene
@@ -74,6 +78,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 		
 		layout1_bridge.visible = false
 		layout2_bridge.visible = false
+		layout3_bridge.visible = false
 		layout1_bridge_shop.visible = false
 		
 		# Disable stage collision
@@ -83,6 +88,10 @@ func _on_teleport_area_entered(body, teleporter_name):
 		layout2_bridge.get_node("Variation2_1/Boundary2Bridge/CollisionPolygon2D").call_deferred("set_disabled", true)
 		layout2_bridge.get_node("Variation2_2/BoundaryBridge2_2/CollisionPolygon2D").call_deferred("set_disabled", true)
 		layout2_bridge.get_node("Variation2_3/BoundaryBridge2_3/CollisionPolygon2D").call_deferred("set_disabled", true)
+		layout3_bridge.get_node("Variation3_1/Boundary3_1/CollisionPolygon2D").call_deferred("set_disabled", true)
+		layout3_bridge.get_node("Variation3_2/Boundary3_2/CollisionPolygon2D").call_deferred("set_disabled", true)
+		layout3_bridge.get_node("Variation3_3/Boundary3_3/CollisionPolygon2D").call_deferred("set_disabled", true)
+		
 		layout1_bridge_shop.get_node("Boundary1BridgeShop/CollisionPolygon2D").call_deferred("set_disabled", true)
 		layoutBoss.get_node("Boundary/CollisionPolygon2D").call_deferred("set_disabled", true)
 		
@@ -90,8 +99,14 @@ func _on_teleport_area_entered(body, teleporter_name):
 		#Teleporter Collision
 		layout1_bridge.get_node("Variation1_1/TeleporterArea1/Teleporter1").call_deferred("set_disabled", true)
 		layout1_bridge.get_node("Variation1_2/TeleporterArea1_2/Teleporter1_2").call_deferred("set_disabled", true)
+		layout1_bridge.get_node("Variation1_3/TeleporterArea1_3/Teleporter1_3").call_deferred("set_disabled", true)
 		layout2_bridge.get_node("Variation2_1/TeleporterArea2/Teleporter2").call_deferred("set_disabled", true)
 		layout2_bridge.get_node("Variation2_2/TeleporterArea2_2/Teleporter2_2").call_deferred("set_disabled", true)
+		layout2_bridge.get_node("Variation2_3/TeleporterArea2_3/Teleporter2_3").call_deferred("set_disabled", true)
+		layout3_bridge.get_node("Variation3_1/TeleporterArea3_1/Teleporter3_1").call_deferred("set_disabled", true)
+		layout3_bridge.get_node("Variation3_2/TeleporterArea3_2/Teleporter3_2").call_deferred("set_disabled", true)
+		layout3_bridge.get_node("Variation3_3/TeleporterArea3_3/Teleporter3_3").call_deferred("set_disabled", true)
+		
 		layout1_bridge_shop.get_node("TeleporterArea1/Teleporter1").call_deferred("set_disabled", true)
 		
 		
@@ -160,6 +175,8 @@ func _on_teleport_area_entered(body, teleporter_name):
 			
 			var boundary1 = layout1.get_node("EnemyArea1/SpawnPolygon1")
 			spawner.create_spawn_area(boundary1)
+			var obstacleBoundary1 = layout1.get_node("ObstacleArea1/CollisionPolygon2D")
+			spawner.call_deferred("generate_obstacles",obstacleBoundary1)
 		
 		if PlayerInfo.areaID == 2:
 			body.global_position = layout2.get_node("Spawnpoint").global_position
@@ -170,16 +187,20 @@ func _on_teleport_area_entered(body, teleporter_name):
 			
 			var boundary2 = layout2.get_node("EnemyArea2/SpawnPolygon2")
 			spawner.create_spawn_area(boundary2)
+			var obstacleBoundary2 = layout2.get_node("ObstacleArea2/CollisionPolygon2D")
+			spawner.call_deferred("generate_obstacles",obstacleBoundary2)
 		
 		if PlayerInfo.areaID == 3:
 			body.global_position = layout3.get_node("Spawnpoint").global_position
 			
 			var layout3_collision = layout3.get_node("Boundary3/CollisionPolygon2D")
-			layout3_collision.call_deferred("set_daisabled", false)
+			layout3_collision.call_deferred("set_disabled", false)
 			layout3.visible = true
 			
 			var boundary3 = layout3.get_node("EnemyArea3/SpawnPolygon3")
 			spawner.create_spawn_area(boundary3)
+			var obstacleBoundary3 = layout3.get_node("ObstacleArea3/CollisionPolygon2D")
+			spawner.call_deferred("generate_obstacles",obstacleBoundary3)
 		
 		if (stageReward == 4 or stageReward == 5):
 			spawner.random_spawn()

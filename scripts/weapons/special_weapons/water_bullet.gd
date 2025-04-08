@@ -44,7 +44,7 @@ func emitParticle():
 		particle.texture = vand_partikel_1_texture
 	elif i == 1:
 		particle.texture = vand_partikel_2_texture
-	elif i == 3:
+	elif i == 2:
 		particle.texture = vand_partikel_3_texture
 	
 	
