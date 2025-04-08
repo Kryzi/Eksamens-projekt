@@ -41,6 +41,7 @@ func _ready() -> void:
 @onready var map_controller = get_node("/root/Main/MapController")
 @onready var background = map_controller.get_node("Background")
 @onready var spawner = map_controller.get_node("Spawner")
+@onready var musikManager = map_controller.get_node("MusikManager")
 
 @onready var layout1 = background.get_node("Layout1")
 @onready var layout1_bridge = background.get_node("Layout1Bridge")
@@ -140,6 +141,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 			
 			layoutBoss.visible = true
 			layoutBoss.get_node("Boundary/CollisionPolygon2D").call_deferred("set_disabled", false)
+			musikManager.newStage("boss")
 			
 			var enemy_instance = GigaGed.instantiate()
 			enemy_instance.position = layoutBoss.get_node("BossSpawnpoint").position
@@ -156,6 +158,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 			layout1_bridge_shop_collision.call_deferred("set_disabled", false)
 			layout1_bridge_shop.get_node("ShopKeeper/StaticBody2D/CollisionShape2D").call_deferred("set_disabled", false)
 			layout1_bridge_shop.visible = true
+			musikManager.newStage("shop")
 			
 			rewardValue = randi_range(1, 2) 
 			print(rewardValue)
@@ -174,6 +177,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 			var layout1_collision = layout1.get_node("Boundary1/CollisionPolygon2D")
 			layout1_collision.call_deferred("set_disabled", false)
 			layout1.visible = true
+			musikManager.newStage("kamp")
 			
 			var boundary1 = layout1.get_node("EnemyArea1/SpawnPolygon1")
 			spawner.create_spawn_area(boundary1)
@@ -186,6 +190,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 			var layout2_collision = layout2.get_node("Boundary2/CollisionPolygon2D")
 			layout2_collision.call_deferred("set_disabled", false)
 			layout2.visible = true
+			musikManager.newStage("kamp")
 			
 			var boundary2 = layout2.get_node("EnemyArea2/SpawnPolygon2")
 			spawner.create_spawn_area(boundary2)
@@ -198,6 +203,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 			var layout3_collision = layout3.get_node("Boundary3/CollisionPolygon2D")
 			layout3_collision.call_deferred("set_disabled", false)
 			layout3.visible = true
+			musikManager.newStage("kamp")
 			
 			var boundary3 = layout3.get_node("EnemyArea3/SpawnPolygon3")
 			spawner.create_spawn_area(boundary3)

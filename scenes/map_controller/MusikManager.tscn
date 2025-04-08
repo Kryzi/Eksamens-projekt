@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://usqbd1a2eyoy"]
+
+[ext_resource type="Script" path="res://scripts/map_controller/musik_manager.gd" id="1_ddce1"]
+[ext_resource type="AudioStream" uid="uid://c0tmyeitgfoab" path="res://sounds/musik/Shop_og_uden_fare.mp3" id="2_gfqej"]
+
+[node name="MusikManager" type="Node"]
+script = ExtResource("1_ddce1")
+
+[node name="ShopOgUdenFare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gfqej")
+parameters/looping = false

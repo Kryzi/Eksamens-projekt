@@ -1,0 +1,30 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjg7rlfjs5hdb"]
+
+[ext_resource type="Script" path="res://scripts/map_controller/map_controller.gd" id="1_dfm6y"]
+[ext_resource type="PackedScene" uid="uid://dptyp60c52b5q" path="res://scenes/map_controller/background.tscn" id="1_swwn8"]
+[ext_resource type="PackedScene" uid="uid://c0gwl5rrefms3" path="res://scenes/enemies/gigaged.tscn" id="2_0fjr7"]
+[ext_resource type="Script" path="res://scripts/map_controller/spawner.gd" id="4_ficij"]
+[ext_resource type="PackedScene" uid="uid://mwv5bu536rgt" path="res://scenes/enemies/enemy_1.tscn" id="4_ybvl0"]
+[ext_resource type="PackedScene" uid="uid://du87ulgmewj2t" path="res://scenes/enemies/enemy_2.tscn" id="5_1aadh"]
+[ext_resource type="PackedScene" uid="uid://bi02i7b2eqyu0" path="res://scenes/enemies/enemy_3.tscn" id="6_0lihr"]
+[ext_resource type="PackedScene" uid="uid://b32tym1a5eeh7" path="res://scenes/collectables/item.tscn" id="8_0hohp"]
+[ext_resource type="PackedScene" uid="uid://c1lx361saaoff" path="res://scenes/obstacles/stone_obstacle.tscn" id="8_ull2l"]
+[ext_resource type="PackedScene" uid="uid://b6nxnslplnmhh" path="res://scenes/obstacles/wood_obstacle.tscn" id="9_mui1h"]
+[ext_resource type="PackedScene" uid="uid://usqbd1a2eyoy" path="res://scenes/map_controller/MusikManager.tscn" id="11_ia271"]
+
+[node name="MapController" type="Node2D"]
+script = ExtResource("1_dfm6y")
+GigaGed = ExtResource("2_0fjr7")
+
+[node name="Background" parent="." instance=ExtResource("1_swwn8")]
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("4_ficij")
+enemy_1 = ExtResource("4_ybvl0")
+enemy_2 = ExtResource("5_1aadh")
+enemy_3 = ExtResource("6_0lihr")
+stone_obstacle = ExtResource("8_ull2l")
+wood_obstacle = ExtResource("9_mui1h")
+item = ExtResource("8_0hohp")
+
+[node name="MusikManager" parent="." instance=ExtResource("11_ia271")]
