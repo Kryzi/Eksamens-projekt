@@ -34,10 +34,7 @@ func _physics_process(delta):
 			$View.monitoring = false
 			is_charging = false
 			await get_tree().create_timer(1.0).timeout
-			
 			$View.monitoring = true
-		
-		
 		return
 
 	# Hvis spilleren er inden for rækkevidde og ikke allerede lader op, start ladning
