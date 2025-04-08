@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr67rf610mc48"]
+
+[ext_resource type="Texture2D" uid="uid://ccay1k3hmo4bp" path="res://sprites/omraader/omraade1/o1-3/o1-3_fuld.png" id="1_oh6ud"]
+[ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="2_cvowg"]
+[ext_resource type="Texture2D" uid="uid://gayw0o8eennv" path="res://sprites/omraader/omraade1/bro/bro_hojre-ende.png" id="3_kwwvw"]
+[ext_resource type="Texture2D" uid="uid://dtwbw1u4eptvv" path="res://sprites/omraader/omraade1/bro/bro_op-ende.png" id="3_yxbeg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ys8aw"]
+size = Vector2(132, 132)
+
+[node name="Layout3Bridge" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="O1-3Fuld" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1634.09, 1211)
+scale = Vector2(11.0182, 11.0182)
+texture = ExtResource("1_oh6ud")
+
+[node name="BroNed-ende" type="Sprite2D" parent="."]
+position = Vector2(806, 2120)
+scale = Vector2(12, 12)
+texture = ExtResource("2_cvowg")
+centered = false
+
+[node name="Variation3_1" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2514.0
+offset_top = 916.0
+offset_right = 2554.0
+offset_bottom = 956.0
+
+[node name="Boundary3_1" type="StaticBody2D" parent="Variation3_1"]
+position = Vector2(-2514, -916)
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation3_1/Boundary3_1"]
+position = Vector2(732, 2424)
+build_mode = 1
+polygon = PackedVector2Array(203, -294, 186, -1336, 237, -1398, 877, -1383, 881, -2170, 1153, -2215, 1160, -2785, 1299, -2782, 1306, -2210, 1802, -2188, 1783, -1115, 1328, -1052, 1224, -1060, 1171, -940, 1171, -655, 1220, -356, 1099, -292, 569, -307)
+disabled = true
+
+[node name="TeleporterArea3_2" type="Area2D" parent="Variation3_1"]
+
+[node name="Teleporter3_2" type="CollisionShape2D" parent="Variation3_1/TeleporterArea3_2"]
+position = Vector2(606, -484)
+shape = SubResource("RectangleShape2D_ys8aw")
+disabled = true
+
+[node name="rewardLabel3_2" type="Label" parent="Variation3_1"]
+offset_left = -259.0
+offset_top = -568.0
+offset_right = -21.0
+offset_bottom = -423.0
+theme_override_font_sizes/font_size = 100
+text = "Filler"
+
+[node name="BroHojre-ende" type="Sprite2D" parent="Variation3_1"]
+position = Vector2(375, -482)
+scale = Vector2(13.6038, 12.8113)
+texture = ExtResource("3_kwwvw")
+
+[node name="Variation3_2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2514.0
+offset_top = 916.0
+offset_right = 2554.0
+offset_bottom = 956.0
+
+[node name="Boundary3_2" type="StaticBody2D" parent="Variation3_2"]
+position = Vector2(-2514, -916)
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation3_2/Boundary3_2"]
+position = Vector2(732, 2424)
+build_mode = 1
+polygon = PackedVector2Array(190, -302, 202, -1351, 904, -1389, 890, -2180, 1144, -2207, 1157, -2794, 1303, -2799, 1313, -2222, 1802, -2199, 1815, -2055, 2487, -2048, 2482, -1894, 1845, -1884, 1842, -1665, 1842, -1554, 1842, -1458, 1815, -1332, 1782, -1052, 1243, -1050, 1177, -920, 1217, -351, 1091, -260, 386, -285, 272, -293)
+disabled = true
+
+[node name="BroOp-ende" type="Sprite2D" parent="Variation3_2"]
+position = Vector2(-857, -1305)
+scale = Vector2(11.7547, 11.7176)
+texture = ExtResource("3_yxbeg")
+centered = false
+
+[node name="TeleporterArea3_1" type="Area2D" parent="Variation3_2"]
+
+[node name="Teleporter3_1" type="CollisionShape2D" parent="Variation3_2/TeleporterArea3_1"]
+position = Vector2(-551, -1204)
+shape = SubResource("RectangleShape2D_ys8aw")
+disabled = true
+
+[node name="rewardLabel3_1" type="Label" parent="Variation3_2"]
+offset_left = -711.0
+offset_top = -694.0
+offset_right = -473.0
+offset_bottom = -549.0
+theme_override_font_sizes/font_size = 100
+text = "Filler"

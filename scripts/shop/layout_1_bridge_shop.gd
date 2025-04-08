@@ -75,8 +75,7 @@ func _on_limit_purchase_mouse_entered() -> void:
 func _on_limit_purchase_mouse_exited() -> void:
 	PlayerInfo.is_interacting_with_UI = false
 
-@onready var map_controller = get_node("/root/Main/MapController")
-@onready var spawner = map_controller.get_node("Spawner")
+@onready var spawner = get_node("/root/Main/MapController/Spawner")
 var itemCost = 40
 @export var item: PackedScene
 func _on_item_purchase_pressed() -> void:
