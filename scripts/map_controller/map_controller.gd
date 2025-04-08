@@ -93,7 +93,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 		layout3_bridge.get_node("Variation3_3/Boundary3_3/CollisionPolygon2D").call_deferred("set_disabled", true)
 		
 		layout1_bridge_shop.get_node("Boundary1BridgeShop/CollisionPolygon2D").call_deferred("set_disabled", true)
-		layout1_bridge_shop.get_node("Shopkeeper/StaticBody2D/CollisionShape2D").call_deferred("set_disabled", true)
+		layout1_bridge_shop.get_node("ShopKeeper/StaticBody2D/CollisionShape2D").call_deferred("set_disabled", true)
 		layoutBoss.get_node("Boundary/CollisionPolygon2D").call_deferred("set_disabled", true)
 		
 		
@@ -154,7 +154,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 			
 			var layout1_bridge_shop_collision = layout1_bridge_shop.get_node("Boundary1BridgeShop/CollisionPolygon2D")
 			layout1_bridge_shop_collision.call_deferred("set_disabled", false)
-			layout1_bridge_shop.get_node("Shopkeeper/StaticBody2D/CollisionShape2D").call_deferred("set_disabled", false)
+			layout1_bridge_shop.get_node("ShopKeeper/StaticBody2D/CollisionShape2D").call_deferred("set_disabled", false)
 			layout1_bridge_shop.visible = true
 			
 			rewardValue = randi_range(1, 2) 
@@ -209,7 +209,8 @@ func _on_teleport_area_entered(body, teleporter_name):
 			if (PlayerInfo.bossTimer > 10):
 				amount = randi_range(4, 5)
 			for i in amount:
-				spawner.random_spawn(i)
+				print("spawn")
+				spawner.elite_spawn(i)
 
 		
 		

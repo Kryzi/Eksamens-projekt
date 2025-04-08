@@ -25,14 +25,12 @@ func itemGenerator():
 	match itemID:
 		1:
 			Item1.visible = true
-			print("1")
 		2:
 			Item2.visible = true
 		3:
 			Item3.visible = true
 		4:
 			Item1.visible = true
-			print("4")
 
 var picked_up = false
 func _on_item_area_body_entered(_body: Node2D) -> void:
