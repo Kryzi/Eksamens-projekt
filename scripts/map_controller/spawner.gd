@@ -5,6 +5,7 @@ extends Node2D
 @export var enemy_1: PackedScene
 @export var enemy_2: PackedScene
 @export var enemy_3: PackedScene
+@export var enemy_4: PackedScene
 @export var stone_obstacle: PackedScene
 @export var wood_obstacle: PackedScene
 
@@ -159,13 +160,13 @@ func elite_spawn(i):
 	var y = randf_range(spawnArea.position.y, spawnArea.end.y)
 	var pos = Vector2(x, y)
 	#Første modstander er altid basis
-	if (i == 0):
-		var enemy_instance = enemy_1.instantiate()
+	if ((i == 0 or i == 1) and (randi_range(1,2) == 2)):
+		
+		var enemy_instance = enemy_4.instantiate()
 		enemy_instance.position = pos
 		call_deferred("add_child", enemy_instance)
 		#print("used")
-	else:
-		# Vælg en tilfældig fjende at spawne
+	else: 
 		var enemy_scenes = [enemy_1, enemy_2, enemy_3]
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
@@ -183,7 +184,7 @@ func rewardSet(value):
 	var eliteChance = 0
 	if (PlayerInfo.bossTimer >= 5):
 		eliteChance = randi_range(1, 3)
-	
+	eliteChance = 3
 	rewardValue = value
 	if (rewardValue == 1):
 		PlayerInfo.mapValue = "Coins"

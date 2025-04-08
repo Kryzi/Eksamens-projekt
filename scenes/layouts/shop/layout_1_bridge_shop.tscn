@@ -283,6 +283,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("36_1e12s")
 
 [node name="ItemPurchase" type="Button" parent="."]
+layout_mode = 0
 offset_left = 697.0
 offset_top = 1117.0
 offset_right = 922.0
