@@ -103,6 +103,8 @@ func weaponSwapped(i):
 	#print("checkForNewWeapons Called in weaponSwapped")
 	inventory.HighlightWeapon()
 	
+	$"../ReloadBar".weaponChanged() # ændre reloadbaren til ens våben 
+	
 	if weapons[currentWeapon].is_in_group("Skjold"):
 		weapons[currentWeapon].set_active(true)
 	
