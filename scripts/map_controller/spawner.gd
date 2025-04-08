@@ -139,11 +139,10 @@ func random_spawn(i):
 	else:
 		var enemy_scenes = []
 		# Vælg en tilfældig fjende at spawne
-		'if (PlayerInfo.bossTimer <= 3):
+		if (PlayerInfo.bossTimer <= 3):
 			enemy_scenes = [enemy_1, enemy_3]
 		else:
-			enemy_scenes = [enemy_1, enemy_2, enemy_3]'
-		enemy_scenes = [ enemy_2]
+			enemy_scenes = [enemy_1, enemy_2, enemy_3]
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
 		var enemy_instance = selected_enemy.instantiate()
