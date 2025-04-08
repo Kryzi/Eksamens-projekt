@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c65cd31mjal7x"]
+[gd_scene load_steps=6 format=3 uid="uid://c65cd31mjal7x"]
 
 [ext_resource type="Script" path="res://scripts/main/main_menu/settings.gd" id="1_ptpxv"]
 [ext_resource type="Texture2D" uid="uid://bjwifun6vg0gl" path="res://sprites/main_menu/spiller_i_bjerglandskab.png" id="1_snejb"]
 [ext_resource type="Texture2D" uid="uid://gaccdbguqo75" path="res://sprites/main_menu/mountaintop_titel.png" id="2_7xytm"]
 [ext_resource type="AudioStream" uid="uid://dnsulxlnyiv1h" path="res://sounds/MenuMusik.mp3" id="4_ayu7r"]
+[ext_resource type="PackedScene" uid="uid://vliwu7hcfve1" path="res://scenes/main_menu/audiosetting.tscn" id="4_fw85q"]
 
 [node name="settings" type="Node"]
 script = ExtResource("1_ptpxv")
@@ -24,54 +25,34 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_7xytm")
 
-[node name="Audio" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -110.0
-offset_top = -75.0
-offset_right = 110.0
-offset_bottom = 75.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "AUDIO"
-
 [node name="Admin" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -110.0
-offset_top = -275.0
-offset_right = 110.0
-offset_bottom = -125.0
-grow_horizontal = 2
+offset_left = -201.0
+offset_top = -41.0
+offset_right = -23.0
+offset_bottom = 36.0
+grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "ADMIN"
-
-[node name="Back" type="Button" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 17.0
-offset_top = -114.0
-offset_right = 164.0
-offset_bottom = -18.0
-grow_vertical = 0
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 50
-text = "BACK"
 
 [node name="MenuMusik" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ayu7r")
 autoplay = true
 bus = &"Music"
 
-[connection signal="pressed" from="Audio" to="." method="_on_audio_pressed"]
+[node name="audiosetting" parent="." instance=ExtResource("4_fw85q")]
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -295.0
+offset_top = -211.0
+offset_right = 5.0
+offset_bottom = 55.0
+scale = Vector2(2, 2)
+
 [connection signal="pressed" from="Admin" to="." method="_on_admin_pressed"]
-[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
