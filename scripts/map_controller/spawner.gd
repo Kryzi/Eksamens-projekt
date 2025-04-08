@@ -15,6 +15,8 @@ extends Node2D
 @onready var layout1_bridge = background.get_node("Layout1Bridge")
 @onready var layout2 = background.get_node("Layout2")
 @onready var layout2_bridge = background.get_node("Layout2Bridge")
+@onready var layout3 = background.get_node("Layout3")
+@onready var layout3_bridge = background.get_node("Layout3Bridge")
 
 @onready var layout1_bridge_shop = background.get_node("Layout1BridgeShop")
 @onready var layoutBoss = background.get_node("LayoutBoss")
@@ -120,7 +122,9 @@ func random_spawn():
 
 func rewardSet(value):
 	#rewardValue = randi_range(1, 3)
-	var eliteChance = randi_range(1, 3)
+	var eliteChance = 0
+	if (PlayerInfo.bossTimer == 5):
+		eliteChance = randi_range(1, 3)
 	
 	rewardValue = value
 	if (rewardValue == 1):
@@ -263,4 +267,44 @@ func checkDeath():
 					rewardSet(randi_range(1, 3))
 					layout2_bridge.get_node("Variation2_3/rewardLabel2_3").text = PlayerInfo.mapValue
 					teleporter3 = rewardValue
+			
+		if layout3.visible == true:
+			layout3.visible = false
+			layout3.get_node("Boundary3_1/CollisionPolygon2D").disabled = true
+			layout3_bridge.visible = true
+			
+			layout3_bridge.get_node("Variation3_1/TeleporterArea1/Teleporter1").disabled = false
+			layout3_bridge.get_node("Variation3_2").visible = false
+			layout3_bridge.get_node("Variation3_3").visible = false
+			
+			#var rewardLabel = layout1_bridge.get_node("rewardLabel")
+			rewardSet(randi_range(1, 3))
+			layout3_bridge.get_node("Variation3_1/rewardLabel3_1").text = PlayerInfo.mapValue
+			teleporter1 = rewardValue
+			
+			if (variationID == 1):
+				layout3_bridge.get_node("Variation3_1/Boundary3_1/CollisionPolygon2D").disabled = false
+			
+			if (variationID >= 2):
+				layout3_bridge.get_node("Variation3_2").visible = true
+				
+				layout3_bridge.get_node("Variation3_2/Boundary3_2/CollisionPolygon2D").disabled = false
+				layout3_bridge.get_node("Variation3_2/TeleporterArea3_2/Teleporter3_2").disabled = false
+				
+				rewardSet(randi_range(1, 3))
+				layout3_bridge.get_node("Variation3_2/rewardLabel3_2").text = PlayerInfo.mapValue
+				teleporter2 = rewardValue
+				
+				if (variationID == 3):
+					layout3_bridge.get_node("Variation3_3").visible = true
+					
+					layout3_bridge.get_node("Variation3_2/Boundary3_2/CollisionPolygon2D").disabled = true
+					
+					layout3_bridge.get_node("Variation3_3/Boundary3_3/CollisionPolygon2D").disabled = false
+					layout3_bridge.get_node("Variation3_3/TeleporterArea3_3/Teleporter3_3").disabled = false
+					
+					rewardSet(randi_range(1, 3))
+					layout3_bridge.get_node("Variation3_3/rewardLabel3_3").text = PlayerInfo.mapValue
+					teleporter3 = rewardValue
+				
 			

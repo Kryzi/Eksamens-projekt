@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dptyp60c52b5q"]
+[gd_scene load_steps=9 format=3 uid="uid://dptyp60c52b5q"]
 
 [ext_resource type="PackedScene" uid="uid://cf1rcti08o3tm" path="res://scenes/layouts/layout_1.tscn" id="2_40igd"]
 [ext_resource type="PackedScene" uid="uid://fcangmshdjld" path="res://scenes/layouts/layout_1_bridge.tscn" id="3_2gcii"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://uopmy20bfd5u" path="res://scenes/layouts/shop/layout_1_bridge_shop.tscn" id="6_mdgv1"]
 [ext_resource type="PackedScene" uid="uid://cc1aysvavymnc" path="res://scenes/layouts/layout_boss.tscn" id="6_qvwny"]
 [ext_resource type="PackedScene" uid="uid://dwrgf88s6aapd" path="res://scenes/layouts/layout_3.tscn" id="7_1hxu2"]
+[ext_resource type="PackedScene" uid="uid://dr67rf610mc48" path="res://scenes/layouts/layout_3_bridge.tscn" id="8_bl65g"]
 
 [node name="Background" type="Control"]
 layout_mode = 3
@@ -31,3 +32,7 @@ visible = false
 visible = false
 
 [node name="Layout3" parent="." instance=ExtResource("7_1hxu2")]
+visible = false
+
+[node name="Layout3Bridge" parent="." instance=ExtResource("8_bl65g")]
+visible = false
