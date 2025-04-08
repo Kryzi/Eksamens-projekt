@@ -4,6 +4,7 @@ extends Node2D
 
 @export var enemy_1: PackedScene
 @export var enemy_2: PackedScene
+@export var enemy_2_2: PackedScene
 @export var enemy_3: PackedScene
 @export var enemy_4: PackedScene
 @export var stone_obstacle: PackedScene
@@ -97,6 +98,7 @@ func is_obstacle_position_valid(new_pos: Vector2) -> bool:
 
 #region Enemy spawning
 var amount = 0
+var enemy_scenes = []
 func create_spawn_area(new_boundary):
 	spawnArea = get_area_from_boundary(new_boundary)  # Calculate the spawn area bounding box
 	
@@ -160,14 +162,16 @@ func elite_spawn(i):
 	var y = randf_range(spawnArea.position.y, spawnArea.end.y)
 	var pos = Vector2(x, y)
 	#Første modstander er altid basis
-	if ((i == 0 or i == 1) and (randi_range(1,2) == 2)):
-		
-		var enemy_instance = enemy_4.instantiate()
+	if (randi_range(1,2) == 2):
+		var enemy_instance = enemy_2_2.instantiate()
 		enemy_instance.position = pos
 		call_deferred("add_child", enemy_instance)
-		#print("used")
 	else: 
-		var enemy_scenes = [enemy_1, enemy_2, enemy_3]
+		if ((PlayerInfo.bossTimer > 10) and (randi_range(1,2) == 2)):
+			enemy_scenes = [enemy_2_2, enemy_4]
+		else:
+			enemy_scenes = [enemy_1, enemy_2, enemy_3]
+		
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
 		var enemy_instance = selected_enemy.instantiate()
