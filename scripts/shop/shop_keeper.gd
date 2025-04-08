@@ -1,11 +1,15 @@
 extends Node2D
 
 @onready var weapon = get_node("/root/Main/Player/Weapon")
+@onready var SpeechText = $SpeechBubbleText
+@onready var animSprite = $ShopKeeperSprite
+var SpeechTime = 2.5
 
 var refillPrice = 10
 
 func _ready() -> void:
 	$RefillAmmo.text = "Refill Ammo: " + str(refillPrice) + " Coins"
+	$ShopKeeperSprite.play("Idle")
 
 
 func _on_refill_ammo_pressed() -> void:
@@ -20,24 +24,28 @@ func _on_refill_ammo_pressed() -> void:
 		"reserve_ammo": weapon.weapons[weapon.currentWeapon].reserveAmmo
 		}
 		
-		$RichTextLabel.text = "Jo tak, min fine ven!"
+		SpeechText.text = "Jo tak, min fine ven!"
 		textfelt()
 		
 	else:
 		if weapon.weapons[weapon.currentWeapon].ranged == false:
-			$RichTextLabel.text = "Du har et melee våben, klovn!"
+			SpeechText.text = "Du har et melee våben, klovn!"
 			textfelt()
 			
 		elif weapon.weapons[weapon.currentWeapon].reserveAmmo == weapon.weapons[weapon.currentWeapon].maxAmmo:
-			$RichTextLabel.text = "Du kan ikke have flere skud, din ostehaps"
+			SpeechText.text = "Du kan ikke have flere skud, din ostehaps"
 			textfelt()
 		
 	
 
 func textfelt():
-	$RichTextLabel.visible = true
-	await get_tree().create_timer(2.5).timeout
-	$RichTextLabel.visible = false
+	SpeechText.visible = true
+	$ShopKeeperSprite.play("Talk")
+	
+	await get_tree().create_timer(SpeechTime).timeout
+	
+	SpeechText.visible = false
+	$ShopKeeperSprite.play("Idle")
 
 
 func _on_refill_ammo_mouse_entered() -> void:

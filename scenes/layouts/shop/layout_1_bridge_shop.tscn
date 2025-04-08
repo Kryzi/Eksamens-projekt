@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://uopmy20bfd5u"]
+[gd_scene load_steps=50 format=3 uid="uid://uopmy20bfd5u"]
 
 [ext_resource type="Script" path="res://scripts/shop/layout_1_bridge_shop.gd" id="1_u4soe"]
 [ext_resource type="PackedScene" uid="uid://wdl2k0o6ywsg" path="res://scenes/weapons/basic_bow/basic_bow.tscn" id="2_jm5b7"]
@@ -31,7 +31,11 @@
 [ext_resource type="PackedScene" uid="uid://oruuej8gtlva" path="res://scenes/weapons/rock_guitar/rockguitar.tscn" id="22_tsyaa"]
 [ext_resource type="Texture2D" uid="uid://dkvlsoqapoya4" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_idle.png" id="23_7f7yv"]
 [ext_resource type="Script" path="res://scripts/shop/shop_keeper.gd" id="27_d84on"]
-[ext_resource type="Texture2D" uid="uid://cxdktks84mnsy" path="res://icon.svg" id="28_fypwu"]
+[ext_resource type="Texture2D" uid="uid://xu38bphvoeo2" path="res://sprites/andet/Shop/shop-npc_idle-1.png" id="32_7yk6m"]
+[ext_resource type="Texture2D" uid="uid://curass3tibjis" path="res://sprites/andet/Shop/shop-npc_idle-2.png" id="33_a4j1h"]
+[ext_resource type="Texture2D" uid="uid://noro7slaipjb" path="res://sprites/andet/Shop/shop-npc_talk-1.png" id="34_qwfyk"]
+[ext_resource type="Texture2D" uid="uid://diu1lnq11s5q8" path="res://sprites/andet/Shop/shop-npc_talk-2.png" id="35_omxw5"]
+[ext_resource type="Texture2D" uid="uid://cj1ysfgf83e6p" path="res://sprites/andet/Shop/shop-npc_talebobbel.png" id="36_1e12s"]
 
 [sub_resource type="Resource" id="Resource_shqo3"]
 script = ExtResource("15_6p3av")
@@ -105,6 +109,34 @@ scene = ExtResource("22_tsyaa")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_161u1"]
 size = Vector2(120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rieem"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_7yk6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_a4j1h")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_qwfyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_omxw5")
+}],
+"loop": true,
+"name": &"Talk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s52p"]
+size = Vector2(152, 148)
 
 [node name="Layout1BridgeShop" type="Control"]
 layout_mode = 3
@@ -215,8 +247,17 @@ text = "Filler"
 position = Vector2(959, 495)
 script = ExtResource("27_d84on")
 
-[node name="Sprite2D" type="Sprite2D" parent="ShopKeeper"]
-texture = ExtResource("28_fypwu")
+[node name="ShopKeeperSprite" type="AnimatedSprite2D" parent="ShopKeeper"]
+position = Vector2(-23, -75)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_rieem")
+animation = &"Idle"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ShopKeeper"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopKeeper/StaticBody2D"]
+position = Vector2(-34, -43)
+shape = SubResource("RectangleShape2D_5s52p")
 
 [node name="RefillAmmo" type="Button" parent="ShopKeeper"]
 offset_left = -257.0
@@ -226,16 +267,22 @@ offset_bottom = 125.0
 theme_override_font_sizes/font_size = 22
 text = "Refill Ammo: 10 Coins"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ShopKeeper"]
-offset_left = 64.0
-offset_top = -70.0
-offset_right = 245.0
-offset_bottom = 25.0
+[node name="SpeechBubbleText" type="RichTextLabel" parent="ShopKeeper"]
+z_index = 1
+offset_left = -129.0
+offset_top = -218.0
+offset_right = 80.0
+offset_bottom = -120.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 22
 text = "Goddag, vil du have nogle skud!"
 
+[node name="SpeechBubble" type="Sprite2D" parent="ShopKeeper"]
+position = Vector2(-18, -77)
+scale = Vector2(8, 8)
+texture = ExtResource("36_1e12s")
+
 [node name="ItemPurchase" type="Button" parent="."]
-layout_mode = 0
 offset_left = 697.0
 offset_top = 1117.0
 offset_right = 922.0
