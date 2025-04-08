@@ -20,17 +20,19 @@ func itemGenerator():
 	Item2.visible = false
 	Item3.visible = false
 	
-	itemID = randi_range(1,3)
+	itemID = randi_range(1,4)
 	#itemValue = preload("res://Scenes/Item.tscn")
 	match itemID:
 		1:
 			Item1.visible = true
+			print("1")
 		2:
 			Item2.visible = true
 		3:
 			Item3.visible = true
-		#4:
-			#itemValue = preload("res://Scenes/Items/Item4.tscn")
+		4:
+			Item1.visible = true
+			print("4")
 
 var picked_up = false
 func _on_item_area_body_entered(_body: Node2D) -> void:
@@ -51,8 +53,10 @@ func _on_item_area_body_entered(_body: Node2D) -> void:
 				player.speedUpgrade()
 				ItemSound.play()
 				await ItemSound.finished
-			#4:
-				#itemValue = preload("res://Scenes/Items/Item4.tscn")
+			4:
+				weapon.applyUpgrades( num, num)
+				ItemSound.play()
+				await ItemSound.finished
 		
 		queue_free()
 	
