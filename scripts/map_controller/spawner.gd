@@ -182,9 +182,9 @@ func getItem():
 	# teleportere tilfældigt item til midten af boundry
 	#var polygon = boundary.polygon 
 	spawnArea = get_area_from_boundary(boundary)
-	var x = (spawnArea.position.x + spawnArea.end.x)/randf_range(1.25,2.75)
+	var x = (spawnArea.position.x + spawnArea.end.x)/randf_range(2,2.75)
 	#var y = (spawnArea.position.y + spawnArea.end.y)/2
-	var y = (spawnArea.position.y + spawnArea.end.y)/randf_range(1.25,2.75)
+	var y = (spawnArea.position.y + spawnArea.end.y)/randf_range(2,2.75)
 	var pos = Vector2(x, y)
 	itemInstance.position = pos
 	call_deferred("add_child", itemInstance)
