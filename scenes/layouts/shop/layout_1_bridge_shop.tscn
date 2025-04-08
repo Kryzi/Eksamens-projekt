@@ -269,10 +269,10 @@ text = "Refill Ammo: 10 Coins"
 
 [node name="SpeechBubbleText" type="RichTextLabel" parent="ShopKeeper"]
 z_index = 1
-offset_left = -129.0
+offset_left = -128.0
 offset_top = -218.0
-offset_right = 80.0
-offset_bottom = -120.0
+offset_right = 93.0
+offset_bottom = -139.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 22
 text = "Goddag, vil du have nogle skud!"
