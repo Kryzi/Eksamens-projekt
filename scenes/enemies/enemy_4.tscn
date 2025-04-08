@@ -1,0 +1,254 @@
+[gd_scene load_steps=34 format=3 uid="uid://dwiifwtduetas"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy_4.gd" id="1_qet1c"]
+[ext_resource type="Texture2D" uid="uid://cp8b2ht2pjryh" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-hojre_charge-1.png" id="2_pl8t3"]
+[ext_resource type="Texture2D" uid="uid://ccat15ocildmd" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-hojre_charge-2.png" id="3_gcwxy"]
+[ext_resource type="Texture2D" uid="uid://cggynq8l45yim" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-ned_charge-1.png" id="4_mfsju"]
+[ext_resource type="Texture2D" uid="uid://cuotp5ufwhtrf" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-ned_charge-2.png" id="5_0in41"]
+[ext_resource type="Texture2D" uid="uid://0ynovsu6ikxb" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-op_charge-1.png" id="6_p7onv"]
+[ext_resource type="Texture2D" uid="uid://b6ikeb6bmkylf" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-op_charge-2.png" id="7_vlmf5"]
+[ext_resource type="Texture2D" uid="uid://b16ga0rmwp3r7" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-venstre_charge-1.png" id="8_flhbk"]
+[ext_resource type="Texture2D" uid="uid://d0o6na3b3asu1" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-venstre_charge-2.png" id="9_yt3p8"]
+[ext_resource type="Texture2D" uid="uid://bpsqierbt8uwk" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-hojre_ilde-1-3_walk-1-3.png" id="10_vxok0"]
+[ext_resource type="Texture2D" uid="uid://csau1r8rsyfs7" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-hojre_ilde-2.png" id="11_ncb4g"]
+[ext_resource type="Texture2D" uid="uid://dmtqpblxp8rll" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-hojre_ilde-4.png" id="12_gm2cf"]
+[ext_resource type="Texture2D" uid="uid://36ydfbt5m3cf" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-ned_ilde-1-3_walk-1-3.png" id="13_idj67"]
+[ext_resource type="Texture2D" uid="uid://dhbwgiue7ouq" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-ned_ilde-2.png" id="14_rx1mh"]
+[ext_resource type="Texture2D" uid="uid://dryulo3ah3qul" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-ned_ilde-4.png" id="15_ruj7a"]
+[ext_resource type="Texture2D" uid="uid://c1tpu0ymwubpr" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-op_ilde-1-3_walk-1-3.png" id="16_mibk2"]
+[ext_resource type="Texture2D" uid="uid://bvift2mqnqsp3" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-op_ilde-2.png" id="17_3mspk"]
+[ext_resource type="Texture2D" uid="uid://k20nnfiv8rxo" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-op_ilde-4.png" id="18_weae7"]
+[ext_resource type="Texture2D" uid="uid://csqvchjxgsw4p" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-venstre_ilde-1-3_walk-1-3.png" id="19_itudp"]
+[ext_resource type="Texture2D" uid="uid://cdix2se1jy0p4" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-venstre_ilde-2.png" id="20_ogbyc"]
+[ext_resource type="Texture2D" uid="uid://cbofqsm7w0onr" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-venstre_ilde-4.png" id="21_0ppo7"]
+[ext_resource type="Texture2D" uid="uid://cfn52tqr23pp1" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-hojre_walk-2.png" id="22_0rs4x"]
+[ext_resource type="Texture2D" uid="uid://cv4gk6jx02mo3" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-hojre_walk-4.png" id="23_rdb74"]
+[ext_resource type="Texture2D" uid="uid://d1ehyxjhnpsj6" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-ned_walk-2.png" id="24_8isg5"]
+[ext_resource type="Texture2D" uid="uid://dvl71flukvofs" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-ned_walk-4.png" id="25_48aox"]
+[ext_resource type="Texture2D" uid="uid://b1ivkyacq22eg" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-op_walk-2.png" id="26_t1q61"]
+[ext_resource type="Texture2D" uid="uid://t8s2xc8kmvok" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-op_walk-4.png" id="27_vktky"]
+[ext_resource type="Texture2D" uid="uid://ktujfo6uluvi" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-venstre_walk-2.png" id="28_6lxrv"]
+[ext_resource type="Texture2D" uid="uid://b1d6lfvb40wsq" path="res://sprites/fjender/jord_goleem_enemy/jord-goleem-venstre_walk-4.png" id="29_54e68"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dapbm"]
+radius = 28.5044
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1ou1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pl8t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gcwxy")
+}],
+"loop": true,
+"name": &"Charge højre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mfsju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0in41")
+}],
+"loop": true,
+"name": &"Charge ned",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_p7onv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vlmf5")
+}],
+"loop": true,
+"name": &"Charge op",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_flhbk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yt3p8")
+}],
+"loop": true,
+"name": &"Charge venstre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_vxok0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ncb4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vxok0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gm2cf")
+}],
+"loop": true,
+"name": &"Idle højre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_idj67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rx1mh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_idj67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ruj7a")
+}],
+"loop": true,
+"name": &"Idle ned",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_mibk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_3mspk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mibk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_weae7")
+}],
+"loop": true,
+"name": &"Idle op",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_itudp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ogbyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_itudp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_0ppo7")
+}],
+"loop": true,
+"name": &"Idle venstre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_vxok0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_0rs4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vxok0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_rdb74")
+}],
+"loop": true,
+"name": &"Walk højre",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_idj67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_8isg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_idj67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_48aox")
+}],
+"loop": true,
+"name": &"Walk ned",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_mibk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_t1q61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mibk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_vktky")
+}],
+"loop": true,
+"name": &"Walk op",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_itudp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_6lxrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_itudp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_54e68")
+}],
+"loop": true,
+"name": &"Walk venstre",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u8gdl"]
+radius = 41.5
+height = 87.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gqir2"]
+radius = 149.054
+
+[node name="enemy_4" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_qet1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dapbm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_h1ou1")
+animation = &"Idle ned"
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="HitboxCollision" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_u8gdl")
+
+[node name="WallDetector" type="RayCast2D" parent="."]
+target_position = Vector2(50, 0)
+
+[node name="View" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="View"]
+shape = SubResource("CircleShape2D_gqir2")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="View" to="." method="_on_view_body_entered"]
+[connection signal="body_exited" from="View" to="." method="_on_view_body_exited"]
