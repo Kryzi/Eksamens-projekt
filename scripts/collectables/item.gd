@@ -34,14 +34,19 @@ func itemGenerator():
 
 
 func _on_item_area_body_entered(_body: Node2D) -> void:
-	ItemSound.play()
 	match itemID:
 		1:
 			weapon.applyUpgrades( num, num)
+			ItemSound.play()
+			await ItemSound.finished
 		2:
 			weapon.applyHealthUpgrade(num, num)
+			ItemSound.play()
+			await ItemSound.finished
 		3:
 			player.speedUpgrade()
+			ItemSound.play()
+			await ItemSound.finished
 		#4:
 			#itemValue = preload("res://Scenes/Items/Item4.tscn")
 	
