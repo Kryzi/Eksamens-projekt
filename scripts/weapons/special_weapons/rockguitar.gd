@@ -54,7 +54,9 @@ func _process(_delta: float) -> void:
 		while Input.is_action_pressed("Shoot") and CanShoot == true and reloading == false:
 			CanShoot = false
 			
+			reloading = true
 			shoot()
+			
 	
 	if currentAmmo <= 0 and Input.is_action_pressed("Shoot") or Input.is_action_just_pressed("Reload") and reserveAmmo > 0 and reloading == false:
 		reload()
@@ -120,3 +122,4 @@ func shoot():
 	
 	await get_tree().create_timer(Firerate).timeout
 	CanShoot = true
+	reloading = false
