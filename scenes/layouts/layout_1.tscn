@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf1rcti08o3tm"]
+[gd_scene load_steps=7 format=3 uid="uid://cf1rcti08o3tm"]
 
-[ext_resource type="Texture2D" uid="uid://d6d3sonbjqjh" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_buhlv"]
+[ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_buhlv"]
 [ext_resource type="Texture2D" uid="uid://bj73ujpjgcl1f" path="res://sprites/omraader/omraade1/o1-1/o1-1_jord.png" id="1_fofcb"]
 [ext_resource type="Texture2D" uid="uid://brmltw14xbo8k" path="res://sprites/omraader/omraade1/o1-1/o1-1_klippe.png" id="2_7ld26"]
 [ext_resource type="Texture2D" uid="uid://d2edlf0emj66y" path="res://sprites/omraader/omraade1/o1-1/o1-1_taage-1.png" id="3_8ao87"]
 [ext_resource type="Texture2D" uid="uid://c6oupynhymm3q" path="res://sprites/omraader/omraade1/o1-1/o1-1_taage-2.png" id="4_so2dj"]
 [ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="5_0f8ug"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxuor"]
-size = Vector2(792, 386)
 
 [node name="Layout1" type="Control"]
 layout_mode = 3
@@ -81,8 +78,8 @@ polygon = PackedVector2Array(-575, -876, 384, -876, 384, -288, -576, -288)
 [node name="Spawnpoint" type="Marker2D" parent="."]
 position = Vector2(1440, 2244)
 
-[node name="ObstacleArea" type="Area2D" parent="."]
+[node name="ObstacleArea1" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleArea"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObstacleArea1"]
 position = Vector2(1288, 1504)
-shape = SubResource("RectangleShape2D_jxuor")
+polygon = PackedVector2Array(-499, -462, 552, -464, 488, 528, 240, 536, 153, -131, -269, -137, -176, 576, -520, 552)
