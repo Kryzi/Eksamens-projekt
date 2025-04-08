@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://c65cd31mjal7x"]
+[gd_scene load_steps=9 format=3 uid="uid://c65cd31mjal7x"]
 
 [ext_resource type="Script" path="res://scripts/main/main_menu/settings.gd" id="1_ptpxv"]
 [ext_resource type="Texture2D" uid="uid://bjwifun6vg0gl" path="res://sprites/main_menu/spiller_i_bjerglandskab.png" id="1_snejb"]
 [ext_resource type="Texture2D" uid="uid://gaccdbguqo75" path="res://sprites/main_menu/mountaintop_titel.png" id="2_7xytm"]
 [ext_resource type="AudioStream" uid="uid://dnsulxlnyiv1h" path="res://sounds/MenuMusik.mp3" id="4_ayu7r"]
 [ext_resource type="PackedScene" uid="uid://vliwu7hcfve1" path="res://scenes/main_menu/audiosetting.tscn" id="4_fw85q"]
+[ext_resource type="Texture2D" uid="uid://c0qivyuoa6e28" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_krop_idle-1_walk-1.png" id="6_vv258"]
+[ext_resource type="Texture2D" uid="uid://2ujos0rvxc8h" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_normal-hoved-ned_idle.png" id="7_bhenj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymyqj"]
 
 [node name="settings" type="Node"]
 script = ExtResource("1_ptpxv")
@@ -31,14 +35,15 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -201.0
-offset_top = -41.0
-offset_right = -23.0
-offset_bottom = 36.0
+offset_left = -205.0
+offset_top = 7.0
+offset_right = -135.0
+offset_bottom = 52.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "ADMIN"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ymyqj")
+flat = true
 
 [node name="MenuMusik" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ayu7r")
@@ -55,5 +60,19 @@ offset_top = -211.0
 offset_right = 5.0
 offset_bottom = 55.0
 scale = Vector2(2, 2)
+
+[node name="Decoration" type="Node2D" parent="."]
+position = Vector2(1775, 525)
+scale = Vector2(2, 2)
+
+[node name="Krop" type="Sprite2D" parent="Decoration"]
+position = Vector2(-13, -4)
+texture = ExtResource("6_vv258")
+flip_h = true
+
+[node name="Hoved" type="Sprite2D" parent="Decoration"]
+position = Vector2(-13, -4)
+texture = ExtResource("7_bhenj")
+flip_h = true
 
 [connection signal="pressed" from="Admin" to="." method="_on_admin_pressed"]

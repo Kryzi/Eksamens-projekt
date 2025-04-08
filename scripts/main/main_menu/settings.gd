@@ -25,8 +25,12 @@ func _process(_delta):
 			i = 0
 			logo_up = false
 
+
+
 func _on_admin_pressed() -> void:
-	pass # Replace with function body.
+	PlayerInfo.current_coins = 999999999
+	$Decoration/Hoved.texture = load("res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_tramp1-hoved-venstre_angreb.png")
+
 
 
 func _on_back_pressed() -> void:
