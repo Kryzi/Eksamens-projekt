@@ -19,12 +19,13 @@ script = ExtResource("1_58d8f")
 
 [node name="Audio" type="Label" parent="."]
 layout_mode = 2
-text = "Audio"
+theme_override_font_sizes/font_size = 40
+text = "Settings"
 horizontal_alignment = 1
 
 [node name="Master" type="Label" parent="."]
 layout_mode = 2
-text = "Master"
+text = "Master Volume"
 
 [node name="MasterSlider" type="HSlider" parent="."]
 layout_mode = 2
@@ -34,7 +35,7 @@ value = 1.0
 
 [node name="Music" type="Label" parent="."]
 layout_mode = 2
-text = "Music"
+text = "Music Volume"
 
 [node name="MusicSlider" type="HSlider" parent="."]
 layout_mode = 2
@@ -44,7 +45,7 @@ value = 1.0
 
 [node name="Sfx" type="Label" parent="."]
 layout_mode = 2
-text = "Sfx"
+text = "Sfx Volume"
 
 [node name="SfxSlider" type="HSlider" parent="."]
 layout_mode = 2

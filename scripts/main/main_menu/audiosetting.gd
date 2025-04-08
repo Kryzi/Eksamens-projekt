@@ -17,7 +17,7 @@ func _on_master_slider_value_changed(value):
 
 
 func _on_back_pressed():
-	get_tree().change_scene_to_file("res://scenes/main_menu/settings.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 
 
 func _on_music_slider_value_changed(value):
