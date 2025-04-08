@@ -36,5 +36,6 @@ texture = ExtResource("4_1q7f7")
 [node name="ItemSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_csapi")
 volume_db = -15.0
+bus = &"Sfx"
 
 [connection signal="body_entered" from="ItemArea" to="." method="_on_item_area_body_entered"]

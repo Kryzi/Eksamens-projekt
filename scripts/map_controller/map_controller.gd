@@ -203,8 +203,9 @@ func _on_teleport_area_entered(body, teleporter_name):
 			spawner.call_deferred("generate_obstacles",obstacleBoundary3)
 		
 		if (stageReward == 4 or stageReward == 5):
-			spawner.random_spawn()
-			spawner.random_spawn()
-			spawner.random_spawn()
+			var amount = randi_range(3, 4)
+			for i in amount:
+				spawner.random_spawn(i)
+
 		
 		
