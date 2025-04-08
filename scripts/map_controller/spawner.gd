@@ -176,15 +176,16 @@ func getItem():
 			boundary = get_node("/root/Main/MapController/Background/Layout1/EnemyArea1/SpawnPolygon1")
 		2:
 			boundary = get_node("/root/Main/MapController/Background/Layout2/EnemyArea2/SpawnPolygon2")
+		3:
+			boundary = get_node("/root/Main/MapController/Background/Layout3/EnemyArea3/SpawnPolygon3")
 	#Skab tilfældigt item
 	var itemInstance = item.instantiate()  # Instantiate the PackedScene
 	itemInstance.itemGenerator()  # Now you can call itemGenerator() on the instance
 	# teleportere tilfældigt item til midten af boundry
 	#var polygon = boundary.polygon 
 	spawnArea = get_area_from_boundary(boundary)
-	var x = (spawnArea.position.x + spawnArea.end.x)/randf_range(2,2.75)
-	#var y = (spawnArea.position.y + spawnArea.end.y)/2
-	var y = (spawnArea.position.y + spawnArea.end.y)/randf_range(2,2.75)
+	var x = (spawnArea.position.x + spawnArea.end.x)/randf_range(1.75,2.5)
+	var y = (spawnArea.position.y + spawnArea.end.y)/randf_range(1.25,2.75)
 	var pos = Vector2(x, y)
 	itemInstance.position = pos
 	call_deferred("add_child", itemInstance)
