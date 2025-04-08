@@ -63,7 +63,6 @@ text = "Back"
 
 [node name="MenuMusik" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_olyfw")
-autoplay = true
 bus = &"Music"
 
 [node name="SwitchOn" type="AudioStreamPlayer" parent="."]

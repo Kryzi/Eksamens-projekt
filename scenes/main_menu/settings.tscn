@@ -44,6 +44,7 @@ text = "ADMIN"
 stream = ExtResource("4_ayu7r")
 autoplay = true
 bus = &"Music"
+parameters/looping = false
 
 [node name="audiosetting" parent="." instance=ExtResource("4_fw85q")]
 anchors_preset = 8
