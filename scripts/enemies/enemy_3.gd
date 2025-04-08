@@ -36,8 +36,10 @@ func shoot():
 	if player_in_attack_range:
 		var direction_to_player = (player.global_position - global_position).normalized()
 		
-		var left_offset = direction_to_player.rotated(deg_to_rad(45))
-		var right_offset = direction_to_player.rotated(deg_to_rad(-45))
+		var left_offset = direction_to_player.rotated(deg_to_rad(40))
+		var right_offset = direction_to_player.rotated(deg_to_rad(-40))
+		var left_offset2 = direction_to_player.rotated(deg_to_rad(60))
+		var right_offset2 = direction_to_player.rotated(deg_to_rad(-60))
 		
 		ShootSound.play()
 		$AnimatedSprite2D.play("Charge")
@@ -45,17 +47,32 @@ func shoot():
 		
 		$AnimatedSprite2D.play("Attack")
 		
-		# Første bullet (45 grader venstre)
+		# Første bullet (40 grader venstre)
 		var bullet_instance1 = bullet_scene.instantiate()
 		bullet_instance1.global_position = $ShootingPoint.global_position
 		bullet_instance1.direction = left_offset  # Sæt direction direkte
 		get_tree().get_root().call_deferred("add_child", bullet_instance1)
 		
-		# Anden bullet (45 grader højre)
+		# Anden bullet (40 grader højre)
 		var bullet_instance2 = bullet_scene.instantiate()
 		bullet_instance2.global_position = $ShootingPoint.global_position
 		bullet_instance2.direction = right_offset  # Sæt direction direkte
 		get_tree().get_root().call_deferred("add_child", bullet_instance2)
+		
+		# Tredje bullet (60 grader venstre)
+		var bullet_instance3 = bullet_scene.instantiate()
+		bullet_instance3.global_position = $ShootingPoint.global_position
+		bullet_instance3.direction = left_offset2  # Sæt direction direkte
+		get_tree().get_root().call_deferred("add_child", bullet_instance3)
+		
+		# Fjerde bullet (60 grader højre)
+		var bullet_instance4 = bullet_scene.instantiate()
+		bullet_instance4.global_position = $ShootingPoint.global_position
+		bullet_instance4.direction = right_offset2  # Sæt direction direkte
+		get_tree().get_root().call_deferred("add_child", bullet_instance4)
+		
+		
+		
 		
 		await $AnimatedSprite2D.animation_finished
 		$AnimatedSprite2D.play("Idle")
