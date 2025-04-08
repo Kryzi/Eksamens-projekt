@@ -52,6 +52,7 @@ shape = SubResource("RectangleShape2D_ys8aw")
 disabled = true
 
 [node name="rewardLabel3_1" type="Label" parent="Variation3_1"]
+z_index = 2
 layout_mode = 0
 offset_left = -259.0
 offset_top = -568.0
@@ -97,6 +98,7 @@ shape = SubResource("RectangleShape2D_ys8aw")
 disabled = true
 
 [node name="rewardLabel3_2" type="Label" parent="Variation3_2"]
+z_index = 2
 layout_mode = 0
 offset_left = -711.0
 offset_top = -694.0
@@ -136,6 +138,7 @@ shape = SubResource("RectangleShape2D_ys8aw")
 disabled = true
 
 [node name="rewardLabel3_3" type="Label" parent="Variation3_3"]
+z_index = 2
 layout_mode = 0
 offset_left = -242.0
 offset_top = 75.0
