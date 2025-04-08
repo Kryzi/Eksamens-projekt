@@ -44,12 +44,12 @@ animations = [{
 scale = Vector2(4.5, 4.5)
 script = ExtResource("1_cajgo")
 Bullet = ExtResource("2_xfe3t")
-Firerate = 0.05
+Firerate = 0.1
 autofire = true
 damage = 1
 WeaponSound = NodePath("WaterSound")
-magSize = 50
-maxAmmo = 200
+magSize = 25
+maxAmmo = 100
 reloadTime = 1.5
 metadata/IconId = "WaterStaff"
 
@@ -64,4 +64,3 @@ position = Vector2(4, -1)
 [node name="WaterSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ogcfw")
 volume_db = -5.0
-bus = &"Sfx"

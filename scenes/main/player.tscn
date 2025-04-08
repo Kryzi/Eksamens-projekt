@@ -227,6 +227,7 @@ script = ExtResource("3_fteec")
 [node name="IsKanon" parent="Weapon" instance=ExtResource("26_klgc6")]
 
 [node name="Water Staff" parent="Weapon" instance=ExtResource("21_ufdrw")]
+damage = 2
 
 [node name="Boomerang (weapon)" parent="Weapon" instance=ExtResource("23_unme0")]
 
