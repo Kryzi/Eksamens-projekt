@@ -27,6 +27,17 @@ func _physics_process(delta):
 		velocity = dir * charge_speed
 		sprite.play("Charge " + direction_name(dir))
 		move_and_slide()
+		
+		var distance = global_position.distance_to(charge_target_position)
+		
+		if distance < 10:
+			$View.monitoring = false
+			is_charging = false
+			await get_tree().create_timer(1.0).timeout
+			
+			$View.monitoring = true
+		
+		
 		return
 
 	# Hvis spilleren er inden for rækkevidde og ikke allerede lader op, start ladning
