@@ -64,3 +64,4 @@ position = Vector2(4, -1)
 [node name="WaterSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ogcfw")
 volume_db = -5.0
+bus = &"Sfx"

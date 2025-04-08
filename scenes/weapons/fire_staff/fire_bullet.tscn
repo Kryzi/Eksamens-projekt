@@ -56,6 +56,7 @@ scale_amount_max = 4.0
 [node name="FireSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_rgalh")
 volume_db = 3.0
+bus = &"Sfx"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="DamageMultiplerTimer" to="." method="_on_damage_multipler_timer_timeout"]
