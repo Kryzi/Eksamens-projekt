@@ -214,7 +214,6 @@ func stageReward(Reward):
 		getItem()
 		getItem()
 
-@onready var player = get_node("/root/Main/Player")
 func getItem():
 	var boundary = get_node("/root/Main/MapController/Background/Layout1/EnemyArea1/SpawnPolygon1")
 	#Find areaID
