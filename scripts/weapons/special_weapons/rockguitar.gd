@@ -101,12 +101,26 @@ func shoot():
 			"reserve_ammo": reserveAmmo
 		}
 		
-		var offset = Vector2(randf_range(-100, 100), randf_range(-100, 100))
+		var mouse_pos = get_global_mouse_position()
+		var player_pos = global_position
+		var distance = player_pos.distance_to(mouse_pos)
+		
+		# Justér disse tal efter behov
+		var max_offset = 75.0
+		var min_offset = 10.0
+		var max_distance = 350.0  # Ved denne afstand får man max offset
+		
+		# Jo tættere på, jo lavere offset — clamp så det ikke går under minimum
+		var offset_strength = clamp((distance / max_distance), 0.0, 1.0)
+		var offset_range = lerp(min_offset, max_offset, offset_strength)
+		
+		var offset = Vector2(randf_range(-offset_range, offset_range), randf_range(-offset_range, offset_range))
+		
 		
 		var bullet = Bullet.instantiate()
 		bullet.global_position = $ShootingPoint.global_position
 		bullet.rotation = rotation
-		bullet.targetPos = get_global_mouse_position()  + offset
+		bullet.targetPos = mouse_pos  + offset
 		bullet.Damage = damage
 		get_tree().get_root().call_deferred("add_child", bullet)
 		
