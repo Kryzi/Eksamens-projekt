@@ -102,8 +102,10 @@ func create_spawn_area(new_boundary):
 	#print("Spawner ready:", self.name, "from", get_parent())
 	if (PlayerInfo.bossTimer <= 5):
 		amount = randi_range(2, 3)
-	if (PlayerInfo.bossTimer > 5):
+	if (PlayerInfo.bossTimer <= 10 and PlayerInfo.bossTimer > 5):
 		amount = randi_range(4, 5)
+	if (PlayerInfo.bossTimer > 10):
+		amount = randi_range(6, 7)
 	
 	for i in amount:
 		#print(i)
@@ -135,14 +137,19 @@ func random_spawn(i):
 		call_deferred("add_child", enemy_instance)
 		#print("used")
 	else:
+		var enemy_scenes = []
 		# Vælg en tilfældig fjende at spawne
-		var enemy_scenes = [enemy_1, enemy_2, enemy_3]
+		if (PlayerInfo.bossTimer <= 3):
+			enemy_scenes = [enemy_1, enemy_3]
+		else:
+			enemy_scenes = [enemy_1, enemy_2, enemy_3]
+		
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
 		var enemy_instance = selected_enemy.instantiate()
 		# Modstander 3 spawner tættere til spilleren
 		if(selected_enemy == enemy_3):
-			enemy_instance.position = Vector2(x, y * 1.5)
+			enemy_instance.position = Vector2(x, y * 1)
 		else:
 			enemy_instance.position = pos
 		call_deferred("add_child", enemy_instance)

@@ -227,7 +227,6 @@ script = ExtResource("3_fteec")
 [node name="IsKanon" parent="Weapon" instance=ExtResource("26_klgc6")]
 
 [node name="Water Staff" parent="Weapon" instance=ExtResource("21_ufdrw")]
-maxAmmo = 300
 
 [node name="Boomerang (weapon)" parent="Weapon" instance=ExtResource("23_unme0")]
 
@@ -253,12 +252,10 @@ one_shot = true
 stream = ExtResource("28_dg55l")
 volume_db = -5.0
 pitch_scale = 2.0
-bus = &"Sfx"
 
 [node name="GedSlapSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("27_1juf4")
 volume_db = -3.0
-bus = &"Sfx"
 
 [connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]
 [connection signal="timeout" from="Dashing" to="." method="_on_dashing_timeout"]

@@ -204,6 +204,8 @@ func _on_teleport_area_entered(body, teleporter_name):
 		
 		if (stageReward == 4 or stageReward == 5):
 			var amount = randi_range(3, 4)
+			if (PlayerInfo.bossTimer > 10):
+				amount = randi_range(4, 5)
 			for i in amount:
 				spawner.random_spawn(i)
 
