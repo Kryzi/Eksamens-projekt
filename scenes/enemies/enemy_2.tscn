@@ -101,6 +101,7 @@ shape = SubResource("CircleShape2D_jkvd7")
 
 [node name="Enemy2Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_gfmy7")
+volume_db = -5.0
 pitch_scale = 0.85
 
 [connection signal="timeout" from="move_Timer" to="." method="_on_move_timer_timeout"]

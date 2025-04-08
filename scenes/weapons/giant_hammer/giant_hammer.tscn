@@ -78,5 +78,6 @@ shape = SubResource("RectangleShape2D_axbx5")
 
 [node name="HammerSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_sa5ot")
+volume_db = -5.0
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

@@ -54,3 +54,4 @@ position = Vector2(10, -1)
 
 [node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_viygi")
+volume_db = -5.0
