@@ -39,26 +39,19 @@ func _process(_delta: float) -> void:
 	if PlayerInfo.is_interacting_with_UI == true:
 		return
 	
+	
+	
 	look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("Shoot") and CanShoot == true and autofire == false and reloading == false:
-		CanShoot = false
-		
-		shoot()
-		
-		
-		await get_tree().create_timer(Firerate).timeout
-		CanShoot = true
-	
 	if autofire == true:
-		while Input.is_action_pressed("Shoot") and CanShoot == true and reloading == false:
+		while Input.is_action_pressed("Shoot") and CanShoot == true and reloading == false and currentAmmo > 0:
 			CanShoot = false
-			
-			reloading = true
+			get_parent().canSwap = false
 			shoot()
 			
 	
-	if currentAmmo <= 0 and Input.is_action_pressed("Shoot") or Input.is_action_just_pressed("Reload") and reserveAmmo > 0 and reloading == false:
+	await get_tree().create_timer(0.0001).timeout
+	if currentAmmo <= 0 and Input.is_action_just_pressed("Shoot") or Input.is_action_just_pressed("Reload") and reserveAmmo > 0 and reloading == false:
 		reload()
 
 
@@ -97,6 +90,7 @@ func reload():
 
 func shoot():
 	for i in range(num_bullets):
+		
 		currentAmmo -= 1
 		
 		WeaponSound.play()
@@ -107,12 +101,26 @@ func shoot():
 			"reserve_ammo": reserveAmmo
 		}
 		
-		var offset = Vector2(randf_range(-100, 100), randf_range(-100, 100))
+		var mouse_pos = get_global_mouse_position()
+		var player_pos = global_position
+		var distance = player_pos.distance_to(mouse_pos)
+		
+		# Justér disse tal efter behov
+		var max_offset = 75.0
+		var min_offset = 10.0
+		var max_distance = 350.0  # Ved denne afstand får man max offset
+		
+		# Jo tættere på, jo lavere offset — clamp så det ikke går under minimum
+		var offset_strength = clamp((distance / max_distance), 0.0, 1.0)
+		var offset_range = lerp(min_offset, max_offset, offset_strength)
+		
+		var offset = Vector2(randf_range(-offset_range, offset_range), randf_range(-offset_range, offset_range))
+		
 		
 		var bullet = Bullet.instantiate()
 		bullet.global_position = $ShootingPoint.global_position
 		bullet.rotation = rotation
-		bullet.targetPos = get_global_mouse_position()  + offset
+		bullet.targetPos = mouse_pos  + offset
 		bullet.Damage = damage
 		get_tree().get_root().call_deferred("add_child", bullet)
 		
@@ -122,4 +130,4 @@ func shoot():
 	
 	await get_tree().create_timer(Firerate).timeout
 	CanShoot = true
-	reloading = false
+	get_parent().canSwap = true

@@ -9,10 +9,10 @@ var logo_up = true #bevæger loget sig op?
 var i = 0
 var logo_movement = 100
 
-func _ready():
-	var win = get_viewport().size
-	Bg.size = win
-	Logo.size = win
+#func _ready():
+	#var win = get_viewport().size
+	#Bg.size = win
+	#Logo.size = win
 
 func _process(_delta):
 	if logo_up == false:

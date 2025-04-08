@@ -29,15 +29,15 @@ func _process(_delta: float) -> void:
 	
 	look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("Shoot") and active_bullet == null and reloading == false:
+	if Input.is_action_just_pressed("Shoot") and active_bullet == null and reloading == false and currentAmmo > 0:
 		shoot()
 	
+	await get_tree().create_timer(0.0001).timeout
 	if active_bullet == null:
-		if currentAmmo <= 0 and Input.is_action_pressed("Shoot") or Input.is_action_just_pressed("Reload") and reserveAmmo > 0:
+		if currentAmmo <= 0 and Input.is_action_just_pressed("Shoot") or Input.is_action_just_pressed("Reload") and reserveAmmo > 0:
 			reload()
 
 func shoot():
-	reloading = true
 	if currentAmmo > 0 and active_bullet == null:
 		currentAmmo -= 1
 		$AnimatedSprite2D.play("Attack")

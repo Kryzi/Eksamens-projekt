@@ -35,7 +35,7 @@ func _process(_delta: float) -> void:
 	
 	look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("Shoot") and CanShoot == true and autofire == false and reloading == false:
+	if Input.is_action_just_pressed("Shoot") and CanShoot == true and autofire == false and reloading == false and currentAmmo > 0:
 		CanShoot = false
 		
 		shoot()
@@ -45,15 +45,15 @@ func _process(_delta: float) -> void:
 		CanShoot = true
 	
 	if autofire == true:
-		while Input.is_action_pressed("Shoot") and CanShoot == true and reloading == false:
+		while Input.is_action_pressed("Shoot") and CanShoot == true and reloading == false and currentAmmo > 0:
 			CanShoot = false
-			
 			shoot()
 			
 			await get_tree().create_timer(Firerate).timeout
 			CanShoot = true
 	
-	if currentAmmo <= 0 and Input.is_action_pressed("Shoot") or Input.is_action_just_pressed("Reload") and reserveAmmo > 0 and reloading == false:
+	await get_tree().create_timer(0.0001).timeout
+	if currentAmmo <= 0 and Input.is_action_just_pressed("Shoot") or Input.is_action_just_pressed("Reload") and reserveAmmo > 0 and reloading == false:
 		reload()
 
 

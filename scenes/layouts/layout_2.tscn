@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://f0ljs1wuf7qp"]
 
-[ext_resource type="Texture2D" uid="uid://d6d3sonbjqjh" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_1ony7"]
+[ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_1ony7"]
 [ext_resource type="Texture2D" uid="uid://dhiokohd6am5e" path="res://sprites/omraader/omraade1/o1-2/o1-2_jord.png" id="1_n7kdi"]
 [ext_resource type="Texture2D" uid="uid://w14i0jb4sbe6" path="res://sprites/omraader/omraade1/o1-2/o1-2_klippe.png" id="2_lvsdt"]
 [ext_resource type="Texture2D" uid="uid://d1xd62utjhe84" path="res://sprites/omraader/omraade1/o1-2/o1-2_taage-1.png" id="3_rbmbb"]
@@ -12,6 +12,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="TaageBagrund" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = -10174.0
 offset_top = -4968.0
 offset_right = 13664.0
@@ -73,3 +74,9 @@ polygon = PackedVector2Array(-1044, 876, -1044, -960, -297, -960, -300, 876)
 
 [node name="Spawnpoint" type="Marker2D" parent="."]
 position = Vector2(1968, 2172)
+
+[node name="ObstacleArea2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObstacleArea2"]
+position = Vector2(1288, 1504)
+polygon = PackedVector2Array(40, -40, 976, 16, 984, 640, 784, 640, 728, 488, 552, 528, 480, 680, 40, 656)
