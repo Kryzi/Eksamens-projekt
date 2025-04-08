@@ -13,16 +13,17 @@ func _ready() -> void:
 
 
 func _on_refill_ammo_pressed() -> void:
-	if weapon.weapons[weapon.currentWeapon].reserveAmmo == weapon.weapons[weapon.currentWeapon].maxAmmo:
+	if weapon.weapons[weapon.currentWeapon].ranged == false:
+		SpeechText.text = "Du har et melee våben, klovn!"
+		textfelt()
+	elif weapon.weapons[weapon.currentWeapon].reserveAmmo == weapon.weapons[weapon.currentWeapon].maxAmmo:
 		SpeechText.text = "Du kan ikke have flere skud, din ostehaps"
 		textfelt()
 	elif PlayerInfo.current_coins <= refillPrice and weapon.weapons[weapon.currentWeapon].ranged == true:
 		SpeechText.text = "Du fattig, taber!"
 		textfelt()
 		return
-	elif weapon.weapons[weapon.currentWeapon].ranged == false:
-		SpeechText.text = "Du har et melee våben, klovn!"
-		textfelt()
+	
 	
 	if weapon.weapons[weapon.currentWeapon].ranged == true and weapon.weapons[weapon.currentWeapon].reserveAmmo != weapon.weapons[weapon.currentWeapon].maxAmmo:
 		PlayerInfo.current_coins -= refillPrice
