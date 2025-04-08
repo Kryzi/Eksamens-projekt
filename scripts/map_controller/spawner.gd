@@ -136,7 +136,7 @@ func random_spawn():
 func rewardSet(value):
 	#rewardValue = randi_range(1, 3)
 	var eliteChance = 0
-	if (PlayerInfo.bossTimer > 4):
+	if (PlayerInfo.bossTimer >= 5):
 		eliteChance = randi_range(1, 3)
 	
 	rewardValue = value
