@@ -25,7 +25,7 @@ var reloading = false
 @export var shot_delay: float = 0.1
 var ranged = true
 
-
+var canReload
 
 func _ready() -> void:
 	currentAmmo = magSize
@@ -47,11 +47,13 @@ func _process(_delta: float) -> void:
 		while Input.is_action_pressed("Shoot") and CanShoot == true and reloading == false and currentAmmo > 0:
 			CanShoot = false
 			get_parent().canSwap = false
+			WeaponSound.play()
+			canReload = false
 			shoot()
 			
 	
 	await get_tree().create_timer(0.0001).timeout
-	if currentAmmo <= 0 and Input.is_action_just_pressed("Shoot") or Input.is_action_just_pressed("Reload") and reserveAmmo > 0 and reloading == false:
+	if currentAmmo <= 0 and Input.is_action_just_pressed("Shoot") or Input.is_action_just_pressed("Reload") and reserveAmmo > 0 and reloading == false and canReload == true:
 		reload()
 
 
@@ -93,7 +95,6 @@ func shoot():
 		
 		currentAmmo -= 1
 		
-		WeaponSound.play()
 		$AnimatedSprite2D.play("Attack")
 		PlayerInfo.ammo_data = {
 			"current_ammo": currentAmmo,
@@ -118,6 +119,17 @@ func shoot():
 		
 		
 		var bullet = Bullet.instantiate()
+		if i == 0:
+			bullet.get_child(0).texture = load("res://sprites/vaaben/ranged/rockguitar/node-2_rockguitar.png")
+		elif i == 1:
+			bullet.get_child(0).texture = load("res://sprites/vaaben/ranged/rockguitar/node-1_rockguitar.png")
+		elif i == 2:
+			bullet.get_child(0).texture = load("res://sprites/vaaben/ranged/rockguitar/node-3_rockguitar.png")
+		elif i == 3:
+			bullet.get_child(0).texture = load("res://sprites/vaaben/ranged/rockguitar/node-1_rockguitar.png")
+		
+		
+		
 		bullet.global_position = $ShootingPoint.global_position
 		bullet.rotation = rotation
 		bullet.targetPos = mouse_pos  + offset
@@ -131,3 +143,5 @@ func shoot():
 	await get_tree().create_timer(Firerate).timeout
 	CanShoot = true
 	get_parent().canSwap = true
+	canReload = true
+	$AnimatedSprite2D.play("Idle")

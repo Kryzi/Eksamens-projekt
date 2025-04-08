@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://uopmy20bfd5u"]
+[gd_scene load_steps=44 format=3 uid="uid://uopmy20bfd5u"]
 
 [ext_resource type="Script" path="res://scripts/shop/layout_1_bridge_shop.gd" id="1_u4soe"]
 [ext_resource type="PackedScene" uid="uid://wdl2k0o6ywsg" path="res://scenes/weapons/basic_bow/basic_bow.tscn" id="2_jm5b7"]
@@ -26,6 +26,10 @@
 [ext_resource type="Texture2D" uid="uid://bdg2ds0brm88q" path="res://sprites/vaaben/ranged/ild_stav/ild-stav_idle.png" id="19_dip50"]
 [ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="19_puqjo"]
 [ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="20_8wijq"]
+[ext_resource type="PackedScene" uid="uid://d33m2ojb6s3r5" path="res://scenes/weapons/le/le.tscn" id="20_b6mrn"]
+[ext_resource type="Texture2D" uid="uid://eoaedts82ej4" path="res://sprites/vaaben/melee/le/le_idle.png" id="21_5mut4"]
+[ext_resource type="PackedScene" uid="uid://oruuej8gtlva" path="res://scenes/weapons/rock_guitar/rockguitar.tscn" id="22_tsyaa"]
+[ext_resource type="Texture2D" uid="uid://dkvlsoqapoya4" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_idle.png" id="23_7f7yv"]
 [ext_resource type="Script" path="res://scripts/shop/shop_keeper.gd" id="27_d84on"]
 [ext_resource type="Texture2D" uid="uid://cxdktks84mnsy" path="res://icon.svg" id="28_fypwu"]
 
@@ -46,7 +50,7 @@ scene = ExtResource("3_3n603")
 [sub_resource type="Resource" id="Resource_fd2le"]
 script = ExtResource("15_6p3av")
 weapon_name = "Water staff"
-cost = 25
+cost = 30
 shop_texture = ExtResource("9_k04xp")
 scene = ExtResource("8_rmi15")
 
@@ -85,6 +89,20 @@ cost = 10
 shop_texture = ExtResource("19_dip50")
 scene = ExtResource("18_batoi")
 
+[sub_resource type="Resource" id="Resource_wj5pe"]
+script = ExtResource("15_6p3av")
+weapon_name = "Scythe"
+cost = 25
+shop_texture = ExtResource("21_5mut4")
+scene = ExtResource("20_b6mrn")
+
+[sub_resource type="Resource" id="Resource_2j037"]
+script = ExtResource("15_6p3av")
+weapon_name = "Rock Guitar"
+cost = 20
+shop_texture = ExtResource("23_7f7yv")
+scene = ExtResource("22_tsyaa")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_161u1"]
 size = Vector2(120, 120)
 
@@ -93,7 +111,7 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_u4soe")
 shop_item_slot_scene = ExtResource("2_w6jpp")
-shop_item_resource_array = Array[ExtResource("15_6p3av")]([SubResource("Resource_shqo3"), SubResource("Resource_5o5c1"), SubResource("Resource_fd2le"), SubResource("Resource_ylcik"), SubResource("Resource_ivt41"), SubResource("Resource_q78ws"), SubResource("Resource_d4pq8"), SubResource("Resource_83u4y")])
+shop_item_resource_array = Array[ExtResource("15_6p3av")]([SubResource("Resource_shqo3"), SubResource("Resource_5o5c1"), SubResource("Resource_fd2le"), SubResource("Resource_ylcik"), SubResource("Resource_ivt41"), SubResource("Resource_q78ws"), SubResource("Resource_d4pq8"), SubResource("Resource_83u4y"), SubResource("Resource_wj5pe"), SubResource("Resource_2j037")])
 
 [node name="TaageBagrund" type="TextureRect" parent="."]
 layout_mode = 0
