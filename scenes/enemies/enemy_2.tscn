@@ -64,7 +64,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jkvd7"]
-radius = 421.001
+radius = 459.07
 
 [node name="Enemy2" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_h35g5")
@@ -103,7 +103,6 @@ shape = SubResource("CircleShape2D_jkvd7")
 stream = ExtResource("11_gfmy7")
 volume_db = -5.0
 pitch_scale = 0.85
-bus = &"Sfx"
 
 [connection signal="timeout" from="move_Timer" to="." method="_on_move_timer_timeout"]
 [connection signal="body_entered" from="View" to="." method="_on_view_body_entered"]
