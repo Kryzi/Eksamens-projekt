@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwrgf88s6aapd"]
+
+[ext_resource type="Texture2D" uid="uid://ccay1k3hmo4bp" path="res://sprites/omraader/omraade1/o1-3/o1-3_fuld.png" id="1_vndd2"]
+[ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="6_lxr7h"]
+
+[node name="Layout3" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="O1-3Fuld" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1634.09, 1211)
+scale = Vector2(11.0182, 11.0182)
+texture = ExtResource("1_vndd2")
+
+[node name="BroNed-ende" type="Sprite2D" parent="."]
+position = Vector2(806, 2120)
+scale = Vector2(12, 12)
+texture = ExtResource("6_lxr7h")
+centered = false
+
+[node name="Boundary3" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundary3"]
+position = Vector2(732, 2424)
+build_mode = 1
+polygon = PackedVector2Array(203, -294, 186, -1336, 237, -1398, 877, -1383, 885, -1455, 872, -2169, 1019, -2209, 1764, -2202, 1752, -1921, 1813, -1618, 1783, -1115, 1328, -1052, 1224, -1060, 1171, -940, 1171, -655, 1220, -356, 1099, -292)
+disabled = true
+
+[node name="EnemyArea3" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="SpawnPolygon3" type="CollisionPolygon2D" parent="EnemyArea3"]
+position = Vector2(1548, 1604.41)
+scale = Vector2(1, 0.750204)
+build_mode = 1
+polygon = PackedVector2Array(120, -858.977, 123, -1452.15, 852, -1458.81, 861, -485.746, 280, -464.418, 277, 187.404, -56, -184.495, -310, -587.052, 68, -653.7)
+
+[node name="Spawnpoint" type="Marker2D" parent="."]
+position = Vector2(1097, 1934)
