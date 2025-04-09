@@ -144,9 +144,9 @@ func random_spawn(i):
 		# Vælg en tilfældig fjende at spawne
 		if (PlayerInfo.bossTimer <= 3):
 			enemy_scenes = [enemy_1, enemy_3]
-		elif (PlayerInfo.bossTimer <= 3):
+		elif (PlayerInfo.bossTimer > 3):
 			enemy_scenes = [enemy_1, enemy_2, enemy_3]
-		elif (PlayerInfo.bossTimer <= 8):
+		elif (PlayerInfo.bossTimer >= 8):
 			enemy_scenes = [enemy_1, enemy_2, enemy_3, enemy_2_2]
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
@@ -258,7 +258,7 @@ func checkDeath():
 		# Sikre at man får en shop mindst vær tredje bane og lige før bosskampen
 		if ((PlayerInfo.bossTimer % 3) == 0 and PlayerInfo.bossTimer > 0):
 			rewardSet(3)
-		if (PlayerInfo.bossTimer == 13):
+		if (PlayerInfo.bossTimer == 14):
 			rewardSet(3)
 			variationID = 1
 		

@@ -303,6 +303,7 @@ text = "Exit"
 
 [node name="Upgradetext" type="RichTextLabel" parent="Control"]
 visible = false
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

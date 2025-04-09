@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cradrmw10obwa"]
+[gd_scene load_steps=33 format=3 uid="uid://cradrmw10obwa"]
 
 [ext_resource type="Script" path="res://scripts/main/player.gd" id="1_ddb0a"]
 [ext_resource type="Texture2D" uid="uid://bmjvtt528ekn5" path="res://sprites/spiller/spiller-hojre_idle-1_walk-2-4.png" id="2_brr8l"]
@@ -25,12 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://bc4h84ngtv55m" path="res://sprites/spiller/spiller-venstre_walk-3.png" id="17_dhuxc"]
 [ext_resource type="PackedScene" uid="uid://bf082ldlxis2j" path="res://scenes/weapons/basic_knife/basic_knife.tscn" id="20_y8slu"]
 [ext_resource type="Script" path="res://scripts/ui/camera_2d.gd" id="21_xaw4o"]
-[ext_resource type="Texture2D" uid="uid://c5nwoicq03osx" path="res://sprites/andet/reload_slider/reload-slider_grabber.png" id="22_mmikf"]
 [ext_resource type="Script" path="res://scripts/weapons/reload_bar.gd" id="22_y1rj5"]
-[ext_resource type="Texture2D" uid="uid://2c0jkn2tbt40" path="res://sprites/andet/reload_slider/reload-slider_for.png" id="23_45s1f"]
-[ext_resource type="PackedScene" uid="uid://d0v146npydiyy" path="res://scenes/weapons/boomerang/boomerang_weapon.tscn" id="23_unme0"]
-[ext_resource type="Texture2D" uid="uid://be7sw3e0iboj8" path="res://sprites/andet/reload_slider/reload-slider_efter.png" id="24_py1mg"]
-[ext_resource type="PackedScene" uid="uid://c8qnpo7dkw86m" path="res://scenes/weapons/ice_cannon/ice_cannon.tscn" id="26_klgc6"]
+[ext_resource type="PackedScene" uid="uid://oruuej8gtlva" path="res://scenes/weapons/rock_guitar/rockguitar.tscn" id="26_3td7x"]
 [ext_resource type="AudioStream" uid="uid://bpicuej6pb1f2" path="res://sounds/GedSlapSound.mp3" id="27_1juf4"]
 [ext_resource type="AudioStream" uid="uid://bdr76qsc0x73l" path="res://sounds/HitSound.mp3" id="28_dg55l"]
 
@@ -184,21 +180,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yc407"]
 size = Vector2(58, 91)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lwwd0"]
-texture = ExtResource("23_45s1f")
-expand_margin_top = 4.0
-expand_margin_bottom = 4.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xs3k1"]
-texture = ExtResource("24_py1mg")
-expand_margin_top = 4.0
-expand_margin_bottom = 4.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bajfk"]
-texture = ExtResource("24_py1mg")
-expand_margin_top = 4.0
-expand_margin_bottom = 4.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75p33"]
 size = Vector2(70, 96)
 
@@ -221,12 +202,6 @@ offset_left = -111.0
 offset_top = -69.0
 offset_right = -5.0
 offset_bottom = -53.0
-theme_override_icons/grabber = ExtResource("22_mmikf")
-theme_override_icons/grabber_highlight = ExtResource("22_mmikf")
-theme_override_icons/grabber_disabled = ExtResource("22_mmikf")
-theme_override_styles/slider = SubResource("StyleBoxTexture_lwwd0")
-theme_override_styles/grabber_area = SubResource("StyleBoxTexture_xs3k1")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_bajfk")
 max_value = 1.0
 step = 0.001
 editable = false
@@ -240,10 +215,9 @@ script = ExtResource("3_fteec")
 [node name="BasicBow" parent="Weapon" instance=ExtResource("4_p5qdd")]
 
 [node name="BasicKnife" parent="Weapon" instance=ExtResource("20_y8slu")]
+damage = 30
 
-[node name="IsKanon" parent="Weapon" instance=ExtResource("26_klgc6")]
-
-[node name="Boomerang (weapon)" parent="Weapon" instance=ExtResource("23_unme0")]
+[node name="rockguitar" parent="Weapon" instance=ExtResource("26_3td7x")]
 
 [node name="Damage" type="Area2D" parent="."]
 
