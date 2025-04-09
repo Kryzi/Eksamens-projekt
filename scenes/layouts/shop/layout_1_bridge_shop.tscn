@@ -103,7 +103,7 @@ scene = ExtResource("20_b6mrn")
 [sub_resource type="Resource" id="Resource_2j037"]
 script = ExtResource("15_6p3av")
 weapon_name = "Rock Guitar"
-cost = 20
+cost = 35
 shop_texture = ExtResource("23_7f7yv")
 scene = ExtResource("22_tsyaa")
 

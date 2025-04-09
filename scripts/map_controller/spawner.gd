@@ -209,13 +209,13 @@ func rewardSet(value):
 
 func stageReward(Reward):
 	if Reward == 1:
-		PlayerInfo.current_coins += 20
+		PlayerInfo.current_coins += 15
 	if Reward == 2:
 		getItem()
 	if Reward == 3:
 		pass #Værdien bliver brugt i map_controller
 	if Reward == 4:
-		PlayerInfo.current_coins += 40
+		PlayerInfo.current_coins += 30
 	if Reward == 5:
 		getItem()
 		getItem()
