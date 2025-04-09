@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed = 100.0
-var health = 60
+var health = 50
 var is_charging = false
 var can_attack = true
 var player_in_range = false
@@ -9,10 +9,10 @@ var patrol_direction = Vector2.RIGHT
 var charge_target_position = Vector2.ZERO
 var has_hit_player = false
 
-@export var charge_speed = 400.0
+@export var charge_speed = 650.0
 @export var patrol_wait_time = 1.0
 @export var damage = 2
-@export var max_charge_time = 1.5  # hvor længe den charger
+@export var max_charge_time = 0.8  # hvor længe den charger
 
 @onready var GolemGåSound = $"GolemGåSound"
 @onready var GolemLøbSound = $"GolemLøbSound"
@@ -24,8 +24,10 @@ var has_hit_player = false
 @onready var raycast = $WallDetector
 @onready var raycast2 = $WallDetector2
 @onready var raycast3 = $WallDetector3
+func _ready() -> void:
+	GolemGåSound.play()
 
-func _physics_process(delta):	
+func _physics_process(delta):
 	if is_charging:
 		var dir = (charge_target_position - global_position).normalized()
 		velocity = dir * charge_speed
