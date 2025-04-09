@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ds6u0si4rn8iw"]
 
-[ext_resource type="Script" path="res://scripts/weapons/basic_projectile.gd" id="1_wncvv"]
+[ext_resource type="Script" path="res://scripts/weapons/special_weapons/rock_guitar_particle.gd" id="1_buno7"]
 [ext_resource type="PackedScene" uid="uid://e0db5gjkux4k" path="res://scenes/weapons/rock_guitar/rock_guitar_particle.tscn" id="2_2xf3q"]
 [ext_resource type="Texture2D" uid="uid://cgdtvp2d802wh" path="res://sprites/vaaben/ranged/rockguitar/node-1_rockguitar.png" id="3_xccol"]
 
@@ -8,8 +8,7 @@
 size = Vector2(42, 37)
 
 [node name="RockGuitarProjectile" type="Area2D" groups=["projectile"]]
-script = ExtResource("1_wncvv")
-BulletSpeed = 450
+script = ExtResource("1_buno7")
 Particle = ExtResource("2_2xf3q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
