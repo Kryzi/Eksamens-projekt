@@ -11,6 +11,8 @@ var currentAmmo: int
 var reserveAmmo: int 
 @export var maxAmmo: int = 30
 var reloading = false
+## Mængden af gange våbnet har fået ammo tilbage
+@export var refillCount = 0
 
 var ranged = true
 

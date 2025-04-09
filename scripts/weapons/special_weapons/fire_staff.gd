@@ -11,6 +11,9 @@ var reserveAmmo: int
 @export var maxAmmo: int = 12
 @export var reloadTime: float 
 var reloading = false
+## Mængden af gange våbnet har fået ammo tilbage
+@export var refillCount = 0
+
 var active_bullet: Node2D = null  # Holder styr på om et skud er aktivt
 var ranged = true
 

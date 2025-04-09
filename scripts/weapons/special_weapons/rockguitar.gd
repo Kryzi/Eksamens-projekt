@@ -20,6 +20,8 @@ var reserveAmmo: int # Den mængde skud man har, i alt
 ## Tiden det tager at reload
 @export var reloadTime: float 
 var reloading = false
+## Mængden af gange våbnet har fået ammo tilbage
+@export var refillCount = 0
 
 @export var num_bullets: int = 4
 @export var shot_delay: float = 0.1
