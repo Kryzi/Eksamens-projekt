@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf1rcti08o3tm"]
+[gd_scene load_steps=8 format=3 uid="uid://cf1rcti08o3tm"]
 
 [ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_buhlv"]
 [ext_resource type="Texture2D" uid="uid://bj73ujpjgcl1f" path="res://sprites/omraader/omraade1/o1-1/o1-1_jord.png" id="1_fofcb"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://d2edlf0emj66y" path="res://sprites/omraader/omraade1/o1-1/o1-1_taage-1.png" id="3_8ao87"]
 [ext_resource type="Texture2D" uid="uid://c6oupynhymm3q" path="res://sprites/omraader/omraade1/o1-1/o1-1_taage-2.png" id="4_so2dj"]
 [ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="5_0f8ug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46gc0"]
+size = Vector2(1016, 514)
 
 [node name="Layout1" type="Control"]
 layout_mode = 3
@@ -74,6 +77,10 @@ collision_mask = 0
 position = Vector2(1344, 1296)
 build_mode = 1
 polygon = PackedVector2Array(-575, -876, 384, -876, 384, -288, -576, -288)
+
+[node name="SpawnShape1" type="CollisionShape2D" parent="EnemyArea1"]
+position = Vector2(1292, 1292)
+shape = SubResource("RectangleShape2D_46gc0")
 
 [node name="Spawnpoint" type="Marker2D" parent="."]
 position = Vector2(1440, 2244)
