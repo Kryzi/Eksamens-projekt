@@ -15,15 +15,15 @@ point_count = 2
 
 [node name="rock_guitar_particle" type="CPUParticles2D"]
 emitting = false
-amount = 6
+amount = 4
 lifetime = 0.3
 one_shot = true
 explosiveness = 1.0
 texture = ExtResource("1_1bpyb")
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 150.0
-initial_velocity_max = 300.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
 angular_velocity_min = 0.5
 angular_velocity_max = 4.5
 angular_velocity_curve = SubResource("Curve_1ry8t")

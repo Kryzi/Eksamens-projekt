@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cradrmw10obwa"]
+[gd_scene load_steps=33 format=3 uid="uid://cradrmw10obwa"]
 
 [ext_resource type="Script" path="res://scripts/main/player.gd" id="1_ddb0a"]
 [ext_resource type="Texture2D" uid="uid://bmjvtt528ekn5" path="res://sprites/spiller/spiller-hojre_idle-1_walk-2-4.png" id="2_brr8l"]
@@ -26,8 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bf082ldlxis2j" path="res://scenes/weapons/basic_knife/basic_knife.tscn" id="20_y8slu"]
 [ext_resource type="Script" path="res://scripts/ui/camera_2d.gd" id="21_xaw4o"]
 [ext_resource type="Script" path="res://scripts/weapons/reload_bar.gd" id="22_y1rj5"]
-[ext_resource type="PackedScene" uid="uid://d0v146npydiyy" path="res://scenes/weapons/boomerang/boomerang_weapon.tscn" id="23_unme0"]
-[ext_resource type="PackedScene" uid="uid://c8qnpo7dkw86m" path="res://scenes/weapons/ice_cannon/ice_cannon.tscn" id="26_klgc6"]
+[ext_resource type="PackedScene" uid="uid://oruuej8gtlva" path="res://scenes/weapons/rock_guitar/rockguitar.tscn" id="26_3td7x"]
 [ext_resource type="AudioStream" uid="uid://bpicuej6pb1f2" path="res://sounds/GedSlapSound.mp3" id="27_1juf4"]
 [ext_resource type="AudioStream" uid="uid://bdr76qsc0x73l" path="res://sounds/HitSound.mp3" id="28_dg55l"]
 
@@ -218,9 +217,7 @@ script = ExtResource("3_fteec")
 [node name="BasicKnife" parent="Weapon" instance=ExtResource("20_y8slu")]
 damage = 30
 
-[node name="IsKanon" parent="Weapon" instance=ExtResource("26_klgc6")]
-
-[node name="Boomerang (weapon)" parent="Weapon" instance=ExtResource("23_unme0")]
+[node name="rockguitar" parent="Weapon" instance=ExtResource("26_3td7x")]
 
 [node name="Damage" type="Area2D" parent="."]
 
