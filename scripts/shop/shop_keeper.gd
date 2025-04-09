@@ -24,7 +24,7 @@ func _on_refill_ammo_pressed() -> void:
 		SpeechText.text = "Du fattig, taber!"
 		textfelt()
 		return
-	elif weapon.weapons[weapon.currentWeapon].refillCount == 2:
+	elif weapon.weapons[weapon.currentWeapon].refillCount == 1:
 		SpeechText.text = "Du har fyldt den op for mange gange!"
 		textfelt()
 		return
