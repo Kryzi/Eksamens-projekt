@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cradrmw10obwa"]
+[gd_scene load_steps=34 format=3 uid="uid://cradrmw10obwa"]
 
 [ext_resource type="Script" path="res://scripts/main/player.gd" id="1_ddb0a"]
 [ext_resource type="Texture2D" uid="uid://bmjvtt528ekn5" path="res://sprites/spiller/spiller-hojre_idle-1_walk-2-4.png" id="2_brr8l"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bc4h84ngtv55m" path="res://sprites/spiller/spiller-venstre_walk-3.png" id="17_dhuxc"]
 [ext_resource type="PackedScene" uid="uid://bf082ldlxis2j" path="res://scenes/weapons/basic_knife/basic_knife.tscn" id="20_y8slu"]
 [ext_resource type="Script" path="res://scripts/ui/camera_2d.gd" id="21_xaw4o"]
+[ext_resource type="Texture2D" uid="uid://c5nwoicq03osx" path="res://sprites/andet/reload_slider/reload-slider_grabber.png" id="22_mmikf"]
 [ext_resource type="Script" path="res://scripts/weapons/reload_bar.gd" id="22_y1rj5"]
 [ext_resource type="PackedScene" uid="uid://oruuej8gtlva" path="res://scenes/weapons/rock_guitar/rockguitar.tscn" id="26_3td7x"]
 [ext_resource type="AudioStream" uid="uid://bpicuej6pb1f2" path="res://sounds/GedSlapSound.mp3" id="27_1juf4"]
@@ -202,6 +203,7 @@ offset_left = -111.0
 offset_top = -69.0
 offset_right = -5.0
 offset_bottom = -53.0
+theme_override_icons/grabber_disabled = ExtResource("22_mmikf")
 max_value = 1.0
 step = 0.001
 editable = false
