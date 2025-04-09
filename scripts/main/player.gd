@@ -117,9 +117,11 @@ func _on_damage_body_entered(body: Node2D) -> void:
 		recoil_velocity = (global_position - body.global_position).normalized() * 2000
 		hit_damage(1)
 
-
-func speedUpgrade():
-	speed = speed * 1.2
-	dashForce = dashForce * 1.2
+@onready var weapon = get_node("/root/Main/Player/Weapon")
+func speedUpgrade(FirerateUpgrade):
+	speed = speed * 1.15
+	dashForce = dashForce * 1.15
 	
+	weapon.applyFirerateRangedUp(FirerateUpgrade)
+	weapon.applyFirerateMeleeUp(FirerateUpgrade)
 	
