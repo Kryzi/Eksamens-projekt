@@ -11,7 +11,7 @@ var Enemy_state: String = "Walking"
 @onready var controller = get_node("/root/Main/MapController/Spawner")
 @onready var animated_sprite = $AnimatedSprite2D
 #@onready var attack_area = $AttackArea  # Area2D der registrerer, om spilleren er i skud-rækkevidde
-@onready var ShootSound = $Enemy3Sound
+@onready var ShootSound = $Enemy1Sound
 var attacking = false
 
 @export var bullet_scene: PackedScene
@@ -70,6 +70,7 @@ func shoot():
 		$AnimatedSprite2D.play("Angreb")
 		var direction_to_player = (player.global_position - global_position).normalized()
 		attacking = true
+		ShootSound.play()
 		
 		for i in bulletsCount:
 			var offset = direction_to_player.rotated(deg_to_rad(vinkelPerSkud * i))
