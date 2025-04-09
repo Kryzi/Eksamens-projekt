@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 	
 	await get_tree().create_timer(0.0001).timeout
 	if active_bullet == null:
-		if currentAmmo <= 0 and Input.is_action_just_pressed("Shoot") or Input.is_action_just_pressed("Reload") and reserveAmmo > 0:
+		if currentAmmo <= 0 and Input.is_action_just_pressed("Shoot") or Input.is_action_just_pressed("Reload") and reserveAmmo > 0 and currentAmmo != magSize:
 			reload()
 
 func shoot():
