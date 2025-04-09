@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 		
 		
 		
-	if Input.is_action_just_pressed("x") and weapons.size() - 1 > currentWeapon:
+	if Input.is_action_just_pressed("x") and weapons.size() > currentWeapon and weapons.size() > 1 :
 		deleteWeapon()
 		
 	
@@ -63,6 +63,14 @@ func deleteWeapon():
 	disableWeapons()
 	weapons[currentWeapon].queue_free()
 	weapons.remove_at(currentWeapon)
+	
+	# Clamp currentWeapon to a valid index
+	if weapons.size() == 0:
+		currentWeapon = -1  # or handle empty weapon state
+		return
+	elif currentWeapon >= weapons.size():
+		currentWeapon = weapons.size() - 1
+	
 	weaponSwapped(currentWeapon)
 	#var inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
 	#inventory.checkForNewWeapons()
@@ -89,11 +97,6 @@ func enableWeapon():
 @onready var Inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
 func weaponSwapped(i):
 	disableWeapons()
-	
-	# Testing af at fjerne våben
-	#weapons.remove_at(currentWeapon)
-	
-	#Inventory.deleteTextures(currentWeapon)
 	
 	currentWeapon = i
 	enableWeapon()

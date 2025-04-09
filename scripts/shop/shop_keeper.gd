@@ -8,7 +8,7 @@ var SpeechTime = 2.5
 var refillPrice = 10
 
 func _ready() -> void:
-	$RefillAmmo.text = "Refill Ammo: " + str(refillPrice) + " Coins"
+	$RefillAmmo.text = "Refill Ammo For Current Weapon: " + str(refillPrice) + " Coins"
 	$ShopKeeperSprite.play("Idle")
 
 
