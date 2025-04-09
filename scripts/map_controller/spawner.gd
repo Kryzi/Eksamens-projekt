@@ -334,12 +334,15 @@ func checkDeath():
 		# Sikre at der altid er mindst en vej der ikke er shop
 		rewardSet(randi_range(1, 2))
 		# Sikre at man får en shop mindst vær tredje bane og lige før bosskampen
-		if ((PlayerInfo.bossTimer % 3) == 0 and PlayerInfo.bossTimer > 0):
+		if ((PlayerInfo.bossTimer % 3) == 0 and PlayerInfo.bossTimer > 0 and PlayerInfo.bossTimer < 10):
 			rewardSet(3)
+		# Dette gør så man aldrig får en shop lige før den endelige shop før bossen (ikke nødevendigt, men bruges som eksempel)
+		#if (PlayerInfo.bossTimer == 11):
+		#	rewardSet(randi_range(1, 2))
 		if (PlayerInfo.bossTimer > 12):
 			rewardSet(3)
 			variationID = 1
-			print("works")
+		
 		
 		if layout1.visible == true:
 			layout1.visible = false
@@ -365,6 +368,8 @@ func checkDeath():
 				layout1_bridge.get_node("Variation1_2/TeleporterArea1_2/Teleporter1_2").disabled = false
 				
 				rewardSet(randi_range(1, 3))
+				if (PlayerInfo.bossTimer == 11):
+					rewardSet(randi_range(1, 2))
 				layout1_bridge.get_node("Variation1_2/rewardLabel1_2").text = PlayerInfo.mapValue
 				teleporter2 = rewardValue
 				
@@ -377,6 +382,8 @@ func checkDeath():
 					layout1_bridge.get_node("Variation1_3/TeleporterArea1_3/Teleporter1_3").disabled = false
 					
 					rewardSet(randi_range(1, 3))
+					if (PlayerInfo.bossTimer == 11):
+						rewardSet(randi_range(1, 2))
 					layout1_bridge.get_node("Variation1_3/rewardLabel1_3").text = PlayerInfo.mapValue
 					teleporter3 = rewardValue
 				
@@ -407,6 +414,8 @@ func checkDeath():
 				layout2_bridge.get_node("Variation2_2/BoundaryBridge2_2/CollisionPolygon2D").disabled = false
 				layout2_bridge.get_node("Variation2_2/TeleporterArea2_2/Teleporter2_2").disabled = false
 				rewardSet(randi_range(1, 3))
+				if (PlayerInfo.bossTimer == 11):
+					rewardSet(randi_range(1, 2))
 				layout2_bridge.get_node("Variation2_2/rewardLabel2_2").text = PlayerInfo.mapValue
 				teleporter2 = rewardValue
 				
@@ -419,6 +428,8 @@ func checkDeath():
 					layout2_bridge.get_node("Variation2_3/TeleporterArea2_3/Teleporter2_3").disabled = false
 					
 					rewardSet(randi_range(1, 3))
+					if (PlayerInfo.bossTimer == 11):
+						rewardSet(randi_range(1, 2))
 					layout2_bridge.get_node("Variation2_3/rewardLabel2_3").text = PlayerInfo.mapValue
 					teleporter3 = rewardValue
 			
@@ -446,6 +457,8 @@ func checkDeath():
 				layout3_bridge.get_node("Variation3_2/TeleporterArea3_2/Teleporter3_2").disabled = false
 				
 				rewardSet(randi_range(1, 3))
+				if (PlayerInfo.bossTimer == 11):
+					rewardSet(randi_range(1, 2))
 				layout3_bridge.get_node("Variation3_2/rewardLabel3_2").text = PlayerInfo.mapValue
 				teleporter2 = rewardValue
 				
@@ -458,6 +471,8 @@ func checkDeath():
 					layout3_bridge.get_node("Variation3_3/TeleporterArea3_3/Teleporter3_3").disabled = false
 					
 					rewardSet(randi_range(1, 3))
+					if (PlayerInfo.bossTimer == 11):
+						rewardSet(randi_range(1, 2))
 					layout3_bridge.get_node("Variation3_3/rewardLabel3_3").text = PlayerInfo.mapValue
 					teleporter3 = rewardValue
 				
