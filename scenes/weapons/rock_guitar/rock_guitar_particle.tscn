@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://e0db5gjkux4k"]
+
+[ext_resource type="Texture2D" uid="uid://6vypx7rryvn3" path="res://sprites/vaaben/partikler/musik/musik_partikel-1.png" id="1_1bpyb"]
+[ext_resource type="Script" path="res://scripts/weapons/water_particle.gd" id="2_sw8mo"]
+
+[sub_resource type="Curve" id="Curve_1ry8t"]
+min_value = -100.0
+max_value = 100.0
+_data = [Vector2(0, 100), 0.0, 0.0, 0, 0, Vector2(0.376404, -95.6044), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_68o8t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="rock_guitar_particle" type="CPUParticles2D"]
+emitting = false
+amount = 6
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("1_1bpyb")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 300.0
+angular_velocity_min = 0.5
+angular_velocity_max = 4.5
+angular_velocity_curve = SubResource("Curve_1ry8t")
+angle_min = -45.0
+angle_max = 45.0
+scale_amount_min = 4.5
+scale_amount_max = 7.0
+scale_amount_curve = SubResource("Curve_68o8t")
+script = ExtResource("2_sw8mo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
