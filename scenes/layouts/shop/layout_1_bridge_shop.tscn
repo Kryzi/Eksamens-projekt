@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://uopmy20bfd5u"]
+[gd_scene load_steps=53 format=3 uid="uid://uopmy20bfd5u"]
 
 [ext_resource type="Script" path="res://scripts/shop/layout_1_bridge_shop.gd" id="1_u4soe"]
 [ext_resource type="PackedScene" uid="uid://wdl2k0o6ywsg" path="res://scenes/weapons/basic_bow/basic_bow.tscn" id="2_jm5b7"]
@@ -31,11 +31,14 @@
 [ext_resource type="PackedScene" uid="uid://oruuej8gtlva" path="res://scenes/weapons/rock_guitar/rockguitar.tscn" id="22_tsyaa"]
 [ext_resource type="Texture2D" uid="uid://dkvlsoqapoya4" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_idle.png" id="23_7f7yv"]
 [ext_resource type="Script" path="res://scripts/shop/shop_keeper.gd" id="27_d84on"]
+[ext_resource type="Texture2D" uid="uid://ca56rpvg2hvk6" path="res://sprites/andet/Shop/butik_iventory-tasker.png" id="31_qlhoe"]
 [ext_resource type="Texture2D" uid="uid://xu38bphvoeo2" path="res://sprites/andet/Shop/shop-npc_idle-1.png" id="32_7yk6m"]
 [ext_resource type="Texture2D" uid="uid://curass3tibjis" path="res://sprites/andet/Shop/shop-npc_idle-2.png" id="33_a4j1h"]
 [ext_resource type="Texture2D" uid="uid://noro7slaipjb" path="res://sprites/andet/Shop/shop-npc_talk-1.png" id="34_qwfyk"]
 [ext_resource type="Texture2D" uid="uid://diu1lnq11s5q8" path="res://sprites/andet/Shop/shop-npc_talk-2.png" id="35_omxw5"]
 [ext_resource type="Texture2D" uid="uid://cj1ysfgf83e6p" path="res://sprites/andet/Shop/shop-npc_talebobbel.png" id="36_1e12s"]
+[ext_resource type="Texture2D" uid="uid://d0euhootl101" path="res://sprites/andet/Shop/butik_ammo-bord.png" id="36_xrkq1"]
+[ext_resource type="Texture2D" uid="uid://d35x3at6feurn" path="res://sprites/andet/Shop/butik_item-kurv.png" id="39_emt8o"]
 
 [sub_resource type="Resource" id="Resource_shqo3"]
 script = ExtResource("15_6p3av")
@@ -147,10 +150,10 @@ shop_item_resource_array = Array[ExtResource("15_6p3av")]([SubResource("Resource
 
 [node name="TaageBagrund" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -10174.0
-offset_top = -4968.0
-offset_right = 13664.0
-offset_bottom = 7081.0
+offset_left = -10261.0
+offset_top = -5156.0
+offset_right = 13577.0
+offset_bottom = 6893.0
 texture = ExtResource("20_8wijq")
 
 [node name="Klippe" type="TextureRect" parent="."]
@@ -233,18 +236,27 @@ offset_bottom = 313.0
 theme_override_font_sizes/font_size = 100
 text = "Filler"
 
-[node name="limitPurchase" type="Button" parent="."]
+[node name="InventoryButik" type="Node2D" parent="."]
+position = Vector2(728, 1561)
+
+[node name="limitPurchase" type="Button" parent="InventoryButik"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 701.0
-offset_top = 730.0
-offset_right = 996.0
-offset_bottom = 901.0
+offset_top = 125.0
+offset_right = 295.0
+offset_bottom = 171.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 22
 text = "Filler"
+metadata/_edit_use_anchors_ = true
+
+[node name="Tasker" type="Sprite2D" parent="InventoryButik"]
+position = Vector2(149, 73)
+scale = Vector2(6, 6)
+texture = ExtResource("31_qlhoe")
 
 [node name="ShopKeeper" type="Node2D" parent="."]
-position = Vector2(959, 495)
+position = Vector2(959, 1078.57)
 script = ExtResource("27_d84on")
 
 [node name="ShopKeeperSprite" type="AnimatedSprite2D" parent="ShopKeeper"]
@@ -260,11 +272,18 @@ position = Vector2(-34, -43)
 shape = SubResource("RectangleShape2D_5s52p")
 disabled = true
 
+[node name="ammoBord" type="Sprite2D" parent="ShopKeeper"]
+position = Vector2(-178, 45.4301)
+scale = Vector2(6, 6)
+texture = ExtResource("36_xrkq1")
+
 [node name="RefillAmmo" type="Button" parent="ShopKeeper"]
-offset_left = -257.0
-offset_top = 38.0
-offset_right = -19.0
-offset_bottom = 125.0
+offset_left = -282.0
+offset_top = 148.43
+offset_right = -44.0
+offset_bottom = 187.43
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 22
 text = "Refill Ammo: 10 Coins"
 
@@ -283,20 +302,30 @@ position = Vector2(-18, -77)
 scale = Vector2(8, 8)
 texture = ExtResource("36_1e12s")
 
-[node name="ItemPurchase" type="Button" parent="."]
-layout_mode = 0
-offset_left = 697.0
-offset_top = 1117.0
-offset_right = 922.0
-offset_bottom = 1267.0
-text = "Get Random Item: 25 coins"
+[node name="ItemButik" type="Node2D" parent="."]
+position = Vector2(54, -981)
 
-[connection signal="mouse_entered" from="limitPurchase" to="." method="_on_limit_purchase_mouse_entered"]
-[connection signal="mouse_exited" from="limitPurchase" to="." method="_on_limit_purchase_mouse_exited"]
-[connection signal="pressed" from="limitPurchase" to="." method="_on_limit_purchase_pressed"]
+[node name="ItemKurv" type="Sprite2D" parent="ItemButik"]
+position = Vector2(859, 1593)
+scale = Vector2(6, 6)
+texture = ExtResource("39_emt8o")
+
+[node name="ItemPurchase" type="Button" parent="ItemButik"]
+offset_left = 751.0
+offset_top = 1662.0
+offset_right = 976.0
+offset_bottom = 1698.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Get Random Item: 25 coins"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="InventoryButik/limitPurchase" to="." method="_on_limit_purchase_mouse_entered"]
+[connection signal="mouse_exited" from="InventoryButik/limitPurchase" to="." method="_on_limit_purchase_mouse_exited"]
+[connection signal="pressed" from="InventoryButik/limitPurchase" to="." method="_on_limit_purchase_pressed"]
 [connection signal="mouse_entered" from="ShopKeeper/RefillAmmo" to="ShopKeeper" method="_on_refill_ammo_mouse_entered"]
 [connection signal="mouse_exited" from="ShopKeeper/RefillAmmo" to="ShopKeeper" method="_on_refill_ammo_mouse_exited"]
 [connection signal="pressed" from="ShopKeeper/RefillAmmo" to="ShopKeeper" method="_on_refill_ammo_pressed"]
-[connection signal="mouse_entered" from="ItemPurchase" to="." method="_on_item_purchase_mouse_entered"]
-[connection signal="mouse_exited" from="ItemPurchase" to="." method="_on_item_purchase_mouse_exited"]
-[connection signal="pressed" from="ItemPurchase" to="." method="_on_item_purchase_pressed"]
+[connection signal="mouse_entered" from="ItemButik/ItemPurchase" to="." method="_on_item_purchase_mouse_entered"]
+[connection signal="mouse_exited" from="ItemButik/ItemPurchase" to="." method="_on_item_purchase_mouse_exited"]
+[connection signal="pressed" from="ItemButik/ItemPurchase" to="." method="_on_item_purchase_pressed"]
