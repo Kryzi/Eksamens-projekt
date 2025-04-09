@@ -20,8 +20,12 @@ func _on_refill_ammo_pressed() -> void:
 	elif weapon.weapons[weapon.currentWeapon].reserveAmmo == weapon.weapons[weapon.currentWeapon].maxAmmo:
 		SpeechText.text = "Du kan ikke have flere skud, din ostehaps"
 		textfelt()
-	elif PlayerInfo.current_coins <= refillPrice and weapon.weapons[weapon.currentWeapon].ranged == true:
+	elif PlayerInfo.current_coins <= refillPrice - 1 and weapon.weapons[weapon.currentWeapon].ranged == true:
 		SpeechText.text = "Du fattig, taber!"
+		textfelt()
+		return
+	elif weapon.weapons[weapon.currentWeapon].refillCount == 2:
+		SpeechText.text = "Du har fyldt den op for mange gange!"
 		textfelt()
 		return
 	
@@ -33,6 +37,7 @@ func _on_refill_ammo_pressed() -> void:
 		weapon.weapons[weapon.currentWeapon].reloading = false
 		
 		
+		weapon.weapons[weapon.currentWeapon].refillCount += 1
 		
 		PlayerInfo.ammo_data = {
 		"current_ammo": weapon.weapons[weapon.currentWeapon].currentAmmo,

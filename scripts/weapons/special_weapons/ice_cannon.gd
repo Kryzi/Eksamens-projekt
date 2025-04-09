@@ -20,6 +20,9 @@ var reserveAmmo: int # Den mængde skud man har, i alt
 ## Tiden det tager at reload
 @export var reloadTime: float 
 var reloading = false
+## Mængden af gange våbnet har fået ammo tilbage
+@export var refillCount = 0
+
 @export var recoil_force = 1200.0  # Højere værdi for en mærkbar effekt
 
 @onready var CanonSound = $CanonSound
