@@ -31,14 +31,14 @@
 [ext_resource type="PackedScene" uid="uid://oruuej8gtlva" path="res://scenes/weapons/rock_guitar/rockguitar.tscn" id="22_tsyaa"]
 [ext_resource type="Texture2D" uid="uid://dkvlsoqapoya4" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_idle.png" id="23_7f7yv"]
 [ext_resource type="Script" path="res://scripts/shop/shop_keeper.gd" id="27_d84on"]
-[ext_resource type="Texture2D" uid="uid://ca56rpvg2hvk6" path="res://sprites/andet/Shop/butik_iventory-tasker.png" id="31_qlhoe"]
+[ext_resource type="Texture2D" uid="uid://ca56rpvg2hvk6" path="res://sprites/andet/Shop/butik_iventory-tasker.png" id="31_3r0q6"]
 [ext_resource type="Texture2D" uid="uid://xu38bphvoeo2" path="res://sprites/andet/Shop/shop-npc_idle-1.png" id="32_7yk6m"]
 [ext_resource type="Texture2D" uid="uid://curass3tibjis" path="res://sprites/andet/Shop/shop-npc_idle-2.png" id="33_a4j1h"]
 [ext_resource type="Texture2D" uid="uid://noro7slaipjb" path="res://sprites/andet/Shop/shop-npc_talk-1.png" id="34_qwfyk"]
 [ext_resource type="Texture2D" uid="uid://diu1lnq11s5q8" path="res://sprites/andet/Shop/shop-npc_talk-2.png" id="35_omxw5"]
 [ext_resource type="Texture2D" uid="uid://cj1ysfgf83e6p" path="res://sprites/andet/Shop/shop-npc_talebobbel.png" id="36_1e12s"]
-[ext_resource type="Texture2D" uid="uid://d0euhootl101" path="res://sprites/andet/Shop/butik_ammo-bord.png" id="36_xrkq1"]
-[ext_resource type="Texture2D" uid="uid://d35x3at6feurn" path="res://sprites/andet/Shop/butik_item-kurv.png" id="39_emt8o"]
+[ext_resource type="Texture2D" uid="uid://d0euhootl101" path="res://sprites/andet/Shop/butik_ammo-bord.png" id="37_yp48g"]
+[ext_resource type="Texture2D" uid="uid://d35x3at6feurn" path="res://sprites/andet/Shop/butik_item-kurv.png" id="39_6gj8a"]
 
 [sub_resource type="Resource" id="Resource_shqo3"]
 script = ExtResource("15_6p3av")
@@ -253,7 +253,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Tasker" type="Sprite2D" parent="InventoryButik"]
 position = Vector2(149, 73)
 scale = Vector2(6, 6)
-texture = ExtResource("31_qlhoe")
+texture = ExtResource("31_3r0q6")
 
 [node name="ShopKeeper" type="Node2D" parent="."]
 position = Vector2(959, 1078.57)
@@ -275,7 +275,7 @@ disabled = true
 [node name="ammoBord" type="Sprite2D" parent="ShopKeeper"]
 position = Vector2(-178, 45.4301)
 scale = Vector2(6, 6)
-texture = ExtResource("36_xrkq1")
+texture = ExtResource("37_yp48g")
 
 [node name="RefillAmmo" type="Button" parent="ShopKeeper"]
 offset_left = -282.0
@@ -308,7 +308,7 @@ position = Vector2(54, -981)
 [node name="ItemKurv" type="Sprite2D" parent="ItemButik"]
 position = Vector2(859, 1593)
 scale = Vector2(6, 6)
-texture = ExtResource("39_emt8o")
+texture = ExtResource("39_6gj8a")
 
 [node name="ItemPurchase" type="Button" parent="ItemButik"]
 offset_left = 751.0

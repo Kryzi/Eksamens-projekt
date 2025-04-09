@@ -294,6 +294,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Retry"
 
+[node name="MainMenu" type="Button" parent="Control/EndScreenPanel/MarginContainer/EndScreenContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Main Menu"
+
 [node name="QuitButton" type="Button" parent="Control/EndScreenPanel/MarginContainer/EndScreenContainer"]
 process_mode = 3
 custom_minimum_size = Vector2(90, 30)
@@ -319,4 +326,5 @@ scroll_active = false
 script = ExtResource("13_qh4r3")
 
 [connection signal="pressed" from="Control/EndScreenPanel/MarginContainer/EndScreenContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Control/EndScreenPanel/MarginContainer/EndScreenContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Control/EndScreenPanel/MarginContainer/EndScreenContainer/QuitButton" to="." method="_on_button_pressed"]

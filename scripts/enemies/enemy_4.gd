@@ -88,6 +88,7 @@ func direction_name(dir: Vector2) -> String:
 
 func hit_damage(amount):
 	health -= amount
+	$AnimatedSprite2D/AnimationPlayer.play("Hurt")
 	if health <= 0:
 		die()
 

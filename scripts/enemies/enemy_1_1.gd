@@ -67,6 +67,7 @@ func dropCoin():
 
 func hit_damage(damage):
 	health -= damage
+	$AnimatedSprite2D/AnimationPlayer.play("Hurt")
 	if health <= 0:
 		die()
 

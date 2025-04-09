@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerInfo="*res://globals/player_info.gd"
+ServerHandler="*res://globals/server_handler.gd"
 
 [display]
 

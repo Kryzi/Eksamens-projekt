@@ -72,15 +72,16 @@ func showEndScreen(is_player_a_winner: bool, new_high_score: int):
 	%EndScreenPanel.show()
 	get_tree().paused = true
 	
-
-
 func updateHealthBar(new_health_data: Dictionary):
 	var new_max_health = new_health_data["max_health"]
 	var new_current_health = new_health_data["current_health"]
 	%HealthBar.max_value = new_max_health
 	%HealthBar.value = new_current_health
 
-
+func _on_main_menu_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
+	
 func _on_button_pressed() -> void:
 	get_tree().quit()
 
@@ -90,13 +91,12 @@ func _on_retry_button_pressed() -> void:
 	PlayerInfo.current_coins = 0
 	PlayerInfo.weaponLimitCost = 10
 	PlayerInfo.weaponLimit = 5
-	PlayerInfo.Dictionary = {
+	PlayerInfo.health_data = {
 	"current_health": 10,
 	"max_health": 10 }
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
-
 func apply_random_shake() -> void:
 	shake_strength = RANDOM_SHAKE_STRENGTH
 	shake_type = ShakeType.Random
