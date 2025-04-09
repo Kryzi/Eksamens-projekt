@@ -12,7 +12,10 @@ var has_hit_player = false
 @export var charge_speed = 400.0
 @export var patrol_wait_time = 1.0
 @export var damage = 2
-@export var max_charge_time = 1.25  # hvor længe den charger
+@export var max_charge_time = 1.5  # hvor længe den charger
+
+@onready var GolemGåSound = $"GolemGåSound"
+@onready var GolemLøbSound = $"GolemLøbSound"
 
 @onready var player = get_node("/root/Main/Player")
 @onready var sprite = $AnimatedSprite2D
@@ -22,7 +25,7 @@ var has_hit_player = false
 @onready var raycast2 = $WallDetector2
 @onready var raycast3 = $WallDetector3
 
-func _physics_process(delta):
+func _physics_process(delta):	
 	if is_charging:
 		var dir = (charge_target_position - global_position).normalized()
 		velocity = dir * charge_speed
@@ -55,6 +58,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func start_charge():
+	GolemGåSound.stop()
+	GolemLøbSound.play()
 	is_charging = true
 	can_attack = false
 	has_hit_player = false
@@ -70,6 +75,8 @@ func end_charge():
 	is_charging = false
 	velocity = Vector2.ZERO
 	sprite.play("Idle " + direction_name(patrol_direction))
+	GolemLøbSound.stop()
+	GolemGåSound.play()
 	await get_tree().create_timer(1.0).timeout
 	can_attack = true
 
