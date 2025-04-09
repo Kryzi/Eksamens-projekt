@@ -294,8 +294,8 @@ offset_top = -218.0
 offset_right = 93.0
 offset_bottom = -139.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 22
-text = "Goddag, vil du have nogle skud! Du får dog kun et refill per våben!"
+theme_override_font_sizes/normal_font_size = 18
+text = "Goddag, vil du have nogle skud! Du får et refill per våben!"
 
 [node name="SpeechBubble" type="Sprite2D" parent="ShopKeeper"]
 position = Vector2(-18, -77)
