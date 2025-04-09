@@ -41,7 +41,7 @@ func _on_item_area_body_entered(_body: Node2D) -> void:
 		picked_up = true
 		match itemID:
 			1:
-				weapon.applyUpgrades( num, num)
+				weapon.applyUpgrades( num, num + 0.1)
 				ItemSound.play()
 				await ItemSound.finished
 				UpgradeText.ShowText("Damage og Firerate til dine våben")
@@ -56,7 +56,7 @@ func _on_item_area_body_entered(_body: Node2D) -> void:
 				await ItemSound.finished
 				UpgradeText.ShowText("Speed og Dash længde")
 			4:
-				weapon.applyUpgrades( num, num)
+				weapon.applyUpgrades( num, num + 0.1)
 				ItemSound.play()
 				await ItemSound.finished
 				UpgradeText.ShowText("Damage og Firerate til dine våben")

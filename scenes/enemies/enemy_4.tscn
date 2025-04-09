@@ -217,11 +217,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u8gdl"]
-radius = 41.5
-height = 87.0
+radius = 30.5
+height = 61.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gqir2"]
-radius = 149.054
+radius = 249.098
 
 [node name="enemy_4" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(2, 2)
@@ -243,6 +243,14 @@ shape = SubResource("CapsuleShape2D_u8gdl")
 
 [node name="WallDetector" type="RayCast2D" parent="."]
 target_position = Vector2(50, 0)
+
+[node name="WallDetector2" type="RayCast2D" parent="."]
+position = Vector2(0.5, 17)
+target_position = Vector2(39, 0)
+
+[node name="WallDetector3" type="RayCast2D" parent="."]
+position = Vector2(0.5, -21.5)
+target_position = Vector2(39, 0)
 
 [node name="View" type="Area2D" parent="."]
 
