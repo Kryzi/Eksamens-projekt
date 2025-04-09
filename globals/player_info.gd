@@ -29,7 +29,7 @@ var ammo_data: Dictionary = {
 var is_interacting_with_UI: bool = false
 
 # Max våben og våben kost
-var weaponLimit = 5
+var weaponLimit = 3
 var weaponLimitCost = 10
 
 # Til mapcontroller og spawner

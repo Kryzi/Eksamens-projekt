@@ -144,8 +144,10 @@ func random_spawn(i):
 		# Vælg en tilfældig fjende at spawne
 		if (PlayerInfo.bossTimer <= 3):
 			enemy_scenes = [enemy_1, enemy_3]
-		else:
+		elif (PlayerInfo.bossTimer <= 3):
 			enemy_scenes = [enemy_1, enemy_2, enemy_3]
+		elif (PlayerInfo.bossTimer <= 8):
+			enemy_scenes = [enemy_1, enemy_2, enemy_3, enemy_2_2]
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
 		var enemy_instance = selected_enemy.instantiate()
@@ -167,7 +169,7 @@ func elite_spawn(i):
 		enemy_instance.position = pos
 		call_deferred("add_child", enemy_instance)
 	else: 
-		if ((PlayerInfo.bossTimer > 10) and (randi_range(1,2) == 2)):
+		if ((PlayerInfo.bossTimer >= 9) and (randi_range(1,2) == 2)):
 			enemy_scenes = [enemy_2_2, enemy_4]
 		else:
 			enemy_scenes = [enemy_1, enemy_2, enemy_3]
@@ -207,13 +209,13 @@ func rewardSet(value):
 
 func stageReward(Reward):
 	if Reward == 1:
-		PlayerInfo.current_coins += 20
+		PlayerInfo.current_coins += 15
 	if Reward == 2:
 		getItem()
 	if Reward == 3:
 		pass #Værdien bliver brugt i map_controller
 	if Reward == 4:
-		PlayerInfo.current_coins += 40
+		PlayerInfo.current_coins += 30
 	if Reward == 5:
 		getItem()
 		getItem()

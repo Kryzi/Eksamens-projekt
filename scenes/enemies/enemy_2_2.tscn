@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=3 uid="uid://dgjf5tyol4k2i"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy_2_2.gd" id="1_g8kp6"]
-[ext_resource type="PackedScene" uid="uid://b33uobs8gcofl" path="res://scenes/bullets/enemy_2_bullet.tscn" id="2_d0w46"]
+[ext_resource type="PackedScene" path="res://scenes/bullets/enemy_2_2_bullet.tscn" id="2_3einl"]
 [ext_resource type="PackedScene" uid="uid://ccogpqp72dena" path="res://scenes/collectables/coin.tscn" id="3_v4bil"]
-[ext_resource type="Texture2D" uid="uid://b3qw5fkcbud64" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_angreb-1.png" id="4_elp45"]
-[ext_resource type="Texture2D" uid="uid://cxs8a2nwrhtki" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_angreb-2.png" id="5_hm2v3"]
-[ext_resource type="Texture2D" uid="uid://btfig5rc2aw3o" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_charge-1.png" id="6_e87ah"]
-[ext_resource type="Texture2D" uid="uid://lecqaohbaodf" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_charge-2.png" id="7_ca2kv"]
-[ext_resource type="Texture2D" uid="uid://deqxwwye30do5" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_charge-3.png" id="8_yx1l3"]
-[ext_resource type="Texture2D" uid="uid://ciyd3flus8pp7" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_charge-4.png" id="9_5vy18"]
-[ext_resource type="Texture2D" uid="uid://cp1dskvx85vnj" path="res://sprites/fjender/ice_crystal_enemy/ice-crystal-enemy_idle_walk.png" id="10_fe87h"]
+[ext_resource type="Texture2D" uid="uid://gvarbbqx65rj" path="res://sprites/fjender/fire_crystal_enemy/fire-crystal-enemy_angreb-1.png" id="4_ub3ue"]
+[ext_resource type="Texture2D" uid="uid://jqqeb5q7k7ci" path="res://sprites/fjender/fire_crystal_enemy/fire-crystal-enemy_angreb-2.png" id="5_h7gdr"]
+[ext_resource type="Texture2D" uid="uid://quau1ldbcmkk" path="res://sprites/fjender/fire_crystal_enemy/fire-crystal-enemy_charge-1.png" id="6_expb0"]
+[ext_resource type="Texture2D" uid="uid://b0lmx5itqcmxt" path="res://sprites/fjender/fire_crystal_enemy/fire-crystal-enemy_charge-2.png" id="7_7iwh4"]
+[ext_resource type="Texture2D" uid="uid://brdr6bbuiqm2l" path="res://sprites/fjender/fire_crystal_enemy/fire-crystal-enemy_charge-3.png" id="8_kkjqc"]
+[ext_resource type="Texture2D" uid="uid://o7t7grfqibh6" path="res://sprites/fjender/fire_crystal_enemy/fire-crystal-enemy_charge-4.png" id="9_d4676"]
+[ext_resource type="Texture2D" uid="uid://chdt5jrypy0gc" path="res://sprites/fjender/fire_crystal_enemy/fire-crystal-enemy_idle_walk.png" id="10_foa8q"]
 [ext_resource type="AudioStream" uid="uid://cucfblr21yfkr" path="res://sounds/Enemy2Sound.mp3" id="11_q1i04"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvbt1"]
@@ -20,10 +20,10 @@ height = 164.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_elp45")
+"texture": ExtResource("4_ub3ue")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_hm2v3")
+"texture": ExtResource("5_h7gdr")
 }],
 "loop": false,
 "name": &"Angreb",
@@ -31,16 +31,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_e87ah")
+"texture": ExtResource("6_expb0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_ca2kv")
+"texture": ExtResource("7_7iwh4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_yx1l3")
+"texture": ExtResource("8_kkjqc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_5vy18")
+"texture": ExtResource("9_d4676")
 }],
 "loop": false,
 "name": &"Charge",
@@ -48,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_fe87h")
+"texture": ExtResource("10_foa8q")
 }],
 "loop": false,
 "name": &"Idle",
@@ -56,7 +56,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_fe87h")
+"texture": ExtResource("10_foa8q")
 }],
 "loop": false,
 "name": &"Walk",
@@ -69,7 +69,7 @@ radius = 178.003
 [node name="Enemy2_2" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_g8kp6")
 alpha = 0.03
-bullet_scene = ExtResource("2_d0w46")
+bullet_scene = ExtResource("2_3einl")
 coin_scene = ExtResource("3_v4bil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

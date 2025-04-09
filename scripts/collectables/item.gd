@@ -7,6 +7,7 @@ func _ready() -> void:
 @onready var player = get_node("/root/Main/Player")
 @onready var num = 1
 @onready var ItemSound = $ItemSound
+@onready var UpgradeText = get_node("/root/Main/HUD/Control/Upgradetext")
 
 @export var itemValue: PackedScene
 var itemID = 0
@@ -43,18 +44,22 @@ func _on_item_area_body_entered(_body: Node2D) -> void:
 				weapon.applyUpgrades( num, num)
 				ItemSound.play()
 				await ItemSound.finished
+				UpgradeText.ShowText("Damage og Firerate til dine våben")
 			2:
 				weapon.applyHealthUpgrade(num, num)
 				ItemSound.play()
 				await ItemSound.finished
+				UpgradeText.ShowText("Liv")
 			3:
 				player.speedUpgrade()
 				ItemSound.play()
 				await ItemSound.finished
+				UpgradeText.ShowText("Speed og Dash længde")
 			4:
 				weapon.applyUpgrades( num, num)
 				ItemSound.play()
 				await ItemSound.finished
+				UpgradeText.ShowText("Damage og Firerate til dine våben")
 		
 		queue_free()
 	
