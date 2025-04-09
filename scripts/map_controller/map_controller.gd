@@ -134,7 +134,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 		var teleporter_collision1_shop = layout1_bridge_shop.get_node("TeleporterArea1/Teleporter1")
 		teleporter_collision1_shop.call_deferred("set_disabled", true)
 		
-		if (PlayerInfo.bossTimer == 1):
+		if (PlayerInfo.bossTimer == 15):
 			PlayerInfo.areaID = 0
 			stageReward = 0
 			body.global_position = layoutBoss.get_node("Spawnpoint").position

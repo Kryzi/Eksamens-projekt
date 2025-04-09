@@ -94,8 +94,8 @@ func hit_damage(damage):
 	if (health <= 400):
 		trampDonwTime = 0.75
 		thinkTime = 0.75
-		speed = 200
-	if (health <= 150):
+		speed = 150
+	if (health <= 200):
 		trampDonwTime = 0.5
 		thinkTime = 0.25 
 		speed = 200
