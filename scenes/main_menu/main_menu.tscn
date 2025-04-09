@@ -6,11 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://gaccdbguqo75" path="res://sprites/main_menu/mountaintop_titel.png" id="4_18j40"]
 [ext_resource type="AudioStream" uid="uid://dpx42xaocjfo4" path="res://sounds/musik/Menu_tema.wav" id="5_wt6py"]
 
-[node name="Main Menu" type="Node"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_abvb2")
 main_scene = ExtResource("2_kpe1m")
 
 [node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,6 +26,7 @@ grow_vertical = 2
 texture = ExtResource("3_gabik")
 
 [node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,51 +34,176 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_18j40")
 
-[node name="StartKnap" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -40.0
-offset_right = 125.0
-offset_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="MainMenuButtons" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="StartKnap" type="Button" parent="MarginContainer/MainMenuButtons"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "START"
 
-[node name="ExitKnap" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -140.0
-offset_right = 125.0
-offset_bottom = -60.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="LeaderboardKnap" type="Button" parent="MarginContainer/MainMenuButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
-text = "EXIT"
+text = "LEADERBOARD
+"
 
-[node name="SettingsKnap" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = 60.0
-offset_right = 125.0
-offset_bottom = 140.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SettingsKnap" type="Button" parent="MarginContainer/MainMenuButtons"]
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "SETTINGS"
+
+[node name="ExitKnap" type="Button" parent="MarginContainer/MainMenuButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "EXIT"
+
+[node name="Padding" type="Control" parent="MarginContainer/MainMenuButtons"]
+layout_mode = 2
+
+[node name="LeaderboardWindow" type="TabContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+current_tab = 0
+
+[node name="Leaderboard" type="TabBar" parent="MarginContainer/LeaderboardWindow"]
+unique_name_in_owner = true
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/LeaderboardWindow/Leaderboard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 20
+
+[node name="WindowContainer" type="VBoxContainer" parent="MarginContainer/LeaderboardWindow/Leaderboard/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LeaderBoardTitle" type="Label" parent="MarginContainer/LeaderboardWindow/Leaderboard/MarginContainer/WindowContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 60
+text = "Leaderboards"
+
+[node name="Panel" type="Panel" parent="MarginContainer/LeaderboardWindow/Leaderboard/MarginContainer/WindowContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/LeaderboardWindow/Leaderboard/MarginContainer/WindowContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="LeaderBoardScoreRows" type="VBoxContainer" parent="MarginContainer/LeaderboardWindow/Leaderboard/MarginContainer/WindowContainer/Panel/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ToMainMenuButton" type="Button" parent="MarginContainer/LeaderboardWindow/Leaderboard/MarginContainer/WindowContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 40
+text = "TO MAIN MENU
+"
+
+[node name="Edit your player name" type="TabBar" parent="MarginContainer/LeaderboardWindow"]
+visible = false
+layout_mode = 2
+deselect_enabled = true
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/LeaderboardWindow/Edit your player name"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 20
+
+[node name="WindowContainer" type="VBoxContainer" parent="MarginContainer/LeaderboardWindow/Edit your player name/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="EditPlayerNameLabel" type="Label" parent="MarginContainer/LeaderboardWindow/Edit your player name/MarginContainer/WindowContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Edit player name"
+
+[node name="CurrentPlayerNameLabel2" type="Label" parent="MarginContainer/LeaderboardWindow/Edit your player name/MarginContainer/WindowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "Current player name"
+
+[node name="NameChangeField" type="LineEdit" parent="MarginContainer/LeaderboardWindow/Edit your player name/MarginContainer/WindowContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+placeholder_text = "Enter new player name here"
+max_length = 40
+
+[node name="ConfirmNameChangeButton" type="Button" parent="MarginContainer/LeaderboardWindow/Edit your player name/MarginContainer/WindowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Confirm name change"
+
+[node name="NameChangeConfirmationLabel" type="Label" parent="MarginContainer/LeaderboardWindow/Edit your player name/MarginContainer/WindowContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+text = "Player name was edited succesfully"
+
+[node name="ToMainMenuButton" type="Button" parent="MarginContainer/LeaderboardWindow/Edit your player name/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 40
+text = "TO MAIN MENU
+"
 
 [node name="MenuMusik" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wt6py")
@@ -78,6 +211,9 @@ volume_db = -5.0
 autoplay = true
 bus = &"Music"
 
-[connection signal="pressed" from="StartKnap" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="ExitKnap" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="SettingsKnap" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/MainMenuButtons/StartKnap" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/MainMenuButtons/SettingsKnap" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/MainMenuButtons/ExitKnap" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/LeaderboardWindow/Leaderboard/MarginContainer/WindowContainer/ToMainMenuButton" to="." method="_on_to_main_menu_button_pressed"]
+[connection signal="pressed" from="MarginContainer/LeaderboardWindow/Edit your player name/MarginContainer/WindowContainer/ConfirmNameChangeButton" to="." method="_on_confirm_name_change_button_pressed"]
+[connection signal="pressed" from="MarginContainer/LeaderboardWindow/Edit your player name/MarginContainer/ToMainMenuButton" to="." method="_on_to_main_menu_button_pressed"]

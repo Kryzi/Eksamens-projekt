@@ -26,8 +26,11 @@ var ammo_data: Dictionary = {
 	set(value):
 		ammo_data.merge(value, true)
 		ammo_changed.emit(ammo_data)  # Automatically emit signal when changed
+		
 var is_interacting_with_UI: bool = false
 
+#Tilfældigt default navn til leaderboard, f.eks. player103
+var player_name: String = "player" + str(randi_range(100,999))
 # Max våben og våben kost
 var weaponLimit = 3
 var weaponLimitCost = 10
