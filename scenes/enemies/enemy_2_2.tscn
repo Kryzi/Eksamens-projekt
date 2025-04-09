@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cppc2dtp3hhmv"]
+[gd_scene load_steps=15 format=3 uid="uid://dgjf5tyol4k2i"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy_2_2.gd" id="1_g8kp6"]
-[ext_resource type="PackedScene" uid="uid://b2jusw0oh4c1n" path="res://scenes/bullets/enemy_2_2_bullet.tscn" id="2_3einl"]
+[ext_resource type="PackedScene" path="res://scenes/bullets/enemy_2_2_bullet.tscn" id="2_3einl"]
 [ext_resource type="PackedScene" uid="uid://ccogpqp72dena" path="res://scenes/collectables/coin.tscn" id="3_v4bil"]
 [ext_resource type="Texture2D" uid="uid://gvarbbqx65rj" path="res://sprites/fjender/fire_crystal_enemy/fire-crystal-enemy_angreb-1.png" id="4_ub3ue"]
 [ext_resource type="Texture2D" uid="uid://jqqeb5q7k7ci" path="res://sprites/fjender/fire_crystal_enemy/fire-crystal-enemy_angreb-2.png" id="5_h7gdr"]

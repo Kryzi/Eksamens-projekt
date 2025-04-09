@@ -124,10 +124,12 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="Slot4" type="Panel" parent="Control/MarginContainer/Inventory"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="Slot5" type="Panel" parent="Control/MarginContainer/Inventory"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
