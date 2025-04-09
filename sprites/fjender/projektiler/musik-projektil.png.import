@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7ge1btr1nkom"
-path="res://.godot/imported/spiral-enemy_walk-1.png-200b219366a09a028e7baeebcac0077a.ctex"
+uid="uid://bc7nsg1afkyiy"
+path="res://.godot/imported/musik-projektil.png-cf1af6c92e62edad6c45a5c091e809a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/fjender/sprial_enemy/spiral-enemy_walk-1.png"
-dest_files=["res://.godot/imported/spiral-enemy_walk-1.png-200b219366a09a028e7baeebcac0077a.ctex"]
+source_file="res://sprites/fjender/projektiler/musik-projektil.png"
+dest_files=["res://.godot/imported/musik-projektil.png-cf1af6c92e62edad6c45a5c091e809a4.ctex"]
 
 [params]
 

@@ -49,15 +49,9 @@ func _physics_process(delta: float) -> void:
 
 func play_anim(dir):
 	if Enemy_state == "Idle":
-		animated_sprite.play("Idle " + Aimdirection(last_direction))
+		animated_sprite.play("Idle")
 	elif Enemy_state == "Walking":
-		animated_sprite.play("Walk " + Aimdirection(dir))
-
-func Aimdirection(dir: Vector2) -> String:
-	if abs(dir.x) > abs(dir.y):
-		return "højre" if dir.x > 0 else "venstre"
-	else:
-		return "ned" if dir.y > 0 else "op"
+		animated_sprite.play("Walk")
 
 func dropCoin():
 	var coin_instance = coin_scene.instantiate()
@@ -72,6 +66,8 @@ func hit_damage(damage):
 
 func shoot():
 	if player_in_attack_range:
+		
+		$AnimatedSprite2D.play("Angreb")
 		var direction_to_player = (player.global_position - global_position).normalized()
 		attacking = true
 		
@@ -82,11 +78,10 @@ func shoot():
 		
 		
 		attacking = false
-		
-		$AnimatedSprite2D.play("Idle")
 
 func spawnBullet(offset):
 	var bullet_instance = bullet_scene.instantiate()
+	bullet_instance.get_child(0).texture = load("res://sprites/fjender/projektiler/musik-projektil.png")
 	bullet_instance.global_position = $ShootingPoint.global_position
 	bullet_instance.direction = offset  # Sæt direction direkte
 	get_tree().get_root().call_deferred("add_child", bullet_instance)

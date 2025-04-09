@@ -1,27 +1,20 @@
-[gd_scene load_steps=26 format=3 uid="uid://ccjonkgmxrqvf"]
+[gd_scene load_steps=19 format=3 uid="uid://ccjonkgmxrqvf"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy_5.gd" id="1_2pkde"]
-[ext_resource type="Texture2D" uid="uid://cx6a8mlbp8d14" path="res://sprites/fjender/base_enemy/base-enemy-hojre_angreb.png" id="2_an656"]
 [ext_resource type="PackedScene" uid="uid://dm5pnrut86llc" path="res://scenes/bullets/enemy_3_bullet.tscn" id="2_y7rqi"]
-[ext_resource type="Texture2D" uid="uid://cfnoh23bdwm4d" path="res://sprites/fjender/base_enemy/base-enemy-hojre_idle_walk-2.png" id="3_7n8hg"]
 [ext_resource type="PackedScene" uid="uid://ccogpqp72dena" path="res://scenes/collectables/coin.tscn" id="3_xrkrx"]
-[ext_resource type="Texture2D" uid="uid://dpgjm5e7uiwxa" path="res://sprites/fjender/base_enemy/base-enemy-ned_angreb.png" id="4_6ink4"]
 [ext_resource type="Shader" path="res://scenes/enemies/hurt_shader.gdshader" id="4_mhubf"]
-[ext_resource type="Texture2D" uid="uid://dusfyddpckmkr" path="res://sprites/fjender/base_enemy/base-enemy-ned_idle_walk-2.png" id="5_o86vd"]
-[ext_resource type="Texture2D" uid="uid://bs4n4smhw3cjj" path="res://sprites/fjender/base_enemy/base-enemy-op_angreb.png" id="6_u6xq0"]
-[ext_resource type="Texture2D" uid="uid://tq0yjtfcrhji" path="res://sprites/fjender/base_enemy/base-enemy-op_idle_walk-2.png" id="7_vgy8w"]
-[ext_resource type="Texture2D" uid="uid://do1ycxqqsvea8" path="res://sprites/fjender/base_enemy/base-enemy-venstre_angreb.png" id="8_1pqd4"]
-[ext_resource type="Texture2D" uid="uid://dqkr24m08qk8o" path="res://sprites/fjender/base_enemy/base-enemy-venstre_idle_walk-2.png" id="9_eejmn"]
-[ext_resource type="Texture2D" uid="uid://xvs1fm42lj0x" path="res://sprites/fjender/base_enemy/base-enemy-hojre_walk-1.png" id="10_0h7n6"]
-[ext_resource type="Texture2D" uid="uid://cymajxlyocfx1" path="res://sprites/fjender/base_enemy/base-enemy-ned_walk-1.png" id="11_p47jm"]
-[ext_resource type="Texture2D" uid="uid://cghew41e5b2yi" path="res://sprites/fjender/base_enemy/base-enemy-op_walk-1.png" id="12_wyh03"]
-[ext_resource type="Texture2D" uid="uid://c0rfdw546d0c8" path="res://sprites/fjender/base_enemy/base-enemy-venstre_walk-1.png" id="13_ewkv8"]
+[ext_resource type="Texture2D" uid="uid://nixq4q80mnc4" path="res://sprites/fjender/sprial_enemy/spiral-enemy_angreb-1.png" id="5_l8qgt"]
+[ext_resource type="Texture2D" uid="uid://dphykx5xb24wv" path="res://sprites/fjender/sprial_enemy/spiral-enemy_angreb-2.png" id="6_pvb4v"]
+[ext_resource type="Texture2D" uid="uid://b8oi5qmj8ys0g" path="res://sprites/fjender/sprial_enemy/spiral-enemy_idle-1_walk-2-4.png" id="7_unl3p"]
+[ext_resource type="Texture2D" uid="uid://cqgu6kffgkfqb" path="res://sprites/fjender/sprial_enemy/spiral-enemy_idle-2.png" id="8_0frbx"]
+[ext_resource type="Texture2D" uid="uid://b7ge1btr1nkom" path="res://sprites/fjender/sprial_enemy/spiral-enemy_walk-1.png" id="9_r1eh2"]
+[ext_resource type="Texture2D" uid="uid://7elg7h75rwjr" path="res://sprites/fjender/sprial_enemy/spiral-enemy_walk-3.png" id="10_hjqw6"]
 [ext_resource type="AudioStream" uid="uid://c4wowkb15wcng" path="res://sounds/Enemy1Sound.mp3" id="14_4duwj"]
-[ext_resource type="Texture2D" uid="uid://cxdktks84mnsy" path="res://icon.svg" id="15_btg3c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0dx8f"]
-radius = 60.0
-height = 164.0
+radius = 46.0
+height = 128.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_emg7y"]
 resource_local_to_scene = true
@@ -32,123 +25,36 @@ shader_parameter/flash_value = null
 [sub_resource type="SpriteFrames" id="SpriteFrames_gqgte"]
 animations = [{
 "frames": [{
-"duration": 1.5,
-"texture": ExtResource("2_an656")
+"duration": 1.0,
+"texture": ExtResource("5_l8qgt")
 }, {
-"duration": 1.5,
-"texture": ExtResource("3_7n8hg")
+"duration": 1.0,
+"texture": ExtResource("6_pvb4v")
 }],
-"loop": false,
-"name": &"Angreb højre",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.5,
-"texture": ExtResource("4_6ink4")
-}, {
-"duration": 1.5,
-"texture": ExtResource("5_o86vd")
-}],
-"loop": false,
-"name": &"Angreb ned",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.5,
-"texture": ExtResource("6_u6xq0")
-}, {
-"duration": 1.5,
-"texture": ExtResource("7_vgy8w")
-}],
-"loop": false,
-"name": &"Angreb op",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.5,
-"texture": ExtResource("8_1pqd4")
-}, {
-"duration": 1.5,
-"texture": ExtResource("9_eejmn")
-}],
-"loop": false,
-"name": &"Angreb venstre",
+"loop": true,
+"name": &"Angreb",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_7n8hg")
+"texture": ExtResource("7_unl3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0frbx")
 }],
 "loop": true,
-"name": &"Idle højre",
+"name": &"Idle",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_o86vd")
-}],
-"loop": true,
-"name": &"Idle ned",
-"speed": 5.0
+"texture": ExtResource("9_r1eh2")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_vgy8w")
+"texture": ExtResource("10_hjqw6")
 }],
 "loop": true,
-"name": &"Idle op",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_eejmn")
-}],
-"loop": true,
-"name": &"Idle venstre",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.2,
-"texture": ExtResource("10_0h7n6")
-}, {
-"duration": 1.2,
-"texture": ExtResource("3_7n8hg")
-}],
-"loop": true,
-"name": &"Walk højre",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.2,
-"texture": ExtResource("11_p47jm")
-}, {
-"duration": 1.2,
-"texture": ExtResource("5_o86vd")
-}],
-"loop": true,
-"name": &"Walk ned",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.2,
-"texture": ExtResource("12_wyh03")
-}, {
-"duration": 1.2,
-"texture": ExtResource("7_vgy8w")
-}],
-"loop": true,
-"name": &"Walk op",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.2,
-"texture": ExtResource("13_ewkv8")
-}, {
-"duration": 1.2,
-"texture": ExtResource("9_eejmn")
-}],
-"loop": true,
-"name": &"Walk venstre",
+"name": &"Walk",
 "speed": 5.0
 }]
 
@@ -190,7 +96,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4nd4c"]
-radius = 699.121
+radius = 502.016
 
 [node name="Enemy5" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_2pkde")
@@ -204,7 +110,7 @@ shape = SubResource("CapsuleShape2D_0dx8f")
 material = SubResource("ShaderMaterial_emg7y")
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_gqgte")
-animation = &"Angreb venstre"
+animation = &"Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
@@ -233,10 +139,6 @@ shape = SubResource("CircleShape2D_4nd4c")
 stream = ExtResource("14_4duwj")
 volume_db = -5.0
 bus = &"Sfx"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.8125, 1.39063)
-texture = ExtResource("15_btg3c")
 
 [connection signal="timeout" from="move_Timer" to="." method="_on_move_timer_timeout"]
 [connection signal="timeout" from="attack_Timer" to="." method="_on_attack_timer_timeout"]
