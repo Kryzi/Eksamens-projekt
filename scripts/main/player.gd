@@ -28,6 +28,9 @@ func _ready():
 	
 
 func _physics_process(delta):
+	# Tiden spil uptages her
+	PlayerInfo.timer += delta
+	
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	
 	if direction == Vector2.ZERO:
@@ -65,6 +68,9 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	
+	
+	
+	
 
 func play_anim(dir):
 	if player_state == "Idle":
@@ -100,7 +106,7 @@ func hit_damage(damage):
 		die()
 
 func die():
-	var highScore = PlayerInfo.current_coins
+	var highScore = PlayerInfo.timer
 	PlayerInfo.win_screen_reached.emit(false, highScore)
 
 func _on_dashing_timeout() -> void:

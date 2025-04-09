@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cradrmw10obwa"]
+[gd_scene load_steps=38 format=3 uid="uid://cradrmw10obwa"]
 
 [ext_resource type="Script" path="res://scripts/main/player.gd" id="1_ddb0a"]
 [ext_resource type="Texture2D" uid="uid://bmjvtt528ekn5" path="res://sprites/spiller/spiller-hojre_idle-1_walk-2-4.png" id="2_brr8l"]
@@ -29,7 +29,6 @@
 [ext_resource type="Script" path="res://scripts/weapons/reload_bar.gd" id="22_y1rj5"]
 [ext_resource type="Texture2D" uid="uid://2c0jkn2tbt40" path="res://sprites/andet/reload_slider/reload-slider_for.png" id="23_5qp3u"]
 [ext_resource type="Texture2D" uid="uid://be7sw3e0iboj8" path="res://sprites/andet/reload_slider/reload-slider_efter.png" id="24_ppcvr"]
-[ext_resource type="PackedScene" uid="uid://oruuej8gtlva" path="res://scenes/weapons/rock_guitar/rockguitar.tscn" id="26_3td7x"]
 [ext_resource type="AudioStream" uid="uid://bpicuej6pb1f2" path="res://sounds/GedSlapSound.mp3" id="27_1juf4"]
 [ext_resource type="AudioStream" uid="uid://bdr76qsc0x73l" path="res://sounds/HitSound.mp3" id="28_dg55l"]
 
@@ -239,11 +238,6 @@ script = ExtResource("3_fteec")
 [node name="BasicBow" parent="Weapon" instance=ExtResource("4_p5qdd")]
 
 [node name="BasicKnife" parent="Weapon" instance=ExtResource("20_y8slu")]
-
-[node name="rockguitar" parent="Weapon" instance=ExtResource("26_3td7x")]
-damage = 100
-maxAmmo = 1000
-num_bullets = 10
 
 [node name="Damage" type="Area2D" parent="."]
 
