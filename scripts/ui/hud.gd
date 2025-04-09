@@ -88,6 +88,11 @@ func _on_button_pressed() -> void:
 func _on_retry_button_pressed() -> void:
 	PlayerInfo.bossTimer = 0
 	PlayerInfo.current_coins = 0
+	PlayerInfo.weaponLimitCost = 10
+	PlayerInfo.weaponLimit = 5
+	PlayerInfo.Dictionary = {
+	"current_health": 10,
+	"max_health": 10 }
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
