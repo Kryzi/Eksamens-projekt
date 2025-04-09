@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://oruuej8gtlva"]
 
 [ext_resource type="Script" path="res://scripts/weapons/special_weapons/rockguitar.gd" id="1_81che"]
-[ext_resource type="PackedScene" uid="uid://ds6u0si4rn8iw" path="res://scenes/weapons/rock_guitar/rock_guitar_projectile.tscn" id="2_6tjmc"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/rock_guitar/rock_guitar_projectile.tscn" id="2_6tjmc"]
 [ext_resource type="Texture2D" uid="uid://x2hjcybr05yb" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_angreb-1.png" id="3_jw2yb"]
 [ext_resource type="Texture2D" uid="uid://byqm8ge3k23d0" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_angreb-2.png" id="4_jvup8"]
 [ext_resource type="Texture2D" uid="uid://djg44dbqe5xcl" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_angreb-3.png" id="5_xx18l"]
