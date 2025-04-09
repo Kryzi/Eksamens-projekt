@@ -44,7 +44,7 @@ func _on_item_area_body_entered(_body: Node2D) -> void:
 				weapon.applyUpgrades( num, num)
 				ItemSound.play()
 				await ItemSound.finished
-				UpgradeText.ShowText("Damage Firerate til dine våben")
+				UpgradeText.ShowText("Damage til dine våben")
 			2:
 				weapon.applyHealthUpgrade(num, num)
 				ItemSound.play()

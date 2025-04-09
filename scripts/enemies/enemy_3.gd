@@ -20,6 +20,7 @@ func _ready() -> void:
 func die():
 	dropCoin()
 	queue_free()
+	controller.call_deferred("awaited_navigation_region_baking")
 	controller.checkDeath()
 
 func dropCoin():

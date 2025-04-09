@@ -56,9 +56,9 @@ func show_leaderboard_window(leaderboard_scores: Dictionary) -> void:
 	%Leaderboard.show()
 	%MainMenuButtons.hide()
 	var score_row_labels: Array[Node] = %LeaderBoardScoreRows.get_children()
-	if leaderboard_scores['size'] > 0:
-		for score_row_label in score_row_labels:
+	for score_row_label in score_row_labels:
 			score_row_label.queue_free()
+	if leaderboard_scores['size'] > 0:
 		#for leaderboard_score in leaderboard_scores:
 		for n in leaderboard_scores["size"]:
 			var score_row_label = Label.new()

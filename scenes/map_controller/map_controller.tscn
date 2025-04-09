@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dgjf5tyol4k2i" path="res://scenes/enemies/enemy_2_2.tscn" id="8_qxsf5"]
 [ext_resource type="PackedScene" uid="uid://c1lx361saaoff" path="res://scenes/obstacles/stone_obstacle.tscn" id="8_ull2l"]
 [ext_resource type="PackedScene" uid="uid://b6nxnslplnmhh" path="res://scenes/obstacles/wood_obstacle.tscn" id="9_mui1h"]
-[ext_resource type="PackedScene" uid="uid://dwiifwtduetas" path="res://scenes/enemies/enemy_4.tscn" id="9_y5vl1"]
+[ext_resource type="PackedScene" uid="uid://deka6f0kjlaxn" path="res://scenes/enemies/enemy_4.tscn" id="9_y5vl1"]
 [ext_resource type="PackedScene" uid="uid://ccjonkgmxrqvf" path="res://scenes/enemies/enemy_5.tscn" id="11_g6tvu"]
 [ext_resource type="PackedScene" path="res://scenes/map_controller/MusikManager.tscn" id="11_ia271"]
 
