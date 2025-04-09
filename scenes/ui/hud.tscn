@@ -302,6 +302,7 @@ size_flags_horizontal = 4
 text = "Exit"
 
 [node name="Upgradetext" type="RichTextLabel" parent="Control"]
+visible = false
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 5
