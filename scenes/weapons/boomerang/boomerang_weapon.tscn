@@ -16,7 +16,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Boomerang (weapon)" type="Node2D"]
+[node name="Boomerang (weapon)" type="Node2D" groups=["Boomerang"]]
 scale = Vector2(5, 5)
 script = ExtResource("1_1tt54")
 Boomerang = ExtResource("2_42sl5")
