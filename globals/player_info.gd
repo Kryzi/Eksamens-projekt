@@ -5,6 +5,8 @@ signal ammo_changed(new_ammo_data: Dictionary)
 signal coin_count_changed(new_coins: int)
 signal win_screen_reached(is_player_victorious: bool,coins_high_score: int)
 
+# Bruges til at bestemme hvem har klaret spillet hurtigst
+var timer = 0
 var current_coins: int = 0:
 	set(value):
 		current_coins = value

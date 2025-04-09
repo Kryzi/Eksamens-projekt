@@ -110,7 +110,7 @@ func hit_damage(damage):
 
 func die():
 	dropCoin()
-	var high_score = PlayerInfo.current_coins
+	var high_score = PlayerInfo.timer
 	PlayerInfo.win_screen_reached.emit(true, high_score)
 	queue_free()
 
