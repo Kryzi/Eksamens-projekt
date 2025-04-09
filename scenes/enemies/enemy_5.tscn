@@ -24,6 +24,7 @@ radius = 60.0
 height = 164.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_emg7y"]
+resource_local_to_scene = true
 shader = ExtResource("4_mhubf")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = null
