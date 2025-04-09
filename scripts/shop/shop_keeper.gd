@@ -13,6 +13,7 @@ func _ready() -> void:
 
 
 func _on_refill_ammo_pressed() -> void:
+	var currentWeapon = weapon.weapons[weapon.currentWeapon]
 	if weapon.weapons[weapon.currentWeapon].ranged == false:
 		SpeechText.text = "Du har et melee våben, klovn!"
 		textfelt()
@@ -28,7 +29,10 @@ func _on_refill_ammo_pressed() -> void:
 	if weapon.weapons[weapon.currentWeapon].ranged == true and weapon.weapons[weapon.currentWeapon].reserveAmmo != weapon.weapons[weapon.currentWeapon].maxAmmo:
 		PlayerInfo.current_coins -= refillPrice
 		weapon.weapons[weapon.currentWeapon].reserveAmmo = weapon.weapons[weapon.currentWeapon].maxAmmo
+		weapon.weapons[weapon.currentWeapon].currentAmmo = weapon.weapons[weapon.currentWeapon].magSize
 		weapon.weapons[weapon.currentWeapon].reloading = false
+		
+		
 		
 		PlayerInfo.ammo_data = {
 		"current_ammo": weapon.weapons[weapon.currentWeapon].currentAmmo,

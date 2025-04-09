@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1ti0ps86yt0p"]
+[gd_scene load_steps=16 format=3 uid="uid://d1ti0ps86yt0p"]
 
 [ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_3jcof"]
 [ext_resource type="Script" path="res://scripts/ui/inventory.gd" id="2_blooa"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bim84cp6kchdj" path="res://sprites/vaaben/ranged/is_kannon/is-kannon_idle.png" id="10_4dxx1"]
 [ext_resource type="Texture2D" uid="uid://eoaedts82ej4" path="res://sprites/vaaben/melee/le/le_idle.png" id="11_pyufq"]
 [ext_resource type="Texture2D" uid="uid://dkvlsoqapoya4" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_idle.png" id="12_7wxm8"]
+[ext_resource type="Script" path="res://scripts/ui/upgradetext.gd" id="13_qh4r3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlwpy"]
 bg_color = Color(0.816006, 0.491452, 0.548551, 1)
@@ -297,6 +298,22 @@ custom_minimum_size = Vector2(90, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Exit"
+
+[node name="Upgradetext" type="RichTextLabel" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 50.0
+offset_right = 57.0
+offset_bottom = 97.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "HEJ"
+scroll_active = false
+script = ExtResource("13_qh4r3")
 
 [connection signal="pressed" from="Control/EndScreenPanel/MarginContainer/EndScreenContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Control/EndScreenPanel/MarginContainer/EndScreenContainer/QuitButton" to="." method="_on_button_pressed"]
