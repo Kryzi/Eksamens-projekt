@@ -3,10 +3,12 @@ extends Node2D
 #@export var enemy_1: PackedScene
 
 @export var enemy_1: PackedScene
+@export var enemy_1_1: PackedScene
 @export var enemy_2: PackedScene
 @export var enemy_2_2: PackedScene
 @export var enemy_3: PackedScene
 @export var enemy_4: PackedScene
+@export var enemy_5: PackedScene
 @export var stone_obstacle: PackedScene
 @export var wood_obstacle: PackedScene
 
@@ -97,7 +99,9 @@ func is_obstacle_position_valid(new_pos: Vector2) -> bool:
 #endregion Obstacle generation
 
 #region Enemy spawning
+# Amount er for normale modstandere, amount2 er for stærke modstandere
 var amount = 0
+var amount2 = 0
 var enemy_scenes = []
 func create_spawn_area(new_boundary):
 	spawnArea = get_area_from_boundary(new_boundary)  # Calculate the spawn area bounding box
@@ -105,10 +109,14 @@ func create_spawn_area(new_boundary):
 	#print("Spawner ready:", self.name, "from", get_parent())
 	if (PlayerInfo.bossTimer <= 5):
 		amount = randi_range(2, 3)
-	if (PlayerInfo.bossTimer <= 10 and PlayerInfo.bossTimer > 5):
-		amount = randi_range(4, 5)
-	if (PlayerInfo.bossTimer > 10):
-		amount = randi_range(6, 7)
+	if (PlayerInfo.bossTimer >= 4):
+		amount2 = 1
+	if (PlayerInfo.bossTimer <= 9 and PlayerInfo.bossTimer > 5):
+		amount = randi_range(2, 4)
+		amount2 = randi_range(2, 3)
+	if (PlayerInfo.bossTimer >= 9):
+		amount = randi_range(4, 6)
+		amount2 = randi_range(3, 4)
 	
 	
 	if (PlayerInfo.areaID == 1):
@@ -118,13 +126,11 @@ func create_spawn_area(new_boundary):
 	if (PlayerInfo.areaID == 3):
 		MeleeBoundary = layout3.get_node("EnemyArea3/SpawnShape3")
 	
-	
-	
-	
 	for i in amount:
-		#print(i)
 		random_spawn(i)
-		
+	for i in amount2:
+		strong_spawn(i)
+	
 func get_area_from_boundary(boundary_for_spawn_area: CollisionPolygon2D) -> Rect2:
 	var min_x = INF
 	var min_y = INF
@@ -168,10 +174,10 @@ func random_spawn(i):
 		# Vælg en tilfældig fjende at spawne
 		if (PlayerInfo.bossTimer <= 3):
 			enemy_scenes = [enemy_1, enemy_3]
-		elif (PlayerInfo.bossTimer > 3):
+		elif (PlayerInfo.bossTimer >= 4):
 			enemy_scenes = [enemy_1, enemy_2, enemy_3]
-		elif (PlayerInfo.bossTimer >= 8):
-			enemy_scenes = [enemy_1, enemy_2, enemy_3, enemy_2_2]
+		elif (PlayerInfo.bossTimer >= 9):
+			enemy_scenes = [enemy_1_1, enemy_2, enemy_2_2]
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
 		var enemy_instance = selected_enemy.instantiate()
@@ -182,6 +188,37 @@ func random_spawn(i):
 			enemy_instance.position = pos
 		call_deferred("add_child", enemy_instance)
 		#print("used2")
+
+# For de stærke modstandere der skal være færre af
+func strong_spawn(i):
+	var x = randf_range(spawnArea.position.x, spawnArea.end.x)
+	var y = randf_range(spawnArea.position.y, spawnArea.end.y)
+	var pos = Vector2(x, y)
+	melee_spawn()
+	
+	#Første modstander er altid basis
+	if (i == 0):
+		var enemy_instance = enemy_1.instantiate()
+		enemy_instance.position = pos
+		call_deferred("add_child", enemy_instance)
+		#print("used")
+	else:
+		var enemy_scenes = []
+		# Vælg en tilfældig fjende at spawne
+		
+		enemy_scenes = [enemy_2_2, enemy_5, enemy_1_1]
+		if (PlayerInfo.bossTimer >= 9):
+			enemy_scenes = [enemy_5, enemy_2_2, enemy_4]
+			print("brugt")
+		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
+		
+		var enemy_instance = selected_enemy.instantiate()
+		# Modstander 3 spawner tættere til spilleren
+		if(selected_enemy == enemy_5 or selected_enemy == enemy_2_2 or selected_enemy == enemy_4 ):
+			enemy_instance.position = pos2
+		else:
+			enemy_instance.position = pos
+		call_deferred("add_child", enemy_instance)
 
 func elite_spawn(i):
 	var x = randf_range(spawnArea.position.x, spawnArea.end.x)
@@ -194,16 +231,16 @@ func elite_spawn(i):
 		enemy_instance.position = pos
 		call_deferred("add_child", enemy_instance)
 	else: 
-		if ((PlayerInfo.bossTimer >= 9) and (randi_range(1,2) == 2)):
-			enemy_scenes = [enemy_2_2, enemy_4]
-		else:
-			enemy_scenes = [enemy_1, enemy_2, enemy_3]
+		
+		enemy_scenes = [enemy_1_1, enemy_5, enemy_2_2, enemy_4]
+		if (PlayerInfo.bossTimer >= 9):
+			enemy_scenes = [enemy_5, enemy_4]
 		
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
 		var enemy_instance = selected_enemy.instantiate()
 		# Modstander 3 spawner tættere til spilleren
-		if(selected_enemy == enemy_3 or selected_enemy == enemy_4 or selected_enemy == enemy_2_2):
+		if(selected_enemy == enemy_3 or selected_enemy == enemy_4 or selected_enemy == enemy_2_2 or selected_enemy == enemy_5):
 			enemy_instance.position = pos2
 		else:
 			enemy_instance.position = pos
@@ -213,8 +250,10 @@ func elite_spawn(i):
 func rewardSet(value):
 	#rewardValue = randi_range(1, 3)
 	var eliteChance = 0
-	if (PlayerInfo.bossTimer >= 5):
+	if (PlayerInfo.bossTimer >= 4):
 		eliteChance = randi_range(1, 3)
+	if (PlayerInfo.bossTimer >= 9):
+		eliteChance = randi_range(2, 3)
 	'eliteChance = 3'
 	rewardValue = value
 	if (rewardValue == 1):
@@ -278,14 +317,17 @@ func checkDeath():
 		print(PlayerInfo.bossTimer)
 		variationID = randi_range(1, 3)
 		
+		if (PlayerInfo.bossTimer >= 9):
+			variationID = randi_range(2, 3)
 		# Sikre at der altid er mindst en vej der ikke er shop
 		rewardSet(randi_range(1, 2))
 		# Sikre at man får en shop mindst vær tredje bane og lige før bosskampen
 		if ((PlayerInfo.bossTimer % 3) == 0 and PlayerInfo.bossTimer > 0):
 			rewardSet(3)
-		if (PlayerInfo.bossTimer == 14):
+		if (PlayerInfo.bossTimer > 12):
 			rewardSet(3)
 			variationID = 1
+			print("works")
 		
 		if layout1.visible == true:
 			layout1.visible = false
