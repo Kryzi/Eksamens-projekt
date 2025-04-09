@@ -56,20 +56,27 @@ func show_leaderboard_window(leaderboard_scores: Dictionary) -> void:
 	%Leaderboard.show()
 	%MainMenuButtons.hide()
 	var score_row_labels: Array[Node] = %LeaderBoardScoreRows.get_children()
-	for score_row_label in score_row_labels:
-		score_row_label.queue_free()
-	#for leaderboard_score in leaderboard_scores:
-	for n in leaderboard_scores["size"]:
-		var score_row_label = Label.new()
-		#var player_name := str(leaderboard_score['player_name'])
-		var leaderboard_score: Dictionary = leaderboard_scores[str(n)]
-		var score := str(leaderboard_score['score'])
-		var player_name := str(leaderboard_score['player_name'])
-		var leaderboard_ranking = str(n + 1)
-		score_row_label.text = leaderboard_ranking + ". " + \
-								player_name + ": " + score
-		score_row_label.set("theme_override_font_sizes/font_size", 25)
-		%LeaderBoardScoreRows.add_child(score_row_label)
+	if leaderboard_scores['size'] > 0:
+		for score_row_label in score_row_labels:
+			score_row_label.queue_free()
+		#for leaderboard_score in leaderboard_scores:
+		for n in leaderboard_scores["size"]:
+			var score_row_label = Label.new()
+			#var player_name := str(leaderboard_score['player_name'])
+			var leaderboard_score: Dictionary = leaderboard_scores[str(n)]
+			var score := str(leaderboard_score['score'])
+			var player_name := str(leaderboard_score['player_name'])
+			var leaderboard_ranking = str(n + 1)
+			score_row_label.text = leaderboard_ranking + ". " + \
+									player_name + ": " + score
+			score_row_label.set("theme_override_font_sizes/font_size", 25)
+			%LeaderBoardScoreRows.add_child(score_row_label)
+	else:
+		var no_data_label = Label.new()
+		no_data_label.text = "No highscore set yet"
+		no_data_label.set("theme_override_font_sizes/font_size", 25)
+		%LeaderBoardScoreRows.add_child(no_data_label)
+		
 
 
 func _on_to_main_menu_button_pressed() -> void:

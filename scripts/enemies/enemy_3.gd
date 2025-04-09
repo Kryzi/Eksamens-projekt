@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends StaticBody2D
 
 var speed = 10000
 var health = 15
