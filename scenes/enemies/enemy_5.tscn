@@ -111,6 +111,7 @@ material = SubResource("ShaderMaterial_emg7y")
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_gqgte")
 animation = &"Idle"
+frame_progress = 0.605701
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {

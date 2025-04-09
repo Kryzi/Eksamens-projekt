@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d1ti0ps86yt0p"]
+[gd_scene load_steps=17 format=3 uid="uid://d1ti0ps86yt0p"]
 
 [ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_3jcof"]
 [ext_resource type="Script" path="res://scripts/ui/inventory.gd" id="2_blooa"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://eoaedts82ej4" path="res://sprites/vaaben/melee/le/le_idle.png" id="11_pyufq"]
 [ext_resource type="Texture2D" uid="uid://dkvlsoqapoya4" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_idle.png" id="12_7wxm8"]
 [ext_resource type="Script" path="res://scripts/ui/upgradetext.gd" id="13_qh4r3"]
+[ext_resource type="Texture2D" uid="uid://cj7wr2qrajq36" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_tramp1-hoved-ned_idle.png" id="14_ixpyk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlwpy"]
 bg_color = Color(0.816006, 0.491452, 0.548551, 1)
@@ -324,6 +325,25 @@ theme_override_font_sizes/normal_font_size = 32
 text = "HEJ"
 scroll_active = false
 script = ExtResource("13_qh4r3")
+
+[node name="BossLivbar" type="VSlider" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -203.0
+offset_right = 96.0
+offset_bottom = 201.0
+grow_vertical = 2
+value = 100.0
+editable = false
+scrollable = false
+
+[node name="Gigaged-nedTramp1-hoved-nedIdle" type="Sprite2D" parent="Control/BossLivbar"]
+position = Vector2(45, 28)
+scale = Vector2(8, 8)
+texture = ExtResource("14_ixpyk")
 
 [connection signal="pressed" from="Control/EndScreenPanel/MarginContainer/EndScreenContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Control/EndScreenPanel/MarginContainer/EndScreenContainer/MainMenu" to="." method="_on_main_menu_pressed"]

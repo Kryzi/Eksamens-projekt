@@ -219,6 +219,9 @@ script = ExtResource("3_fteec")
 [node name="BasicKnife" parent="Weapon" instance=ExtResource("20_y8slu")]
 
 [node name="rockguitar" parent="Weapon" instance=ExtResource("26_3td7x")]
+damage = 100
+maxAmmo = 1000
+num_bullets = 10
 
 [node name="Damage" type="Area2D" parent="."]
 

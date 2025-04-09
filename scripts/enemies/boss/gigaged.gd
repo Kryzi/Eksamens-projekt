@@ -18,9 +18,12 @@ var attacking = false
 
 @onready var GedeStompSound = $GedeStompSound
 @onready var GedeFartSound = $GedeFartSound
+@onready var bosslivbar = get_node("/root/Main/HUD/Control/BossLivbar")
 
 func _ready() -> void:
 	set_new_target()
+	bosslivbar.max_value = health
+	bosslivbar.value = health
 
 func _physics_process(_delta):
 	if is_thinking == true or attacking == true:
@@ -89,8 +92,11 @@ func update_retning(direction: Vector2):
 		$CollisionShape2D.shape.size.x = 75
 		$CollisionShape2D.shape.size.y = 129
 
+
 func hit_damage(damage):
 	health -= damage
+	bosslivbar.value = health
+	
 	if (health <= 400):
 		trampDonwTime = 0.75
 		thinkTime = 0.75
