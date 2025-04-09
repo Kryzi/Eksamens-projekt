@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 var theta: float = 0.0
-var speed: float = 100.0  
+var speed: float = 125.0  
 var target_position: Vector2  
 var retning: String = "ned"  # Standard retning
 var is_thinking: bool = false  # Forhindrer gentagne bevægelseskald
 var attacking = false
 
 @export var thinkTime = 1.0 
-@export var health = 200
+@export var health = 600
 @export var bullet_scene: PackedScene
 @export_range(0, 2 * PI) var alpha: float = 0.0
 @export var trampDonwTime = 1.0
@@ -91,6 +91,14 @@ func update_retning(direction: Vector2):
 
 func hit_damage(damage):
 	health -= damage
+	if (health <= 400):
+		trampDonwTime = 0.75
+		thinkTime = 0.75
+		speed = 200
+	if (health <= 150):
+		trampDonwTime = 0.5
+		thinkTime = 0.25 
+		speed = 200
 	if health <= 0:
 		die()
 
