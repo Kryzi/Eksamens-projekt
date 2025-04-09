@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_h0geb"]
 radius = 30.0
 
-[node name="StoneObstacle" type="StaticBody2D" groups=["obstacle"]]
+[node name="StoneObstacle" type="StaticBody2D" groups=["navigation_baking", "obstacle"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_h0geb")

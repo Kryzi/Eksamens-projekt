@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 		
 		
 		
-	if Input.is_action_just_pressed("x") and weapons.size() > currentWeapon and weapons.size() > 1 :
+	if Input.is_action_just_pressed("g") and weapons.size() > currentWeapon and weapons.size() > 1 :
 		deleteWeapon()
 		
 	

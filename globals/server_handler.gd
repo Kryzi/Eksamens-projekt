@@ -94,23 +94,8 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 		print("Get nonce: " + response['response']['nonce'])
 		return	
 	
-	#if response['response'] is String and response['response'] == "invalid_command":
-		#print("Invalid command: " + response['response'])
-		#return
-
-	#var dataAll: String = ""
-	if response['response']['size'] > 0:
-		#$TextEdit.set_text("")
-		var response_data: Dictionary = response['response']
-		request_data_received.emit(response_data)
-		#for n in (response['response']['size']):
-			#$TextEdit.set_text($TextEdit.get_text() + str(response['response'][str(n)]['player_name']) + "\t\t" + str(response['response'][str(n)]['score']) + "\n")
-			#var response_reponse_n: Dictionary = response['response'][str(n)]
-			#var player_name := str(response_reponse_n['player_name'])
-			#var score := str(response_reponse_n['score'])
-			#dataAll += player_name + "\t\t" + score + "\n"
-	#else:	
-		#dataAll = "No data"
+	# Kun send indholdet i HTTP-requesten som indeholder spillerdata og indholdsstørrelse 'size'
+	request_data_received.emit(response['response'])
 
 	
 
