@@ -96,7 +96,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_4nd4c"]
 radius = 911.002
 
-[node name="Enemy3" type="CharacterBody2D" groups=["enemy"]]
+[node name="Enemy3" type="StaticBody2D" groups=["enemy", "navigation_baking"]]
 script = ExtResource("1_fiq3m")
 bullet_scene = ExtResource("2_pje1t")
 coin_scene = ExtResource("2_ld88o")

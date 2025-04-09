@@ -9,7 +9,7 @@ vertices = PackedVector2Array(2642, 890, -2666, 890, -2666, -1610, 2642, -1610)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2652, 900, -2676, 900, -2676, -1620, 2652, -1620)])
 source_geometry_mode = 2
-source_geometry_group_name = &"obstacle"
+source_geometry_group_name = &"navigation_baking"
 agent_radius = 80.0
 
 [node name="Main" type="Node2D"]
