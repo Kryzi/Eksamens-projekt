@@ -29,7 +29,7 @@ func _process(_delta):
 
 func _on_admin_pressed() -> void:
 	PlayerInfo.current_coins = 999999999
-	$Decoration/Hoved.texture = load("res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_tramp1-hoved-venstre_angreb.png")
+	$Control/Hoved.texture = load("res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_tramp1-hoved-venstre_angreb.png")
 
 
 
