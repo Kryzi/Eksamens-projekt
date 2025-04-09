@@ -248,8 +248,17 @@ func checkDeath():
 		# Switch visible background
 		var Reward = map_controller.stageReward
 		stageReward(Reward)
-		
+		print(PlayerInfo.bossTimer)
 		variationID = randi_range(1, 3)
+		
+		# Sikre at der altid er mindst en vej der ikke er shop
+		rewardSet(randi_range(1, 2))
+		# Sikre at man får en shop mindst vær tredje bane og lige før bosskampen
+		if ((PlayerInfo.bossTimer % 3) == 0 and PlayerInfo.bossTimer > 0):
+			rewardSet(3)
+		if (PlayerInfo.bossTimer == 13):
+			rewardSet(3)
+			variationID = 1
 		
 		if layout1.visible == true:
 			layout1.visible = false
@@ -261,7 +270,7 @@ func checkDeath():
 			layout1_bridge.get_node("Variation1_3").visible = false
 			
 			#var rewardLabel = layout1_bridge.get_node("rewardLabel")
-			rewardSet(randi_range(1, 2))
+			#rewardSet(randi_range(1, 2))
 			layout1_bridge.get_node("Variation1_1/rewardLabel").text = PlayerInfo.mapValue
 			teleporter1 = rewardValue
 			
@@ -303,7 +312,7 @@ func checkDeath():
 			layout2_bridge.get_node("Variation2_3").visible = false
 			
 			
-			rewardSet(randi_range(1, 3))
+			#rewardSet(randi_range(1, 3))
 			layout2_bridge.get_node("Variation2_1/rewardLabel2").text = PlayerInfo.mapValue
 			teleporter1 = rewardValue
 			
@@ -342,7 +351,7 @@ func checkDeath():
 			layout3_bridge.get_node("Variation3_3").visible = false
 			
 			#var rewardLabel = layout1_bridge.get_node("rewardLabel")
-			rewardSet(randi_range(1, 3))
+			#rewardSet(randi_range(1, 3))
 			layout3_bridge.get_node("Variation3_1/rewardLabel3_1").text = PlayerInfo.mapValue
 			teleporter1 = rewardValue
 			
