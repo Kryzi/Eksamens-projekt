@@ -120,8 +120,7 @@ func weaponSwapped(i):
 
 func applyUpgrades(damageUpgrade: int, FirerateUpgrade: float):
 	applyDamageUp(damageUpgrade)
-	applyFirerateRangedUp(FirerateUpgrade)
-	applyFirerateMeleeUp(FirerateUpgrade)
+
 
 func applyDamageUp(damageUpgrade: int):
 	for i in weapons.size():
