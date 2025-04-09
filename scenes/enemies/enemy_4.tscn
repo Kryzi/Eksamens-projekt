@@ -311,13 +311,13 @@ shape = SubResource("CircleShape2D_gqir2")
 
 [node name="GolemGåSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_ajo0b")
-volume_db = 5.0
+volume_db = 15.0
 bus = &"Sfx"
 parameters/looping = true
 
 [node name="GolemLøbSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_vp1jq")
-volume_db = 15.0
+volume_db = 20.0
 bus = &"Sfx"
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
