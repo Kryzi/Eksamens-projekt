@@ -54,7 +54,7 @@ func _on_item_area_body_entered(_body: Node2D) -> void:
 				player.speedUpgrade(num + 0.1)
 				ItemSound.play()
 				await ItemSound.finished
-				UpgradeText.ShowText("Speed, Dash længde og Firerate til din våben")
+				UpgradeText.ShowText("Øget Speed, Dash længde og Firerate")
 			4:
 				weapon.applyUpgrades( num, num + 0.1)
 				ItemSound.play()
