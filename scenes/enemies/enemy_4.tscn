@@ -312,7 +312,6 @@ shape = SubResource("CircleShape2D_gqir2")
 [node name="GolemGåSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_ajo0b")
 volume_db = 5.0
-autoplay = true
 bus = &"Sfx"
 parameters/looping = true
 
