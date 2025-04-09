@@ -44,22 +44,22 @@ func _on_item_area_body_entered(_body: Node2D) -> void:
 				weapon.applyUpgrades( num, num)
 				ItemSound.play()
 				await ItemSound.finished
-				UpgradeText.ShowText("Damage og Firerate")
+				UpgradeText.ShowText("Damage og Firerate til dine våben")
 			2:
 				weapon.applyHealthUpgrade(num, num)
 				ItemSound.play()
 				await ItemSound.finished
-				UpgradeText.ShowText("Health")
+				UpgradeText.ShowText("Liv")
 			3:
 				player.speedUpgrade()
 				ItemSound.play()
 				await ItemSound.finished
-				UpgradeText.ShowText("Speed")
+				UpgradeText.ShowText("Speed og Dash længde")
 			4:
 				weapon.applyUpgrades( num, num)
 				ItemSound.play()
 				await ItemSound.finished
-				UpgradeText.ShowText("Damage og Firerate")
+				UpgradeText.ShowText("Damage og Firerate til dine våben")
 		
 		queue_free()
 	
