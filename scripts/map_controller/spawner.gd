@@ -110,6 +110,17 @@ func create_spawn_area(new_boundary):
 	if (PlayerInfo.bossTimer > 10):
 		amount = randi_range(6, 7)
 	
+	
+	if (PlayerInfo.areaID == 1):
+		MeleeBoundary = layout1.get_node("EnemyArea1/SpawnShape1")
+	if (PlayerInfo.areaID == 2):
+		MeleeBoundary = layout2.get_node("EnemyArea2/SpawnShape2")
+	if (PlayerInfo.areaID == 3):
+		MeleeBoundary = layout3.get_node("EnemyArea3/SpawnShape3")
+	
+	
+	
+	
 	for i in amount:
 		#print(i)
 		random_spawn(i)
@@ -129,10 +140,23 @@ func get_area_from_boundary(boundary_for_spawn_area: CollisionPolygon2D) -> Rect
 
 	return Rect2(Vector2(min_x, min_y), Vector2(max_x - min_x, max_y - min_y))
 
+@onready var MeleeBoundary: CollisionShape2D = layout1.get_node("EnemyArea1/SpawnShape1")
+var pos2 
+func melee_spawn():
+	var rect_shape := MeleeBoundary.shape as RectangleShape2D
+	var extents = rect_shape.extents
+	
+	var x2 = randf_range(-extents.x, extents.x)
+	var y2 = randf_range(-extents.y, extents.y)
+	var local_pos = Vector2(x2, y2)
+	pos2 = MeleeBoundary.global_transform * local_pos
+
 func random_spawn(i):
 	var x = randf_range(spawnArea.position.x, spawnArea.end.x)
 	var y = randf_range(spawnArea.position.y, spawnArea.end.y)
 	var pos = Vector2(x, y)
+	melee_spawn()
+	
 	#Første modstander er altid basis
 	if (i == 0):
 		var enemy_instance = enemy_1.instantiate()
@@ -152,8 +176,8 @@ func random_spawn(i):
 		
 		var enemy_instance = selected_enemy.instantiate()
 		# Modstander 3 spawner tættere til spilleren
-		if(selected_enemy == enemy_3):
-			enemy_instance.position = Vector2(x, y * 1)
+		if(selected_enemy == enemy_3 or selected_enemy == enemy_2_2):
+			enemy_instance.position = pos2
 		else:
 			enemy_instance.position = pos
 		call_deferred("add_child", enemy_instance)
@@ -163,6 +187,7 @@ func elite_spawn(i):
 	var x = randf_range(spawnArea.position.x, spawnArea.end.x)
 	var y = randf_range(spawnArea.position.y, spawnArea.end.y)
 	var pos = Vector2(x, y)
+	melee_spawn()
 	#Første modstander er altid basis
 	if (randi_range(1,2) == 2):
 		var enemy_instance = enemy_2_2.instantiate()
@@ -178,8 +203,8 @@ func elite_spawn(i):
 		
 		var enemy_instance = selected_enemy.instantiate()
 		# Modstander 3 spawner tættere til spilleren
-		if(selected_enemy == enemy_3):
-			enemy_instance.position = Vector2(x, y * 1)
+		if(selected_enemy == enemy_3 or selected_enemy == enemy_4 or selected_enemy == enemy_2_2):
+			enemy_instance.position = pos2
 		else:
 			enemy_instance.position = pos
 		call_deferred("add_child", enemy_instance)

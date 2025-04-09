@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://mwv5bu536rgt"]
+[gd_scene load_steps=25 format=3 uid="uid://mwv5bu536rgt"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy_1.gd" id="1_b1vgo"]
 [ext_resource type="PackedScene" uid="uid://bf26j1fyr3fs1" path="res://scenes/bullets/enemy_1_bullet.tscn" id="2_emeki"]
 [ext_resource type="PackedScene" uid="uid://ccogpqp72dena" path="res://scenes/collectables/coin.tscn" id="3_kcm8p"]
+[ext_resource type="Shader" path="res://scenes/enemies/hurt_shader.gdshader" id="4_2rr3h"]
 [ext_resource type="Texture2D" uid="uid://xvs1fm42lj0x" path="res://sprites/fjender/base_enemy/base-enemy-hojre_walk-1.png" id="4_6otml"]
 [ext_resource type="Texture2D" uid="uid://dusfyddpckmkr" path="res://sprites/fjender/base_enemy/base-enemy-ned_idle_walk-2.png" id="5_elbf3"]
 [ext_resource type="Texture2D" uid="uid://cfnoh23bdwm4d" path="res://sprites/fjender/base_enemy/base-enemy-hojre_idle_walk-2.png" id="5_kdpcf"]
@@ -20,6 +21,12 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0dx8f"]
 radius = 60.0
 height = 164.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yejxy"]
+resource_local_to_scene = true
+shader = ExtResource("4_2rr3h")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = null
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gqgte"]
 animations = [{
@@ -144,6 +151,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_ch6lp"]
+resource_name = "Hurt"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [null, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_k3gd5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8dfa"]
+_data = {
+"Hurt": SubResource("Animation_ch6lp"),
+"RESET": SubResource("Animation_k3gd5")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4nd4c"]
 radius = 475.178
 
@@ -156,9 +200,15 @@ coin_scene = ExtResource("3_kcm8p")
 shape = SubResource("CapsuleShape2D_0dx8f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_yejxy")
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_gqgte")
 animation = &"Angreb venstre"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_g8dfa")
+}
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
