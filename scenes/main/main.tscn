@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cogx1vos6b53b"]
+[gd_scene load_steps=7 format=3 uid="uid://cogx1vos6b53b"]
 
 [ext_resource type="PackedScene" uid="uid://cradrmw10obwa" path="res://scenes/main/player.tscn" id="1_yge8e"]
 [ext_resource type="PackedScene" uid="uid://d1ti0ps86yt0p" path="res://scenes/ui/hud.tscn" id="2_cce44"]
 [ext_resource type="PackedScene" uid="uid://cjg7rlfjs5hdb" path="res://scenes/map_controller/map_controller.tscn" id="3_y38tl"]
+[ext_resource type="PackedScene" uid="uid://dkgwqyst4e12n" path="res://scenes/enemies/enemy_1_1.tscn" id="4_goawk"]
 [ext_resource type="PackedScene" uid="uid://ccjonkgmxrqvf" path="res://scenes/enemies/enemy_5.tscn" id="4_qq3ov"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jufnr"]
@@ -28,3 +29,6 @@ position = Vector2(1402, 2176)
 
 [node name="Enemy5" parent="." instance=ExtResource("4_qq3ov")]
 position = Vector2(1160, 953)
+
+[node name="Enemy1_1" parent="." instance=ExtResource("4_goawk")]
+position = Vector2(967, 939)
