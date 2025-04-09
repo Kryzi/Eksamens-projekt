@@ -32,8 +32,8 @@ extends Node2D
 @onready var boundary: CollisionPolygon2D = layout1.get_node("EnemyArea1/SpawnPolygon1")
 @onready var obstacle_boundary: CollisionPolygon2D = layout1.get_node("ObstacleArea1/CollisionPolygon2D")
 
-var min_obstacle_spacing: int = 300
-var generated_obstacle_positions: Array[Vector2]
+var min_obstacle_spacing: int = 500
+var enemy_and_obstacle_starting_positions: Array[Vector2]
 var max_single_obstacle_generation_attempts: int = 5
 var obstacleArea: Rect2
 var obstacleAreaPolygon: PackedVector2Array
@@ -59,9 +59,9 @@ func generate_obstacles(new_obstacle_boundary: CollisionPolygon2D) -> void:
 	obstacleAreaPolygon = get_obstacle_area_polygon(new_obstacle_boundary)
 	obstacleArea = get_area_from_boundary(new_obstacle_boundary)
 	
-	var amount = randi_range(10, 50)
+	var amount = randi_range(10, 15)
 	# Reset previously generated obstacle positions
-	generated_obstacle_positions = []
+	enemy_and_obstacle_starting_positions = []
 	for i in amount:
 		random_obstacle_generation()
 		
@@ -87,12 +87,12 @@ func random_obstacle_generation() -> void:
 			var obstacle_scene = obstacle_scenes.pick_random()
 			var obstacle_instance = obstacle_scene.instantiate()
 			obstacle_instance.position = pos
-			generated_obstacle_positions.append(pos)
+			enemy_and_obstacle_starting_positions.append(pos)
 			call_deferred("add_child", obstacle_instance)
 			break
 
 func is_obstacle_position_valid(new_pos: Vector2) -> bool:
-	for obstacle_position in generated_obstacle_positions:
+	for obstacle_position in enemy_and_obstacle_starting_positions:
 		if obstacle_position.distance_to(new_pos) < min_obstacle_spacing:
 			return false
 	return true
@@ -126,9 +126,9 @@ func create_spawn_area(new_boundary):
 	if (PlayerInfo.areaID == 3):
 		MeleeBoundary = layout3.get_node("EnemyArea3/SpawnShape3")
 	
-	for i in amount:
+	for i in range(amount):
 		random_spawn(i)
-	for i in amount2:
+	for i in range(amount2):
 		strong_spawn(i)
 	
 func get_area_from_boundary(boundary_for_spawn_area: CollisionPolygon2D) -> Rect2:
@@ -150,23 +150,26 @@ func get_area_from_boundary(boundary_for_spawn_area: CollisionPolygon2D) -> Rect
 var pos2 
 func melee_spawn():
 	var rect_shape := MeleeBoundary.shape as RectangleShape2D
-	var extents = rect_shape.extents
-	
-	var x2 = randf_range(-extents.x, extents.x)
-	var y2 = randf_range(-extents.y, extents.y)
+	var size = rect_shape.size
+
+	# Generate a random position within the bounds of the rectangle
+	var x2 = randf_range(-size.x / 2, size.x / 2)  # Random X within half-width
+	var y2 = randf_range(-size.y / 2, size.y / 2)  # Random Y within half-height
 	var local_pos = Vector2(x2, y2)
-	pos2 = MeleeBoundary.global_transform * local_pos
+	pos2 = MeleeBoundary.global_position + local_pos
 
 func random_spawn(i):
 	var x = randf_range(spawnArea.position.x, spawnArea.end.x)
 	var y = randf_range(spawnArea.position.y, spawnArea.end.y)
 	var pos = Vector2(x, y)
+	
 	melee_spawn()
 	
 	#Første modstander er altid basis
 	if (i == 0):
 		var enemy_instance = enemy_1.instantiate()
 		enemy_instance.position = pos
+		enemy_and_obstacle_starting_positions.append(pos)
 		call_deferred("add_child", enemy_instance)
 		#print("used")
 	else:
@@ -184,8 +187,10 @@ func random_spawn(i):
 		# Modstander 3 spawner tættere til spilleren
 		if(selected_enemy == enemy_3 or selected_enemy == enemy_2_2):
 			enemy_instance.position = pos2
+			enemy_and_obstacle_starting_positions.append(pos2)
 		else:
 			enemy_instance.position = pos
+			enemy_and_obstacle_starting_positions.append(pos)
 		call_deferred("add_child", enemy_instance)
 		#print("used2")
 
@@ -216,8 +221,10 @@ func strong_spawn(i):
 		# Modstander 3 spawner tættere til spilleren
 		if(selected_enemy == enemy_5 or selected_enemy == enemy_2_2 or selected_enemy == enemy_4 ):
 			enemy_instance.position = pos2
+			enemy_and_obstacle_starting_positions.append(pos2)
 		else:
 			enemy_instance.position = pos
+			enemy_and_obstacle_starting_positions.append(pos)
 		call_deferred("add_child", enemy_instance)
 
 func elite_spawn(i):
@@ -300,9 +307,12 @@ func getItem():
 	# teleportere tilfældigt item til midten af boundry
 	#var polygon = boundary.polygon 
 	spawnArea = get_area_from_boundary(boundary)
-	var x = (spawnArea.position.x + spawnArea.end.x)/randf_range(1.75,2.5)
-	var y = (spawnArea.position.y + spawnArea.end.y)/randf_range(1.25,2.75)
+	var x = randf_range(spawnArea.position.x, spawnArea.end.x)
+	var y = randf_range(spawnArea.position.y, spawnArea.end.y)
 	var pos = Vector2(x, y)
+	#var x = (spawnArea.position.x + spawnArea.end.x)/randf_range(1.75,2.5)
+	#var y = (spawnArea.position.y + spawnArea.end.y)/randf_range(1.25,2.75)
+	#var pos = Vector2(x, y)
 	itemInstance.position = pos
 	call_deferred("add_child", itemInstance)
 
@@ -310,7 +320,7 @@ func getItem():
 
 func checkDeath():
 	await get_tree().process_frame
-	if get_tree().get_nodes_in_group("enemy").size() == 0:
+	if get_tree().get_nodes_in_group("enemy").is_empty():
 		# Switch visible background
 		var Reward = map_controller.stageReward
 		stageReward(Reward)

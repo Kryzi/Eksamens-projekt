@@ -86,4 +86,4 @@ position = Vector2(1968, 2172)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObstacleArea2"]
 position = Vector2(1288, 1504)
-polygon = PackedVector2Array(40, -40, 976, 16, 984, 640, 784, 640, 728, 488, 552, 528, 480, 680, 40, 656)
+polygon = PackedVector2Array(-762, -1139, -125, -1157, -62, -161, 976, 16, 984, 640, -713, 594)
