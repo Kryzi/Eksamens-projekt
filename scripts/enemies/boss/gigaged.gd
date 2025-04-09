@@ -98,7 +98,7 @@ func hit_damage(damage):
 	if (health <= 200):
 		trampDonwTime = 0.5
 		thinkTime = 0.25 
-		speed = 200
+		speed = 300
 	if health <= 0:
 		die()
 
@@ -193,12 +193,19 @@ func trampAngreb(angle):
 		if num == 0:
 			GedeStompSound.play()
 			num_bullets = 10
+			if (health <= 200):
+				num_bullets = 16
+			
 		elif num == 1:
 			GedeStompSound.play()
 			num_bullets = 16
+			if (health <= 200):
+				num_bullets = 24
 		elif num == 2:
 			GedeStompSound.play()
 			num_bullets = 24
+			if (health <= 200):
+				num_bullets = 32
 		
 		for i in range(num_bullets):
 			var bullet_instance = bullet_scene.instantiate()
