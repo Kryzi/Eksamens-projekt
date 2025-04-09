@@ -147,6 +147,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 			enemy_instance.position = layoutBoss.get_node("BossSpawnpoint").position
 			call_deferred("add_child", enemy_instance)
 			
+			get_node("/root/Main/HUD/Control/BossLivbar").visible = true
 		
 		#Hvis man går ind i en teleporter med stageReward = 3, så fjernes areaID og man garanteret kommer ind i shop
 		if (stageReward == 3):
