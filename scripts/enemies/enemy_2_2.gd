@@ -34,7 +34,7 @@ func shoot(angle):
 		
 		
 		# Skyd flere kugler i en cirkelform
-		var num_bullets = 32  # Antal kugler, der skal skyde
+		var num_bullets = 24  # Antal kugler, der skal skyde
 		for i in range(num_bullets):
 			var bullet_instance = bullet_scene.instantiate()
 			bullet_instance.position = global_position
