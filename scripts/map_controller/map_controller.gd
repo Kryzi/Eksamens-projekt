@@ -212,8 +212,10 @@ func _on_teleport_area_entered(body, teleporter_name):
 			spawner.call_deferred("generate_obstacles",obstacleBoundary3)
 		
 		if (stageReward == 4 or stageReward == 5):
-			var amount = randi_range(3, 4)
-			if (PlayerInfo.bossTimer > 10):
+			var amount = randi_range(2, 3)
+			if (PlayerInfo.bossTimer >= 6):
+				amount = randi_range(3, 4)
+			if (PlayerInfo.bossTimer >= 9):
 				amount = randi_range(4, 5)
 			for i in amount:
 				print("spawn")
