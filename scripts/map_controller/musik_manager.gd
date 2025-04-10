@@ -7,6 +7,7 @@ func playMusik(musik: AudioStreamPlayer):
 	if musik.playing == false:
 		endMusik()
 		musik.play()
+		#musik.looping = true
 
 func endMusik():
 	var sange = get_children()
