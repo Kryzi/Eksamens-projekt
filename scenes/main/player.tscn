@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://be7sw3e0iboj8" path="res://sprites/andet/reload_slider/reload-slider_efter.png" id="24_ppcvr"]
 [ext_resource type="AudioStream" uid="uid://bpicuej6pb1f2" path="res://sounds/GedSlapSound.mp3" id="27_1juf4"]
 [ext_resource type="AudioStream" uid="uid://bdr76qsc0x73l" path="res://sounds/HitSound.mp3" id="28_dg55l"]
-[ext_resource type="AudioStream" uid="uid://dobow7tdg7au7" path="res://sounds/HitSound (mp3cut.net).mp3" id="32_tso76"]
+[ext_resource type="AudioStream" uid="uid://dobow7tdg7au7" path="res://sounds/HitSound (mp3cut.net).mp3" id="32_721vw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a5exy"]
 animations = [{
@@ -266,7 +266,7 @@ stream = ExtResource("27_1juf4")
 volume_db = -3.0
 
 [node name="HitSound(mp3Cut_net)" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("32_tso76")
+stream = ExtResource("32_721vw")
 
 [connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]
 [connection signal="timeout" from="Dashing" to="." method="_on_dashing_timeout"]
