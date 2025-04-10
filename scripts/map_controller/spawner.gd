@@ -265,11 +265,11 @@ func rewardSet(value):
 		eliteChance = randi_range(2, 3)
 	'eliteChance = 3'
 	rewardValue = value
-	if (rewardValue == 1):
+	if (rewardValue == 1 or rewardValue == 4):
 		PlayerInfo.mapValue = "Coins"
-	if (rewardValue == 2):
+	if (rewardValue == 2 or rewardValue == 5):
 		PlayerInfo.mapValue = "Item" 
-	if (eliteChance == 3 and (rewardValue == 1 or rewardValue == 2)):
+	if (eliteChance == 3 and (rewardValue == 1 or rewardValue == 2) or rewardValue > 3):
 		PlayerInfo.mapValue = ("Elite " + PlayerInfo.mapValue)
 		rewardValue += 3
 	if (rewardValue == 3):
@@ -334,7 +334,7 @@ func checkDeath():
 		# Sikre at der altid er mindst en vej der ikke er shop
 		rewardSet(randi_range(1, 2))
 		# Sikre at man får en shop mindst vær tredje bane og lige før bosskampen
-		if ((PlayerInfo.bossTimer % 3) == 0 and PlayerInfo.bossTimer > 0 and PlayerInfo.bossTimer < 10):
+		if ((PlayerInfo.bossTimer % 3) == 0 and PlayerInfo.bossTimer > 0 and PlayerInfo.bossTimer < 10 or PlayerInfo.bossTimer < 11):
 			rewardSet(3)
 		# Dette gør så man aldrig får en shop lige før den endelige shop før bossen (ikke nødevendigt, men bruges som eksempel)
 		#if (PlayerInfo.bossTimer == 11):
@@ -342,6 +342,9 @@ func checkDeath():
 		if (PlayerInfo.bossTimer > 12):
 			rewardSet(3)
 			variationID = 1
+		# Sikre at man alitd for coins i starten
+		if (PlayerInfo.bossTimer < 3):
+			rewardSet(1)
 		
 		
 		if layout1.visible == true:
