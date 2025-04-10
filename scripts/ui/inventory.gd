@@ -66,11 +66,12 @@ func CheckAmmoN(slot, weapon, _n): # N bliver ikke brugt ?
 func deleteTextures(slot: Node):
 	var textures = slot.get_children()
 	var textureNum = slot.get_child_count()
-	print("deleteTetures: textureNum: " + str(textureNum))
+	#print("deleteTetures: textureNum: " + str(textureNum))
 	if (textureNum > 0 and slot.name != "WeaponIcons"):
 		for i in textures:
 			i.queue_free()
 
 func debugPrintWeapons():
 	for item in weapons:
-		print(item.name)
+		#print(item.name)
+		pass

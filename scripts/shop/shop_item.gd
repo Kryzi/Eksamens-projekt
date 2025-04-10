@@ -16,8 +16,12 @@ func _on_purchase_button_pressed() -> void:
 		weapon_instance.hide()
 		PlayerWeapons.add_child(weapon_instance)
 		PlayerWeapons.getWeapons()
+		var new_weapon_index = PlayerWeapons.weapons.find(weapon_instance)
 		PlayerWeapons.disableWeapons()
 		PlayerWeapons.enableWeapon()
+		
+		# Giver tidligere upgraderinger til nye våben
+		PlayerWeapons.applyUpgradeNewWeapon(new_weapon_index)
 		
 		var inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
 		inventory.checkForNewWeapons()

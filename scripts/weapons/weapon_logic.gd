@@ -169,3 +169,4 @@ func applyUpgradeNewWeapon(i: int): # kald denne når nyt våben tilføjes
 		weapons[i].FPS_SpeedScale *= totalFirerateMeleeUpgrages
 		weapons[i]._ready()
 	
+	print("is used")

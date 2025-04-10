@@ -239,6 +239,7 @@ script = ExtResource("3_fteec")
 [node name="BasicBow" parent="Weapon" instance=ExtResource("4_p5qdd")]
 
 [node name="BasicKnife" parent="Weapon" instance=ExtResource("20_y8slu")]
+damage = 30
 
 [node name="Damage" type="Area2D" parent="."]
 
