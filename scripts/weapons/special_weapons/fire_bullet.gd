@@ -78,4 +78,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_damage_multipler_timer_timeout() -> void:
-	Damage += 1
+	Damage += 3
