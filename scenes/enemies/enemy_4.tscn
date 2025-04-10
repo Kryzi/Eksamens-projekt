@@ -272,6 +272,7 @@ radius = 249.098
 [node name="enemy_4" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_qet1c")
+coinNum = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dapbm")

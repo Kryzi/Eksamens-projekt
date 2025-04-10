@@ -19,12 +19,14 @@ var attacking = false
 @export var timeBetweenBullets: float = 0.05
 @export var bulletsCount: int = 50
 @export var vinkelPerSkud: float = 20
+@export var coinNum: int
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("Idle")
 
 func die():
-	dropCoin()
+	for i in range(coinNum):
+		dropCoin()
 	queue_free()
 	controller.checkDeath()
 

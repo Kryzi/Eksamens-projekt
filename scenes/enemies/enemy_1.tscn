@@ -195,6 +195,7 @@ radius = 475.178
 script = ExtResource("1_b1vgo")
 bullet_scene = ExtResource("2_emeki")
 coin_scene = ExtResource("3_kcm8p")
+coinNum = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0dx8f")

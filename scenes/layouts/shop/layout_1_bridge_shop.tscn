@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://uopmy20bfd5u"]
+[gd_scene load_steps=54 format=3 uid="uid://uopmy20bfd5u"]
 
 [ext_resource type="Script" path="res://scripts/shop/layout_1_bridge_shop.gd" id="1_u4soe"]
 [ext_resource type="PackedScene" uid="uid://wdl2k0o6ywsg" path="res://scenes/weapons/basic_bow/basic_bow.tscn" id="2_jm5b7"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://oruuej8gtlva" path="res://scenes/weapons/rock_guitar/rockguitar.tscn" id="22_tsyaa"]
 [ext_resource type="Texture2D" uid="uid://dkvlsoqapoya4" path="res://sprites/vaaben/ranged/rockguitar/rockguitar_idle.png" id="23_7f7yv"]
 [ext_resource type="Script" path="res://scripts/shop/shop_keeper.gd" id="27_d84on"]
+[ext_resource type="Texture2D" uid="uid://bd1iqh8co78v8" path="res://sprites/omraader/omraade1/bro/bro_op-ned.png" id="30_jnpp3"]
 [ext_resource type="Texture2D" uid="uid://ca56rpvg2hvk6" path="res://sprites/andet/Shop/butik_iventory-tasker.png" id="31_3r0q6"]
 [ext_resource type="Texture2D" uid="uid://xu38bphvoeo2" path="res://sprites/andet/Shop/shop-npc_idle-1.png" id="32_7yk6m"]
 [ext_resource type="Texture2D" uid="uid://curass3tibjis" path="res://sprites/andet/Shop/shop-npc_idle-2.png" id="33_a4j1h"]
@@ -189,6 +190,12 @@ texture = ExtResource("3_47ykq")
 position = Vector2(1104, 2268)
 scale = Vector2(12, 12)
 texture = ExtResource("19_puqjo")
+centered = false
+
+[node name="BroOp-ned" type="Sprite2D" parent="."]
+position = Vector2(936, -1032)
+scale = Vector2(12, 12)
+texture = ExtResource("30_jnpp3")
 centered = false
 
 [node name="BroOp-ende" type="Sprite2D" parent="."]

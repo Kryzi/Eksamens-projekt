@@ -100,6 +100,7 @@ radius = 911.002
 script = ExtResource("1_fiq3m")
 bullet_scene = ExtResource("2_pje1t")
 coin_scene = ExtResource("2_ld88o")
+coinNum = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 29)

@@ -13,6 +13,7 @@ var has_hit_player = false
 @export var patrol_wait_time = 1.0
 @export var damage = 2
 @export var max_charge_time = 0.8  # hvor længe den charger
+@export var coinNum: int
 
 @onready var GolemGåSound = $"GolemGåSound"
 @onready var GolemLøbSound = $"GolemLøbSound"
@@ -95,9 +96,10 @@ func hit_damage(amount):
 		die()
 
 func die():
-	var coin = preload("res://scenes/collectables/coin.tscn").instantiate()
-	coin.global_position = global_position
-	get_tree().get_root().add_child(coin)
+	for i in range(coinNum):
+		var coin = preload("res://scenes/collectables/coin.tscn").instantiate()
+		coin.global_position = global_position
+		get_tree().get_root().add_child(coin)
 	spawner.checkDeath()
 	queue_free()
 

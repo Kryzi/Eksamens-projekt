@@ -19,6 +19,7 @@ var last_shot_time = 0.0  # Tidspunktet for sidste skud
 
 @export var bullet_scene: PackedScene
 @export var coin_scene: PackedScene
+@export var coinNum: int
 
 func get_vector(angle):
 	theta = angle + alpha
@@ -80,7 +81,8 @@ func _on_move_timer_timeout():
 	make_path()
 
 func die():
-	dropCoin()
+	for i in range(coinNum):
+		dropCoin()
 	queue_free()
 	controller.checkDeath()
 

@@ -13,12 +13,14 @@ var player_in_attack_range = false  # Holder styr på, om spilleren er tæt nok 
 
 @export var bullet_scene: PackedScene
 @export var coin_scene: PackedScene
+@export var coinNum: int
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("Idle")
 
 func die():
-	dropCoin()
+	for i in range(coinNum):
+		dropCoin()
 	queue_free()
 	controller.call_deferred("awaited_navigation_region_baking")
 	controller.checkDeath()

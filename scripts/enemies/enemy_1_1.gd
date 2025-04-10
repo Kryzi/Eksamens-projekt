@@ -16,6 +16,7 @@ var player_in_attack_range = false  # Holder styr på, om spilleren er tæt nok 
 @export var bullet_scene: PackedScene
 @export var other_bullet_scene: PackedScene
 @export var coin_scene: PackedScene
+@export var coinNum: int
 
 func _physics_process(delta) -> void:
 	# Fjenden bevæger sig kun, hvis spilleren ikke er i angrebsradius
@@ -56,7 +57,8 @@ func _on_move_timer_timeout():
 	make_path()
 
 func die():
-	dropCoin()
+	for i in range(coinNum):
+		dropCoin()
 	queue_free()
 	controller.checkDeath()
 
