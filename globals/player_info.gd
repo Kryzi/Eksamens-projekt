@@ -48,10 +48,6 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	timer += delta
-	if Input.is_action_just_pressed("x"):
-		#display_timer_in_min_and_s()
-		#get_timer_in_min_and_s(timer)
-		win_screen_reached.emit(true, timer)
 
 func display_timer_in_min_and_s(timer_in_seconds) -> String:
 	var minutes = str(floor(timer_in_seconds / 60))
