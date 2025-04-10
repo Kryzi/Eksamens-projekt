@@ -8,4 +8,5 @@ script = ExtResource("1_ddce1")
 
 [node name="ShopOgUdenFare" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_gfqej")
+volume_db = -20.0
 parameters/looping = false

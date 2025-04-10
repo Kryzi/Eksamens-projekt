@@ -207,7 +207,7 @@ text = "TO MAIN MENU
 
 [node name="MenuMusik" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wt6py")
-volume_db = -5.0
+volume_db = -20.0
 autoplay = true
 bus = &"Music"
 
