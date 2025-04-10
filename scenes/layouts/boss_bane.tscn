@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx6rcc5s5ibld"]
+[gd_scene load_steps=4 format=3 uid="uid://cx6rcc5s5ibld"]
 
 [ext_resource type="Texture2D" uid="uid://bcigv1awsp7b5" path="res://sprites/omraader/omraade1/o1-boss/o1-boss_fuld.png" id="1_bthyw"]
+[ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_mirys"]
 [ext_resource type="PackedScene" uid="uid://c0gwl5rrefms3" path="res://scenes/enemies/gigaged.tscn" id="2_w6d3p"]
 
 [node name="BossBane" type="Node2D"]
+
+[node name="TaageBagrund" type="TextureRect" parent="."]
+offset_left = -10174.0
+offset_top = -4968.0
+offset_right = 13664.0
+offset_bottom = 7081.0
+texture = ExtResource("1_mirys")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 230.0

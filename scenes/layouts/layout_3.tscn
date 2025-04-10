@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwrgf88s6aapd"]
+[gd_scene load_steps=5 format=3 uid="uid://dwrgf88s6aapd"]
 
+[ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_74wis"]
 [ext_resource type="Texture2D" uid="uid://ccay1k3hmo4bp" path="res://sprites/omraader/omraade1/o1-3/o1-3_fuld.png" id="1_vndd2"]
 [ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="6_lxr7h"]
 
@@ -11,6 +12,12 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="O1Kun-taage" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(1953.5, 1646)
+scale = Vector2(43.9435, 34.2364)
+texture = ExtResource("1_74wis")
 
 [node name="O1-3Fuld" type="Sprite2D" parent="."]
 z_index = -1

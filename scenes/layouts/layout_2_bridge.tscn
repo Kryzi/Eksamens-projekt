@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4mgsge3k32ot"]
+[gd_scene load_steps=12 format=3 uid="uid://4mgsge3k32ot"]
 
 [ext_resource type="Texture2D" uid="uid://dhiokohd6am5e" path="res://sprites/omraader/omraade1/o1-2/o1-2_jord.png" id="1_opp0n"]
 [ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_wc8bi"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dtwbw1u4eptvv" path="res://sprites/omraader/omraade1/bro/bro_op-ende.png" id="5_4mm8b"]
 [ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="5_n1nk2"]
 [ext_resource type="Texture2D" uid="uid://cbu20qgc6ap8f" path="res://sprites/omraader/omraade1/bro/bro_venstre-ende.png" id="6_jtlcv"]
+[ext_resource type="Texture2D" uid="uid://bd1iqh8co78v8" path="res://sprites/omraader/omraade1/bro/bro_op-ned.png" id="7_2hkf2"]
+[ext_resource type="Texture2D" uid="uid://ckeq6k412m4km" path="res://sprites/omraader/omraade1/bro/bro_venstre-hojre.png" id="9_kmwyq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fo76d"]
 size = Vector2(132, 132)
@@ -69,6 +71,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="BroOp-ned" type="Sprite2D" parent="Variation2_1"]
+position = Vector2(516, -1019)
+scale = Vector2(12, 12)
+texture = ExtResource("7_2hkf2")
+centered = false
+
 [node name="BroOp-ende" type="Sprite2D" parent="Variation2_1"]
 position = Vector2(516, -444)
 scale = Vector2(12, 12)
@@ -107,6 +115,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="BroVenstre-hojre" type="Sprite2D" parent="Variation2_2"]
+position = Vector2(-839, 252)
+scale = Vector2(12, 12)
+texture = ExtResource("9_kmwyq")
+centered = false
+
 [node name="BroVenstre-ende" type="Sprite2D" parent="Variation2_2"]
 position = Vector2(-264, 252)
 scale = Vector2(12, 12)
@@ -144,6 +158,12 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="BroVenstre-hojre" type="Sprite2D" parent="Variation2_3"]
+position = Vector2(-851, 862)
+scale = Vector2(12, 12)
+texture = ExtResource("9_kmwyq")
+centered = false
 
 [node name="BroVenstre-ende" type="Sprite2D" parent="Variation2_3"]
 position = Vector2(-275, 862)

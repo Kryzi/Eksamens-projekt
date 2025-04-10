@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://fcangmshdjld"]
+[gd_scene load_steps=12 format=3 uid="uid://fcangmshdjld"]
 
 [ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_cb4iq"]
 [ext_resource type="Texture2D" uid="uid://bj73ujpjgcl1f" path="res://sprites/omraader/omraade1/o1-1/o1-1_jord.png" id="1_tbrgh"]
@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c6oupynhymm3q" path="res://sprites/omraader/omraade1/o1-1/o1-1_taage-2.png" id="4_k0gj5"]
 [ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="5_hpy75"]
 [ext_resource type="Texture2D" uid="uid://dtwbw1u4eptvv" path="res://sprites/omraader/omraade1/bro/bro_op-ende.png" id="5_llw3m"]
-[ext_resource type="Texture2D" uid="uid://cbu20qgc6ap8f" path="res://sprites/omraader/omraade1/bro/bro_venstre-ende.png" id="6_anpef"]
+[ext_resource type="Texture2D" uid="uid://bd1iqh8co78v8" path="res://sprites/omraader/omraade1/bro/bro_op-ned.png" id="7_5rwq7"]
+[ext_resource type="Texture2D" uid="uid://ckeq6k412m4km" path="res://sprites/omraader/omraade1/bro/bro_venstre-hojre.png" id="9_hq5sn"]
 [ext_resource type="Texture2D" uid="uid://gayw0o8eennv" path="res://sprites/omraader/omraade1/bro/bro_hojre-ende.png" id="9_vvkiv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6hwj"]
@@ -19,10 +20,10 @@ anchors_preset = 0
 
 [node name="TaageBagrund" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -10174.0
-offset_top = -4968.0
-offset_right = 13664.0
-offset_bottom = 7081.0
+offset_left = -9855.0
+offset_top = -4884.0
+offset_right = 13983.0
+offset_bottom = 7165.0
 texture = ExtResource("1_cb4iq")
 
 [node name="Klippe" type="TextureRect" parent="."]
@@ -67,6 +68,12 @@ centered = false
 [node name="Variation1_1" type="Control" parent="."]
 anchors_preset = 0
 
+[node name="BroOp-ned" type="Sprite2D" parent="Variation1_1"]
+position = Vector2(936, -1044)
+scale = Vector2(12, 12)
+texture = ExtResource("7_5rwq7")
+centered = false
+
 [node name="BroOp-ende" type="Sprite2D" parent="Variation1_1"]
 position = Vector2(936, -468)
 scale = Vector2(12, 12)
@@ -106,10 +113,16 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="BroVenstre-hojre" type="Sprite2D" parent="Variation1_2"]
+position = Vector2(-600, 240)
+scale = Vector2(12, 12)
+texture = ExtResource("9_hq5sn")
+centered = false
+
 [node name="BroVenstre-ende" type="Sprite2D" parent="Variation1_2"]
 position = Vector2(-24, 240)
 scale = Vector2(12, 12)
-texture = ExtResource("6_anpef")
+texture = ExtResource("9_hq5sn")
 centered = false
 
 [node name="Boundary1_2Bridge" type="StaticBody2D" parent="Variation1_2"]
@@ -143,6 +156,12 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="BroVenstre-hojre" type="Sprite2D" parent="Variation1_3"]
+position = Vector2(2556, 219)
+scale = Vector2(12.811, 12.811)
+texture = ExtResource("9_hq5sn")
+centered = false
 
 [node name="BroHojre-ende" type="Sprite2D" parent="Variation1_3"]
 position = Vector2(2263, 559)

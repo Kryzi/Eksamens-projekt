@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr67rf610mc48"]
+[gd_scene load_steps=9 format=3 uid="uid://dr67rf610mc48"]
 
+[ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_4x8io"]
 [ext_resource type="Texture2D" uid="uid://ccay1k3hmo4bp" path="res://sprites/omraader/omraade1/o1-3/o1-3_fuld.png" id="1_oh6ud"]
 [ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="2_cvowg"]
 [ext_resource type="Texture2D" uid="uid://gayw0o8eennv" path="res://sprites/omraader/omraade1/bro/bro_hojre-ende.png" id="3_kwwvw"]
 [ext_resource type="Texture2D" uid="uid://dtwbw1u4eptvv" path="res://sprites/omraader/omraade1/bro/bro_op-ende.png" id="3_yxbeg"]
+[ext_resource type="Texture2D" uid="uid://ckeq6k412m4km" path="res://sprites/omraader/omraade1/bro/bro_venstre-hojre.png" id="4_emsrj"]
+[ext_resource type="Texture2D" uid="uid://bd1iqh8co78v8" path="res://sprites/omraader/omraade1/bro/bro_op-ned.png" id="5_r8v3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys8aw"]
 size = Vector2(132, 132)
@@ -13,6 +16,12 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="O1Kun-taage" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(23158.1, 19347)
+scale = Vector2(484.178, 377.223)
+texture = ExtResource("1_4x8io")
 
 [node name="O1-3Fuld" type="Sprite2D" parent="."]
 z_index = -1
@@ -33,6 +42,12 @@ offset_left = 2514.0
 offset_top = 916.0
 offset_right = 2554.0
 offset_bottom = 956.0
+
+[node name="BroVenstre-hojre" type="Sprite2D" parent="Variation3_1"]
+position = Vector2(669, -822)
+scale = Vector2(12.811, 12.811)
+texture = ExtResource("4_emsrj")
+centered = false
 
 [node name="Boundary3_1" type="StaticBody2D" parent="Variation3_1"]
 position = Vector2(-2514, -916)
@@ -73,6 +88,12 @@ offset_left = 2514.0
 offset_top = 916.0
 offset_right = 2554.0
 offset_bottom = 956.0
+
+[node name="BroOp-ned" type="Sprite2D" parent="Variation3_2"]
+position = Vector2(-857, -1869)
+scale = Vector2(11.755, 11.755)
+texture = ExtResource("5_r8v3g")
+centered = false
 
 [node name="Boundary3_2" type="StaticBody2D" parent="Variation3_2"]
 position = Vector2(-2514, -916)
@@ -115,6 +136,12 @@ offset_top = 916.0
 offset_right = 2554.0
 offset_bottom = 956.0
 
+[node name="BroVenstre-hojre" type="Sprite2D" parent="Variation3_3"]
+position = Vector2(669, -195)
+scale = Vector2(12.811, 12.811)
+texture = ExtResource("4_emsrj")
+centered = false
+
 [node name="Boundary3_3" type="StaticBody2D" parent="Variation3_3"]
 position = Vector2(-2514, -916)
 collision_mask = 0
@@ -127,7 +154,7 @@ disabled = true
 
 [node name="BroHojre-ende" type="Sprite2D" parent="Variation3_3"]
 position = Vector2(378, 145)
-scale = Vector2(13.6038, 12.8113)
+scale = Vector2(13.604, 12.811)
 texture = ExtResource("3_kwwvw")
 
 [node name="TeleporterArea3_3" type="Area2D" parent="Variation3_3"]
