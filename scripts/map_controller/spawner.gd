@@ -180,7 +180,7 @@ func random_spawn(i):
 		elif (PlayerInfo.bossTimer >= 4):
 			enemy_scenes = [enemy_1, enemy_2, enemy_3]
 		elif (PlayerInfo.bossTimer >= 9):
-			enemy_scenes = [enemy_1_1, enemy_2, enemy_2_2]
+			enemy_scenes = [enemy_1_1, enemy_2, enemy_2_2, enemy_3]
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
 		var enemy_instance = selected_enemy.instantiate()
@@ -213,7 +213,7 @@ func strong_spawn(i):
 		
 		enemy_scenes = [enemy_2_2, enemy_5, enemy_1_1]
 		if (PlayerInfo.bossTimer >= 9):
-			enemy_scenes = [enemy_5, enemy_2_2, enemy_4]
+			enemy_scenes = [enemy_1_1, enemy_5, enemy_2_2, enemy_4]
 			print("brugt")
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
