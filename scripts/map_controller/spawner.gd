@@ -241,7 +241,7 @@ func elite_spawn(_i):
 		
 		enemy_scenes = [enemy_1_1, enemy_5, enemy_2_2]
 		if (PlayerInfo.bossTimer >= 5):
-			[enemy_1_1, enemy_5, enemy_2_2, enemy_4]
+			enemy_scenes = [enemy_1_1, enemy_5, enemy_2_2, enemy_4]
 		if (PlayerInfo.bossTimer >= 9):
 			enemy_scenes = [enemy_5, enemy_4]
 		

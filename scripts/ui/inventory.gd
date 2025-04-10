@@ -50,7 +50,6 @@ func checkForNewWeapons():
 
 func HighlightWeapon():
 	var currentWeapon = weaponNode.currentWeapon
-	print("currentWeapon: " + str(currentWeapon))
 	if (slots[currentWeapon].self_modulate == ammoOutColor):
 		slots[currentWeapon].modulate = ammoOutHighlight
 		slots[currentWeapon].self_modulate = ammoOutHighlight

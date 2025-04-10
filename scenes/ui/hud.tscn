@@ -261,7 +261,7 @@ texture = ExtResource("12_7wxm8")
 
 [node name="EndScreenPanel" type="Panel" parent="Control"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(800, 400)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -282,13 +282,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="EndScreenContainer" type="VBoxContainer" parent="Control/EndScreenPanel/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="EndScreenTextLabel" type="Label" parent="Control/EndScreenPanel/MarginContainer/EndScreenContainer"]
 unique_name_in_owner = true
@@ -301,6 +303,7 @@ text = "Game Over"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
 text = "High Score
 "
 
@@ -308,21 +311,21 @@ text = "High Score
 process_mode = 3
 custom_minimum_size = Vector2(90, 30)
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
 text = "Retry"
 
 [node name="MainMenu" type="Button" parent="Control/EndScreenPanel/MarginContainer/EndScreenContainer"]
 process_mode = 3
 custom_minimum_size = Vector2(90, 30)
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
 text = "Main Menu"
 
 [node name="QuitButton" type="Button" parent="Control/EndScreenPanel/MarginContainer/EndScreenContainer"]
 process_mode = 3
 custom_minimum_size = Vector2(90, 30)
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
 text = "Exit"
 
 [node name="Upgradetext" type="RichTextLabel" parent="Control"]

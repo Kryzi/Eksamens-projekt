@@ -16,7 +16,7 @@ var is_requesting : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	randomize()
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(http_request)
 	PlayerInfo.win_screen_reached.connect(_submit_score)
 	#PlayerInfo.win_screen_reached.connect(get_weapon_ammo_data)
@@ -100,11 +100,12 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	
 
 	
-func _submit_score(_victory_bool: bool, score: int) -> void:
-	var user_name := PlayerInfo.player_name
-	var command = "add_score"
-	var data = {"username" : user_name, "score" : str(score)}
-	request_queue.push_back({"command" : command, "data" : data})
+func _submit_score(is_victory: bool, score: int) -> void:
+	if is_victory:
+		var user_name := PlayerInfo.player_name
+		var command = "add_score"
+		var data = {"username" : user_name, "score" : str(score)}
+		request_queue.push_back({"command" : command, "data" : data})
 	
 func _get_scores():
 	var command = "get_scores"
@@ -112,17 +113,17 @@ func _get_scores():
 	request_queue.push_back({"command" : command, "data" : data})
 	print("get scores")
 
-func _get_player():
-	var user_id = $ID.get_text()
-	var command = "get_player"
-	var data = {"user_id" : user_id}
-	request_queue.push_back({"command" : command, "data" : data})
-
-func _delete_player():
-	var user_id = $ID.get_text()
-	var command = "delete_player"
-	var data = {"user_id": user_id}
-	request_queue.push_back({"command" : command, "data" : data})
+#func _get_player():
+	#var user_id = $ID.get_text()
+	#var command = "get_player"
+	#var data = {"user_id" : user_id}
+	#request_queue.push_back({"command" : command, "data" : data})
+#
+#func _delete_player():
+	#var user_id = $ID.get_text()
+	#var command = "delete_player"
+	#var data = {"user_id": user_id}
+	#request_queue.push_back({"command" : command, "data" : data})
 	
 #func get_weapon_ammo_data(_bool: bool, _highscore: int) -> Array[WeaponAmmoTableData]:
 	#var weapon_table_data_array: Array[WeaponAmmoTableData]

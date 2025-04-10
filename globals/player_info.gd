@@ -3,10 +3,11 @@ extends Node
 signal health_changed(new_health_data: Dictionary)
 signal ammo_changed(new_ammo_data: Dictionary)
 signal coin_count_changed(new_coins: int)
-signal win_screen_reached(is_player_victorious: bool,coins_high_score: int)
+#signal game_ended(is_player_victorious: bool)
+signal win_screen_reached(is_player_victorious: bool, high_score_timer: int)
 
 # Bruges til at bestemme hvem har klaret spillet hurtigst
-var timer = 0
+var timer: float = 0
 var current_coins: int = 0:
 	set(value):
 		current_coins = value
@@ -41,3 +42,18 @@ var weaponLimitCost = 10
 var areaID = 0
 var bossTimer = 0
 var mapValue: String = ""
+
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+func _process(delta: float) -> void:
+	timer += delta
+	if Input.is_action_just_pressed("x"):
+		#display_timer_in_min_and_s()
+		#get_timer_in_min_and_s(timer)
+		win_screen_reached.emit(true, timer)
+
+func display_timer_in_min_and_s(timer_in_seconds) -> String:
+	var minutes = str(floor(timer_in_seconds / 60))
+	var seconds = str(round(fmod(timer_in_seconds, 60)))
+	return minutes + " min, " + seconds + " s"

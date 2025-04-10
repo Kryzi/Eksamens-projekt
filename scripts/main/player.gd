@@ -29,7 +29,6 @@ func _ready():
 
 func _physics_process(delta):
 	# Tiden spil uptages her
-	PlayerInfo.timer += delta
 	
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	
@@ -106,8 +105,8 @@ func hit_damage(damage):
 		die()
 
 func die():
-	var highScore = PlayerInfo.timer
-	PlayerInfo.win_screen_reached.emit(false, highScore)
+	var invalid_high_score = 99999
+	PlayerInfo.win_screen_reached.emit(false, invalid_high_score)
 
 func _on_dashing_timeout() -> void:
 	dashing = false

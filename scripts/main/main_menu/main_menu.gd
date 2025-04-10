@@ -64,11 +64,12 @@ func show_leaderboard_window(leaderboard_scores: Dictionary) -> void:
 			var score_row_label = Label.new()
 			#var player_name := str(leaderboard_score['player_name'])
 			var leaderboard_score: Dictionary = leaderboard_scores[str(n)]
-			var score := str(leaderboard_score['score'])
+			var score = int(leaderboard_score['score'])
 			var player_name := str(leaderboard_score['player_name'])
 			var leaderboard_ranking = str(n + 1)
 			score_row_label.text = leaderboard_ranking + ". " + \
-									player_name + ": " + score
+				player_name + " won in " + \
+				PlayerInfo.display_timer_in_min_and_s(score)
 			score_row_label.set("theme_override_font_sizes/font_size", 25)
 			%LeaderBoardScoreRows.add_child(score_row_label)
 	else:

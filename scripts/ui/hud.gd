@@ -19,7 +19,7 @@ enum ShakeType {
 }
 
 @onready var camera = get_node("/root/Main/Player/Camera2D")
-
+@onready var weapon: Node2D = get_node("/root/Main/Player/Weapon")
 
 @onready var noise = FastNoiseLite.new()
 # Used to keep track of where we are in the noise
@@ -65,10 +65,15 @@ func updateAmmo(new_ammo_data: Dictionary):
 func updateCoins(newCoins: int) -> void:
 	%CoinsLabel.set_text("Coins: " + str(newCoins))
 	
-func showEndScreen(is_player_a_winner: bool, new_high_score: int):
-	var end_screen_text = "You win" if is_player_a_winner else "Game over"
-	%EndScreenTextLabel.set_text(end_screen_text)
-	%HighScoreLabel.set_text("High Score: " + str(new_high_score))
+func showEndScreen(is_player_a_winner: bool, timer_string: int):
+	if is_player_a_winner:
+		%EndScreenTextLabel.set_text("You win")
+		%HighScoreLabel.set_text("You defeated the Gigagoat in " + \
+			PlayerInfo.display_timer_in_min_and_s(timer_string))
+	else:
+		%EndScreenTextLabel.set_text("Game over")
+		%HighScoreLabel.set_text("You didn't defeat the Gigagoat")
+	
 	%EndScreenPanel.show()
 	get_tree().paused = true
 	
@@ -79,6 +84,16 @@ func updateHealthBar(new_health_data: Dictionary):
 	%HealthBar.value = new_current_health
 
 func _on_main_menu_pressed() -> void:
+	PlayerInfo.bossTimer = 0
+	PlayerInfo.current_coins = 0
+	PlayerInfo.weaponLimitCost = 10
+	PlayerInfo.weaponLimit = 5
+	PlayerInfo.health_data = {
+	"current_health": 12,
+	"max_health": 12 }
+	weapon.totalDamageUpgrades = 0
+	weapon.totalFirerateRangedUpgrades = 0
+	weapon.totalFirerateMeleeUpgrages = 0
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 	
@@ -92,8 +107,11 @@ func _on_retry_button_pressed() -> void:
 	PlayerInfo.weaponLimitCost = 10
 	PlayerInfo.weaponLimit = 5
 	PlayerInfo.health_data = {
-	"current_health": 10,
-	"max_health": 10 }
+	"current_health": 12,
+	"max_health": 12 }
+	weapon.totalDamageUpgrades = 0
+	weapon.totalFirerateRangedUpgrades = 0
+	weapon.totalFirerateMeleeUpgrages = 0
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
