@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main/main_menu/settings.gd" id="1_ptpxv"]
 [ext_resource type="Texture2D" uid="uid://bjwifun6vg0gl" path="res://sprites/main_menu/spiller_i_bjerglandskab.png" id="1_snejb"]
 [ext_resource type="Texture2D" uid="uid://gaccdbguqo75" path="res://sprites/main_menu/mountaintop_titel.png" id="2_7xytm"]
-[ext_resource type="AudioStream" uid="uid://dnsulxlnyiv1h" path="res://sounds/MenuMusik.mp3" id="4_ayu7r"]
+[ext_resource type="AudioStream" uid="uid://dpx42xaocjfo4" path="res://sounds/musik/Menu_tema.wav" id="4_bbgyx"]
 [ext_resource type="PackedScene" uid="uid://vliwu7hcfve1" path="res://scenes/main_menu/audiosetting.tscn" id="4_fw85q"]
 [ext_resource type="Texture2D" uid="uid://c0qivyuoa6e28" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_krop_idle-1_walk-1.png" id="6_vv258"]
 [ext_resource type="Texture2D" uid="uid://2ujos0rvxc8h" path="res://sprites/boss/gigaged/krop_venstre/gigaged-venstre_normal-hoved-ned_idle.png" id="7_bhenj"]
@@ -30,10 +30,10 @@ grow_vertical = 2
 texture = ExtResource("2_7xytm")
 
 [node name="MenuMusik" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ayu7r")
+stream = ExtResource("4_bbgyx")
+volume_db = -20.0
 autoplay = true
 bus = &"Music"
-parameters/looping = false
 
 [node name="audiosetting" parent="." instance=ExtResource("4_fw85q")]
 anchors_preset = 8
