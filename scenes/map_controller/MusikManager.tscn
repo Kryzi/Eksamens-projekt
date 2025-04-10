@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://usqbd1a2eyoy"]
+[gd_scene load_steps=4 format=3 uid="uid://usqbd1a2eyoy"]
 
 [ext_resource type="Script" path="res://scripts/map_controller/musik_manager.gd" id="1_ddce1"]
 [ext_resource type="AudioStream" uid="uid://c0tmyeitgfoab" path="res://sounds/musik/Shop_og_uden_fare.mp3" id="2_gfqej"]
+[ext_resource type="AudioStream" uid="uid://dfcpg5ty16kbw" path="res://sounds/musik/i_kamp_hurtigt.wav" id="3_ted6c"]
 
 [node name="MusikManager" type="Node"]
 script = ExtResource("1_ddce1")
@@ -10,3 +11,7 @@ script = ExtResource("1_ddce1")
 stream = ExtResource("2_gfqej")
 volume_db = -20.0
 parameters/looping = false
+
+[node name="IKamp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ted6c")
+volume_db = -20.0
