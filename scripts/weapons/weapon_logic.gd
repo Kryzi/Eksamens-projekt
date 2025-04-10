@@ -94,7 +94,6 @@ func enableWeapon():
 	weapons[currentWeapon].set_process(true)
 	weapons[currentWeapon].visible = true
 
-@onready var Inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
 func weaponSwapped(i):
 	disableWeapons()
 	
@@ -118,11 +117,11 @@ func weaponSwapped(i):
 		"reserve_ammo": weapons[currentWeapon].reserveAmmo
 	}
 
-func applyUpgrades(damageUpgrade: int, FirerateUpgrade: float):
+func applyUpgrades(damageUpgrade: int, _FirerateUpgrade: float):
 	applyDamageUp(damageUpgrade)
 
 
-func applyDamageUp(damageUpgrade: int):
+func applyDamageUp(_damageUpgrade: int):
 	for i in weapons.size():
 		if weapons[i].is_in_group("Skjold"):
 			pass

@@ -40,14 +40,14 @@ func _physics_process(delta: float) -> void:
 			Enemy_state = "Idle"
 
 		velocity = dir * speed * delta
-		play_anim(dir)  # Opdater animation baseret på retning
+		play_anim()  # Opdater animation baseret på retning
 		
 		move_and_slide()
 	else:
 		Enemy_state = "Idle"  # Stå stille mens den skyder
 		velocity = Vector2.ZERO
 
-func play_anim(dir):
+func play_anim():
 	if Enemy_state == "Idle":
 		animated_sprite.play("Idle")
 	elif Enemy_state == "Walking":

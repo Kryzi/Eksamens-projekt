@@ -5,7 +5,6 @@ var slots: Array[Node] = []
 var weapons: Array[Node] = []
 @onready var weaponNode = get_node("/root/Main/Player/Weapon")
 @onready var icons = get_node("WeaponIcons").get_children()
-var i = 0
 var standartColor: Color = Color.DIM_GRAY
 var highlightColor: Color = Color.WHITE
 var ammoOutColor: Color = Color.DARK_RED
@@ -14,15 +13,6 @@ var ammoOutHighlight: Color = Color.RED
 func _ready() -> void:
 	checkForNewWeapons()
 	HighlightWeapon()
-
-func _process(_delta: float) -> void:
-	pass
-	#if ((i) > 100):
-	#	checkForNewWeapons()
-	#	HighlightWeapon()
-	#	i = 0
-	#else:
-	#	i += 1
 
 func getWeapons():
 	weapons.clear()
@@ -48,14 +38,14 @@ func checkForNewWeapons():
 	getWeapons()
 	#debugPrintWeapons()
 	#print("checkForNewWeapons Executed")
-	for i in range(slots.size()):
-		slots[i].modulate = standartColor
-		slots[i].self_modulate = standartColor
-		if (i < weapons.size()):
-			chech_slot_n(slots[i], i)
-			CheckAmmoN(slots[i], weapons[i], i)
+	for n in range(slots.size()):
+		slots[n].modulate = standartColor
+		slots[n].self_modulate = standartColor
+		if (n < weapons.size()):
+			chech_slot_n(slots[n], n)
+			CheckAmmoN(slots[n], weapons[n], n)
 		else:
-			deleteTextures(slots[i])
+			deleteTextures(slots[n])
 		
 
 func HighlightWeapon():

@@ -27,7 +27,7 @@ var has_hit_player = false
 func _ready() -> void:
 	GolemGåSound.play()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_charging:
 		var dir = (charge_target_position - global_position).normalized()
 		velocity = dir * charge_speed

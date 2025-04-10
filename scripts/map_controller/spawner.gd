@@ -59,10 +59,10 @@ func generate_obstacles(new_obstacle_boundary: CollisionPolygon2D) -> void:
 	obstacleAreaPolygon = get_obstacle_area_polygon(new_obstacle_boundary)
 	obstacleArea = get_area_from_boundary(new_obstacle_boundary)
 	
-	var amount = randi_range(10, 15)
+	var amountObstacle = randi_range(10, 15)
 	# Reset previously generated obstacle positions
 	enemy_and_obstacle_starting_positions = []
-	for i in amount:
+	for i in amountObstacle:
 		random_obstacle_generation()
 		
 	call_deferred("awaited_navigation_region_baking")
@@ -173,7 +173,7 @@ func random_spawn(i):
 		call_deferred("add_child", enemy_instance)
 		#print("used")
 	else:
-		var enemy_scenes = []
+		enemy_scenes = []
 		# Vælg en tilfældig fjende at spawne
 		if (PlayerInfo.bossTimer <= 3):
 			enemy_scenes = [enemy_1, enemy_3]
@@ -208,7 +208,7 @@ func strong_spawn(i):
 		call_deferred("add_child", enemy_instance)
 		#print("used")
 	else:
-		var enemy_scenes = []
+		enemy_scenes = []
 		# Vælg en tilfældig fjende at spawne
 		
 		enemy_scenes = [enemy_2_2, enemy_5, enemy_1_1]
@@ -227,7 +227,7 @@ func strong_spawn(i):
 			enemy_and_obstacle_starting_positions.append(pos)
 		call_deferred("add_child", enemy_instance)
 
-func elite_spawn(i):
+func elite_spawn(_i):
 	var x = randf_range(spawnArea.position.x, spawnArea.end.x)
 	var y = randf_range(spawnArea.position.y, spawnArea.end.y)
 	var pos = Vector2(x, y)
@@ -294,7 +294,7 @@ func stageReward(Reward):
 		getItem()
 
 func getItem():
-	var boundary = get_node("/root/Main/MapController/Background/Layout1/EnemyArea1/SpawnPolygon1")
+	boundary = get_node("/root/Main/MapController/Background/Layout1/EnemyArea1/SpawnPolygon1")
 	#Find areaID
 	match PlayerInfo.areaID:
 		1:
