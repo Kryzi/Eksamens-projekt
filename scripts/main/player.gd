@@ -15,7 +15,7 @@ var dash_velocity
 var dashCD = 1.0
 var canDash = true
 
-@onready var HitSound = $HitSound
+@onready var HitSound = $"HitSound(mp3Cut_net)"
 @onready var GedSlapSound = $GedSlapSound
 
 func _ready():
