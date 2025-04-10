@@ -197,7 +197,7 @@ script = ExtResource("1_sjli2")
 bullet_scene = ExtResource("3_fdqdu")
 other_bullet_scene = ExtResource("3_7riy5")
 coin_scene = ExtResource("2_6efrw")
-coinNum = 3
+coinNum = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0dx8f")

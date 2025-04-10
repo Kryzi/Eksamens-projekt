@@ -115,7 +115,7 @@ script = ExtResource("1_g8kp6")
 alpha = 0.03
 bullet_scene = ExtResource("2_3einl")
 coin_scene = ExtResource("3_v4bil")
-coinNum = 5
+coinNum = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
