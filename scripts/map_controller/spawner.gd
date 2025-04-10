@@ -265,11 +265,11 @@ func rewardSet(value):
 		eliteChance = randi_range(2, 3)
 	'eliteChance = 3'
 	rewardValue = value
-	if (rewardValue == 1):
+	if (rewardValue == 1 or rewardValue == 4):
 		PlayerInfo.mapValue = "Coins"
-	if (rewardValue == 2):
+	if (rewardValue == 2 or rewardValue == 5):
 		PlayerInfo.mapValue = "Item" 
-	if (eliteChance == 3 and (rewardValue == 1 or rewardValue == 2)):
+	if (eliteChance == 3 and (rewardValue == 1 or rewardValue == 2) or rewardValue > 3):
 		PlayerInfo.mapValue = ("Elite " + PlayerInfo.mapValue)
 		rewardValue += 3
 	if (rewardValue == 3):
