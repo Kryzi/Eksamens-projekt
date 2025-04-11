@@ -13,7 +13,7 @@ var player: CharacterBody2D
 func _ready() -> void:
 	$AnimatedSprite2D.play("Idle")
 	start_position = global_position
-	player = get_node("/root/Main/Player")  # Assuming the player is a Node2D named 'Player' in the scene
+	player = get_node("/root/Main/Player")
 	direction = (targetPos - global_position).normalized()
 
 func _physics_process(delta):

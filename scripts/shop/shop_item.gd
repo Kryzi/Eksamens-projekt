@@ -1,7 +1,6 @@
 extends PanelContainer
 var weapon_resource: ShopItemResource
 @onready var PlayerWeapons = get_node("/root/Main/Player/Weapon")
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%ShopItemTextureRect.texture = weapon_resource.shop_texture
 	%PurchaseButton.set_text(weapon_resource.weapon_name + ": " + str(weapon_resource.cost) + " coins")
@@ -20,7 +19,6 @@ func _on_purchase_button_pressed() -> void:
 		PlayerWeapons.disableWeapons()
 		PlayerWeapons.enableWeapon()
 		
-		# Giver tidligere upgraderinger til nye våben
 		PlayerWeapons.applyUpgradeNewWeapon(new_weapon_index)
 		
 		var inventory = get_node("/root/Main/HUD/Control/Inventory")

@@ -7,7 +7,7 @@ var CanThrow: bool = true
 @export var damage: int = 5
 
 var currentAmmo: int 
-@export var magSize: int = 1  # Antal boomerangs man kan have
+@export var magSize: int = 1
 var reserveAmmo: int 
 @export var maxAmmo: int = 30
 var reloading = false
@@ -16,7 +16,6 @@ var reloading = false
 
 var ranged = true
 
-# Reference to the boomerang sprite (assuming it's a child of the player)
 @onready var boomerangSprite = $AnimatedSprite2D
 @onready var BoomerangSound = $BoomerangSound
 
@@ -66,8 +65,7 @@ func throw_boomerang():
 		"mag_size": magSize,
 		"reserve_ammo": reserveAmmo
 	}
-	
-	# Make the boomerang sprite invisible while throwing
+
 	boomerangSprite.visible = false
 	
 	var boomerang = Boomerang.instantiate()
@@ -76,14 +74,11 @@ func throw_boomerang():
 	boomerang.targetPos = get_global_mouse_position()
 	boomerang.Damage = damage
 	get_tree().get_root().call_deferred("add_child", boomerang)
-	
-	# The boomerang will make the sprite visible again when it's done returning
 
 func makeVisible():
 	boomerangSprite.visible = true
 	reloading = false
 	BoomerangSound.stop()
-	
 	
 	PlayerInfo.ammo_data = {
 		"current_ammo": currentAmmo,
