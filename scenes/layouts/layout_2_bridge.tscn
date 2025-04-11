@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://4mgsge3k32ot"]
+[gd_scene load_steps=21 format=3 uid="uid://4mgsge3k32ot"]
 
 [ext_resource type="Texture2D" uid="uid://dhiokohd6am5e" path="res://sprites/omraader/omraade1/o1-2/o1-2_jord.png" id="1_opp0n"]
 [ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_wc8bi"]
@@ -9,10 +9,85 @@
 [ext_resource type="Texture2D" uid="uid://mckmd17nrgpn" path="res://sprites/omraader/omraade1/bro/bro_ned-ende.png" id="5_n1nk2"]
 [ext_resource type="Texture2D" uid="uid://cbu20qgc6ap8f" path="res://sprites/omraader/omraade1/bro/bro_venstre-ende.png" id="6_jtlcv"]
 [ext_resource type="Texture2D" uid="uid://bd1iqh8co78v8" path="res://sprites/omraader/omraade1/bro/bro_op-ned.png" id="7_2hkf2"]
+[ext_resource type="Texture2D" uid="uid://b43o52kcvk2rk" path="res://sprites/andet/navigationsikoner/boss-navi.png" id="9_8v2ee"]
 [ext_resource type="Texture2D" uid="uid://ckeq6k412m4km" path="res://sprites/omraader/omraade1/bro/bro_venstre-hojre.png" id="9_kmwyq"]
+[ext_resource type="Texture2D" uid="uid://cxjp6pl4n6orq" path="res://sprites/andet/navigationsikoner/coin-navi.png" id="10_wwpco"]
+[ext_resource type="Texture2D" uid="uid://vq78ba2sveco" path="res://sprites/andet/navigationsikoner/coin-navi_svaer.png" id="11_v1saq"]
+[ext_resource type="Texture2D" uid="uid://dv25fhpj0104q" path="res://sprites/andet/navigationsikoner/item-navi_svaer.png" id="12_16bde"]
+[ext_resource type="Texture2D" uid="uid://wbukrhpjx6my" path="res://sprites/andet/navigationsikoner/vaaben-navi_svaer.png" id="13_g8var"]
+[ext_resource type="Texture2D" uid="uid://ca2aojprs6ax7" path="res://sprites/andet/navigationsikoner/item-navi.png" id="14_kdv8v"]
+[ext_resource type="Texture2D" uid="uid://c57xlu1ebu5e7" path="res://sprites/andet/navigationsikoner/shop-navi.png" id="15_ovsuw"]
+[ext_resource type="Texture2D" uid="uid://bcbpfwbsc0jsh" path="res://sprites/andet/navigationsikoner/vaaben-navi.png" id="16_pjdes"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fo76d"]
 size = Vector2(132, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ft272"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_8v2ee")
+}],
+"loop": true,
+"name": &"Boss",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_wwpco")
+}],
+"loop": true,
+"name": &"Coins",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_v1saq")
+}],
+"loop": true,
+"name": &"Elite Coins",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_16bde")
+}],
+"loop": true,
+"name": &"Elite Item",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_g8var")
+}],
+"loop": true,
+"name": &"Elite Vaaben",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_kdv8v")
+}],
+"loop": true,
+"name": &"Item",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ovsuw")
+}],
+"loop": true,
+"name": &"Shop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_pjdes")
+}],
+"loop": true,
+"name": &"Vaaben",
+"speed": 5.0
+}]
 
 [node name="Layout2Bridge" type="Control"]
 layout_mode = 3
@@ -100,6 +175,7 @@ shape = SubResource("RectangleShape2D_fo76d")
 disabled = true
 
 [node name="rewardLabel2" type="Label" parent="Variation2_1"]
+visible = false
 z_index = 2
 layout_mode = 0
 offset_left = 708.0
@@ -108,6 +184,13 @@ offset_right = 946.0
 offset_bottom = 373.0
 theme_override_font_sizes/font_size = 100
 text = "Filler"
+
+[node name="rewardIcon" type="AnimatedSprite2D" parent="Variation2_1"]
+z_index = 2
+position = Vector2(820, 293)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_ft272")
+animation = &"Elite Vaaben"
 
 [node name="Variation2_2" type="Control" parent="."]
 layout_mode = 3
@@ -144,6 +227,7 @@ shape = SubResource("RectangleShape2D_fo76d")
 disabled = true
 
 [node name="rewardLabel2_2" type="Label" parent="Variation2_2"]
+visible = false
 z_index = 2
 layout_mode = 0
 offset_left = 408.0
@@ -152,6 +236,13 @@ offset_right = 646.0
 offset_bottom = 661.0
 theme_override_font_sizes/font_size = 100
 text = "Filler"
+
+[node name="rewardIcon" type="AnimatedSprite2D" parent="Variation2_2"]
+z_index = 2
+position = Vector2(460, 576)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_ft272")
+animation = &"Elite Vaaben"
 
 [node name="Variation2_3" type="Control" parent="."]
 layout_mode = 3
@@ -188,6 +279,7 @@ shape = SubResource("RectangleShape2D_fo76d")
 disabled = true
 
 [node name="rewardLabel2_3" type="Label" parent="Variation2_3"]
+visible = false
 z_index = 2
 layout_mode = 0
 offset_left = 377.0
@@ -196,3 +288,10 @@ offset_right = 615.0
 offset_bottom = 1265.0
 theme_override_font_sizes/font_size = 100
 text = "Filler"
+
+[node name="rewardIcon" type="AnimatedSprite2D" parent="Variation2_3"]
+z_index = 2
+position = Vector2(463, 1194)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_ft272")
+animation = &"Elite Vaaben"

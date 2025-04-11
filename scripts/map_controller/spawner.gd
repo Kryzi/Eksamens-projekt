@@ -359,6 +359,7 @@ func checkDeath():
 			#var rewardLabel = layout1_bridge.get_node("rewardLabel")
 			#rewardSet(randi_range(1, 2))
 			layout1_bridge.get_node("Variation1_1/rewardLabel").text = PlayerInfo.mapValue
+			layout1_bridge.get_node("Variation1_1/rewardIcon").play(PlayerInfo.mapValue)
 			teleporter1 = rewardValue
 			
 			if (variationID == 1):
@@ -374,6 +375,8 @@ func checkDeath():
 				if (PlayerInfo.bossTimer == 11):
 					rewardSet(randi_range(1, 2))
 				layout1_bridge.get_node("Variation1_2/rewardLabel1_2").text = PlayerInfo.mapValue
+				layout1_bridge.get_node("Variation1_2/rewardIcon").play(PlayerInfo.mapValue)
+				
 				teleporter2 = rewardValue
 				
 				if (variationID == 3):
@@ -388,6 +391,7 @@ func checkDeath():
 					if (PlayerInfo.bossTimer == 11):
 						rewardSet(randi_range(1, 2))
 					layout1_bridge.get_node("Variation1_3/rewardLabel1_3").text = PlayerInfo.mapValue
+					layout1_bridge.get_node("Variation1_3/rewardIcon").play(PlayerInfo.mapValue)
 					teleporter3 = rewardValue
 				
 			
@@ -405,6 +409,7 @@ func checkDeath():
 			
 			#rewardSet(randi_range(1, 3))
 			layout2_bridge.get_node("Variation2_1/rewardLabel2").text = PlayerInfo.mapValue
+			layout2_bridge.get_node("Variation2_1/rewardIcon").play(PlayerInfo.mapValue)
 			teleporter1 = rewardValue
 			
 			if (variationID == 1):
@@ -420,6 +425,7 @@ func checkDeath():
 				if (PlayerInfo.bossTimer == 11):
 					rewardSet(randi_range(1, 2))
 				layout2_bridge.get_node("Variation2_2/rewardLabel2_2").text = PlayerInfo.mapValue
+				layout2_bridge.get_node("Variation2_2/rewardIcon").play(PlayerInfo.mapValue)
 				teleporter2 = rewardValue
 				
 				if (variationID == 3):
@@ -434,6 +440,7 @@ func checkDeath():
 					if (PlayerInfo.bossTimer == 11):
 						rewardSet(randi_range(1, 2))
 					layout2_bridge.get_node("Variation2_3/rewardLabel2_3").text = PlayerInfo.mapValue
+					layout2_bridge.get_node("Variation2_3/rewardIcon").play(PlayerInfo.mapValue)
 					teleporter3 = rewardValue
 			
 		if layout3.visible == true:
@@ -448,6 +455,7 @@ func checkDeath():
 			#var rewardLabel = layout1_bridge.get_node("rewardLabel")
 			#rewardSet(randi_range(1, 3))
 			layout3_bridge.get_node("Variation3_1/rewardLabel3_1").text = PlayerInfo.mapValue
+			layout3_bridge.get_node("Variation3_1/rewardIcon").play(PlayerInfo.mapValue)
 			teleporter1 = rewardValue
 			
 			if (variationID == 1):
@@ -463,6 +471,7 @@ func checkDeath():
 				if (PlayerInfo.bossTimer == 11):
 					rewardSet(randi_range(1, 2))
 				layout3_bridge.get_node("Variation3_2/rewardLabel3_2").text = PlayerInfo.mapValue
+				layout3_bridge.get_node("Variation3_2/rewardIcon").play(PlayerInfo.mapValue)
 				teleporter2 = rewardValue
 				
 				if (variationID == 3):
@@ -477,6 +486,7 @@ func checkDeath():
 					if (PlayerInfo.bossTimer == 11):
 						rewardSet(randi_range(1, 2))
 					layout3_bridge.get_node("Variation3_3/rewardLabel3_3").text = PlayerInfo.mapValue
+					layout3_bridge.get_node("Variation3_3/rewardIcon").play(PlayerInfo.mapValue)
 					teleporter3 = rewardValue
 				
 			

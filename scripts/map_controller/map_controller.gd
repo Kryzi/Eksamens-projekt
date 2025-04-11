@@ -169,7 +169,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 			spawner.rewardSet(rewardValue)
 			print(PlayerInfo.mapValue)
 			layout1_bridge_shop.get_node("rewardLabel").text = PlayerInfo.mapValue
-			
+			layout1_bridge_shop.get_node("rewardIcon").play(PlayerInfo.mapValue)
 			
 			#kaldes her da der ikke er brug for checkDeath() i shop
 			teleporter_collision1_shop.call_deferred("set_disabled", false)
