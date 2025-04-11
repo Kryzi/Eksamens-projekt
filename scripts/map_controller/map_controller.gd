@@ -154,7 +154,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 			layout1_bridge_shop.visible = true
 			musikManager.newStage("shop")
 			
-			rewardValue = randi_range(1, 3)
+			rewardValue = randi_range(1, 2)
 			if (PlayerInfo.bossTimer >= 4 and randi_range(1, 2) == 3 ):
 				rewardValue += 3
 			if (PlayerInfo.bossTimer >= 9 and randi_range(2, 3) == 3 ):
