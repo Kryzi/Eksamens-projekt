@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://uopmy20bfd5u"]
+[gd_scene load_steps=63 format=3 uid="uid://uopmy20bfd5u"]
 
 [ext_resource type="Script" path="res://scripts/shop/layout_1_bridge_shop.gd" id="1_u4soe"]
 [ext_resource type="PackedScene" uid="uid://wdl2k0o6ywsg" path="res://scenes/weapons/basic_bow/basic_bow.tscn" id="2_jm5b7"]
@@ -33,13 +33,21 @@
 [ext_resource type="Script" path="res://scripts/shop/shop_keeper.gd" id="27_d84on"]
 [ext_resource type="Texture2D" uid="uid://bd1iqh8co78v8" path="res://sprites/omraader/omraade1/bro/bro_op-ned.png" id="30_jnpp3"]
 [ext_resource type="Texture2D" uid="uid://ca56rpvg2hvk6" path="res://sprites/andet/Shop/butik_iventory-tasker.png" id="31_3r0q6"]
+[ext_resource type="Texture2D" uid="uid://b43o52kcvk2rk" path="res://sprites/andet/navigationsikoner/boss-navi.png" id="32_3m08x"]
 [ext_resource type="Texture2D" uid="uid://xu38bphvoeo2" path="res://sprites/andet/Shop/shop-npc_idle-1.png" id="32_7yk6m"]
 [ext_resource type="Texture2D" uid="uid://curass3tibjis" path="res://sprites/andet/Shop/shop-npc_idle-2.png" id="33_a4j1h"]
+[ext_resource type="Texture2D" uid="uid://cxjp6pl4n6orq" path="res://sprites/andet/navigationsikoner/coin-navi.png" id="33_xipk3"]
+[ext_resource type="Texture2D" uid="uid://vq78ba2sveco" path="res://sprites/andet/navigationsikoner/coin-navi_svaer.png" id="34_o85xa"]
 [ext_resource type="Texture2D" uid="uid://noro7slaipjb" path="res://sprites/andet/Shop/shop-npc_talk-1.png" id="34_qwfyk"]
+[ext_resource type="Texture2D" uid="uid://dv25fhpj0104q" path="res://sprites/andet/navigationsikoner/item-navi_svaer.png" id="35_4bp87"]
 [ext_resource type="Texture2D" uid="uid://diu1lnq11s5q8" path="res://sprites/andet/Shop/shop-npc_talk-2.png" id="35_omxw5"]
 [ext_resource type="Texture2D" uid="uid://cj1ysfgf83e6p" path="res://sprites/andet/Shop/shop-npc_talebobbel.png" id="36_1e12s"]
+[ext_resource type="Texture2D" uid="uid://wbukrhpjx6my" path="res://sprites/andet/navigationsikoner/vaaben-navi_svaer.png" id="36_powfy"]
+[ext_resource type="Texture2D" uid="uid://ca2aojprs6ax7" path="res://sprites/andet/navigationsikoner/item-navi.png" id="37_hgtup"]
 [ext_resource type="Texture2D" uid="uid://d0euhootl101" path="res://sprites/andet/Shop/butik_ammo-bord.png" id="37_yp48g"]
+[ext_resource type="Texture2D" uid="uid://c57xlu1ebu5e7" path="res://sprites/andet/navigationsikoner/shop-navi.png" id="38_irnyg"]
 [ext_resource type="Texture2D" uid="uid://d35x3at6feurn" path="res://sprites/andet/Shop/butik_item-kurv.png" id="39_6gj8a"]
+[ext_resource type="Texture2D" uid="uid://bcbpfwbsc0jsh" path="res://sprites/andet/navigationsikoner/vaaben-navi.png" id="39_rpl2l"]
 
 [sub_resource type="Resource" id="Resource_shqo3"]
 script = ExtResource("15_6p3av")
@@ -113,6 +121,73 @@ scene = ExtResource("22_tsyaa")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_161u1"]
 size = Vector2(120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_filox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_3m08x")
+}],
+"loop": true,
+"name": &"Boss",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_xipk3")
+}],
+"loop": true,
+"name": &"Coins",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_o85xa")
+}],
+"loop": true,
+"name": &"Elite Coins",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_4bp87")
+}],
+"loop": true,
+"name": &"Elite Item",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_powfy")
+}],
+"loop": true,
+"name": &"Elite Vaaben",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_hgtup")
+}],
+"loop": true,
+"name": &"Item",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_irnyg")
+}],
+"loop": true,
+"name": &"Shop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("39_rpl2l")
+}],
+"loop": true,
+"name": &"Vaaben",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rieem"]
 animations = [{
@@ -235,6 +310,7 @@ theme_override_constants/separation = 20
 position = Vector2(1416, 2232)
 
 [node name="rewardLabel" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 1140.0
 offset_top = 168.0
@@ -242,6 +318,13 @@ offset_right = 1378.0
 offset_bottom = 313.0
 theme_override_font_sizes/font_size = 100
 text = "Filler"
+
+[node name="rewardIcon" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(1600, 744)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_filox")
+animation = &"Elite Vaaben"
 
 [node name="InventoryButik" type="Node2D" parent="."]
 position = Vector2(728, 1561)
