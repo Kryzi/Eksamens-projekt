@@ -40,10 +40,10 @@ animations = [{
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_qqo8k")
 Bullet = ExtResource("2_bgxbw")
+Firerate = 1.0
 WeaponSound = NodePath("BowSound")
 magSize = 1
 maxAmmo = 24
-reloadTime = 1.0
 metadata/IconId = "BasicBow"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
