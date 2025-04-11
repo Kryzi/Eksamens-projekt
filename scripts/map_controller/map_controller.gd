@@ -161,13 +161,12 @@ func _on_teleport_area_entered(body, teleporter_name):
 			layout1_bridge_shop.visible = true
 			musikManager.newStage("shop")
 			
-			rewardValue = randi_range(1, 2)
-			if (PlayerInfo.bossTimer >= 4 and randi_range(1, 3) == 3 ):
+			rewardValue = randi_range(1, 3)
+			if (PlayerInfo.bossTimer >= 4 and randi_range(1, 2) == 3 ):
 				rewardValue += 3
 			if (PlayerInfo.bossTimer >= 9 and randi_range(2, 3) == 3 ):
 				rewardValue += 3
 			spawner.rewardSet(rewardValue)
-			print(PlayerInfo.mapValue)
 			layout1_bridge_shop.get_node("rewardLabel").text = PlayerInfo.mapValue
 			layout1_bridge_shop.get_node("rewardIcon").play(PlayerInfo.mapValue)
 			
@@ -221,7 +220,6 @@ func _on_teleport_area_entered(body, teleporter_name):
 			if (PlayerInfo.bossTimer >= 9):
 				amount = randi_range(4, 5)
 			for i in amount:
-				print("spawn")
 				spawner.elite_spawn(i)
 
 		
