@@ -30,7 +30,7 @@ func _physics_process(delta):
 	
 	rotation = direction.angle() + PI
 	
-	$FireParticle.global_position = global_position - (direction * particleOffset)  # Flyt partiklen bagud
+	$FireParticle.global_position = global_position - (direction * particleOffset)
 	
 	if BulletSpeed == 375:
 		$FireParticle.texture = load("res://sprites/vaaben/partikler/ild/ild_partikel-2.png")

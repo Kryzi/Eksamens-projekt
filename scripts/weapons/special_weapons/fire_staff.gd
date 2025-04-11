@@ -11,15 +11,12 @@ var reserveAmmo: int
 @export var maxAmmo: int = 12
 @export var reloadTime: float 
 var reloading = false
-## Mængden af gange våbnet har fået ammo tilbage
 @export var refillCount = 0
 
-var active_bullet: Node2D = null  # Holder styr på om et skud er aktivt
+var active_bullet: Node2D = null
 var ranged = true
 
 @onready var ExplosionSound = $ExplosionSound
-
-
 
 func _ready() -> void:
 	currentAmmo = magSize
@@ -56,7 +53,6 @@ func shoot():
 		active_bullet.targetPos = get_global_mouse_position()
 		active_bullet.Damage = damage
 		
-		# For at sikre, at vi fjerner referencen, når skuddet fjernes
 		active_bullet.tree_exited.connect(_on_bullet_removed)
 		
 		get_tree().get_root().call_deferred("add_child", active_bullet)

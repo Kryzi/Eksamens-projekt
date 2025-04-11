@@ -39,15 +39,13 @@ func _process(_delta: float) -> void:
 		else:
 			position.x = 40
 		
-		
 		if Input.is_action_pressed("Shoot") or weapons[currentWeapon].reloading == true:
 			canSwap = false
 		elif Input.is_action_just_released("Shoot") and weapons[currentWeapon].reloading == false or weapons[currentWeapon].reloading == false:
 			canSwap = true
 		if weapons[currentWeapon].currentAmmo == 0 and weapons[currentWeapon].reserveAmmo == 0:
 			canSwap = true
-	
-	
+
 	for i in range(1,10):  # looper 1 to 9
 		if Input.is_action_just_pressed(str(i)) and weapons.size() >= i and canSwap == true:
 			weaponSwapped(i - 1)
@@ -66,7 +64,6 @@ func deleteWeapon():
 		currentWeapon = weapons.size() - 1
 	weaponSwapped(currentWeapon)
 
-
 func getWeapons():
 	weapons = get_children()
 
@@ -77,7 +74,6 @@ func disableWeapons():
 		
 		if weapons[i].is_in_group("Skjold"):
 			weapons[i].set_active(false)
-
 
 func enableWeapon():
 	weapons[currentWeapon].set_process(true)
@@ -107,7 +103,6 @@ func weaponSwapped(i):
 func applyUpgrades(damageUpgrade: int, _FirerateUpgrade: float):
 	applyDamageUp(damageUpgrade)
 
-
 func applyDamageUp(_damageUpgrade: int):
 	for i in weapons.size():
 		if weapons[i].is_in_group("Skjold"):
@@ -128,7 +123,6 @@ func applyFirerateRangedUp(FirerateRangedUpgrade: float):
 			weapons[i].Firerate /= FirerateRangedUpgrade
 			totalFirerateRangedUpgrades += FirerateRangedUpgrade
 
-
 func applyFirerateMeleeUp(FirerateMeleeUpgrade: float):
 	for i in weapons.size():
 		if weapons[i].ranged == false:
@@ -146,7 +140,6 @@ func applyHealthUpgrade(extra_health: int, heal: bool = true):
 	}
 	extra_health = extra_health * 1.2
 
-
 func applyUpgradeNewWeapon(i: int):
 	if weapons[i].is_in_group("Skjold"):
 		return
@@ -157,5 +150,4 @@ func applyUpgradeNewWeapon(i: int):
 	elif weapons[i].ranged == false and totalFirerateMeleeUpgrages > 0:
 		weapons[i].FPS_SpeedScale *= totalFirerateMeleeUpgrages
 		weapons[i]._ready()
-	
 	print("is used")

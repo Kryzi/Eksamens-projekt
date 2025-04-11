@@ -8,7 +8,7 @@ func _ready() -> void:
 	max_value = 0
 
 func weaponChanged():
-	if weapon.weapons[weapon.currentWeapon].name == "Boomerang (weapon)": # band aid solution
+	if weapon.weapons[weapon.currentWeapon].is_in_group("Boomerang"):
 		return
 	
 	if weapon.weapons[weapon.currentWeapon].ranged == true: 
@@ -35,7 +35,6 @@ func _process(delta: float) -> void:
 			
 			reload_timer += delta
 			value = reload_timer
-			
 			
 			if value > max_value:
 				value = max_value

@@ -1,10 +1,7 @@
 extends Node2D
 
-## Mængden af damage våbenet gør per slag
 @export var damage: int
-## Her svarer 1 til den normale animation og 2 til en dobbelt så hurtigt animation
 @export var FPS_SpeedScale: float = 1 
-## Distancen våbenet har til splleren
 @export var rotation_radius: float = 50.0
 @onready var KnifeSound = $Sound
 
@@ -28,8 +25,6 @@ func _process(_delta: float) -> void:
 	global_position = player.global_position + direction * rotation_radius
 	look_at(get_global_mouse_position())
 	
-	
-	
 	if Input.is_action_just_pressed("Shoot") and attacking == false:
 		$AnimatedSprite2D.play("Attack")
 		KnifeSound.play()
@@ -39,7 +34,6 @@ func _process(_delta: float) -> void:
 		await $AnimatedSprite2D.animation_finished
 		$Hurtbox.monitoring = false
 		attacking = false
-
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("enemy")):

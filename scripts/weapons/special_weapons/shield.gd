@@ -6,7 +6,7 @@ extends Node2D
 @onready var Weapon = get_node("/root/Main/Player/Weapon")
 
 @onready var player = get_node("/root/Main/Player") 
-@onready var collision = $CollisionShape2D  # Hent collision shape
+@onready var collision = $CollisionShape2D
 
 @onready var magSize = currentAmmo
 @onready var reserveAmmo = currentAmmo
@@ -27,8 +27,7 @@ func _process(_delta: float) -> void:
 
 func set_active(active: bool):
 	if collision:
-		collision.disabled = not active  # Deaktiver collision, hvis skjoldet ikke er i brug
-
+		collision.disabled = not active  #Deaktiver collision, hvis skjoldet ikke er i brug
 
 func hit_damage(damage):
 	currentAmmo -= damage
@@ -43,7 +42,6 @@ func hit_damage(damage):
 		die()
 
 func die():
-	
 	$AnimatedSprite2D.play("Break")
 	await $AnimatedSprite2D.animation_finished
 	
@@ -53,7 +51,4 @@ func die():
 		if weapon.is_in_group("Skjold"):  
 			Weapon.weapons.erase(weapon)  
 			weapon.queue_free() 
-			return  
-	
-	
-	
+			return

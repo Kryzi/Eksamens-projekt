@@ -7,7 +7,6 @@ var direction: Vector2
 
 @export var Particle: PackedScene
 
-
 func _ready() -> void:
 	direction = (targetPos - global_position).normalized()
 
@@ -22,8 +21,6 @@ func _on_body_entered(body: Node2D) -> void:
 	elif not body.is_in_group("player"):
 		emitParticle()
 		queue_free()
-	
-	
 
 func emitParticle():
 	var particle = Particle.instantiate()

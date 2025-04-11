@@ -1,8 +1,8 @@
 extends Area2D
 
 @export var BulletSpeed: int = 750
-@export var zigzag_amplitude: float = 5.0  # How wide the zig-zag is
-@export var zigzag_frequency: float = 20.0  # How fast the zig-zag moves
+@export var zigzag_amplitude: float = 5.0
+@export var zigzag_frequency: float = 20.0
 @export var waterParticle: PackedScene
 @export var vand_partikel_1_texture: Texture2D
 @export var vand_partikel_2_texture: Texture2D
@@ -17,7 +17,7 @@ var time: float = 0.0
 
 func _ready() -> void:
 	direction = (targetPos - global_position).normalized()
-	sideways_direction = Vector2(-direction.y, direction.x)  # Perpendicular to movement
+	sideways_direction = Vector2(-direction.y, direction.x)
 
 func _physics_process(delta):
 	time += delta
