@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	var current_weapon = weapon.weapons[weapon.currentWeapon]
 	if current_weapon.ranged == true:
 		if current_weapon.reloading == true and not current_weapon.is_in_group("Boomerang"):
-			print(max_value)
+			
 			if current_weapon.reserveAmmo == 0 and current_weapon.currentAmmo == 0:
 				return
 			if max_value <= 0:
