@@ -2,7 +2,7 @@ extends Node
 
 @onready var Logo = $Logo
 @onready var Bg = $Background
-var logo_up = true #bevæger loget sig op?
+var logo_up = true
 var i = 0
 var logo_movement = 100
 
