@@ -321,7 +321,7 @@ text = "Filler"
 
 [node name="rewardIcon" type="AnimatedSprite2D" parent="."]
 z_index = 2
-position = Vector2(1600, 744)
+position = Vector2(1245, 258)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_filox")
 animation = &"Elite Vaaben"
