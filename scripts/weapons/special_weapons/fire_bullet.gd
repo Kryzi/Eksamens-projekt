@@ -47,7 +47,6 @@ func _physics_process(delta):
 	
 	if BulletSpeed == 124:
 		screen_shake += 0.05
-		print(screen_shake)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
