@@ -52,7 +52,6 @@ func _ready() -> void:
 @onready var layout3_bridge = background.get_node("Layout3Bridge")
 
 @onready var layoutBoss = background.get_node("LayoutBoss")
-#@onready var rewardValue = get_node("/root/Main/MapController/Spawner").teleporter1
 
 func delete_all_things():
 	for coin in get_tree().get_nodes_in_group("coin"):
@@ -112,23 +111,17 @@ func _on_teleport_area_entered(body, teleporter_name):
 		layout1_bridge_shop.get_node("TeleporterArea1/Teleporter1").call_deferred("set_disabled", true)
 		
 		
-		#Reward giver
-		#print(teleporter_name)
 		if (teleporter_name == "Teleporter_1"):
 			rewardValue = spawner.teleporter1
 			stageReward = rewardValue
-			#print("used1")
 		elif (teleporter_name == "Teleporter_2"):
 			rewardValue = spawner.teleporter2
 			stageReward = rewardValue
-			#print("used2")
 		elif (teleporter_name == "Teleporter_3"):
 			rewardValue = spawner.teleporter3
 			stageReward = rewardValue
 		if (teleporter_name == "Teleporter_shop"):
-			#print(rewardValue)
 			stageReward = rewardValue
-			#print("used3")
 		
 		layout1_bridge_shop.get_node("Boundary1BridgeShop/CollisionPolygon2D").call_deferred("set_disabled", true)
 		var teleporter_collision1_shop = layout1_bridge_shop.get_node("TeleporterArea1/Teleporter1")
@@ -221,6 +214,3 @@ func _on_teleport_area_entered(body, teleporter_name):
 				amount = randi_range(4, 5)
 			for i in amount:
 				spawner.elite_spawn(i)
-
-		
-		

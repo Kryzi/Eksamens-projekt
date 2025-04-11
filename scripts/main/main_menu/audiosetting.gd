@@ -9,11 +9,6 @@ const MASTER_BUS = "Master"
 func _on_master_slider_value_changed(value):
 	var BusInt = AudioServer.get_bus_index(MUSIC_BUS)
 	AudioServer.set_bus_volume_db(BusInt, value)
-	#if value == -35:
-	#	AudioServer.set_bus_mute(0, true)
-	#else:
-	#	AudioServer.set_bus_mute(0, false)
-	#	AudioServer.set_bus_volume_db(0,value)
 
 
 func _on_back_pressed():

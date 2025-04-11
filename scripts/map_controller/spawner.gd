@@ -1,7 +1,5 @@
 extends Node2D
 
-#@export var enemy_1: PackedScene
-
 @export var enemy_1: PackedScene
 @export var enemy_1_1: PackedScene
 @export var enemy_2: PackedScene
@@ -38,9 +36,8 @@ var max_single_obstacle_generation_attempts: int = 5
 var obstacleArea: Rect2
 var obstacleAreaPolygon: PackedVector2Array
 
-var spawnArea: Rect2  # Define a Rect2 for spawn area
+var spawnArea: Rect2
 var rewardValue: int = 0
-#var mapValue: String = ""
 
 var teleporter1 = 0
 var teleporter2 = 0
@@ -50,9 +47,6 @@ var variationID = 0
 func _ready() -> void:
 	create_spawn_area(boundary)
 	generate_obstacles(obstacle_boundary)
-	#print(layout1_bridge_shop.visible )
-	#if (layoutBoss.visible == false and layout1_bridge_shop.visible == false):
-		#create_obstacle_area(obstacle_collision_shape)
 
 #region Obstacle generation
 func generate_obstacles(new_obstacle_boundary: CollisionPolygon2D) -> void:
@@ -60,7 +54,6 @@ func generate_obstacles(new_obstacle_boundary: CollisionPolygon2D) -> void:
 	obstacleArea = get_area_from_boundary(new_obstacle_boundary)
 	
 	var amountObstacle = randi_range(10, 15)
-	# Reset previously generated obstacle positions
 	enemy_and_obstacle_starting_positions = []
 	for i in amountObstacle:
 		random_obstacle_generation()
@@ -72,7 +65,6 @@ func awaited_navigation_region_baking() -> void:
 	navigation_region.bake_navigation_polygon()
 
 func get_obstacle_area_polygon(collision_polygon: CollisionPolygon2D) -> PackedVector2Array:
-	# Converts the local polygon points to global positions and stores them in a PackedVector2Array
 	var global_polygon_points = PackedVector2Array()
 	for local_point in collision_polygon.polygon:
 		global_polygon_points.append(collision_polygon.to_global(local_point))
@@ -99,14 +91,11 @@ func is_obstacle_position_valid(new_pos: Vector2) -> bool:
 #endregion Obstacle generation
 
 #region Enemy spawning
-# Amount er for normale modstandere, amount2 er for stærke modstandere
 var amount = 0
 var amount2 = 0
 var enemy_scenes = []
 func create_spawn_area(new_boundary):
-	spawnArea = get_area_from_boundary(new_boundary)  # Calculate the spawn area bounding box
-	
-	#print("Spawner ready:", self.name, "from", get_parent())
+	spawnArea = get_area_from_boundary(new_boundary)
 	if (PlayerInfo.bossTimer <= 5):
 		amount = randi_range(2, 3)
 	if (PlayerInfo.bossTimer >= 4):
@@ -117,7 +106,6 @@ func create_spawn_area(new_boundary):
 	if (PlayerInfo.bossTimer >= 9):
 		amount = randi_range(4, 6)
 		amount2 = randi_range(3, 4)
-	
 	
 	if (PlayerInfo.areaID == 1):
 		MeleeBoundary = layout1.get_node("EnemyArea1/SpawnShape1")
@@ -138,7 +126,7 @@ func get_area_from_boundary(boundary_for_spawn_area: CollisionPolygon2D) -> Rect
 	var max_y = -INF
 	
 	for point in boundary_for_spawn_area.polygon:
-		var global_point = boundary_for_spawn_area.to_global(point)  # Convert to global position
+		var global_point = boundary_for_spawn_area.to_global(point)
 		min_x = min(min_x, global_point.x)
 		min_y = min(min_y, global_point.y)
 		max_x = max(max_x, global_point.x)
@@ -152,9 +140,8 @@ func melee_spawn():
 	var rect_shape := MeleeBoundary.shape as RectangleShape2D
 	var size = rect_shape.size
 
-	# Generate a random position within the bounds of the rectangle
-	var x2 = randf_range(-size.x / 2, size.x / 2)  # Random X within half-width
-	var y2 = randf_range(-size.y / 2, size.y / 2)  # Random Y within half-height
+	var x2 = randf_range(-size.x / 2, size.x / 2)
+	var y2 = randf_range(-size.y / 2, size.y / 2)
 	var local_pos = Vector2(x2, y2)
 	pos2 = MeleeBoundary.global_position + local_pos
 
@@ -171,10 +158,9 @@ func random_spawn(i):
 		enemy_instance.position = pos
 		enemy_and_obstacle_starting_positions.append(pos)
 		call_deferred("add_child", enemy_instance)
-		#print("used")
 	else:
 		enemy_scenes = []
-		# Vælg en tilfældig fjende at spawne
+		#Vælg en tilfældig fjende at spawne
 		if (PlayerInfo.bossTimer <= 3):
 			enemy_scenes = [enemy_1, enemy_3]
 		elif (PlayerInfo.bossTimer >= 4):
@@ -184,7 +170,7 @@ func random_spawn(i):
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
 		var enemy_instance = selected_enemy.instantiate()
-		# Modstander 3 spawner tættere til spilleren
+		#Modstander 3 spawner tættere til spilleren
 		if(selected_enemy == enemy_3 or selected_enemy == enemy_2_2):
 			enemy_instance.position = pos2
 			enemy_and_obstacle_starting_positions.append(pos2)
@@ -194,7 +180,7 @@ func random_spawn(i):
 		call_deferred("add_child", enemy_instance)
 		#print("used2")
 
-# For de stærke modstandere der skal være færre af
+#For de stærke modstandere der skal være færre af
 func strong_spawn(i):
 	var x = randf_range(spawnArea.position.x, spawnArea.end.x)
 	var y = randf_range(spawnArea.position.y, spawnArea.end.y)
@@ -209,7 +195,6 @@ func strong_spawn(i):
 		#print("used")
 	else:
 		enemy_scenes = []
-		# Vælg en tilfældig fjende at spawne
 		
 		enemy_scenes = [enemy_2_2, enemy_5, enemy_1_1]
 		if (PlayerInfo.bossTimer >= 9):
@@ -218,7 +203,6 @@ func strong_spawn(i):
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
 		var enemy_instance = selected_enemy.instantiate()
-		# Modstander 3 spawner tættere til spilleren
 		if(selected_enemy == enemy_5 or selected_enemy == enemy_2_2 or selected_enemy == enemy_4 ):
 			enemy_instance.position = pos2
 			enemy_and_obstacle_starting_positions.append(pos2)
@@ -248,7 +232,6 @@ func elite_spawn(_i):
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
 		var enemy_instance = selected_enemy.instantiate()
-		# Modstander 3 spawner tættere til spilleren
 		if(selected_enemy == enemy_3 or selected_enemy == enemy_4 or selected_enemy == enemy_2_2 or selected_enemy == enemy_5):
 			enemy_instance.position = pos2
 		else:
@@ -257,13 +240,11 @@ func elite_spawn(_i):
 #endregion Enemy Spawning
 
 func rewardSet(value):
-	#rewardValue = randi_range(1, 3)
 	var eliteChance = 0
 	if (PlayerInfo.bossTimer >= 4):
 		eliteChance = randi_range(1, 3)
 	if (PlayerInfo.bossTimer >= 9):
 		eliteChance = randi_range(2, 3)
-	# Dette fixer en glitch hvor shop ville vise elite kamp uden at være det
 	if (PlayerInfo.areaID == 0):
 		eliteChance = 0
 	
@@ -307,26 +288,19 @@ func getItem():
 		3:
 			boundary = get_node("/root/Main/MapController/Background/Layout3/EnemyArea3/SpawnPolygon3")
 	#Skab tilfældigt item
-	var itemInstance = item.instantiate()  # Instantiate the PackedScene
-	itemInstance.itemGenerator()  # Now you can call itemGenerator() on the instance
-	# teleportere tilfældigt item til midten af boundry
-	#var polygon = boundary.polygon 
+	var itemInstance = item.instantiate()
+	itemInstance.itemGenerator()
+	#Teleportere tilfældigt item til midten af boundry
 	spawnArea = get_area_from_boundary(boundary)
 	var x = randf_range(spawnArea.position.x, spawnArea.end.x)
 	var y = randf_range(spawnArea.position.y, spawnArea.end.y)
 	var pos = Vector2(x, y)
-	#var x = (spawnArea.position.x + spawnArea.end.x)/randf_range(1.75,2.5)
-	#var y = (spawnArea.position.y + spawnArea.end.y)/randf_range(1.25,2.75)
-	#var pos = Vector2(x, y)
 	itemInstance.position = pos
 	call_deferred("add_child", itemInstance)
-
-	
 
 func checkDeath():
 	await get_tree().process_frame
 	if get_tree().get_nodes_in_group("enemy").is_empty():
-		# Switch visible background
 		var Reward = map_controller.stageReward
 		stageReward(Reward)
 		print(PlayerInfo.bossTimer)
@@ -334,21 +308,17 @@ func checkDeath():
 		
 		if (PlayerInfo.bossTimer >= 9):
 			variationID = randi_range(2, 3)
-		# Sikre at der altid er mindst en vej der ikke er shop
+		#Sikre at der altid er mindst en vej der ikke er shop
 		rewardSet(randi_range(1, 2))
-		# Sikre at man får en shop mindst vær tredje bane og lige før bosskampen
+		#Sikre at man får en shop mindst vær tredje bane og lige før bosskampen
 		if ((PlayerInfo.bossTimer % 3) == 0 and PlayerInfo.bossTimer > 0 and PlayerInfo.bossTimer < 10 or PlayerInfo.bossTimer < 11):
 			rewardSet(3)
-		# Dette gør så man aldrig får en shop lige før den endelige shop før bossen (ikke nødevendigt, men bruges som eksempel)
-		#if (PlayerInfo.bossTimer == 11):
-		#	rewardSet(randi_range(1, 2))
 		if (PlayerInfo.bossTimer > 12):
 			rewardSet(3)
 			variationID = 1
-		# Sikre at man alitd for coins i starten
+		#Sikre at man alitd for coins i starten
 		if (PlayerInfo.bossTimer < 3):
 			rewardSet(1)
-		
 		
 		if layout1.visible == true:
 			layout1.visible = false
@@ -359,8 +329,6 @@ func checkDeath():
 			layout1_bridge.get_node("Variation1_2").visible = false
 			layout1_bridge.get_node("Variation1_3").visible = false
 			
-			#var rewardLabel = layout1_bridge.get_node("rewardLabel")
-			#rewardSet(randi_range(1, 2))
 			layout1_bridge.get_node("Variation1_1/rewardLabel").text = PlayerInfo.mapValue
 			layout1_bridge.get_node("Variation1_1/rewardIcon").play(PlayerInfo.mapValue)
 			teleporter1 = rewardValue
@@ -397,9 +365,6 @@ func checkDeath():
 					layout1_bridge.get_node("Variation1_3/rewardIcon").play(PlayerInfo.mapValue)
 					teleporter3 = rewardValue
 				
-			
-			
-		
 		if layout2.visible == true:
 			layout2.visible = false
 			layout2.get_node("Boundary2/CollisionPolygon2D").disabled = true
@@ -455,8 +420,6 @@ func checkDeath():
 			layout3_bridge.get_node("Variation3_2").visible = false
 			layout3_bridge.get_node("Variation3_3").visible = false
 			
-			#var rewardLabel = layout1_bridge.get_node("rewardLabel")
-			#rewardSet(randi_range(1, 3))
 			layout3_bridge.get_node("Variation3_1/rewardLabel3_1").text = PlayerInfo.mapValue
 			layout3_bridge.get_node("Variation3_1/rewardIcon").play(PlayerInfo.mapValue)
 			teleporter1 = rewardValue
@@ -491,5 +454,3 @@ func checkDeath():
 					layout3_bridge.get_node("Variation3_3/rewardLabel3_3").text = PlayerInfo.mapValue
 					layout3_bridge.get_node("Variation3_3/rewardIcon").play(PlayerInfo.mapValue)
 					teleporter3 = rewardValue
-				
-			
