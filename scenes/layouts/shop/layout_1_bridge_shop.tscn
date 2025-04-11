@@ -324,7 +324,7 @@ offset_right = 976.0
 offset_bottom = 1698.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "Get Random Item: 25 coins"
+text = "Get Random Upgrade: 25 coins"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="InventoryButik/limitPurchase" to="." method="_on_limit_purchase_mouse_entered"]
