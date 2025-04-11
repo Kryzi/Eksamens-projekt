@@ -96,7 +96,7 @@ func die():
 	for i in range(coinNum):
 		var coin = preload("res://scenes/collectables/coin.tscn").instantiate()
 		coin.global_position = global_position
-		get_tree().get_root().add_child(coin)
+		get_tree().get_root().call_deferred("add_child", coin)
 	spawner.checkDeath()
 	queue_free()
 
