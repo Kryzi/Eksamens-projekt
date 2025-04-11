@@ -91,6 +91,7 @@ func is_obstacle_position_valid(new_pos: Vector2) -> bool:
 #endregion Obstacle generation
 
 #region Enemy spawning
+#Amount er for normale modstandere, amount2 er for stærke modstandere
 var amount = 0
 var amount2 = 0
 var enemy_scenes = []
