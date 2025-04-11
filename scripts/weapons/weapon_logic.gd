@@ -16,7 +16,6 @@ func _ready() -> void:
 	disableWeapons()
 	enableWeapon()
 	
-	# Brug variabler fra PlayerInfo, så sender den automatisk et signal til HUD
 	PlayerInfo.ammo_data = {
 		"current_ammo": weapons[currentWeapon].currentAmmo,
 		"mag_size": weapons[currentWeapon].magSize,
@@ -30,15 +29,11 @@ func _process(_delta: float) -> void:
 			canSwap = false
 		else:
 			canSwap = true
-		
-		
-		
 	if Input.is_action_just_pressed("g") and weapons.size() > currentWeapon and weapons.size() > 1 :
 		deleteWeapon()
 		
 	
 	if weapons[currentWeapon].ranged == true:
-		# skifter våbens position mellem venstre og højre 
 		if get_global_mouse_position().x < get_parent().global_position.x:
 			position.x = -40
 		else:
@@ -64,18 +59,12 @@ func deleteWeapon():
 	weapons[currentWeapon].queue_free()
 	weapons.remove_at(currentWeapon)
 	
-	# Clamp currentWeapon to a valid index
 	if weapons.size() == 0:
-		currentWeapon = -1  # or handle empty weapon state
+		currentWeapon = -1
 		return
 	elif currentWeapon >= weapons.size():
 		currentWeapon = weapons.size() - 1
-	
 	weaponSwapped(currentWeapon)
-	#var inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
-	#inventory.checkForNewWeapons()
-	#print("checkForNewWeapons Called in deleteWeapon")
-	#inventory.HighlightWeapon()
 
 
 func getWeapons():
@@ -102,15 +91,13 @@ func weaponSwapped(i):
 	
 	var inventory = get_node("/root/Main/HUD/Control/Inventory")
 	inventory.checkForNewWeapons()
-	#print("checkForNewWeapons Called in weaponSwapped")
 	inventory.HighlightWeapon()
 	
-	$"../ReloadBar".weaponChanged() # ændre reloadbaren til ens våben 
+	$"../ReloadBar".weaponChanged() #ændre reloadbaren til ens våben 
 	
 	if weapons[currentWeapon].is_in_group("Skjold"):
 		weapons[currentWeapon].set_active(true)
 	
-	# Brug variabler fra PlayerInfo, så sender den automatisk et signal til HUD
 	PlayerInfo.ammo_data = {
 		"current_ammo": weapons[currentWeapon].currentAmmo,
 		"mag_size": weapons[currentWeapon].magSize,
@@ -160,7 +147,9 @@ func applyHealthUpgrade(extra_health: int, heal: bool = true):
 	extra_health = extra_health * 1.2
 
 
-func applyUpgradeNewWeapon(i: int): # kald denne når nyt våben tilføjes
+func applyUpgradeNewWeapon(i: int):
+	if weapons[i].is_in_group("Skjold"):
+		return
 	weapons[i].damage += totalDamageUpgrades
 	if weapons[i].ranged == true and totalFirerateRangedUpgrades > 0:
 		weapons[i].Firerate /= totalFirerateRangedUpgrades 

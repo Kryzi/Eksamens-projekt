@@ -63,7 +63,6 @@ func _on_limit_purchase_pressed() -> void:
 		PlayerInfo.weaponLimitCost += 5
 		%limitPurchase.set_text("Increase max weapons : " + str(PlayerInfo.weaponLimitCost) + " coins")
 		
-		# Henter fra "Inventory" og gør det valgte slot synligt
 		var slot_name = "Slot" + str(PlayerInfo.weaponLimit)
 		var slot_node = Inventory.get_node_or_null(slot_name)
 		slot_node.visible = true

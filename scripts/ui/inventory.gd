@@ -1,6 +1,5 @@
 extends HBoxContainer
 
-#@onready var slots: Array[Node] = get_node(".").get_children()
 var slots: Array[Node] = []
 var weapons: Array[Node] = []
 @onready var weaponNode = get_node("/root/Main/Player/Weapon")
@@ -36,8 +35,6 @@ func chech_slot_n(slot: Node, n: int):
 func checkForNewWeapons():
 	getSlots()
 	getWeapons()
-	#debugPrintWeapons()
-	#print("checkForNewWeapons Executed")
 	for n in range(slots.size()):
 		slots[n].modulate = standartColor
 		slots[n].self_modulate = standartColor
@@ -57,7 +54,7 @@ func HighlightWeapon():
 		slots[currentWeapon].modulate = highlightColor
 		slots[currentWeapon].self_modulate = highlightColor
 
-func CheckAmmoN(slot, weapon, _n): # N bliver ikke brugt ?
+func CheckAmmoN(slot, weapon, _n):
 	if (weapon.currentAmmo <= 0 and weapon.reserveAmmo <= 0):
 		slot.modulate = ammoOutColor
 		slot.self_modulate = ammoOutColor
@@ -65,12 +62,10 @@ func CheckAmmoN(slot, weapon, _n): # N bliver ikke brugt ?
 func deleteTextures(slot: Node):
 	var textures = slot.get_children()
 	var textureNum = slot.get_child_count()
-	#print("deleteTetures: textureNum: " + str(textureNum))
 	if (textureNum > 0 and slot.name != "WeaponIcons"):
 		for i in textures:
 			i.queue_free()
 
 func debugPrintWeapons():
 	for item in weapons:
-		#print(item.name)
 		pass
