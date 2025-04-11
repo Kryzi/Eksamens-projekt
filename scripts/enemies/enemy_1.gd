@@ -32,7 +32,7 @@ func _physics_process(delta) -> void:
 		
 		move_and_slide()
 	else:
-		Enemy_state = "Idle"  #Stå stille mens der skydes
+		Enemy_state = "Idle"
 		velocity = Vector2.ZERO
 
 func play_anim(dir):
