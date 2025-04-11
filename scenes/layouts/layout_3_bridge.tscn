@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr67rf610mc48"]
+[gd_scene load_steps=18 format=3 uid="uid://dr67rf610mc48"]
 
 [ext_resource type="Texture2D" uid="uid://chxdt75id3h2c" path="res://sprites/omraader/omraade1/o1_kun-taage.png" id="1_4x8io"]
 [ext_resource type="Texture2D" uid="uid://ccay1k3hmo4bp" path="res://sprites/omraader/omraade1/o1-3/o1-3_fuld.png" id="1_oh6ud"]
@@ -7,9 +7,84 @@
 [ext_resource type="Texture2D" uid="uid://dtwbw1u4eptvv" path="res://sprites/omraader/omraade1/bro/bro_op-ende.png" id="3_yxbeg"]
 [ext_resource type="Texture2D" uid="uid://ckeq6k412m4km" path="res://sprites/omraader/omraade1/bro/bro_venstre-hojre.png" id="4_emsrj"]
 [ext_resource type="Texture2D" uid="uid://bd1iqh8co78v8" path="res://sprites/omraader/omraade1/bro/bro_op-ned.png" id="5_r8v3g"]
+[ext_resource type="Texture2D" uid="uid://b43o52kcvk2rk" path="res://sprites/andet/navigationsikoner/boss-navi.png" id="6_tknc3"]
+[ext_resource type="Texture2D" uid="uid://cxjp6pl4n6orq" path="res://sprites/andet/navigationsikoner/coin-navi.png" id="7_pm7ba"]
+[ext_resource type="Texture2D" uid="uid://vq78ba2sveco" path="res://sprites/andet/navigationsikoner/coin-navi_svaer.png" id="8_f6pqp"]
+[ext_resource type="Texture2D" uid="uid://dv25fhpj0104q" path="res://sprites/andet/navigationsikoner/item-navi_svaer.png" id="9_yvhuy"]
+[ext_resource type="Texture2D" uid="uid://wbukrhpjx6my" path="res://sprites/andet/navigationsikoner/vaaben-navi_svaer.png" id="10_pecg1"]
+[ext_resource type="Texture2D" uid="uid://ca2aojprs6ax7" path="res://sprites/andet/navigationsikoner/item-navi.png" id="11_s3jvq"]
+[ext_resource type="Texture2D" uid="uid://c57xlu1ebu5e7" path="res://sprites/andet/navigationsikoner/shop-navi.png" id="12_acqy6"]
+[ext_resource type="Texture2D" uid="uid://bcbpfwbsc0jsh" path="res://sprites/andet/navigationsikoner/vaaben-navi.png" id="13_3e8jo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys8aw"]
 size = Vector2(132, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qw4xh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tknc3")
+}],
+"loop": true,
+"name": &"Boss",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_pm7ba")
+}],
+"loop": true,
+"name": &"Coins",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_f6pqp")
+}],
+"loop": true,
+"name": &"Elite Coins",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_yvhuy")
+}],
+"loop": true,
+"name": &"Elite Item",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_pecg1")
+}],
+"loop": true,
+"name": &"Elite Vaaben",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_s3jvq")
+}],
+"loop": true,
+"name": &"Item",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_acqy6")
+}],
+"loop": true,
+"name": &"Shop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_3e8jo")
+}],
+"loop": true,
+"name": &"Vaaben",
+"speed": 5.0
+}]
 
 [node name="Layout3Bridge" type="Control"]
 layout_mode = 3
@@ -67,6 +142,7 @@ shape = SubResource("RectangleShape2D_ys8aw")
 disabled = true
 
 [node name="rewardLabel3_1" type="Label" parent="Variation3_1"]
+visible = false
 z_index = 2
 layout_mode = 0
 offset_left = -259.0
@@ -80,6 +156,13 @@ text = "Filler"
 position = Vector2(375, -482)
 scale = Vector2(13.6038, 12.8113)
 texture = ExtResource("3_kwwvw")
+
+[node name="rewardIcon" type="AnimatedSprite2D" parent="Variation3_1"]
+z_index = 2
+position = Vector2(-112, -480)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_qw4xh")
+animation = &"Elite Vaaben"
 
 [node name="Variation3_2" type="Control" parent="."]
 layout_mode = 3
@@ -119,6 +202,7 @@ shape = SubResource("RectangleShape2D_ys8aw")
 disabled = true
 
 [node name="rewardLabel3_2" type="Label" parent="Variation3_2"]
+visible = false
 z_index = 2
 layout_mode = 0
 offset_left = -711.0
@@ -127,6 +211,13 @@ offset_right = -473.0
 offset_bottom = -549.0
 theme_override_font_sizes/font_size = 100
 text = "Filler"
+
+[node name="rewardIcon" type="AnimatedSprite2D" parent="Variation3_2"]
+z_index = 2
+position = Vector2(-566, -615)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_qw4xh")
+animation = &"Elite Vaaben"
 
 [node name="Variation3_3" type="Control" parent="."]
 layout_mode = 3
@@ -165,6 +256,7 @@ shape = SubResource("RectangleShape2D_ys8aw")
 disabled = true
 
 [node name="rewardLabel3_3" type="Label" parent="Variation3_3"]
+visible = false
 z_index = 2
 layout_mode = 0
 offset_left = -242.0
@@ -173,3 +265,10 @@ offset_right = -4.0
 offset_bottom = 220.0
 theme_override_font_sizes/font_size = 100
 text = "Filler"
+
+[node name="rewardIcon" type="AnimatedSprite2D" parent="Variation3_3"]
+z_index = 2
+position = Vector2(-134, 146)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_qw4xh")
+animation = &"Elite Vaaben"
