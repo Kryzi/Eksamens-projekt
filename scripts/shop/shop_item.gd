@@ -23,7 +23,7 @@ func _on_purchase_button_pressed() -> void:
 		# Giver tidligere upgraderinger til nye våben
 		PlayerWeapons.applyUpgradeNewWeapon(new_weapon_index)
 		
-		var inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
+		var inventory = get_node("/root/Main/HUD/Control/Inventory")
 		inventory.checkForNewWeapons()
 		inventory.HighlightWeapon()
 

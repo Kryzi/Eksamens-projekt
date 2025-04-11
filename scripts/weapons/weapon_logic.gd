@@ -100,7 +100,7 @@ func weaponSwapped(i):
 	currentWeapon = i
 	enableWeapon()
 	
-	var inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
+	var inventory = get_node("/root/Main/HUD/Control/Inventory")
 	inventory.checkForNewWeapons()
 	#print("checkForNewWeapons Called in weaponSwapped")
 	inventory.HighlightWeapon()

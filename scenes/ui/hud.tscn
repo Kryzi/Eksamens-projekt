@@ -15,12 +15,6 @@
 [ext_resource type="Script" path="res://scripts/ui/upgradetext.gd" id="13_qh4r3"]
 [ext_resource type="Texture2D" uid="uid://cj7wr2qrajq36" path="res://sprites/boss/gigaged/krop_ned/gigaged-ned_tramp1-hoved-ned_idle.png" id="14_ixpyk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlwpy"]
-bg_color = Color(0.816006, 0.491452, 0.548551, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08qt5"]
-bg_color = Color(0.315157, 0.677621, 0.572684, 1)
-
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nauj4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8wsa"]
@@ -36,6 +30,12 @@ expand_margin_left = 8.0
 expand_margin_top = 8.0
 expand_margin_right = 8.0
 expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlwpy"]
+bg_color = Color(0.816006, 0.491452, 0.548551, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08qt5"]
+bg_color = Color(0.315157, 0.677621, 0.572684, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_3jcof")
@@ -61,203 +61,6 @@ theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 2
-theme_override_constants/separation = 20
-
-[node name="HealthBar" type="ProgressBar" parent="Control/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 30)
-layout_mode = 2
-mouse_filter = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_mlwpy")
-theme_override_styles/fill = SubResource("StyleBoxFlat_08qt5")
-rounded = true
-metadata/_edit_use_anchors_ = true
-
-[node name="AmmoPanel" type="Panel" parent="Control/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(300, 30)
-layout_mode = 2
-mouse_filter = 2
-
-[node name="AmmoLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/AmmoPanel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.0
-offset_top = -11.5
-offset_right = 56.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "ammo not set"
-
-[node name="CoinsLabel" type="Panel" parent="Control/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(160, 30)
-layout_mode = 2
-mouse_filter = 2
-
-[node name="CoinsLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/CoinsLabel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -30.5
-offset_top = -11.5
-offset_right = 30.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Inventory" type="HBoxContainer" parent="Control/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/separation = 10
-alignment = 1
-script = ExtResource("2_blooa")
-
-[node name="Slot1" type="Panel" parent="Control/MarginContainer/Inventory"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="Slot2" type="Panel" parent="Control/MarginContainer/Inventory"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="Slot3" type="Panel" parent="Control/MarginContainer/Inventory"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="Slot4" type="Panel" parent="Control/MarginContainer/Inventory"]
-visible = false
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="Slot5" type="Panel" parent="Control/MarginContainer/Inventory"]
-visible = false
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="Slot6" type="Panel" parent="Control/MarginContainer/Inventory"]
-visible = false
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="Slot7" type="Panel" parent="Control/MarginContainer/Inventory"]
-visible = false
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="Slot8" type="Panel" parent="Control/MarginContainer/Inventory"]
-visible = false
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="Slot9" type="Panel" parent="Control/MarginContainer/Inventory"]
-visible = false
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="Slot10" type="Panel" parent="Control/MarginContainer/Inventory"]
-visible = false
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="WeaponIcons" type="Control" parent="Control/MarginContainer/Inventory"]
-visible = false
-layout_mode = 2
-
-[node name="BasicBowIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 45.0
-offset_bottom = 45.0
-texture = ExtResource("3_u6cls")
-
-[node name="BasicKnifeIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 45.0
-offset_bottom = 45.0
-texture = ExtResource("4_efelt")
-
-[node name="WaterStaffIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 45.0
-offset_bottom = 45.0
-texture = ExtResource("5_mv4lq")
-
-[node name="KæmpeHammerIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 45.0
-offset_bottom = 45.0
-texture = ExtResource("6_uk06u")
-
-[node name="BoomerangIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 50.0
-offset_bottom = 50.0
-texture = ExtResource("7_pe4v2")
-
-[node name="SkjoldIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 45.0
-offset_bottom = 45.0
-texture = ExtResource("8_lqf4w")
-
-[node name="FireStaffIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 45.0
-offset_bottom = 45.0
-texture = ExtResource("9_hfavo")
-
-[node name="IsKanonIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 45.0
-offset_bottom = 45.0
-texture = ExtResource("10_4dxx1")
-
-[node name="LeIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 45.0
-offset_bottom = 45.0
-texture = ExtResource("11_pyufq")
-
-[node name="RockGuitarIcon" type="TextureRect" parent="Control/MarginContainer/Inventory/WeaponIcons"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 45.0
-offset_bottom = 45.0
-texture = ExtResource("12_7wxm8")
 
 [node name="EndScreenPanel" type="Panel" parent="Control"]
 unique_name_in_owner = true
@@ -367,6 +170,221 @@ scrollable = false
 position = Vector2(23, 50)
 scale = Vector2(3.5, 10)
 texture = ExtResource("14_ixpyk")
+
+[node name="INFO" type="Node2D" parent="Control"]
+scale = Vector2(1.5, 1.5)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/INFO"]
+offset_left = 16.6667
+offset_top = 12.6667
+offset_right = 616.667
+offset_bottom = 42.6667
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="HealthBar" type="ProgressBar" parent="Control/INFO/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_mlwpy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_08qt5")
+rounded = true
+metadata/_edit_use_anchors_ = true
+
+[node name="AmmoPanel" type="Panel" parent="Control/INFO/HBoxContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AmmoLabel" type="Label" parent="Control/INFO/HBoxContainer/AmmoPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -11.5
+offset_right = 56.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "ammo not set"
+
+[node name="CoinsLabel" type="Panel" parent="Control/INFO/HBoxContainer"]
+custom_minimum_size = Vector2(160, 30)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CoinsLabel" type="Label" parent="Control/INFO/HBoxContainer/CoinsLabel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = -11.5
+offset_right = 30.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -98.0
+offset_right = 85.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.3, 1.3)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("2_blooa")
+
+[node name="Slot1" type="Panel" parent="Control/Inventory"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot2" type="Panel" parent="Control/Inventory"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot3" type="Panel" parent="Control/Inventory"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot4" type="Panel" parent="Control/Inventory"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot5" type="Panel" parent="Control/Inventory"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot6" type="Panel" parent="Control/Inventory"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot7" type="Panel" parent="Control/Inventory"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot8" type="Panel" parent="Control/Inventory"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot9" type="Panel" parent="Control/Inventory"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot10" type="Panel" parent="Control/Inventory"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="WeaponIcons" type="Control" parent="Control/Inventory"]
+visible = false
+layout_mode = 2
+
+[node name="BasicBowIcon" type="TextureRect" parent="Control/Inventory/WeaponIcons"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("3_u6cls")
+
+[node name="BasicKnifeIcon" type="TextureRect" parent="Control/Inventory/WeaponIcons"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("4_efelt")
+
+[node name="WaterStaffIcon" type="TextureRect" parent="Control/Inventory/WeaponIcons"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("5_mv4lq")
+
+[node name="KæmpeHammerIcon" type="TextureRect" parent="Control/Inventory/WeaponIcons"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("6_uk06u")
+
+[node name="BoomerangIcon" type="TextureRect" parent="Control/Inventory/WeaponIcons"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("7_pe4v2")
+
+[node name="SkjoldIcon" type="TextureRect" parent="Control/Inventory/WeaponIcons"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("8_lqf4w")
+
+[node name="FireStaffIcon" type="TextureRect" parent="Control/Inventory/WeaponIcons"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("9_hfavo")
+
+[node name="IsKanonIcon" type="TextureRect" parent="Control/Inventory/WeaponIcons"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("10_4dxx1")
+
+[node name="LeIcon" type="TextureRect" parent="Control/Inventory/WeaponIcons"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("11_pyufq")
+
+[node name="RockGuitarIcon" type="TextureRect" parent="Control/Inventory/WeaponIcons"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("12_7wxm8")
 
 [connection signal="pressed" from="Control/EndScreenPanel/MarginContainer/EndScreenContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Control/EndScreenPanel/MarginContainer/EndScreenContainer/MainMenu" to="." method="_on_main_menu_pressed"]
