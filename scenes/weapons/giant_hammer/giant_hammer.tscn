@@ -59,7 +59,7 @@ size = Vector2(16.5, 16.25)
 [node name="KæmpeHammer" type="Node2D"]
 scale = Vector2(5.5, 5.5)
 script = ExtResource("1_qhuif")
-damage = 10
+damage = 12
 rotation_radius = 65.0
 metadata/IconId = "KæmpeHammer"
 

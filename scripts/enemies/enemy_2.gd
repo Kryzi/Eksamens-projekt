@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed = 5000
-var health = 30
+var health = 25
 var theta: float = 0.0
 var Enemy_state: String = "Walking"
 var player_in_attack_range = false
