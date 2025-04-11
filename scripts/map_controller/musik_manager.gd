@@ -2,6 +2,7 @@ extends Node
 
 @onready var ShopMusik: AudioStreamPlayer = $ShopOgUdenFare
 @onready var KampMusik: AudioStreamPlayer = $IKamp
+@onready var BossMusik: AudioStreamPlayer = $AngrebAfEnGigaged
 
 func playMusik(musik: AudioStreamPlayer):
 	if musik.playing == false:
@@ -18,8 +19,11 @@ func newStage(stageName):
 	if stageName == "shop":
 		playMusik(ShopMusik)
 	elif stageName == "boss":
-		endMusik()
+		playMusik(BossMusik)
 	elif stageName == "kamp":
 		playMusik(KampMusik)
 	else:
 		endMusik()
+
+func _ready() -> void:
+	newStage("kamp")
