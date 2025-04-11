@@ -263,7 +263,10 @@ func rewardSet(value):
 		eliteChance = randi_range(1, 3)
 	if (PlayerInfo.bossTimer >= 9):
 		eliteChance = randi_range(2, 3)
-	'eliteChance = 3'
+	# Dette fixer en glitch hvor shop ville vise elite kamp uden at være det
+	if (PlayerInfo.areaID == 0):
+		eliteChance = 0
+	
 	rewardValue = value
 	if (rewardValue == 1 or rewardValue == 4):
 		PlayerInfo.mapValue = "Coins"
