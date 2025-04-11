@@ -39,7 +39,7 @@ func _ready() -> void:
 	RefillShopItems()
 	%limitPurchase.set_text("Increase max weapons : " + str(PlayerInfo.weaponLimitCost) + " coins")
 
-@onready var Inventory = get_node("/root/Main/HUD/Control/MarginContainer/Inventory")
+@onready var Inventory = get_node("/root/Main/HUD/Control/Inventory")
 
 func _on_button_pressed() -> void:
 	var highScore = PlayerInfo.current_coins
