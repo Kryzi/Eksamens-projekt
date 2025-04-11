@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cogx1vos6b53b"]
+[gd_scene load_steps=6 format=3 uid="uid://cogx1vos6b53b"]
 
 [ext_resource type="PackedScene" uid="uid://cradrmw10obwa" path="res://scenes/main/player.tscn" id="1_yge8e"]
 [ext_resource type="PackedScene" uid="uid://d1ti0ps86yt0p" path="res://scenes/ui/hud.tscn" id="2_cce44"]
 [ext_resource type="PackedScene" uid="uid://cjg7rlfjs5hdb" path="res://scenes/map_controller/map_controller.tscn" id="3_y38tl"]
+[ext_resource type="PackedScene" uid="uid://deka6f0kjlaxn" path="res://scenes/enemies/enemy_4.tscn" id="4_ka7a5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jufnr"]
 vertices = PackedVector2Array(2642, 890, -2666, 890, -2666, -1610, 2642, -1610)
@@ -24,3 +25,6 @@ navigation_polygon = SubResource("NavigationPolygon_jufnr")
 position = Vector2(1402, 2176)
 
 [node name="HUD" parent="." instance=ExtResource("2_cce44")]
+
+[node name="enemy_4" parent="." instance=ExtResource("4_ka7a5")]
+position = Vector2(991, 857)
