@@ -3,12 +3,11 @@ extends StaticBody2D
 var speed = 10000
 var health = 15
 var last_direction: Vector2 = Vector2.DOWN
-var player_in_attack_range = false  # Holder styr på, om spilleren er tæt nok på til angreb
+var player_in_attack_range = false
 
 @onready var player = get_node("/root/Main/Player")
 @onready var controller = get_node("/root/Main/MapController/Spawner")
 @onready var animated_sprite = $AnimatedSprite2D
-#@onready var attack_area = $AttackArea  # Area2D der registrerer, om spilleren er i skud-rækkevidde
 @onready var ShootSound = $Enemy3Sound
 
 @export var bullet_scene: PackedScene
@@ -51,41 +50,31 @@ func shoot():
 		
 		$AnimatedSprite2D.play("Attack")
 		
-		# Første bullet (40 grader venstre)
 		var bullet_instance1 = bullet_scene.instantiate()
 		bullet_instance1.global_position = $ShootingPoint.global_position
-		bullet_instance1.direction = left_offset  # Sæt direction direkte
+		bullet_instance1.direction = left_offset
 		get_tree().get_root().call_deferred("add_child", bullet_instance1)
 		
-		# Anden bullet (40 grader højre)
 		var bullet_instance2 = bullet_scene.instantiate()
 		bullet_instance2.global_position = $ShootingPoint.global_position
-		bullet_instance2.direction = right_offset  # Sæt direction direkte
+		bullet_instance2.direction = right_offset
 		get_tree().get_root().call_deferred("add_child", bullet_instance2)
 		
-		# Tredje bullet (60 grader venstre)
 		var bullet_instance3 = bullet_scene.instantiate()
 		bullet_instance3.global_position = $ShootingPoint.global_position
-		bullet_instance3.direction = left_offset2  # Sæt direction direkte
+		bullet_instance3.direction = left_offset2
 		get_tree().get_root().call_deferred("add_child", bullet_instance3)
 		
-		# Fjerde bullet (60 grader højre)
 		var bullet_instance4 = bullet_scene.instantiate()
 		bullet_instance4.global_position = $ShootingPoint.global_position
-		bullet_instance4.direction = right_offset2  # Sæt direction direkte
+		bullet_instance4.direction = right_offset2
 		get_tree().get_root().call_deferred("add_child", bullet_instance4)
-		
-		
-		
 		
 		await $AnimatedSprite2D.animation_finished
 		$AnimatedSprite2D.play("Idle")
 
-
-
-
 func _on_attack_timer_timeout() -> void:
-	if player_in_attack_range:  # Kun skyd, hvis spilleren er inden for rækkevidde
+	if player_in_attack_range:
 		shoot()
 		
 

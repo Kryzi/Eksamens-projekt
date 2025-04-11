@@ -12,7 +12,7 @@ var has_hit_player = false
 @export var charge_speed = 650.0
 @export var patrol_wait_time = 1.0
 @export var damage = 2
-@export var max_charge_time = 0.8  # hvor længe den charger
+@export var max_charge_time = 0.8
 @export var coinNum: int
 
 @onready var GolemGåSound = $"GolemGåSound"
@@ -35,7 +35,6 @@ func _physics_process(_delta):
 		sprite.play("Charge " + direction_name(dir))
 		move_and_slide()
 
-		# MANUEL COLLISION CHECK:
 		if not has_hit_player:
 			for body in hitbox.get_overlapping_bodies():
 				if body.name == "Player":
@@ -44,12 +43,10 @@ func _physics_process(_delta):
 					end_charge()
 		return
 
-	# Start charge hvis spiller er synlig og vi må angribe
 	if player_in_range and can_attack:
 		start_charge()
 		return
 
-	# Patruljér
 	if raycast.is_colliding() or raycast2.is_colliding() or raycast3.is_colliding():
 		patrol_direction *= -1
 		raycast.target_position *= -1
@@ -104,7 +101,6 @@ func die():
 	queue_free()
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	# Ekstra sikkerhed – bruges ikke længere som eneste metode
 	if body.name == "Player" and is_charging and not has_hit_player:
 		body.hit_damage(damage)
 		has_hit_player = true

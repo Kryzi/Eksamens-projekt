@@ -22,7 +22,6 @@ func itemGenerator():
 	Item3.visible = false
 	
 	itemID = randi_range(1,4)
-	#itemValue = preload("res://Scenes/Item.tscn")
 	match itemID:
 		1:
 			Item1.visible = true

@@ -4,15 +4,15 @@ var speed = 5000
 var health = 30
 var theta: float = 0.0
 var Enemy_state: String = "Walking"
-var player_in_attack_range = false  # Holder styr på, om spilleren er tæt nok på til angreb
-var last_shot_time = 0.0  # Tidspunktet for sidste skud
+var player_in_attack_range = false
+var last_shot_time = 0.0
 
-@onready var shoot_interval = $attack_Timer.wait_time  # Intervallet mellem hvert skud
+@onready var shoot_interval = $attack_Timer.wait_time
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var player = get_node("/root/Main/Player")
 @onready var controller = get_node("/root/Main/MapController/Spawner")
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var attack_area = $View  # Area2D der registrerer, om spilleren er i skud-rækkevidde
+@onready var attack_area = $View
 @onready var ShootSound = $Enemy2Sound
 
 @export_range(0, 2 * PI) var alpha: float = 0.0
@@ -33,40 +33,35 @@ func shoot(angle):
 		animated_sprite.play("Angreb")
 		ShootSound.play()
 		
-		
-		# Skyd flere kugler i en cirkelform
-		var num_bullets = 16  # Antal kugler, der skal skyde
+		var num_bullets = 16
 		for i in range(num_bullets):
 			var bullet_instance = bullet_scene.instantiate()
 			bullet_instance.position = global_position
-			var bullet_angle = angle + (i * 2 * PI / num_bullets)  # Spred kuglerne ud i en cirkel
+			var bullet_angle = angle + (i * 2 * PI / num_bullets)  #Spred kuglerne ud i en cirkel
 			bullet_instance.direction = get_vector(bullet_angle)
 			get_tree().get_root().call_deferred("add_child", bullet_instance)
 
 func _physics_process(delta) -> void:
-	# Fjenden bevæger sig kun, hvis spilleren ikke er i angrebsradius
 	if not player_in_attack_range:
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
 
-		# Opdater Enemy_state baseret på bevægelse
 		if dir.length() > 0:
 			Enemy_state = "Walking"
 		else:
 			Enemy_state = "Idle"
 
 		velocity = dir * speed * delta
-		play_anim(dir)  # Opdater animation baseret på retning
+		play_anim(dir)
 		
 		move_and_slide()
 	else:
-		Enemy_state = "Idle"  # Stå stille mens den skyder
+		Enemy_state = "Idle"
 		velocity = Vector2.ZERO
 
-		# Tjek om det er tid til at skyde igen
 		last_shot_time += delta
 		if last_shot_time >= shoot_interval:
-			shoot(theta)  # Skyd, hvis intervallet er nået
-			last_shot_time = 0.0  # Nulstil timeren
+			shoot(theta)
+			last_shot_time = 0.0  #Nulstil timeren
 
 func play_anim(_dir):
 	if Enemy_state == "Idle":
@@ -75,7 +70,7 @@ func play_anim(_dir):
 		animated_sprite.play("Walk")
 
 func make_path() -> void:
-	nav_agent.target_position = player.global_position  # Altid gå mod spilleren
+	nav_agent.target_position = player.global_position
 
 func _on_move_timer_timeout():
 	make_path()
@@ -98,7 +93,7 @@ func hit_damage(damage):
 		die()
 
 func _on_view_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):  # Sørg for at spilleren er i en gruppe "Player"
+	if body.is_in_group("player"):
 		player_in_attack_range = true
 
 func _on_view_body_exited(body: Node2D) -> void:

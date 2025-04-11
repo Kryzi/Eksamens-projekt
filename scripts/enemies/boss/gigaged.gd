@@ -3,8 +3,8 @@ extends CharacterBody2D
 var theta: float = 0.0
 var speed: float = 125.0  
 var target_position: Vector2  
-var retning: String = "ned"  # Standard retning
-var is_thinking: bool = false  # Forhindrer gentagne bevægelseskald
+var retning: String = "ned"
+var is_thinking: bool = false
 var attacking = false
 
 @export var thinkTime = 1.0 
@@ -27,25 +27,19 @@ func _ready() -> void:
 
 func _physics_process(_delta):
 	if is_thinking == true or attacking == true:
-		velocity = Vector2.ZERO  # Stopper bevægelsen, mens fjenden tænker
+		velocity = Vector2.ZERO
 		move_and_slide()
 		return
 	
-	# Bevæg mod den aktuelle target_position
 	var direction = (target_position - position).normalized()
 	velocity = direction * speed
 	move_and_slide()
 
-	
-	# Opdater retning baseret på bevægelsen
 	update_retning(direction)
 	
 	$Krop.play("Walk " + retning)
 	$Hoved.play("Idle " + retning)
 	
-	#print("Global pos:", global_position, "Target pos:", target_position, "Distance:", global_position.distance_to(target_position)) #debug
-	
-	# Hvis fjenden er tæt på målet, gå i "thinking mode"
 	if global_position.distance_to(target_position) < 10 and is_thinking == false and attacking == false:
 		is_thinking = true  # Forhindrer flere gentagne kald
 		think_and_decide()
@@ -59,28 +53,26 @@ func think_and_decide():
 	var randomMove = randi_range(0, 2)
 	
 	if randomMove == 0:
-		set_new_target()  # Vælg en ny destination
+		set_new_target()
 	elif randomMove == 1:
 		trampAngreb(theta)
 	elif randomMove == 2:
 		skideAngreb()
 	
-	is_thinking = false  # Tillad bevægelse igen
+	is_thinking = false
 
 func set_new_target():
-	# Vælg en tilfældig global position
 	var min_x = 950
 	var max_x = 2260
 	var min_y = 1050
 	var max_y = 1800
 	
 	target_position = Vector2(randi_range(min_x, max_x), randi_range(min_y, max_y))
-	#print("Ny target position:", target_position) #debug
 
 func update_retning(direction: Vector2):
 	if abs(direction.x) > abs(direction.y): 
 		if direction.x > 0:
-			retning = "hojre"  # cringe at der ikke er ø
+			retning = "hojre"
 			$CollisionShape2D.shape.size.x = 144
 			$CollisionShape2D.shape.size.y = 126
 		else:
@@ -126,9 +118,8 @@ func skideAngreb():
 	update_retning(playerpos)
 	GedeFartSound.play()
 	
-	# Affyr flere kugler i hurtig rækkefølge
-	var num_shots = randi_range(15, 30)  # Antal skud
-	var shot_delay = 0.05  # Forsinkelse mellem skud
+	var num_shots = randi_range(15, 30)  #Antal skud
+	var shot_delay = 0.05  #Forsinkelse mellem skud
 	
 	$Krop.play("Skide Angreb " + retning)
 	$Hoved.play("Angreb " + retning)

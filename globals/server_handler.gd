@@ -2,9 +2,7 @@ extends Node
 
 var weapon_node: Node2D
 signal request_data_received(request_data: Dictionary)
-# Declare member variables here. Examples:
 var http_request : HTTPRequest = HTTPRequest.new()
-# Change this to own localhost location
 const SERVER_URL = "http://localhost:80/mountain_top/mountain_top_db_action_secure.php"
 const SERVER_HEADERS = ["Content-Type: application/x-www-form-urlencoded", "Cache-Control: max-age=0"]
 const SECRET_KEY = 1234567890
@@ -12,14 +10,11 @@ var nonce = null
 var request_queue : Array = []
 var is_requesting : bool = false
 
-#var weapon_data: Array[WeaponAmmoTableData]
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(http_request)
 	PlayerInfo.win_screen_reached.connect(_submit_score)
-	#PlayerInfo.win_screen_reached.connect(get_weapon_ammo_data)
 	http_request.request_completed.connect(_http_request_completed)
 
 

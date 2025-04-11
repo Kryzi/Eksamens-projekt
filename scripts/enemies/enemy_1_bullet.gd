@@ -2,8 +2,8 @@ extends Area2D
 
 @export var BulletSpeed = 500
 @export var damage = 1 
-var direction: Vector2 = Vector2.DOWN #Standardretning
-var targetPos: Vector2  = Vector2.DOWN #Standardretning
+var direction: Vector2 = Vector2.DOWN
+var targetPos: Vector2  = Vector2.DOWN
 
 @onready var player = get_node("/root/Main/Player")
 
