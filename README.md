@@ -1,2 +1,2 @@
 # Eksamens-projekt
-Folderen .mountaintop indeholder en exe-fil med PHP- og SQL-filer til WampServer64
+Folderen .mountaintop indeholder en færdig udgave af spillet med exe-fil samt PHP- og SQL-filer til WampServer64
