@@ -2,4 +2,4 @@ Mappen "PHP" indeholder folderen "mountain_top" med dens filer "mountain_top_db_
 
 Mappen "SQL" indeholer filen "mountaintop_database_export", som er en database dump. I  phpMyAdmin skal mountaintop_database_export importeres under fanen Import (som ligger under Server: Local Databases).
 
-exe-filen "mountaintop" kører spillet, PCK-filen er integreret i exe-filen.
+exe-filen "mountaintop" kører sammen med PCK-filen
