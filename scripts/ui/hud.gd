@@ -75,6 +75,7 @@ func updateHealthBar(new_health_data: Dictionary):
 
 func _on_main_menu_pressed() -> void:
 	PlayerInfo.bossTimer = 0
+	PlayerInfo.Timer = 0
 	PlayerInfo.current_coins = 0
 	PlayerInfo.weaponLimitCost = 10
 	PlayerInfo.weaponLimit = 5
@@ -93,6 +94,7 @@ func _on_button_pressed() -> void:
 
 func _on_retry_button_pressed() -> void:
 	PlayerInfo.bossTimer = 0
+	PlayerInfo.Timer = 0
 	PlayerInfo.current_coins = 0
 	PlayerInfo.weaponLimitCost = 10
 	PlayerInfo.weaponLimit = 5
