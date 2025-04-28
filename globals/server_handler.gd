@@ -43,10 +43,8 @@ func request_nonce():
 	
 	
 	if err != OK:
-		printerr("HTTPRequest error: " + str(err))
+		#printerr("HTTPRequest error: " + str(err))
 		return
-		
-	print("Requested nonce")
 	
 		
 func _send_request(request: Dictionary):
@@ -65,14 +63,14 @@ func _send_request(request: Dictionary):
 	var err = http_request.request(SERVER_URL, headers, HTTPClient.METHOD_POST, body)
 		
 	if err != OK:
-		printerr("HTTPRequest error: " + str(err))
+		#printerr("HTTPRequest error: " + str(err))
 		return
 
 
 func _http_request_completed(_result, _response_code, _headers, _body):
 	is_requesting = false
 	if _result != http_request.RESULT_SUCCESS:
-		printerr("Error w/ connection: " + str(_result))
+		#printerr("Error w/ connection: " + str(_result))
 		return
 	
 	var response_body = _body.get_string_from_utf8()
@@ -81,13 +79,13 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	var response = test_json_conv.get_data()
 	
 	if response['error'] != "none":
-		printerr("We returned error: " + response['error'])
+		#printerr("We returned error: " + response['error'])
 		return
 		
 	if response['command'] == "get_nonce":
 		nonce = response['response']['nonce']
-		print("Get nonce: " + response['response']['nonce'])
-		return	
+		#print("Get nonce: " + response['response']['nonce'])
+		return
 	
 	# Kun send indholdet i HTTP-requesten som indeholder spillerdata og indholdsstørrelse 'size'
 	request_data_received.emit(response['response'])
@@ -106,36 +104,3 @@ func _get_scores():
 	var command = "get_scores"
 	var data = {"score_offset" : 0, "score_number" : 100}
 	request_queue.push_back({"command" : command, "data" : data})
-	print("get scores")
-
-#func _get_player():
-	#var user_id = $ID.get_text()
-	#var command = "get_player"
-	#var data = {"user_id" : user_id}
-	#request_queue.push_back({"command" : command, "data" : data})
-#
-#func _delete_player():
-	#var user_id = $ID.get_text()
-	#var command = "delete_player"
-	#var data = {"user_id": user_id}
-	#request_queue.push_back({"command" : command, "data" : data})
-	
-#func get_weapon_ammo_data(_bool: bool, _highscore: int) -> Array[WeaponAmmoTableData]:
-	#var weapon_table_data_array: Array[WeaponAmmoTableData]
-	#var weapon_nodes_array: Array[Node] = weapon_node.weapons
-	#for weapon in weapon_nodes_array:
-		#var new_weapon_ammo_row_data = WeaponAmmoTableData.new()
-		#new_weapon_ammo_row_data.weapon_name = weapon.get_meta("IconId")
-		#new_weapon_ammo_row_data.ranged = weapon.ranged
-		#new_weapon_ammo_row_data.current_ammo = weapon.currentAmmo
-		#new_weapon_ammo_row_data.reserve_ammo = weapon.reserveAmmo
-		#weapon_table_data_array.append(new_weapon_ammo_row_data)
-		#
-	#
-	#return weapon_table_data_array
-	#
-#class WeaponAmmoTableData:
-	#var weapon_name: String
-	#var ranged: bool
-	#var current_ammo: int
-	#var reserve_ammo: int
