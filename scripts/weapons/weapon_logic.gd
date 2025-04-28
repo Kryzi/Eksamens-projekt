@@ -150,4 +150,4 @@ func applyUpgradeNewWeapon(i: int):
 	elif weapons[i].ranged == false and totalFirerateMeleeUpgrages > 0:
 		weapons[i].FPS_SpeedScale *= totalFirerateMeleeUpgrages
 		weapons[i]._ready()
-	print("is used")
+	'print("is used")'

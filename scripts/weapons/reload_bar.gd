@@ -16,7 +16,7 @@ func weaponChanged():
 		value = 0
 		reload_timer = 0
 		
-		print("Reload time set to: ", max_value)
+		'print("Reload time set to: ", max_value)'
 		set_process(true)
 	else:
 		set_process(false)

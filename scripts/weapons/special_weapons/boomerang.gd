@@ -41,7 +41,7 @@ func _process(_delta: float) -> void:
 func reload():
 	reloading = true
 	if reserveAmmo <= 0:
-		print("No boomerangs left")
+		'print("No boomerangs left")'
 	else:
 		var tempAmmo = currentAmmo
 		if tempAmmo == 0:

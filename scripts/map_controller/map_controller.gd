@@ -122,6 +122,8 @@ func _on_teleport_area_entered(body, teleporter_name):
 			rewardValue = spawner.teleporter2
 		elif (teleporter_name == "Teleporter_3"):
 			rewardValue = spawner.teleporter3
+		elif (teleporter_name == "Teleporter_shop"):
+			rewardValue = spawner.teleporter0
 		stageReward = rewardValue
 		
 		
@@ -151,7 +153,9 @@ func _on_teleport_area_entered(body, teleporter_name):
 			layout1_bridge_shop.visible = true
 			musikManager.newStage("shop")
 			
-			rewardValue = randi_range(1, 2)
+			spawner.checkNextStage()
+			
+			'rewardValue = randi_range(1, 2)
 			if (PlayerInfo.bossTimer >= 4 and randi_range(1, 2) == 3 ):
 				rewardValue += 3
 			if (PlayerInfo.bossTimer >= 9 and randi_range(2, 3) == 3 ):
@@ -162,8 +166,10 @@ func _on_teleport_area_entered(body, teleporter_name):
 			
 			#kaldes her da der ikke er brug for checkDeath() i shop
 			var teleporter_collision1_shop = layout1_bridge_shop.get_node("TeleporterArea1/Teleporter1")
-			teleporter_collision1_shop.call_deferred("set_disabled", false)
+			teleporter_collision1_shop.call_deferred("set_disabled", false)'
 			layout1_bridge_shop.RefillShopItems()
+			
+			
 		
 		if PlayerInfo.areaID == 1:
 			body.global_position = layout1.get_node("Spawnpoint").global_position

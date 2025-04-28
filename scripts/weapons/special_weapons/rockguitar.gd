@@ -47,7 +47,7 @@ func reload():
 	reloading = true
 	
 	if reserveAmmo <= 0:
-		print("no bullets left")
+		'print("no bullets left")'
 		
 	else:
 		var tempAmmo = currentAmmo

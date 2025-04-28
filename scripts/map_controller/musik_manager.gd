@@ -15,7 +15,7 @@ func endMusik():
 		item.stop()
 
 func newStage(stageName):
-	print("playing musik - stageReward: " + stageName)
+	'print("playing musik - stageReward: " + stageName)'
 	if stageName == "shop":
 		playMusik(ShopMusik)
 	elif stageName == "boss":

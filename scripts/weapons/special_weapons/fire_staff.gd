@@ -65,7 +65,7 @@ func _on_bullet_removed():
 func reload():
 	reloading = true
 	if reserveAmmo <= 0:
-		print("No bullets left")
+		'print("No bullets left")'
 	else:
 		var tempAmmo = currentAmmo
 		currentAmmo = min(magSize, reserveAmmo + tempAmmo)

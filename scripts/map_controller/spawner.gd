@@ -39,6 +39,7 @@ var obstacleAreaPolygon: PackedVector2Array
 var spawnArea: Rect2
 var rewardValue: int = 0
 
+var teleporter0 = 0
 var teleporter1 = 0
 var teleporter2 = 0
 var teleporter3 = 0
@@ -200,7 +201,7 @@ func strong_spawn(i):
 		enemy_scenes = [enemy_2_2, enemy_5, enemy_1_1]
 		if (PlayerInfo.bossTimer >= 9):
 			enemy_scenes = [enemy_1_1, enemy_5, enemy_2_2, enemy_4]
-			print("brugt")
+			'print("brugt")'
 		var selected_enemy = enemy_scenes[randi() % enemy_scenes.size()]
 		
 		var enemy_instance = selected_enemy.instantiate()
@@ -304,7 +305,7 @@ func checkDeath():
 	if get_tree().get_nodes_in_group("enemy").is_empty():
 		var Reward = map_controller.stageReward
 		stageReward(Reward)
-		print(PlayerInfo.bossTimer)
+		'print(PlayerInfo.bossTimer)'
 		variationID = randi_range(1, 3)
 		
 		if (PlayerInfo.bossTimer >= 9):
@@ -317,7 +318,7 @@ func checkDeath():
 		if (PlayerInfo.bossTimer > 12):
 			rewardSet(3)
 			variationID = 1
-			print("boss shop used")
+			'print("boss shop used")'
 		#Sikre at man alitd for coins i starten
 		if (PlayerInfo.bossTimer < 3):
 			rewardSet(1)
@@ -456,3 +457,23 @@ func checkDeath():
 					layout3_bridge.get_node("Variation3_3/rewardLabel3_3").text = PlayerInfo.mapValue
 					layout3_bridge.get_node("Variation3_3/rewardIcon").play(PlayerInfo.mapValue)
 					teleporter3 = rewardValue
+					
+
+func checkNextStage():
+	rewardValue = randi_range(1, 2)
+	if (PlayerInfo.bossTimer >= 4 and randi_range(1, 2) == 3 ):
+		rewardValue += 3
+	if (PlayerInfo.bossTimer >= 9 and randi_range(2, 3) == 3 ):
+		rewardValue += 3
+	rewardSet(rewardValue)
+	layout1_bridge_shop.get_node("rewardLabel").text = PlayerInfo.mapValue
+	layout1_bridge_shop.get_node("rewardIcon").play(PlayerInfo.mapValue)
+	
+	teleporter0 = rewardValue
+	
+	var teleporter_collision1_shop = layout1_bridge_shop.get_node("TeleporterArea1/Teleporter1")
+	teleporter_collision1_shop.call_deferred("set_disabled", false)
+	
+	print("this is good")
+	
+	
