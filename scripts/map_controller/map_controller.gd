@@ -118,15 +118,11 @@ func _on_teleport_area_entered(body, teleporter_name):
 		
 		if (teleporter_name == "Teleporter_1"):
 			rewardValue = spawner.teleporter1
-			stageReward = rewardValue
 		elif (teleporter_name == "Teleporter_2"):
 			rewardValue = spawner.teleporter2
-			stageReward = rewardValue
 		elif (teleporter_name == "Teleporter_3"):
 			rewardValue = spawner.teleporter3
-			stageReward = rewardValue
-		if (teleporter_name == "Teleporter_shop"):
-			stageReward = rewardValue
+		stageReward = rewardValue
 		
 		
 		if (PlayerInfo.bossTimer == 15):
@@ -147,7 +143,6 @@ func _on_teleport_area_entered(body, teleporter_name):
 		#Hvis man går ind i en teleporter med stageReward = 3, så fjernes areaID og man garanteret kommer ind i shop
 		if (stageReward == 3):
 			PlayerInfo.areaID = 0
-			stageReward = 0
 			body.global_position = layout1_bridge_shop.get_node("Spawnpoint").position
 			
 			var layout1_bridge_shop_collision = layout1_bridge_shop.get_node("Boundary1BridgeShop/CollisionPolygon2D")
