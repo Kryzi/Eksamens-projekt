@@ -6,3 +6,5 @@ Filstierne til PHP-filerne fra folderen "mountain_top" skal være:
 Sql-filen "mountaintop" er en export af den lokale database
 
 exe-filen "mountaintop" arbejder sammen med pck-filen
+
+8080 er portnummeret som anvendes til Apache-serveren
