@@ -39,10 +39,10 @@ var obstacleAreaPolygon: PackedVector2Array
 var spawnArea: Rect2
 var rewardValue: int = 0
 
-var teleporter0 = 0
 var teleporter1 = 0
 var teleporter2 = 0
 var teleporter3 = 0
+var teleporterShop = 0
 var variationID = 0
 
 func _ready() -> void:
@@ -300,30 +300,90 @@ func getItem():
 	itemInstance.position = pos
 	call_deferred("add_child", itemInstance)
 
+func stageRig():
+	# Baner er farligere i enden (flere elites), så der skabes flere muligheder
+	if (PlayerInfo.bossTimer >= 9):
+		variationID = randi_range(2, 3)
+	#Sikre at der altid er mindst en vej der ikke er shop
+	rewardSet(randi_range(1, 2))
+	#Sikre at man får en shop mindst vær tredje bane og lige før bosskampen
+	if ((PlayerInfo.bossTimer % 3) == 0 and PlayerInfo.bossTimer > 0 and PlayerInfo.bossTimer < 10 or PlayerInfo.bossTimer < 11):
+		rewardSet(3)
+	if (PlayerInfo.bossTimer > 12):
+		rewardSet(3)
+		variationID = 1
+		'print("boss shop used")'
+	#Sikre at man alitd for coins i starten
+	if (PlayerInfo.bossTimer < 3):
+		rewardSet(1)
+
+func layoutController(layoutX: int, layout: Node, layout_bridge: Node):
+	layout.visible = false
+	layout.get_node("Boundary%d/CollisionPolygon2D" % [layoutX]).disabled = true
+	layout_bridge.visible = true
+	
+	layout_bridge.get_node("Variation%d_1/TeleporterArea%d_1/Teleporter%d_1" % [layoutX, layoutX, layoutX]).disabled = false
+	layout_bridge.get_node("Variation%d_2" % [layoutX]).visible = false
+	layout_bridge.get_node("Variation%d_3" % [layoutX]).visible = false
+	
+	layout_bridge.get_node("Variation%d_1/rewardLabel%d_1" % [layoutX, layoutX]).text = PlayerInfo.mapValue
+	layout_bridge.get_node("Variation%d_1/rewardIcon" % [layoutX]).play(PlayerInfo.mapValue)
+	teleporter1 = rewardValue
+	
+	if (variationID == 1):
+		layout_bridge.get_node("Variation%d_1/BoundaryBridge%d_1/CollisionPolygon2D" % [layoutX, layoutX]).disabled = false
+	
+	if (variationID >= 2):
+		layout_bridge.get_node("Variation%d_2" % [layoutX]).visible = true
+		
+		layout_bridge.get_node("Variation%d_2/BoundaryBridge%d_2/CollisionPolygon2D" % [layoutX, layoutX]).disabled = false
+		layout_bridge.get_node("Variation%d_2/TeleporterArea%d_2/Teleporter%d_2" % [layoutX, layoutX, layoutX]).disabled = false
+		
+		rewardSet(randi_range(1, 3))
+		if (PlayerInfo.bossTimer == 12):
+			rewardSet(randi_range(1, 2))
+		layout_bridge.get_node("Variation%d_2/rewardLabel%d_2" % [layoutX, layoutX]).text = PlayerInfo.mapValue
+		layout_bridge.get_node("Variation%d_2/rewardIcon" % [layoutX]).play(PlayerInfo.mapValue)
+		
+		teleporter2 = rewardValue
+		
+		if (variationID == 3):
+			layout_bridge.get_node("Variation%d_3" % [layoutX]).visible = true
+			
+			layout_bridge.get_node("Variation%d_2/BoundaryBridge%d_2/CollisionPolygon2D" % [layoutX, layoutX]).disabled = true
+			
+			layout_bridge.get_node("Variation%d_3/BoundaryBridge%d_3/CollisionPolygon2D" % [layoutX, layoutX]).disabled = false
+			layout_bridge.get_node("Variation%d_3/TeleporterArea%d_3/Teleporter%d_3" % [layoutX, layoutX, layoutX]).disabled = false
+			
+			rewardSet(randi_range(1, 3))
+			if (PlayerInfo.bossTimer == 12):
+				rewardSet(randi_range(1, 2))
+			layout_bridge.get_node("Variation%d_3/rewardLabel%d_3" % [layoutX, layoutX]).text = PlayerInfo.mapValue
+			layout_bridge.get_node("Variation%d_3/rewardIcon" % [layoutX]).play(PlayerInfo.mapValue)
+			teleporter3 = rewardValue
+
+
 func checkDeath():
 	await get_tree().process_frame
 	if get_tree().get_nodes_in_group("enemy").is_empty():
 		var Reward = map_controller.stageReward
 		stageReward(Reward)
-		'print(PlayerInfo.bossTimer)'
 		variationID = randi_range(1, 3)
 		
-		if (PlayerInfo.bossTimer >= 9):
-			variationID = randi_range(2, 3)
-		#Sikre at der altid er mindst en vej der ikke er shop
-		rewardSet(randi_range(1, 2))
-		#Sikre at man får en shop mindst vær tredje bane og lige før bosskampen
-		if ((PlayerInfo.bossTimer % 3) == 0 and PlayerInfo.bossTimer > 0 and PlayerInfo.bossTimer < 10 or PlayerInfo.bossTimer < 11):
-			rewardSet(3)
-		if (PlayerInfo.bossTimer > 12):
-			rewardSet(3)
-			variationID = 1
-			'print("boss shop used")'
-		#Sikre at man alitd for coins i starten
-		if (PlayerInfo.bossTimer < 3):
-			rewardSet(1)
+		#Sikre at baner ikke er helt tilfældige
+		stageRig()
 		
-		if layout1.visible == true:
+		if layout1.visible:
+			layoutController(1, layout1, layout1_bridge)
+		elif layout2.visible:
+			layoutController(2, layout2, layout2_bridge)
+		elif layout3.visible:
+			layoutController(3, layout3, layout3_bridge)
+		
+		
+		
+		
+		'if layout1.visible == true:
 			layout1.visible = false
 			layout1.get_node("Boundary1/CollisionPolygon2D").disabled = true
 			layout1_bridge.visible = true
@@ -457,9 +517,9 @@ func checkDeath():
 					layout3_bridge.get_node("Variation3_3/rewardLabel3_3").text = PlayerInfo.mapValue
 					layout3_bridge.get_node("Variation3_3/rewardIcon").play(PlayerInfo.mapValue)
 					teleporter3 = rewardValue
-					
+					'
 
-func checkNextStage():
+func checkNextShopStage():
 	rewardValue = randi_range(1, 2)
 	if (PlayerInfo.bossTimer >= 4 and randi_range(1, 2) == 3 ):
 		rewardValue += 3
@@ -469,11 +529,9 @@ func checkNextStage():
 	layout1_bridge_shop.get_node("rewardLabel").text = PlayerInfo.mapValue
 	layout1_bridge_shop.get_node("rewardIcon").play(PlayerInfo.mapValue)
 	
-	teleporter0 = rewardValue
-	
 	var teleporter_collision1_shop = layout1_bridge_shop.get_node("TeleporterArea1/Teleporter1")
 	teleporter_collision1_shop.call_deferred("set_disabled", false)
 	
-	print("this is good")
+	teleporterShop = rewardValue
 	
 	

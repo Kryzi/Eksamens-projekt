@@ -158,23 +158,23 @@ scale = Vector2(12, 12)
 texture = ExtResource("5_4mm8b")
 centered = false
 
-[node name="Boundary2Bridge" type="StaticBody2D" parent="Variation2_1"]
+[node name="BoundaryBridge2_1" type="StaticBody2D" parent="Variation2_1"]
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation2_1/Boundary2Bridge"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation2_1/BoundaryBridge2_1"]
 position = Vector2(732, 2424)
 build_mode = 1
 polygon = PackedVector2Array(-408, -2256, -336, -2268, -300, -2244, -240, -2280, -180, -2244, -83.9999, -2292, 36.0001, -2244, 36.0001, -2844, 156, -2844, 156, -2256, 168, -2244, 264, -2280, 300, -2256, 468, -2280, 588, -2232, 600, -2136, 648, -2076, 612, -1992, 636, -1932, 564, -1860, 636, -1776, 612, -1680, 660, -1584, 576, -1488, 588, -1452, 564, -1392, 624, -1308, 576, -1224, 660, -1200, 684, -1128, 840, -1176, 900, -1128, 984, -1188, 1056, -1140, 1188, -1188, 1248, -1128, 1344, -1152, 1392, -1140, 1488, -1188, 1560, -1152, 1668, -1152, 1644, -1068, 1692, -936, 1620, -828, 1704, -720, 1608, -612, 1692, -528, 1656, -480, 1692, -432, 1656, -360, 1692, -288, 1608, -192, 1548, -144, 1464, -180, 1392, -132, 1308, -156, 1188, -144, 1116, -120, 1044, -156, 948, -120, 792, -168, 624, -120, 444, -156, 372, -120, 312, -156, 180, -120, 96.0001, -168, -23.9999, -108, -120, -180, -288, -108, -348, -192, -384, -300, -408, -408, -384, -504, -444, -600, -360, -684, -396, -744, -348, -804, -408, -888, -372, -972, -312, -1080, -324, -1176, -384, -1272, -372, -1356, -420, -1440, -360, -1500, -408, -1560, -372, -1656, -408, -1740, -372, -1764, -408, -1860, -372, -1920, -408, -1968, -384, -2016, -420, -2100)
 disabled = true
 
-[node name="TeleporterArea2" type="Area2D" parent="Variation2_1"]
+[node name="TeleporterArea2_1" type="Area2D" parent="Variation2_1"]
 
-[node name="Teleporter2" type="CollisionShape2D" parent="Variation2_1/TeleporterArea2"]
+[node name="Teleporter2_1" type="CollisionShape2D" parent="Variation2_1/TeleporterArea2_1"]
 position = Vector2(828, -360)
 shape = SubResource("RectangleShape2D_fo76d")
 disabled = true
 
-[node name="rewardLabel2" type="Label" parent="Variation2_1"]
+[node name="rewardLabel2_1" type="Label" parent="Variation2_1"]
 visible = false
 z_index = 2
 layout_mode = 0

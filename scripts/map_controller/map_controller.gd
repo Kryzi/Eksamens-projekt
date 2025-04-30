@@ -4,7 +4,7 @@ func _ready() -> void:
 	
 	delete_all_things()
 	
-	$Background/Layout1Bridge/Variation1_1/TeleporterArea1.body_entered.connect(
+	$Background/Layout1Bridge/Variation1_1/TeleporterArea1_1.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_1")
 	)
 	$Background/Layout1Bridge/Variation1_2/TeleporterArea1_2.body_entered.connect(
@@ -14,7 +14,7 @@ func _ready() -> void:
 	func(body): _on_teleport_area_entered(body, "Teleporter_3")
 	)
 	
-	$Background/Layout2Bridge/Variation2_1/TeleporterArea2.body_entered.connect(
+	$Background/Layout2Bridge/Variation2_1/TeleporterArea2_1.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_1")
 	)
 	$Background/Layout2Bridge/Variation2_2/TeleporterArea2_2.body_entered.connect(
@@ -74,25 +74,25 @@ func disable_visual_and_collsion():
 	layout1_bridge_shop.visible = false
 	
 	# Disable stage collision
-	layout1_bridge.get_node("Variation1_1/Boundary1Bridge/CollisionPolygon2D").call_deferred("set_disabled", true) 
-	layout1_bridge.get_node("Variation1_2/Boundary1_2Bridge/CollisionPolygon2D").call_deferred("set_disabled", true) 
-	layout1_bridge.get_node("Variation1_3/Boundary1_3Bridge/CollisionPolygon2D").call_deferred("set_disabled", true) 
-	layout2_bridge.get_node("Variation2_1/Boundary2Bridge/CollisionPolygon2D").call_deferred("set_disabled", true)
+	layout1_bridge.get_node("Variation1_1/BoundaryBridge1_1/CollisionPolygon2D").call_deferred("set_disabled", true) 
+	layout1_bridge.get_node("Variation1_2/BoundaryBridge1_2/CollisionPolygon2D").call_deferred("set_disabled", true) 
+	layout1_bridge.get_node("Variation1_3/BoundaryBridge1_3/CollisionPolygon2D").call_deferred("set_disabled", true) 
+	layout2_bridge.get_node("Variation2_1/BoundaryBridge2_1/CollisionPolygon2D").call_deferred("set_disabled", true)
 	layout2_bridge.get_node("Variation2_2/BoundaryBridge2_2/CollisionPolygon2D").call_deferred("set_disabled", true)
 	layout2_bridge.get_node("Variation2_3/BoundaryBridge2_3/CollisionPolygon2D").call_deferred("set_disabled", true)
-	layout3_bridge.get_node("Variation3_1/Boundary3_1/CollisionPolygon2D").call_deferred("set_disabled", true)
-	layout3_bridge.get_node("Variation3_2/Boundary3_2/CollisionPolygon2D").call_deferred("set_disabled", true)
-	layout3_bridge.get_node("Variation3_3/Boundary3_3/CollisionPolygon2D").call_deferred("set_disabled", true)
+	layout3_bridge.get_node("Variation3_1/BoundaryBridge3_1/CollisionPolygon2D").call_deferred("set_disabled", true)
+	layout3_bridge.get_node("Variation3_2/BoundaryBridge3_2/CollisionPolygon2D").call_deferred("set_disabled", true)
+	layout3_bridge.get_node("Variation3_3/BoundaryBridge3_3/CollisionPolygon2D").call_deferred("set_disabled", true)
 	
 	layout1_bridge_shop.get_node("Boundary1BridgeShop/CollisionPolygon2D").call_deferred("set_disabled", true)
 	layout1_bridge_shop.get_node("ShopKeeper/StaticBody2D/CollisionShape2D").call_deferred("set_disabled", true)
 	layoutBoss.get_node("Boundary/CollisionPolygon2D").call_deferred("set_disabled", true)
 	
 	#Teleporter Collision
-	layout1_bridge.get_node("Variation1_1/TeleporterArea1/Teleporter1").call_deferred("set_disabled", true)
+	layout1_bridge.get_node("Variation1_1/TeleporterArea1_1/Teleporter1_1").call_deferred("set_disabled", true)
 	layout1_bridge.get_node("Variation1_2/TeleporterArea1_2/Teleporter1_2").call_deferred("set_disabled", true)
 	layout1_bridge.get_node("Variation1_3/TeleporterArea1_3/Teleporter1_3").call_deferred("set_disabled", true)
-	layout2_bridge.get_node("Variation2_1/TeleporterArea2/Teleporter2").call_deferred("set_disabled", true)
+	layout2_bridge.get_node("Variation2_1/TeleporterArea2_1/Teleporter2_1").call_deferred("set_disabled", true)
 	layout2_bridge.get_node("Variation2_2/TeleporterArea2_2/Teleporter2_2").call_deferred("set_disabled", true)
 	layout2_bridge.get_node("Variation2_3/TeleporterArea2_3/Teleporter2_3").call_deferred("set_disabled", true)
 	layout3_bridge.get_node("Variation3_1/TeleporterArea3_1/Teleporter3_1").call_deferred("set_disabled", true)
@@ -123,7 +123,7 @@ func _on_teleport_area_entered(body, teleporter_name):
 		elif (teleporter_name == "Teleporter_3"):
 			rewardValue = spawner.teleporter3
 		elif (teleporter_name == "Teleporter_shop"):
-			rewardValue = spawner.teleporter0
+			rewardValue = spawner.teleporterShop
 		stageReward = rewardValue
 		
 		
@@ -153,22 +153,9 @@ func _on_teleport_area_entered(body, teleporter_name):
 			layout1_bridge_shop.visible = true
 			musikManager.newStage("shop")
 			
-			spawner.checkNextStage()
+			spawner.checkNextShopStage()
 			
-			'rewardValue = randi_range(1, 2)
-			if (PlayerInfo.bossTimer >= 4 and randi_range(1, 2) == 3 ):
-				rewardValue += 3
-			if (PlayerInfo.bossTimer >= 9 and randi_range(2, 3) == 3 ):
-				rewardValue += 3
-			spawner.rewardSet(rewardValue)
-			layout1_bridge_shop.get_node("rewardLabel").text = PlayerInfo.mapValue
-			layout1_bridge_shop.get_node("rewardIcon").play(PlayerInfo.mapValue)
-			
-			#kaldes her da der ikke er brug for checkDeath() i shop
-			var teleporter_collision1_shop = layout1_bridge_shop.get_node("TeleporterArea1/Teleporter1")
-			teleporter_collision1_shop.call_deferred("set_disabled", false)'
 			layout1_bridge_shop.RefillShopItems()
-			
 			
 		
 		if PlayerInfo.areaID == 1:

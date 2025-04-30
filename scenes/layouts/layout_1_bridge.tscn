@@ -155,24 +155,24 @@ scale = Vector2(12, 12)
 texture = ExtResource("5_llw3m")
 centered = false
 
-[node name="Boundary1Bridge" type="StaticBody2D" parent="Variation1_1"]
+[node name="BoundaryBridge1_1" type="StaticBody2D" parent="Variation1_1"]
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation1_1/Boundary1Bridge"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation1_1/BoundaryBridge1_1"]
 position = Vector2(540, 2256)
 build_mode = 1
 polygon = PackedVector2Array(60, -48, 72, -156, 48, -228, 72, -300, 24, -372, 72, -456, 48, -564, 84, -636, 48, -696, 84, -792, 24, -948, 72, -1056, 36, -1128, 84, -1272, 12, -1392, 96, -1620, 48, -1716, 60, -1788, 36, -1884, 84, -1992, 72, -2064, 168, -2124, 252, -2088, 468, -2136, 612, -2076, 647.934, -2086.78, 648, -2700, 768, -2700, 767.868, -2102.22, 864, -2076, 960, -2112, 1092, -2064, 1212, -2112, 1320, -2052, 1380, -1944, 1332, -1812, 1368, -1680, 1308, -1536, 1368, -1476, 1344, -1380, 1356, -1272, 1344, -1116, 1332, -1032, 1344, -936, 1320, -888, 1380, -792, 1368, -708, 1308, -648, 1332, -564, 1308, -504, 1356, -372, 1368, -156, 1368, -60, 1308, 36, 1200, 60, 1092, -24, 972, 24, 864, 36, 816, 0, 672, 48, 528, -12, 384, 36, 252, -12, 132, 24)
 disabled = true
 
-[node name="TeleporterArea1" type="Area2D" parent="Variation1_1"]
+[node name="TeleporterArea1_1" type="Area2D" parent="Variation1_1"]
 position = Vector2(312, 0)
 
-[node name="Teleporter1" type="CollisionShape2D" parent="Variation1_1/TeleporterArea1"]
+[node name="Teleporter1_1" type="CollisionShape2D" parent="Variation1_1/TeleporterArea1_1"]
 position = Vector2(936, -384)
 shape = SubResource("RectangleShape2D_y6hwj")
 disabled = true
 
-[node name="rewardLabel" type="Label" parent="Variation1_1"]
+[node name="rewardLabel1_1" type="Label" parent="Variation1_1"]
 visible = false
 z_index = 2
 layout_mode = 0
@@ -208,10 +208,10 @@ scale = Vector2(12, 12)
 texture = ExtResource("9_hq5sn")
 centered = false
 
-[node name="Boundary1_2Bridge" type="StaticBody2D" parent="Variation1_2"]
+[node name="BoundaryBridge1_2" type="StaticBody2D" parent="Variation1_2"]
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation1_2/Boundary1_2Bridge"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation1_2/BoundaryBridge1_2"]
 position = Vector2(540, 2256)
 build_mode = 1
 polygon = PackedVector2Array(60, -48, 72, -156, 48, -228, 72, -300, 24, -372, 72, -456, 48, -564, 84, -636, 48, -696, 84, -792, 24, -948, 72, -1056, 36, -1128, 84, -1272, 12, -1392, 96, -1620, -540, -1620, -540, -1752, -74, -1777, 60, -1788, 36, -1884, 84, -1992, 72, -2064, 168, -2124, 252, -2088, 468, -2136, 612, -2076, 648, -2088, 648, -2700, 768, -2700, 768, -2100, 864, -2076, 960, -2112, 1092, -2064, 1212, -2112, 1320, -2052, 1380, -1944, 1332, -1812, 1368, -1680, 1308, -1536, 1368, -1476, 1344, -1380, 1356, -1272, 1344, -1116, 1332, -1032, 1344, -936, 1320, -888, 1380, -792, 1368, -708, 1308, -648, 1332, -564, 1308, -504, 1356, -372, 1368, -156, 1368, -60, 1308, 36, 1200, 60, 1092, -24, 972, 24, 864, 36, 816, 0, 672, 48, 528, -12, 384, 36, 252, -12, 132, 24)
@@ -259,10 +259,10 @@ position = Vector2(2263, 559)
 scale = Vector2(13.6038, 12.8113)
 texture = ExtResource("9_vvkiv")
 
-[node name="Boundary1_3Bridge" type="StaticBody2D" parent="Variation1_3"]
+[node name="BoundaryBridge1_3" type="StaticBody2D" parent="Variation1_3"]
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation1_3/Boundary1_3Bridge"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation1_3/BoundaryBridge1_3"]
 position = Vector2(540, 2256)
 build_mode = 1
 polygon = PackedVector2Array(60, -48, 72, -156, 48, -228, 72, -300, 24, -372, 72, -456, 48, -564, 84, -636, 48, -696, 84, -792, 24, -948, 72, -1056, 36, -1128, 84, -1272, 12, -1392, 96, -1620, -540, -1620, -540, -1752, 4, -1787, 60, -1788, 36, -1884, 84, -1992, 72, -2064, 168, -2124, 252, -2088, 468, -2136, 612, -2076, 648, -2088, 648, -2700, 768, -2700, 768, -2100, 864, -2076, 960, -2112, 1092, -2064, 1212, -2112, 1320, -2052, 1366, -1765, 2032, -1751, 2066, -1599, 1364, -1595, 1368, -1476, 1344, -1380, 1356, -1272, 1344, -1116, 1332, -1032, 1344, -936, 1320, -888, 1380, -792, 1368, -708, 1308, -648, 1332, -564, 1308, -504, 1356, -372, 1368, -156, 1368, -60, 1308, 36, 1200, 60, 1092, -24, 972, 24, 864, 36, 816, 0, 672, 48, 528, -12, 384, 36, 252, -12, 132, 24)

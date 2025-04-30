@@ -124,11 +124,11 @@ scale = Vector2(12.811, 12.811)
 texture = ExtResource("4_emsrj")
 centered = false
 
-[node name="Boundary3_1" type="StaticBody2D" parent="Variation3_1"]
+[node name="BoundaryBridge3_1" type="StaticBody2D" parent="Variation3_1"]
 position = Vector2(-2514, -916)
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation3_1/Boundary3_1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation3_1/BoundaryBridge3_1"]
 position = Vector2(732, 2424)
 build_mode = 1
 polygon = PackedVector2Array(203, -294, 186, -1336, 237, -1398, 877, -1383, 881, -2170, 1813, -2203, 1831, -2122, 2489, -2067, 2479, -1893, 1813, -1852, 1783, -1115, 1328, -1052, 1224, -1060, 1171, -940, 1171, -655, 1220, -356, 1099, -292, 569, -307)
@@ -178,11 +178,11 @@ scale = Vector2(11.755, 11.755)
 texture = ExtResource("5_r8v3g")
 centered = false
 
-[node name="Boundary3_2" type="StaticBody2D" parent="Variation3_2"]
+[node name="BoundaryBridge3_2" type="StaticBody2D" parent="Variation3_2"]
 position = Vector2(-2514, -916)
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation3_2/Boundary3_2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation3_2/BoundaryBridge3_2"]
 position = Vector2(732, 2424)
 build_mode = 1
 polygon = PackedVector2Array(190, -302, 202, -1351, 904, -1389, 890, -2180, 1144, -2207, 1157, -2794, 1303, -2799, 1313, -2222, 1802, -2199, 1815, -2055, 2487, -2048, 2482, -1894, 1845, -1884, 1842, -1665, 1842, -1554, 1842, -1458, 1815, -1332, 1782, -1052, 1243, -1050, 1177, -920, 1217, -351, 1091, -260, 386, -285, 272, -293)
@@ -233,11 +233,11 @@ scale = Vector2(12.811, 12.811)
 texture = ExtResource("4_emsrj")
 centered = false
 
-[node name="Boundary3_3" type="StaticBody2D" parent="Variation3_3"]
+[node name="BoundaryBridge3_3" type="StaticBody2D" parent="Variation3_3"]
 position = Vector2(-2514, -916)
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation3_3/Boundary3_3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Variation3_3/BoundaryBridge3_3"]
 position = Vector2(732, 2424)
 build_mode = 1
 polygon = PackedVector2Array(190, -302, 202, -1351, 904, -1389, 890, -2180, 1144, -2207, 1157, -2794, 1303, -2799, 1313, -2222, 1802, -2199, 1815, -2055, 2487, -2048, 2482, -1894, 1845, -1884, 1844, -1484, 2501, -1449, 2514, -1268, 1836, -1248, 1782, -1052, 1243, -1050, 1177, -920, 1217, -351, 1091, -260, 386, -285, 272, -293)
