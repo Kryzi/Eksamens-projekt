@@ -301,10 +301,10 @@ func getItem():
 	call_deferred("add_child", itemInstance)
 
 func stageRig():
-	# Baner er farligere i enden (flere elites), så der skabes flere muligheder
+	# Baner er farligere i enden (flere elites), så der skabes flere valg-muligheder
 	if (PlayerInfo.bossTimer >= 9):
 		variationID = randi_range(2, 3)
-	#Sikre at der altid er mindst en vej der ikke er shop
+	#Sikre at der næsten altid er mindst en vej der ikke er shop
 	rewardSet(randi_range(1, 2))
 	#Sikre at man får en shop mindst vær tredje bane og lige før bosskampen
 	if ((PlayerInfo.bossTimer % 3) == 0 and PlayerInfo.bossTimer > 0 and PlayerInfo.bossTimer < 10 or PlayerInfo.bossTimer < 11):
@@ -312,7 +312,7 @@ func stageRig():
 	if (PlayerInfo.bossTimer > 12):
 		rewardSet(3)
 		variationID = 1
-		'print("boss shop used")'
+		
 	#Sikre at man alitd for coins i starten
 	if (PlayerInfo.bossTimer < 3):
 		rewardSet(1)
@@ -380,144 +380,6 @@ func checkDeath():
 		elif layout3.visible:
 			layoutController(3, layout3, layout3_bridge)
 		
-		
-		
-		
-		'if layout1.visible == true:
-			layout1.visible = false
-			layout1.get_node("Boundary1/CollisionPolygon2D").disabled = true
-			layout1_bridge.visible = true
-			
-			layout1_bridge.get_node("Variation1_1/TeleporterArea1/Teleporter1").disabled = false
-			layout1_bridge.get_node("Variation1_2").visible = false
-			layout1_bridge.get_node("Variation1_3").visible = false
-			
-			layout1_bridge.get_node("Variation1_1/rewardLabel").text = PlayerInfo.mapValue
-			layout1_bridge.get_node("Variation1_1/rewardIcon").play(PlayerInfo.mapValue)
-			teleporter1 = rewardValue
-			
-			if (variationID == 1):
-				layout1_bridge.get_node("Variation1_1/Boundary1Bridge/CollisionPolygon2D").disabled = false
-			
-			if (variationID >= 2):
-				layout1_bridge.get_node("Variation1_2").visible = true
-				
-				layout1_bridge.get_node("Variation1_2/Boundary1_2Bridge/CollisionPolygon2D").disabled = false
-				layout1_bridge.get_node("Variation1_2/TeleporterArea1_2/Teleporter1_2").disabled = false
-				
-				rewardSet(randi_range(1, 3))
-				if (PlayerInfo.bossTimer == 12):
-					rewardSet(randi_range(1, 2))
-				layout1_bridge.get_node("Variation1_2/rewardLabel1_2").text = PlayerInfo.mapValue
-				layout1_bridge.get_node("Variation1_2/rewardIcon").play(PlayerInfo.mapValue)
-				
-				teleporter2 = rewardValue
-				
-				if (variationID == 3):
-					layout1_bridge.get_node("Variation1_3").visible = true
-					
-					layout1_bridge.get_node("Variation1_2/Boundary1_2Bridge/CollisionPolygon2D").disabled = true
-					
-					layout1_bridge.get_node("Variation1_3/Boundary1_3Bridge/CollisionPolygon2D").disabled = false
-					layout1_bridge.get_node("Variation1_3/TeleporterArea1_3/Teleporter1_3").disabled = false
-					
-					rewardSet(randi_range(1, 3))
-					if (PlayerInfo.bossTimer == 12):
-						rewardSet(randi_range(1, 2))
-					layout1_bridge.get_node("Variation1_3/rewardLabel1_3").text = PlayerInfo.mapValue
-					layout1_bridge.get_node("Variation1_3/rewardIcon").play(PlayerInfo.mapValue)
-					teleporter3 = rewardValue
-				
-		if layout2.visible == true:
-			layout2.visible = false
-			layout2.get_node("Boundary2/CollisionPolygon2D").disabled = true
-			layout2_bridge.visible = true
-			
-			layout2_bridge.get_node("Variation2_1/TeleporterArea2/Teleporter2").disabled = false
-			layout2_bridge.get_node("Variation2_2").visible = false
-			layout2_bridge.get_node("Variation2_3").visible = false
-			
-			
-			#rewardSet(randi_range(1, 3))
-			layout2_bridge.get_node("Variation2_1/rewardLabel2").text = PlayerInfo.mapValue
-			layout2_bridge.get_node("Variation2_1/rewardIcon").play(PlayerInfo.mapValue)
-			teleporter1 = rewardValue
-			
-			if (variationID == 1):
-				layout2_bridge.get_node("Variation2_1/Boundary2Bridge/CollisionPolygon2D").disabled = false
-				layout2_bridge.get_node("Variation2_2").visible = false
-			
-			if (variationID >= 2):
-				layout2_bridge.get_node("Variation2_2").visible = true
-				
-				layout2_bridge.get_node("Variation2_2/BoundaryBridge2_2/CollisionPolygon2D").disabled = false
-				layout2_bridge.get_node("Variation2_2/TeleporterArea2_2/Teleporter2_2").disabled = false
-				rewardSet(randi_range(1, 3))
-				if (PlayerInfo.bossTimer == 12):
-					rewardSet(randi_range(1, 2))
-				layout2_bridge.get_node("Variation2_2/rewardLabel2_2").text = PlayerInfo.mapValue
-				layout2_bridge.get_node("Variation2_2/rewardIcon").play(PlayerInfo.mapValue)
-				teleporter2 = rewardValue
-				
-				if (variationID == 3):
-					layout2_bridge.get_node("Variation2_3").visible = true
-					
-					layout2_bridge.get_node("Variation2_2/BoundaryBridge2_2/CollisionPolygon2D").disabled = true
-					
-					layout2_bridge.get_node("Variation2_3/BoundaryBridge2_3/CollisionPolygon2D").disabled = false
-					layout2_bridge.get_node("Variation2_3/TeleporterArea2_3/Teleporter2_3").disabled = false
-					
-					rewardSet(randi_range(1, 3))
-					if (PlayerInfo.bossTimer == 12):
-						rewardSet(randi_range(1, 2))
-					layout2_bridge.get_node("Variation2_3/rewardLabel2_3").text = PlayerInfo.mapValue
-					layout2_bridge.get_node("Variation2_3/rewardIcon").play(PlayerInfo.mapValue)
-					teleporter3 = rewardValue
-			
-		if layout3.visible == true:
-			layout3.visible = false
-			layout3.get_node("Boundary3/CollisionPolygon2D").disabled = true
-			layout3_bridge.visible = true
-			
-			layout3_bridge.get_node("Variation3_1/TeleporterArea3_1/Teleporter3_1").disabled = false
-			layout3_bridge.get_node("Variation3_2").visible = false
-			layout3_bridge.get_node("Variation3_3").visible = false
-			
-			layout3_bridge.get_node("Variation3_1/rewardLabel3_1").text = PlayerInfo.mapValue
-			layout3_bridge.get_node("Variation3_1/rewardIcon").play(PlayerInfo.mapValue)
-			teleporter1 = rewardValue
-			
-			if (variationID == 1):
-				layout3_bridge.get_node("Variation3_1/Boundary3_1/CollisionPolygon2D").disabled = false
-			
-			if (variationID >= 2):
-				layout3_bridge.get_node("Variation3_2").visible = true
-				
-				layout3_bridge.get_node("Variation3_2/Boundary3_2/CollisionPolygon2D").disabled = false
-				layout3_bridge.get_node("Variation3_2/TeleporterArea3_2/Teleporter3_2").disabled = false
-				
-				rewardSet(randi_range(1, 3))
-				if (PlayerInfo.bossTimer == 12):
-					rewardSet(randi_range(1, 2))
-				layout3_bridge.get_node("Variation3_2/rewardLabel3_2").text = PlayerInfo.mapValue
-				layout3_bridge.get_node("Variation3_2/rewardIcon").play(PlayerInfo.mapValue)
-				teleporter2 = rewardValue
-				
-				if (variationID == 3):
-					layout3_bridge.get_node("Variation3_3").visible = true
-					
-					layout3_bridge.get_node("Variation3_2/Boundary3_2/CollisionPolygon2D").disabled = true
-					
-					layout3_bridge.get_node("Variation3_3/Boundary3_3/CollisionPolygon2D").disabled = false
-					layout3_bridge.get_node("Variation3_3/TeleporterArea3_3/Teleporter3_3").disabled = false
-					
-					rewardSet(randi_range(1, 3))
-					if (PlayerInfo.bossTimer == 12):
-						rewardSet(randi_range(1, 2))
-					layout3_bridge.get_node("Variation3_3/rewardLabel3_3").text = PlayerInfo.mapValue
-					layout3_bridge.get_node("Variation3_3/rewardIcon").play(PlayerInfo.mapValue)
-					teleporter3 = rewardValue
-					'
 
 func checkNextShopStage():
 	rewardValue = randi_range(1, 2)
