@@ -313,7 +313,7 @@ func stageRig():
 		rewardSet(3)
 		variationID = 1
 		
-	#Sikre at man alitd for coins i starten
+	#Sikre at man altid for coins i starten
 	if (PlayerInfo.bossTimer < 3):
 		rewardSet(1)
 
