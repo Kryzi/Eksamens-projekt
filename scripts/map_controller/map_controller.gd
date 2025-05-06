@@ -37,11 +37,10 @@ func _ready() -> void:
 	$Background/Layout1BridgeShop/TeleporterArea1.body_entered.connect(
 	func(body): _on_teleport_area_entered(body, "Teleporter_shop")
 	)
-	
-@onready var map_controller = get_node("/root/Main/MapController")
-@onready var background = map_controller.get_node("Background")
-@onready var spawner = map_controller.get_node("Spawner")
-@onready var musikManager = map_controller.get_node("MusikManager")
+
+@onready var background: Control = $Background
+@onready var spawner: Node2D = $Spawner
+@onready var musikManager: Node = $MusikManager
 
 @onready var layout1 = background.get_node("Layout1")
 @onready var layout1_bridge = background.get_node("Layout1Bridge")
