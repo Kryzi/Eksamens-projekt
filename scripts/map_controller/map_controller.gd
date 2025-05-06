@@ -104,6 +104,20 @@ func disable_visual_and_collsion():
 	var teleporter_collision1_shop = layout1_bridge_shop.get_node("TeleporterArea1/Teleporter1")
 	teleporter_collision1_shop.call_deferred("set_disabled", true)
 
+func layoutChange(body: Node2D, layoutX: int, layout: Node):
+	body.global_position = layout.get_node("Spawnpoint").global_position
+	
+	var layout_collision = layout.get_node("Boundary%d/CollisionPolygon2D" % [layoutX])
+	layout_collision.call_deferred("set_disabled", false)
+	layout.visible = true
+	musikManager.newStage("kamp")
+	
+	var boundary = layout.get_node("EnemyArea%d/SpawnPolygon%d" % [layoutX, layoutX])
+	spawner.create_spawn_area(boundary)
+	var obstacleBoundary = layout.get_node("ObstacleArea%d/CollisionPolygon2D" % [layoutX])
+	spawner.call_deferred("generate_obstacles",obstacleBoundary)
+
+
 var stageReward = 0
 var rewardValue = 0
 
@@ -158,43 +172,12 @@ func _on_teleport_area_entered(body, teleporter_name):
 			
 		
 		if PlayerInfo.areaID == 1:
-			body.global_position = layout1.get_node("Spawnpoint").global_position
-			
-			var layout1_collision = layout1.get_node("Boundary1/CollisionPolygon2D")
-			layout1_collision.call_deferred("set_disabled", false)
-			layout1.visible = true
-			musikManager.newStage("kamp")
-			
-			var boundary1 = layout1.get_node("EnemyArea1/SpawnPolygon1")
-			spawner.create_spawn_area(boundary1)
-			var obstacleBoundary1 = layout1.get_node("ObstacleArea1/CollisionPolygon2D")
-			spawner.call_deferred("generate_obstacles",obstacleBoundary1)
-		
+			layoutChange(body, 1, layout1)
 		if PlayerInfo.areaID == 2:
-			body.global_position = layout2.get_node("Spawnpoint").global_position
-			
-			var layout2_collision = layout2.get_node("Boundary2/CollisionPolygon2D")
-			layout2_collision.call_deferred("set_disabled", false)
-			layout2.visible = true
-			musikManager.newStage("kamp")
-			
-			var boundary2 = layout2.get_node("EnemyArea2/SpawnPolygon2")
-			spawner.create_spawn_area(boundary2)
-			var obstacleBoundary2 = layout2.get_node("ObstacleArea2/CollisionPolygon2D")
-			spawner.call_deferred("generate_obstacles",obstacleBoundary2)
-		
+			layoutChange(body, 2, layout2)
 		if PlayerInfo.areaID == 3:
-			body.global_position = layout3.get_node("Spawnpoint").global_position
-			
-			var layout3_collision = layout3.get_node("Boundary3/CollisionPolygon2D")
-			layout3_collision.call_deferred("set_disabled", false)
-			layout3.visible = true
-			musikManager.newStage("kamp")
-			
-			var boundary3 = layout3.get_node("EnemyArea3/SpawnPolygon3")
-			spawner.create_spawn_area(boundary3)
-			var obstacleBoundary3 = layout3.get_node("ObstacleArea3/CollisionPolygon2D")
-			spawner.call_deferred("generate_obstacles",obstacleBoundary3)
+			layoutChange(body, 3, layout3)
+		
 		
 		if (stageReward == 4 or stageReward == 5):
 			var amount = randi_range(2, 3)
